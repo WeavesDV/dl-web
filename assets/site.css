@@ -74,7 +74,7 @@ p{margin:0 0 18px;max-width:68ch}
 @keyframes respirar{0%,100%{opacity:.72;transform:scale(1)}50%{opacity:1;transform:scale(1.07)}}
 .veil{position:absolute;pointer-events:none;user-select:none;height:auto;max-width:none;
   animation:flotar 26s ease-in-out infinite alternate;will-change:transform,opacity}
-.veil-l{left:-18%;top:auto;bottom:-14%;width:74%;opacity:.9;animation-duration:29s}
+.veil-l{left:-20%;top:auto;bottom:-4%;width:82%;opacity:.92;animation-duration:29s}
 .veil-r{right:-17%;top:1%;width:66%;animation-duration:23s;animation-delay:-7s}
 .veil-f{left:-8%;bottom:-26%;width:126%;opacity:.85;animation-duration:31s;animation-delay:-11s;transform-origin:50% 100%}
 @keyframes flotar{
