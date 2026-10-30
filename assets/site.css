@@ -164,7 +164,7 @@ footer a{color:var(--primary);opacity:.85}
 .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
 
 /* bandas con imagen: ritmo de la home */
-.band{padding:clamp(24px,4vw,48px) 0}
+.band{padding:clamp(18px,2.6vw,36px) 0 clamp(10px,1.6vw,22px)}
 .band-img{position:relative;margin:0 auto;max-width:calc(var(--wrap) + 64px);border-radius:24px;overflow:hidden;
   min-height:clamp(460px,52vw,620px);display:flex;align-items:center;background:var(--sky)}
 .float-card{position:relative;z-index:1;background:var(--s1);border:1px solid var(--line);border-radius:18px;
@@ -172,7 +172,7 @@ footer a{color:var(--primary);opacity:.85}
 .band-img .float-card{margin-left:clamp(20px,5vw,64px);max-width:480px}
 .float-card h2{margin-bottom:14px}
 .float-card p:last-child{margin-bottom:0}
-.rest{padding-top:clamp(20px,2.6vw,36px);scroll-margin-top:96px}
+.rest{padding-top:clamp(12px,1.6vw,24px);scroll-margin-top:96px}
 /* dos columnas: el texto respira a la izquierda y la foto ocupa el aire de la derecha */
 .rest-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.82fr);gap:clamp(32px,5vw,80px);
   align-items:stretch}
@@ -297,8 +297,11 @@ footer a{color:var(--primary);opacity:.85}
 /* 02 · el crecimiento comienza desde dentro: escena sticky de recorrido corto */
 .band-stage{position:relative}
 @media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  .band-stage{padding-bottom:42vh}
-  .band-stage .band-img{position:sticky;top:76px}
+  /* El marco tiene que llenar la pantalla mientras está pegado: si es más bajo,
+     el recorrido del sticky deja un hueco blanco enorme debajo. */
+  .band-stage{padding-bottom:7vh}
+  /* pegado a 96 px y alto exacto hasta el borde inferior de la ventana: cero hueco blanco */
+  .band-stage .band-img{position:sticky;top:96px;height:calc(100vh - 96px);max-height:900px}
 }
 .luz-b{right:-10%;bottom:-38%;width:62%}
 .veil-b-r{right:-14%;top:-18%;width:74%;opacity:.8}
