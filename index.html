@@ -132,16 +132,19 @@
         hero.addEventListener("pointerleave", onLeave, { passive: true });
 
         return function () {
-          small.removeEventListener("change", pick);
           hero.removeEventListener("pointermove", onMove);
           hero.removeEventListener("pointerleave", onLeave);
         };
       });
     });
   </script>
+  <script src="/dl-web/assets/escenas.js" defer></script>
 </header>
 
-<section class="s-white">
+<section class="s-white scn" data-escena="despertar">
+  <div class="capa " data-d="-50" data-x="-130" aria-hidden="true"><div class="capa-in" data-m="14"><div class="luz luz-d"></div></div></div>
+  <div class="capa hide-m" data-d="40" aria-hidden="true"><div class="capa-in" data-m="20"><div class="bruma bruma-l"></div></div></div>
+  <div class="capa " data-d="-60" aria-hidden="true"><div class="capa-in" data-m="28"><div class="bruma bruma-r"></div><img class="veil veil-d-r" src="/dl-web/assets/veil-right.webp" alt="" width="1500" height="1100" decoding="async" loading="lazy"></div></div>
   <div class="wrap">
     <p>Creemos que cada persona posee dentro de sí potenciales, dones y posibilidades que pueden desarrollarse cuando encuentra el espacio, las herramientas y el acompañamiento adecuados.</p>
       <p>Creamos experiencias de crecimiento personal y bienestar emocional que invitan a detenerse, escucharse, comprenderse y avanzar hacia una vida más consciente, plena y alineada con aquello que verdaderamente importa.</p>
@@ -154,12 +157,17 @@
 </section>
 
 <section class="band s-white">
+  <div class="band-stage" data-escena="crecimiento">
   <div class="band-img">
-    <img data-reveal="img" style="--d:0ms" src="/dl-web/assets/img/still_4.0-960.webp" srcset="/dl-web/assets/img/still_4.0-960.webp 960w, /dl-web/assets/img/still_4.0-1600.webp 1280w" sizes="(min-width:1264px) 1200px, calc(100vw - 40px)" width="1280" height="720" alt="Textura de luz de amanecer: velos translúcidos sobre un cielo azul claro" loading="lazy" decoding="async">
+    <div class="capa capa-sky" data-d="34" data-s="1.1" aria-hidden="true"><div class="capa-in" data-m="10"><img class="sky-img" data-reveal="img" style="--d:0ms" src="/dl-web/assets/img/still_4.0-960.webp" srcset="/dl-web/assets/img/still_4.0-960.webp 960w, /dl-web/assets/img/still_4.0-1600.webp 1280w" sizes="(min-width:1264px) 1200px, calc(100vw - 40px)" width="1280" height="720" alt="Textura de luz de amanecer: velos translúcidos sobre un cielo azul claro" loading="lazy" decoding="async"></div></div>
+    <div class="capa " data-d="-70" data-x="120" aria-hidden="true"><div class="capa-in" data-m="16"><div class="luz luz-b"></div></div></div>
+    <div class="capa " data-d="-150" data-x="-70" aria-hidden="true"><div class="capa-in" data-m="24"><img class="veil veil-b-r" src="/dl-web/assets/veil-right.webp" alt="" width="1500" height="1100" decoding="async" loading="lazy"></div></div>
+    <div class="capa " data-d="130" aria-hidden="true"><div class="capa-in" data-m="34"><img class="veil veil-b-f" src="/dl-web/assets/veil-front.webp" alt="" width="1800" height="700" decoding="async" loading="lazy"></div></div>
     <div class="float-card" data-reveal style="--d:220ms">
       <h2 data-reveal style="--d:80ms">El crecimiento comienza desde dentro</h2>
       
     </div>
+  </div>
   </div>
 </section>
 
@@ -173,7 +181,9 @@
   </div>
 </section>
 
-<section class="s-cream">
+<section class="s-cream scn" data-escena="acompanamos">
+  <div class="capa " data-d="-90" data-x="90" aria-hidden="true"><div class="capa-in" data-m="12"><div class="luz luz-c"></div></div></div>
+  <div class="capa hide-m" data-d="-160" aria-hidden="true"><div class="capa-in" data-m="22"><div class="bruma bruma-c"></div><img class="veil veil-c-r" src="/dl-web/assets/veil-right.webp" alt="" width="1500" height="1100" decoding="async" loading="lazy"></div></div>
   <div class="wrap how">
     <div>
       <div class="eyebrow" data-reveal style="--d:0ms">Cómo acompañamos</div>
@@ -197,22 +207,27 @@
   </div>
 </section>
 
-<section class="s-white">
+<section class="s-white" data-escena="experiencias">
   <div class="wrap">
     <div class="eyebrow" data-reveal style="--d:0ms">Experiencias</div>
     <ul class="gallery">
-      <li><img data-reveal="img" style="--d:0ms" src="/dl-web/assets/img/still_1.2-960.webp" srcset="/dl-web/assets/img/still_1.2-960.webp 960w, /dl-web/assets/img/still_1.2-1600.webp 1280w" sizes="(min-width:1264px) 368px, (min-width:901px) 30vw, calc(100vw - 40px)" width="1280" height="720" alt="Textura de luz de amanecer" loading="lazy" decoding="async"></li>
-      <li><img data-reveal="img" style="--d:120ms" src="/dl-web/assets/img/still_7.0-960.webp" srcset="/dl-web/assets/img/still_7.0-960.webp 960w, /dl-web/assets/img/still_7.0-1600.webp 1280w" sizes="(min-width:1264px) 368px, (min-width:901px) 30vw, calc(100vw - 40px)" width="1280" height="720" alt="Textura de luz dorada y velos translúcidos" loading="lazy" decoding="async"></li>
-      <li><img data-reveal="img" style="--d:240ms" src="/dl-web/assets/img/still_9.0-960.webp" srcset="/dl-web/assets/img/still_9.0-960.webp 960w, /dl-web/assets/img/still_9.0-1600.webp 1280w" sizes="(min-width:1264px) 368px, (min-width:901px) 30vw, calc(100vw - 40px)" width="1280" height="720" alt="Textura de luz suave de amanecer" loading="lazy" decoding="async"></li>
+      <li><div class="marco"><div class="par"><img data-reveal="img" style="--d:0ms" src="/dl-web/assets/img/still_1.2-960.webp" srcset="/dl-web/assets/img/still_1.2-960.webp 960w, /dl-web/assets/img/still_1.2-1600.webp 1280w" sizes="(min-width:1264px) 368px, (min-width:901px) 30vw, calc(100vw - 40px)" width="1280" height="720" alt="Textura de luz de amanecer" loading="lazy" decoding="async"></div></div></li>
+      <li><div class="marco"><div class="par"><img data-reveal="img" style="--d:120ms" src="/dl-web/assets/img/still_7.0-960.webp" srcset="/dl-web/assets/img/still_7.0-960.webp 960w, /dl-web/assets/img/still_7.0-1600.webp 1280w" sizes="(min-width:1264px) 368px, (min-width:901px) 30vw, calc(100vw - 40px)" width="1280" height="720" alt="Textura de luz dorada y velos translúcidos" loading="lazy" decoding="async"></div></div></li>
+      <li><div class="marco"><div class="par"><img data-reveal="img" style="--d:240ms" src="/dl-web/assets/img/still_9.0-960.webp" srcset="/dl-web/assets/img/still_9.0-960.webp 960w, /dl-web/assets/img/still_9.0-1600.webp 1280w" sizes="(min-width:1264px) 368px, (min-width:901px) 30vw, calc(100vw - 40px)" width="1280" height="720" alt="Textura de luz suave de amanecer" loading="lazy" decoding="async"></div></div></li>
     </ul>
   </div>
 </section>
 
-<section class="close">
+<section class="close" data-escena="reencuentro">
+  <div class="capa " data-d="-30" data-x="90" aria-hidden="true"><div class="capa-in" data-m="16"><div class="luz luz-e"></div></div></div>
+  <div class="capa " data-d="-70" data-x="30" aria-hidden="true"><div class="capa-in" data-m="26"><img class="veil veil-e-l" src="/dl-web/assets/veil-left.webp" alt="" width="1500" height="1100" decoding="async" loading="lazy"></div></div>
+  <div class="capa hide-m" data-d="-90" data-x="-30" aria-hidden="true"><div class="capa-in" data-m="34"><img class="veil veil-e-r" src="/dl-web/assets/veil-right.webp" alt="" width="1500" height="1100" decoding="async" loading="lazy"></div></div>
+  <div class="capa " data-d="50" aria-hidden="true"><div class="capa-in" data-m="44"><img class="veil veil-e-f" src="/dl-web/assets/veil-front.webp" alt="" width="1800" height="700" decoding="async" loading="lazy"></div></div>
   <div class="wrap">
     <h2 data-reveal style="--d:80ms">Conócete. Conecta contigo. Desarrolla tu potencial.</h2>
     <p>Programas, talleres, mentorías, retiros y experiencias de desarrollo personal.</p>
     <a class="btn btn-gold" href="/dl-web/contacto/">Escríbenos</a>
+    <span class="luz-cta" aria-hidden="true"></span>
   </div>
 </section>
 <footer>
