@@ -35,7 +35,7 @@ p{margin:0 0 18px;max-width:68ch}
 .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.9rem}
 .nav a{color:var(--s1);opacity:.88}
 .nav a:hover,.nav a[aria-current="page"]{opacity:1;text-decoration:none;border-bottom:2px solid var(--gold)}
-.lang{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.lang{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;white-space:nowrap}
 .lang b{opacity:1;border-bottom:2px solid var(--gold);padding-bottom:2px}
 .menu{display:none;position:relative}
 .menu summary{list-style:none;cursor:pointer;border:1px solid rgba(255,252,246,.45);border-radius:999px;
@@ -59,6 +59,29 @@ p{margin:0 0 18px;max-width:68ch}
 .hero-video{position:relative;overflow:hidden;display:grid;align-items:center;
   min-height:clamp(520px,80vh,780px);
   background:linear-gradient(180deg,var(--sky) 0%,#E7E4D8 38%,var(--glow) 68%,var(--dawn) 100%)}
+
+/* ── «Atravesar la luz»: escenario de capas ────────────────────────────────
+   Cada capa son dos contenedores anidados: .capa lleva el desplazamiento por
+   scroll (lo escribe JS en transform) y .capa-in el del cursor. Así los dos
+   movimientos no se pisan. --k = px de recorrido; --m = amplitud del cursor. */
+.capa{position:absolute;inset:0;will-change:transform}
+.capa-in{position:absolute;inset:0;will-change:transform}
+.capa .hero-media{transform:scaleX(-1)}
+.hero-glow{position:absolute;left:-12%;bottom:-18%;width:72%;aspect-ratio:1;z-index:0;pointer-events:none;
+  background:radial-gradient(circle at 50% 50%,rgba(217,178,107,.55) 0%,rgba(247,227,196,.42) 34%,
+             rgba(247,227,196,.16) 58%,rgba(247,227,196,0) 74%);
+  animation:respirar 7.5s ease-in-out infinite;will-change:opacity,transform}
+@keyframes respirar{0%,100%{opacity:.72;transform:scale(1)}50%{opacity:1;transform:scale(1.07)}}
+.veil{position:absolute;pointer-events:none;user-select:none;height:auto;max-width:none;
+  animation:flotar 26s ease-in-out infinite alternate;will-change:transform,opacity}
+.veil-l{left:-14%;top:-6%;width:62%;animation-duration:29s}
+.veil-r{right:-16%;top:2%;width:58%;animation-duration:23s;animation-delay:-7s}
+.veil-f{left:-8%;bottom:-24%;width:116%;opacity:.85;animation-duration:31s;animation-delay:-11s}
+@keyframes flotar{
+  0%{transform:translate3d(0,0,0) scale(1);opacity:.82}
+  50%{transform:translate3d(1.4%,-1.1%,0) scale(1.02);opacity:.95}
+  100%{transform:translate3d(-1.1%,1.2%,0) scale(1.01);opacity:.86}}
+.hero-front{position:absolute;inset:0;z-index:3;pointer-events:none}
 .hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;
   transform:scaleX(-1)}
 /* velo de crema: el titular respira sobre 10:1 sin tapar el vídeo */
@@ -66,7 +89,7 @@ p{margin:0 0 18px;max-width:68ch}
 .hero-veil{position:absolute;inset:0;z-index:1;
   background:radial-gradient(135% 105% at 22% 52%,rgba(255,252,246,.97) 0%,rgba(255,252,246,.93) 26%,
              rgba(255,252,246,.72) 44%,rgba(255,252,246,.28) 62%,rgba(255,252,246,0) 78%)}
-.hero-content{position:relative;z-index:2;padding:clamp(56px,8vw,104px) 0}
+.hero-content{position:relative;z-index:4;padding:clamp(56px,8vw,104px) 0;will-change:opacity,transform}
 /* el pie del hero se funde con la sección blanca siguiente: sin corte duro */
 .hero-video::after{content:"";position:absolute;left:0;right:0;bottom:0;height:96px;z-index:1;
   pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,#FFFFFF 100%)}
@@ -207,14 +230,19 @@ footer a{color:var(--primary);opacity:.85}
 @media (max-width:900px){
   .hero-media{transform:none;object-position:50% 65%}
   /* En móvil el velo cae más rápido: el vídeo respira por debajo del titular. */
-  .hero-veil{background:linear-gradient(180deg,rgba(255,252,246,.97) 0%,rgba(255,252,246,.90) 34%,
-             rgba(255,252,246,.52) 58%,rgba(255,252,246,.08) 100%)}
+  .hero-veil{background:linear-gradient(180deg,rgba(255,252,246,.94) 0%,rgba(255,252,246,.82) 34%,
+             rgba(255,252,246,.40) 58%,rgba(255,252,246,.02) 100%)}
   .hero-video{min-height:clamp(520px,74vh,660px);align-items:start}
   .hero-content{padding:48px 0 120px}
   .hero-content .lead{font-size:1rem;max-width:38ch}
   .g3,.g2,.contact-grid,footer .wrap,.how{grid-template-columns:1fr}
   .gallery{grid-template-columns:1fr}
   .gallery li:nth-child(2),.gallery li:nth-child(3){margin-top:0}
+  /* móvil: los velos se reducen y bajan de opacidad para que el vídeo respire */
+  .veil-l{width:48%;left:-20%;top:-2%;opacity:.42}
+  .veil-r{width:46%;right:-22%;top:8%;opacity:.34}
+  .veil-f{width:134%;left:-17%;bottom:-32%;opacity:.46}
+  .hero-glow{left:-30%;bottom:-26%;width:108%;opacity:.7}
   .band-img{align-items:flex-end;min-height:520px;border-radius:18px}
   .band-img .float-card{margin:16px}
   .how-media .float-card{left:16px;right:16px;bottom:16px}

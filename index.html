@@ -17,11 +17,20 @@
 </head>
 <body>
 <nav class="nav"><div class="wrap"><a class="brand" href="/dl-web/">Divine Light Journey</a><ul><li><a href="/dl-web/" aria-current="page">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul><details class="menu"><summary>Menú</summary><ul><li><a href="/dl-web/">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul></details><span class="lang"><b>ES</b> · EN</span></div></nav>
-<header class="hero-video">
-  <video class="hero-media" autoplay muted loop playsinline preload="metadata"
-         poster="/dl-web/assets/hero-poster.jpg" aria-hidden="true" tabindex="-1">
-    <source src="/dl-web/assets/hero-loop.mp4" type="video/mp4">
-  </video>
+<header class="hero-video" id="hero">
+  <div class="capa" data-k="20"><div class="capa-in" data-m="3">
+    <video class="hero-media" autoplay muted loop playsinline preload="metadata"
+           poster="/dl-web/assets/hero-poster.jpg" aria-hidden="true" tabindex="-1">
+      <source src="/dl-web/assets/hero-loop.mp4" type="video/mp4">
+    </video>
+  </div></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="capa" data-k="85"><div class="capa-in" data-m="9">
+    <img class="veil veil-l" src="/dl-web/assets/veil-left.webp" alt="" width="1500" height="1100" decoding="async">
+  </div></div>
+  <div class="capa" data-k="85"><div class="capa-in" data-m="11">
+    <img class="veil veil-r" src="/dl-web/assets/veil-right.webp" alt="" width="1500" height="1100" decoding="async">
+  </div></div>
   <div class="hero-veil" aria-hidden="true"></div>
   <div class="wrap hero-content">
     <div class="eyebrow" data-reveal style="--d:0ms">Divine Light Journey</div>
@@ -34,24 +43,100 @@
       <a class="btn btn-ghost" href="/dl-web/contacto/">Hablemos</a>
     </div>
   </div>
+  <div class="capa hero-front" data-k="160"><div class="capa-in" data-m="18">
+    <img class="veil veil-f" src="/dl-web/assets/veil-front.webp" alt="" width="1800" height="700" decoding="async">
+  </div></div>
   <script>
-    // En móvil se sirve la versión vertical (mejor encuadre que recortar la de escritorio).
+    // «Atravesar la luz»: tres movimientos que no se pisan.
+    //  - scroll  -> .capa   (profundidad: --k px de recorrido)
+    //  - cursor  -> .capa-in (amplitud: --m px, con interpolación suave)
+    //  - ambiente -> animación CSS del resplandor y de los velos
     (function () {
-      var v = document.querySelector(".hero-media");
-      if (!v || !window.matchMedia) return;
-      var small = window.matchMedia("(max-width: 900px)");
-      function pick() {
-        var src = small.matches ? "/dl-web/assets/hero-loop-vertical.mp4" : "/dl-web/assets/hero-loop.mp4";
-        var poster = small.matches ? "/dl-web/assets/hero-poster-vertical.jpg" : "/dl-web/assets/hero-poster.jpg";
-        if (v.getAttribute("data-src") === src) return;
-        v.setAttribute("data-src", src);
-        v.setAttribute("poster", poster);
-        v.querySelector("source").setAttribute("src", src);
-        v.load();
+      var hero = document.getElementById("hero");
+      if (!hero) return;
+      var capas = [].slice.call(hero.querySelectorAll(".capa"));
+      var capasIn = [].slice.call(hero.querySelectorAll(".capa-in"));
+      var conte = hero.querySelector(".hero-content");
+      var menos = window.matchMedia("(prefers-reduced-motion: reduce)");
+      if (menos.matches) return;
+
+      var mx = 0, my = 0, ax = 0, ay = 0, vivo = true, raf = null;
+
+      // el vídeo cambia de fuente según el ancho (vertical en móvil)
+      var v = hero.querySelector(".hero-media");
+      if (v) {
+        var small = window.matchMedia("(max-width: 900px)");
+        var pick = function () {
+          var src = small.matches ? "/dl-web/assets/hero-loop-vertical.mp4" : "/dl-web/assets/hero-loop.mp4";
+          var poster = small.matches ? "/dl-web/assets/hero-poster-vertical.jpg" : "/dl-web/assets/hero-poster.jpg";
+          if (v.getAttribute("data-src") === src) return;
+          v.setAttribute("data-src", src);
+          v.setAttribute("poster", poster);
+          v.querySelector("source").setAttribute("src", src);
+          v.load();
+        };
+        pick();
+        small.addEventListener ? small.addEventListener("change", pick) : small.addListener(pick);
       }
-      pick();
-      small.addEventListener ? small.addEventListener("change", pick) : small.addListener(pick);
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) v.removeAttribute("autoplay");
+
+      function frame() {
+        raf = null;
+        if (!vivo) return;
+        var alto = hero.offsetHeight || 1;
+        var y = window.scrollY || document.documentElement.scrollTop || 0;
+        var p = Math.min(1, Math.max(0, y / alto));
+
+        for (var i = 0; i < capas.length; i++) {
+          var k = parseFloat(capas[i].getAttribute("data-k")) || 0;
+          capas[i].style.transform = "translate3d(0," + (-k * p).toFixed(2) + "px,0)";
+        }
+
+        // el cursor se persigue, no se copia: 0.075 por frame
+        ax += (mx - ax) * 0.075;
+        ay += (my - ay) * 0.075;
+        for (var j = 0; j < capasIn.length; j++) {
+          var m = parseFloat(capasIn[j].getAttribute("data-m")) || 0;
+          capasIn[j].style.transform = "translate3d(" + (ax * m).toFixed(2) + "px," + (ay * m * 0.55).toFixed(2) + "px,0)";
+        }
+
+        // el contenido se retira al abandonar el hero
+        if (conte) {
+          // No se apaga mientras aún se está leyendo: el desvanecido empieza cuando
+          // el hero ya va más de medio camino. Antes quedaba un texto fantasma ilegible.
+          var q = Math.min(1, Math.max(0, (p - 0.55) / 0.4));
+          conte.style.opacity = (1 - q).toFixed(3);
+          conte.style.transform = "translate3d(0," + (q * 26).toFixed(1) + "px,0)";
+          conte.style.visibility = q > 0.985 ? "hidden" : "visible";
+        }
+
+        var sigue = Math.abs(mx - ax) > 0.0015 || Math.abs(my - ay) > 0.0015;
+        if (sigue) raf = requestAnimationFrame(frame);
+      }
+
+      function pedir() { if (!raf && vivo) raf = requestAnimationFrame(frame); }
+
+      // Se filtra por tipo de puntero en vez de por media query: hay navegadores de
+      // escritorio que reportan (hover:hover) como false y se quedaban sin cámara.
+      hero.addEventListener("pointermove", function (e) {
+        if (e.pointerType === "touch") return;
+        var b = hero.getBoundingClientRect();
+        mx = ((e.clientX - b.left) / b.width - 0.5) * 2;
+        my = ((e.clientY - b.top) / b.height - 0.5) * 2;
+        pedir();
+      }, { passive: true });
+      hero.addEventListener("pointerleave", function () { mx = 0; my = 0; pedir(); }, { passive: true });
+
+      window.addEventListener("scroll", pedir, { passive: true });
+      window.addEventListener("resize", pedir, { passive: true });
+
+      // fuera de pantalla no se calcula nada
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (es) {
+          vivo = es[0].isIntersecting;
+          if (vivo) pedir();
+        }, { threshold: 0 }).observe(hero);
+      }
+      pedir();
     })();
   </script>
 </header>
