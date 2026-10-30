@@ -74,7 +74,7 @@ p{margin:0 0 18px;max-width:68ch}
 @keyframes respirar{0%,100%{opacity:.72;transform:scale(1)}50%{opacity:1;transform:scale(1.07)}}
 .veil{position:absolute;pointer-events:none;user-select:none;height:auto;max-width:none;
   animation:flotar 26s ease-in-out infinite alternate;will-change:transform,opacity}
-.veil-l{left:-15%;top:-7%;width:70%;animation-duration:29s}
+.veil-l{left:-18%;top:auto;bottom:-14%;width:74%;opacity:.9;animation-duration:29s}
 .veil-r{right:-17%;top:1%;width:66%;animation-duration:23s;animation-delay:-7s}
 .veil-f{left:-8%;bottom:-26%;width:126%;opacity:.85;animation-duration:31s;animation-delay:-11s;transform-origin:50% 100%}
 @keyframes flotar{
@@ -89,8 +89,8 @@ p{margin:0 0 18px;max-width:68ch}
 /* velo de crema: el titular respira sobre 10:1 sin tapar el vídeo */
 /* Velo radial: solo protege la zona del texto, el vídeo se ve entero alrededor. */
 .hero-veil{position:absolute;inset:0;z-index:1;
-  background:radial-gradient(135% 105% at 22% 52%,rgba(255,252,246,.97) 0%,rgba(255,252,246,.93) 26%,
-             rgba(255,252,246,.72) 44%,rgba(255,252,246,.28) 62%,rgba(255,252,246,0) 78%)}
+  background:radial-gradient(135% 105% at 22% 52%,rgba(255,252,246,.94) 0%,rgba(255,252,246,.88) 26%,
+             rgba(255,252,246,.64) 44%,rgba(255,252,246,.20) 62%,rgba(255,252,246,0) 78%)}
 .hero-content{position:relative;z-index:4;padding:clamp(56px,8vw,104px) 0;will-change:opacity,transform}
 /* el pie del hero se funde con la sección blanca siguiente: sin corte duro */
 .hero-video::after{content:"";position:absolute;left:0;right:0;bottom:0;height:200px;z-index:1;
