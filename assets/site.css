@@ -56,13 +56,31 @@ p{margin:0 0 18px;max-width:68ch}
 .hero .lead{margin-top:22px}
 .hero .cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
 
+.hero-video{position:relative;overflow:hidden;display:grid;align-items:center;
+  min-height:clamp(520px,80vh,780px);
+  background:linear-gradient(180deg,var(--sky) 0%,#E7E4D8 38%,var(--glow) 68%,var(--dawn) 100%)}
+.hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;
+  transform:scaleX(-1)}
+/* velo de crema: el titular respira sobre 10:1 sin tapar el vídeo */
+/* Velo radial: solo protege la zona del texto, el vídeo se ve entero alrededor. */
+.hero-veil{position:absolute;inset:0;z-index:1;
+  background:radial-gradient(135% 105% at 22% 52%,rgba(255,252,246,.97) 0%,rgba(255,252,246,.93) 26%,
+             rgba(255,252,246,.72) 44%,rgba(255,252,246,.28) 62%,rgba(255,252,246,0) 78%)}
+.hero-content{position:relative;z-index:2;padding:clamp(56px,8vw,104px) 0}
+/* el pie del hero se funde con la sección blanca siguiente: sin corte duro */
+.hero-video::after{content:"";position:absolute;left:0;right:0;bottom:0;height:96px;z-index:1;
+  pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,#FFFFFF 100%)}
+.hero-content h1{max-width:15ch}
+.hero-content .lead{margin-top:20px;max-width:46ch}
+.hero-content .cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+
 .btn{display:inline-block;border-radius:999px;padding:15px 32px;font-size:.95rem;border:1px solid transparent;
      cursor:pointer;font-family:var(--sans)}
 .btn-primary{background:var(--primary);color:var(--s1)}
 .btn-primary:hover{background:var(--ink);text-decoration:none}
 .btn-gold{background:var(--gold);color:var(--primary)}
 .btn-gold:hover{background:var(--gold-soft);text-decoration:none}
-.btn-ghost{background:transparent;color:var(--primary);border-color:var(--line)}
+.btn-ghost{background:transparent;color:var(--primary);border-color:#9A8E7C} /* borde 3.1:1, no 1.68 */
 .btn-ghost:hover{background:var(--s1);text-decoration:none}
 
 section{padding:clamp(56px,8vw,110px) 0}
@@ -120,7 +138,17 @@ footer a{color:var(--primary);opacity:.85}
 .hint{font-size:12px;color:var(--secondary)}
 .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
 
+@media (prefers-reduced-motion:reduce){
+  .hero-media{display:none}
+}
 @media (max-width:900px){
+  .hero-media{transform:none;object-position:50% 65%}
+  /* En móvil el velo cae más rápido: el vídeo respira por debajo del titular. */
+  .hero-veil{background:linear-gradient(180deg,rgba(255,252,246,.97) 0%,rgba(255,252,246,.90) 34%,
+             rgba(255,252,246,.52) 58%,rgba(255,252,246,.08) 100%)}
+  .hero-video{min-height:clamp(520px,74vh,660px);align-items:start}
+  .hero-content{padding:48px 0 120px}
+  .hero-content .lead{font-size:1rem;max-width:38ch}
   .g3,.g2,.contact-grid,footer .wrap{grid-template-columns:1fr}
   .exp article{grid-template-columns:1fr;gap:8px}
   .nav ul{display:none}

@@ -16,8 +16,13 @@
 </head>
 <body>
 <nav class="nav"><div class="wrap"><a class="brand" href="/dl-web/">Divine Light Journey</a><ul><li><a href="/dl-web/" aria-current="page">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul><details class="menu"><summary>Menú</summary><ul><li><a href="/dl-web/">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul></details><span class="lang"><b>ES</b> · EN</span></div></nav>
-<header class="hero">
-  <div class="wrap">
+<header class="hero-video">
+  <video class="hero-media" autoplay muted loop playsinline preload="metadata"
+         poster="/dl-web/assets/hero-poster.jpg" aria-hidden="true" tabindex="-1">
+    <source src="/dl-web/assets/hero-loop.mp4" type="video/mp4">
+  </video>
+  <div class="hero-veil" aria-hidden="true"></div>
+  <div class="wrap hero-content">
     <div class="eyebrow">Divine Light Journey</div>
     <h1>Un espacio para crecer, reconectar y transformar</h1>
     <p class="lead">Creamos experiencias de crecimiento personal y bienestar emocional que invitan a detenerse,
@@ -28,6 +33,26 @@
       <a class="btn btn-ghost" href="/dl-web/contacto/">Hablemos</a>
     </div>
   </div>
+  <script>
+    // En móvil se sirve la versión vertical (mejor encuadre que recortar la de escritorio).
+    (function () {
+      var v = document.querySelector(".hero-media");
+      if (!v || !window.matchMedia) return;
+      var small = window.matchMedia("(max-width: 900px)");
+      function pick() {
+        var src = small.matches ? "/dl-web/assets/hero-loop-vertical.mp4" : "/dl-web/assets/hero-loop.mp4";
+        var poster = small.matches ? "/dl-web/assets/hero-poster-vertical.jpg" : "/dl-web/assets/hero-poster.jpg";
+        if (v.getAttribute("data-src") === src) return;
+        v.setAttribute("data-src", src);
+        v.setAttribute("poster", poster);
+        v.querySelector("source").setAttribute("src", src);
+        v.load();
+      }
+      pick();
+      small.addEventListener ? small.addEventListener("change", pick) : small.addListener(pick);
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) v.removeAttribute("autoplay");
+    })();
+  </script>
 </header>
 
 <section class="s-white">
