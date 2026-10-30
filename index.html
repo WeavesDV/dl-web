@@ -18,17 +18,17 @@
 <body>
 <nav class="nav"><div class="wrap"><a class="brand" href="/dl-web/">Divine Light Journey</a><ul><li><a href="/dl-web/" aria-current="page">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul><details class="menu"><summary>Menú</summary><ul><li><a href="/dl-web/">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul></details><span class="lang"><b>ES</b> · EN</span></div></nav>
 <header class="hero-video" id="hero">
-  <div class="capa" data-k="20"><div class="capa-in" data-m="3">
+  <div class="capa" data-k="30" data-dolly="0.05"><div class="capa-in" data-m="5">
     <video class="hero-media" autoplay muted loop playsinline preload="metadata"
            poster="/dl-web/assets/hero-poster.jpg" aria-hidden="true" tabindex="-1">
       <source src="/dl-web/assets/hero-loop.mp4" type="video/mp4">
     </video>
   </div></div>
   <div class="hero-glow" aria-hidden="true"></div>
-  <div class="capa" data-k="85"><div class="capa-in" data-m="9">
+  <div class="capa" data-k="110"><div class="capa-in" data-m="12">
     <img class="veil veil-l" src="/dl-web/assets/veil-left.webp" alt="" width="1500" height="1100" decoding="async">
   </div></div>
-  <div class="capa" data-k="85"><div class="capa-in" data-m="11">
+  <div class="capa" data-k="110"><div class="capa-in" data-m="15">
     <img class="veil veil-r" src="/dl-web/assets/veil-right.webp" alt="" width="1500" height="1100" decoding="async">
   </div></div>
   <div class="hero-veil" aria-hidden="true"></div>
@@ -43,7 +43,7 @@
       <a class="btn btn-ghost" href="/dl-web/contacto/">Hablemos</a>
     </div>
   </div>
-  <div class="capa hero-front" data-k="160"><div class="capa-in" data-m="18">
+  <div class="capa hero-front" data-k="210"><div class="capa-in" data-m="24">
     <img class="veil veil-f" src="/dl-web/assets/veil-front.webp" alt="" width="1800" height="700" decoding="async">
   </div></div>
   <script>
@@ -88,7 +88,9 @@
 
         for (var i = 0; i < capas.length; i++) {
           var k = parseFloat(capas[i].getAttribute("data-k")) || 0;
-          capas[i].style.transform = "translate3d(0," + (-k * p).toFixed(2) + "px,0)";
+          var dolly = parseFloat(capas[i].getAttribute("data-dolly")) || 0;
+          var esc = dolly ? " scale(" + (1 + dolly * p).toFixed(4) + ")" : "";
+          capas[i].style.transform = "translate3d(0," + (-k * p).toFixed(2) + "px,0)" + esc;
         }
 
         // el cursor se persigue, no se copia: 0.075 por frame
