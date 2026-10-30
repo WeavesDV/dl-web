@@ -62,7 +62,7 @@ p{margin:0 0 18px;max-width:68ch}
 
 /* ── «Atravesar la luz»: escenario de capas ────────────────────────────────
    Cada capa son dos contenedores anidados: .capa lleva el desplazamiento por
-   scroll (lo escribe JS en transform) y .capa-in el del cursor. Así los dos
+   scroll (lo escribe GSAP en transform) y .capa-in el del cursor. Así los dos
    movimientos no se pisan. --k = px de recorrido; --m = amplitud del cursor. */
 .capa{position:absolute;inset:0;will-change:transform}
 .capa-in{position:absolute;inset:0;will-change:transform}

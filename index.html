@@ -19,10 +19,8 @@
 <nav class="nav"><div class="wrap"><a class="brand" href="/dl-web/">Divine Light Journey</a><ul><li><a href="/dl-web/" aria-current="page">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul><details class="menu"><summary>Menú</summary><ul><li><a href="/dl-web/">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul></details><span class="lang"><b>ES</b> · EN</span></div></nav>
 <header class="hero-video" id="hero">
   <div class="capa" data-k="30" data-dolly="0.05"><div class="capa-in" data-m="5">
-    <video class="hero-media" autoplay muted loop playsinline preload="metadata"
-           poster="/dl-web/assets/hero-poster.jpg" aria-hidden="true" tabindex="-1">
-      <source src="/dl-web/assets/hero-loop.mp4" type="video/mp4">
-    </video>
+    <video class="hero-media" autoplay muted loop playsinline preload="none"
+           poster="/dl-web/assets/hero-poster.jpg" aria-hidden="true" tabindex="-1"></video>
   </div></div>
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="capa" data-k="110"><div class="capa-in" data-m="12">
@@ -47,99 +45,99 @@
     <img class="veil veil-f" src="/dl-web/assets/veil-front.webp" alt="" width="1800" height="700" decoding="async">
   </div></div>
   <script>
-    // «Atravesar la luz»: tres movimientos que no se pisan.
-    //  - scroll  -> .capa   (profundidad: --k px de recorrido)
-    //  - cursor  -> .capa-in (amplitud: --m px, con interpolación suave)
-    //  - ambiente -> animación CSS del resplandor y de los velos
+    // El vídeo del hero se carga por JS para no descargarlo cuando se pide movimiento reducido.
+    // Va fuera de GSAP a propósito: si la librería no cargara, el vídeo tiene que seguir funcionando.
     (function () {
-      var hero = document.getElementById("hero");
-      if (!hero) return;
-      var capas = [].slice.call(hero.querySelectorAll(".capa"));
-      var capasIn = [].slice.call(hero.querySelectorAll(".capa-in"));
-      var conte = hero.querySelector(".hero-content");
-      var menos = window.matchMedia("(prefers-reduced-motion: reduce)");
-      if (menos.matches) return;
-
-      var mx = 0, my = 0, ax = 0, ay = 0, vivo = true, raf = null;
-
-      // el vídeo cambia de fuente según el ancho (vertical en móvil)
-      var v = hero.querySelector(".hero-media");
-      if (v) {
-        var small = window.matchMedia("(max-width: 900px)");
-        var pick = function () {
-          var src = small.matches ? "/dl-web/assets/hero-loop-vertical.mp4" : "/dl-web/assets/hero-loop.mp4";
-          var poster = small.matches ? "/dl-web/assets/hero-poster-vertical.jpg" : "/dl-web/assets/hero-poster.jpg";
-          if (v.getAttribute("data-src") === src) return;
-          v.setAttribute("data-src", src);
-          v.setAttribute("poster", poster);
-          v.querySelector("source").setAttribute("src", src);
-          v.load();
-        };
-        pick();
-        small.addEventListener ? small.addEventListener("change", pick) : small.addListener(pick);
-      }
-
-      function frame() {
-        raf = null;
-        if (!vivo) return;
-        var alto = hero.offsetHeight || 1;
-        var y = window.scrollY || document.documentElement.scrollTop || 0;
-        var p = Math.min(1, Math.max(0, y / alto));
-
-        for (var i = 0; i < capas.length; i++) {
-          var k = parseFloat(capas[i].getAttribute("data-k")) || 0;
-          var dolly = parseFloat(capas[i].getAttribute("data-dolly")) || 0;
-          var esc = dolly ? " scale(" + (1 + dolly * p).toFixed(4) + ")" : "";
-          capas[i].style.transform = "translate3d(0," + (-k * p).toFixed(2) + "px,0)" + esc;
+      var v = document.querySelector("#hero .hero-media");
+      if (!v) return;
+      var small = window.matchMedia("(max-width: 900px)");
+      function pick() {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          v.removeAttribute("autoplay");
+          v.pause();
+          return;
         }
-
-        // el cursor se persigue, no se copia: 0.075 por frame
-        ax += (mx - ax) * 0.075;
-        ay += (my - ay) * 0.075;
-        for (var j = 0; j < capasIn.length; j++) {
-          var m = parseFloat(capasIn[j].getAttribute("data-m")) || 0;
-          capasIn[j].style.transform = "translate3d(" + (ax * m).toFixed(2) + "px," + (ay * m * 0.55).toFixed(2) + "px,0)";
+        var src = small.matches ? "/dl-web/assets/hero-loop-vertical.mp4" : "/dl-web/assets/hero-loop.mp4";
+        var poster = small.matches ? "/dl-web/assets/hero-poster-vertical.jpg" : "/dl-web/assets/hero-poster.jpg";
+        if (v.getAttribute("data-src") === src) return;
+        v.setAttribute("data-src", src);
+        v.setAttribute("poster", poster);
+        var fuente = v.querySelector("source");
+        if (!fuente) {
+          fuente = document.createElement("source");
+          fuente.type = "video/mp4";
+          v.appendChild(fuente);
         }
-
-        // el contenido se retira al abandonar el hero
-        if (conte) {
-          // No se apaga mientras aún se está leyendo: el desvanecido empieza cuando
-          // el hero ya va más de medio camino. Antes quedaba un texto fantasma ilegible.
-          var q = Math.min(1, Math.max(0, (p - 0.55) / 0.4));
-          conte.style.opacity = (1 - q).toFixed(3);
-          conte.style.transform = "translate3d(0," + (q * 26).toFixed(1) + "px,0)";
-          conte.style.visibility = q > 0.985 ? "hidden" : "visible";
-        }
-
-        var sigue = Math.abs(mx - ax) > 0.0015 || Math.abs(my - ay) > 0.0015;
-        if (sigue) raf = requestAnimationFrame(frame);
+        fuente.setAttribute("src", src);
+        v.load();
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
       }
-
-      function pedir() { if (!raf && vivo) raf = requestAnimationFrame(frame); }
-
-      // Se filtra por tipo de puntero en vez de por media query: hay navegadores de
-      // escritorio que reportan (hover:hover) como false y se quedaban sin cámara.
-      hero.addEventListener("pointermove", function (e) {
-        if (e.pointerType === "touch") return;
-        var b = hero.getBoundingClientRect();
-        mx = ((e.clientX - b.left) / b.width - 0.5) * 2;
-        my = ((e.clientY - b.top) / b.height - 0.5) * 2;
-        pedir();
-      }, { passive: true });
-      hero.addEventListener("pointerleave", function () { mx = 0; my = 0; pedir(); }, { passive: true });
-
-      window.addEventListener("scroll", pedir, { passive: true });
-      window.addEventListener("resize", pedir, { passive: true });
-
-      // fuera de pantalla no se calcula nada
-      if ("IntersectionObserver" in window) {
-        new IntersectionObserver(function (es) {
-          vivo = es[0].isIntersecting;
-          if (vivo) pedir();
-        }, { threshold: 0 }).observe(hero);
-      }
-      pedir();
+      pick();
+      small.addEventListener("change", pick);
+      window.matchMedia("(prefers-reduced-motion: reduce)").addEventListener("change", pick);
     })();
+  </script>
+  <script src="/dl-web/assets/vendor/gsap.min.js" defer></script>
+  <script src="/dl-web/assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script>
+    // «Atravesar la luz»: GSAP es la única fuente de movimiento del hero.
+    //  - scroll  -> .capa    (ScrollTrigger scrub: data-k px de recorrido)
+    //  - cursor  -> .capa-in (quickTo: data-m px de amplitud)
+    //  - ambiente -> animación CSS del resplandor y de los velos
+    // Los scripts con defer se ejecutan antes de DOMContentLoaded.
+    document.addEventListener("DOMContentLoaded", function () {
+      var hero = document.getElementById("hero");
+      if (!hero || !window.gsap || !window.ScrollTrigger) return;
+      gsap.registerPlugin(ScrollTrigger);
+      var mm = gsap.matchMedia();
+
+      mm.add("(prefers-reduced-motion: no-preference)", function () {
+        // scroll: un tween por capa, ligado al desplazamiento del hero
+        var trig = { trigger: hero, start: "top top", end: "bottom top", scrub: true };
+        hero.querySelectorAll(".capa").forEach(function (capa) {
+          var vars = { y: -(parseFloat(capa.getAttribute("data-k")) || 0), ease: "none", scrollTrigger: trig };
+          var dolly = parseFloat(capa.getAttribute("data-dolly"));
+          if (dolly) vars.scale = 1 + dolly;
+          gsap.to(capa, vars);
+        });
+
+        // el contenido se retira al abandonar el hero: no empieza hasta pasar el 55 %
+        var conte = hero.querySelector(".hero-content");
+        if (conte) {
+          gsap.timeline({ scrollTrigger: trig, defaults: { ease: "none" } })
+            .to(conte, { duration: 0.55 })
+            .to(conte, { duration: 0.4, opacity: 0, y: 26 })
+            .set(conte, { visibility: "hidden" }, 0.985)
+            .to(conte, { duration: 0.05 });
+        }
+
+        // cursor: se persigue, no se copia
+        var cam = [].map.call(hero.querySelectorAll(".capa-in"), function (el) {
+          var m = parseFloat(el.getAttribute("data-m")) || 0;
+          var o = { duration: 0.6, ease: "power3.out" };
+          return { m: m, x: gsap.quickTo(el, "x", o), y: gsap.quickTo(el, "y", o) };
+        });
+        function mover(nx, ny) {
+          cam.forEach(function (c) { c.x(nx * c.m); c.y(ny * c.m * 0.55); });
+        }
+        // por tipo de puntero y no por (hover:hover): hay escritorios que lo reportan false
+        function onMove(e) {
+          if (e.pointerType === "touch") return;
+          var b = hero.getBoundingClientRect();
+          mover(((e.clientX - b.left) / b.width - 0.5) * 2, ((e.clientY - b.top) / b.height - 0.5) * 2);
+        }
+        function onLeave() { mover(0, 0); }
+        hero.addEventListener("pointermove", onMove, { passive: true });
+        hero.addEventListener("pointerleave", onLeave, { passive: true });
+
+        return function () {
+          small.removeEventListener("change", pick);
+          hero.removeEventListener("pointermove", onMove);
+          hero.removeEventListener("pointerleave", onLeave);
+        };
+      });
+    });
   </script>
 </header>
 
