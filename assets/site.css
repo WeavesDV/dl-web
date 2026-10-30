@@ -184,7 +184,7 @@ footer a{color:var(--primary);opacity:.85}
 .steps h3{margin-bottom:8px;font-size:clamp(1.3rem,2.2vw,1.8rem)}
 .steps p{margin:0;color:var(--secondary)}
 .how-media{position:relative;display:block;min-height:440px}
-.how-media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:24px}
+.how-media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;border-radius:24px}
 .how-media .float-card{position:absolute;left:20px;right:20px;bottom:20px;padding:22px 26px}
 .how-media .float-card p{font-size:clamp(1.1rem,1.6vw,1.35rem)}
 .how-media .float-card p{margin:0;font-family:var(--serif);font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.25;
@@ -210,9 +210,9 @@ footer a{color:var(--primary);opacity:.85}
 /* escalonado deliberado y regular: el centro baja 56px, el tercero 28px */
 .gallery li:nth-child(2){margin-top:32px}
 .gallery li:nth-child(3){margin-top:64px}
-.gallery li:nth-child(1) img{object-position:28% 50%}
-.gallery li:nth-child(2) img{object-position:62% 42%}
-.gallery li:nth-child(3) img{object-position:52% 72%}
+.gallery li:nth-child(1) img{object-position:50% 50%}
+.gallery li:nth-child(2) img{object-position:28% 62%}
+.gallery li:nth-child(3) img{object-position:7% 50%}
 
 /* el vídeo del hero arranca desenfocado y entra en foco: el gesto que da nombre a la animación */
 @keyframes enfoque{from{filter:blur(20px) saturate(.95)}to{filter:blur(0) saturate(1)}}
@@ -267,6 +267,10 @@ footer a{color:var(--primary);opacity:.85}
 .bruma{position:absolute;pointer-events:none;aspect-ratio:1;
   background:radial-gradient(closest-side,rgba(207,228,236,.75) 0%,rgba(207,228,236,.4) 50%,rgba(207,228,236,0) 100%)}
 .capa-sky{inset:-16%}
+/* fotografía: tratamiento suave y uniforme para que no desentone con la paleta */
+.foto{filter:saturate(.92) contrast(.98) sepia(.05)}
+.capa-foto{inset:-2%}
+.foto-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 55%}
 .sky-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
 
 /* 01 · despertar: la luz del hero cruza hacia el texto */
