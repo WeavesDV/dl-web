@@ -13,12 +13,13 @@
 <link rel="icon" href="/dl-web/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/dl-web/assets/site.css">
+<script>document.documentElement.classList.add("rv")</script>
 </head>
 <body>
 <nav class="nav"><div class="wrap"><a class="brand" href="/dl-web/">Divine Light Journey</a><ul><li><a href="/dl-web/">Inicio</a></li><li><a href="/dl-web/quienes-somos/" aria-current="page">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul><details class="menu"><summary>Menú</summary><ul><li><a href="/dl-web/">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul></details><span class="lang"><b>ES</b> · EN</span></div></nav>
 <header class="hero">
-  <div class="wrap"><div class="eyebrow">Quiénes somos</div>
-  <h1>Creemos en el potencial de las personas</h1>
+  <div class="wrap"><div class="eyebrow" data-reveal style="--d:0ms">Quiénes somos</div>
+  <h1 data-reveal style="--d:0ms">Creemos en el potencial de las personas</h1>
   <p class="lead">Nacemos de una convicción sencilla y profunda: dentro de cada persona existe una capacidad
     extraordinaria para aprender, crecer y crear nuevas posibilidades para su vida.</p></div>
 </header>
@@ -28,7 +29,7 @@
       <p>Nuestro trabajo parte de una mirada integral de la persona. Entendemos que el verdadero crecimiento va más allá de adquirir conocimientos: implica conocerse, aprender a escuchar las propias emociones, reconocer patrones, fortalecer recursos internos, conectar con los propios valores y desarrollar la capacidad de elegir con mayor consciencia.</p>
       <p>Creamos entornos donde las personas puedan sentirse invitadas a explorar, descubrir, cuestionar, integrar y avanzar a su propio ritmo.</p>
       <p>Creemos en un desarrollo personal que se traduzca en la vida cotidiana: en relaciones más conscientes, decisiones más coherentes, mayor bienestar emocional, una conexión más profunda con uno mismo y una mayor capacidad para vivir desde los propios valores y potencial.</p>
-      <h2>Nuestra manera de acompañar</h2>
+      <h2 data-reveal style="--d:80ms">Nuestra manera de acompañar</h2>
       <p>Cada persona tiene su historia, su momento y su propio camino.</p>
       <p>Por eso nuestro enfoque parte del respeto, la escucha y la autonomía personal. Nuestro propósito no es decirle a nadie quién debe ser, sino ofrecer herramientas, experiencias y espacios que permitan descubrir con mayor claridad quién es, qué necesita y hacia dónde desea avanzar.</p>
       <p>Creemos que cuando una persona desarrolla una relación más consciente consigo misma, también transforma la manera en que se relaciona con los demás y con su entorno.</p>
@@ -54,5 +55,23 @@
   </div>
   <div class="legalbar">© 2026 Divine Light Journey · Todos los derechos reservados</div>
 </footer>
+<script>
+(function () {
+  var els = [].slice.call(document.querySelectorAll("[data-reveal]"));
+  if (!els.length) return;
+  if (!("IntersectionObserver" in window)) {
+    els.forEach(function (e) { e.classList.add("in"); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add("in");
+      io.unobserve(en.target);
+    });
+  }, { rootMargin: "0px 0px -6% 0px", threshold: 0.12 });
+  els.forEach(function (e) { io.observe(e); });
+})();
+</script>
 </body>
 </html>
