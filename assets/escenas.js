@@ -76,14 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
         scrollTrigger: { trigger: li, start: "top 90%", once: true } });
     });
 
-    // 04 · experiencias: parallax independiente por imagen (recorrido y escala propios)
-    var vel = [{ y: 7, s: 1.08 }, { y: 4, s: 1.06 }, { y: 9, s: 1.07 }];
-    all("[data-escena='experiencias'] .par").forEach(function (par, i) {
-      var v = vel[i % vel.length], marco = par.parentNode;
-      gsap.fromTo(par, { yPercent: -v.y * k, scale: 1.04 }, { yPercent: v.y * k, scale: v.s, ease: "none",
-        scrollTrigger: { trigger: marco, start: "top bottom", end: "bottom top", scrub: 0.5 } });
-    });
-
     // 06 · cierre: el CTA emerge de la luz (el titular ya lo revela [data-reveal])
     var cierre = document.querySelector("[data-escena='reencuentro']");
     if (cierre) {

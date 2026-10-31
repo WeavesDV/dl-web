@@ -5,6 +5,7 @@
   --rose:#DAA79F; --rose-soft:#E6C5C0; --rose-ink:#775B57;
   --gold:#D9B26B; --gold-soft:#EFD9B4; --gold-ink:#7A5C26;
   --sky:#CFE4EC; --glow:#F7E3C4; --dawn:#FBEFDD;
+  --ochre:#8A6D35; --ochre-soft:#F3E4C9;
   --s0:#FFFFFF; --s1:#FFFCF6; --s2:#F9F4EE; --s3:#F6F1EB; --s4:#F2EDE5; --s5:#E6DED5; --s6:#DED5CA;
   --line:#CEC4B7; --ink:#353535;
   --serif:"Fraunces",Georgia,serif; --sans:"DM Sans",-apple-system,Segoe UI,Roboto,sans-serif;
@@ -29,14 +30,14 @@ p{margin:0 0 18px;max-width:68ch}
 .eyebrow::before{content:"";width:36px;height:1px;background:var(--gold);display:block}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:40;background:var(--accent-deep);color:var(--s1)}
+.nav{position:sticky;top:0;z-index:40;background:var(--ochre);color:var(--s1)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:64px}
 .brand{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--s1)}
 .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.9rem}
-.nav a{color:var(--s1);opacity:.88}
-.nav a:hover,.nav a[aria-current="page"]{opacity:1;text-decoration:none;border-bottom:2px solid var(--gold)}
-.lang{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;white-space:nowrap}
-.lang b{opacity:1;border-bottom:2px solid var(--gold);padding-bottom:2px}
+.nav a{color:var(--s1);opacity:1}
+.nav a:hover,.nav a[aria-current="page"]{opacity:1;text-decoration:none;border-bottom:2px solid var(--s1)}
+.lang{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:1;white-space:nowrap}
+.lang b{opacity:1;border-bottom:2px solid var(--s1);padding-bottom:2px}
 .menu{display:none;position:relative}
 .menu summary{list-style:none;cursor:pointer;border:1px solid rgba(255,252,246,.45);border-radius:999px;
   padding:8px 16px;font-size:.85rem;color:var(--s1)}
@@ -50,7 +51,7 @@ p{margin:0 0 18px;max-width:68ch}
 .menu ul a:hover{background:var(--s4);text-decoration:none}
 
 /* hero */
-.hero{background:linear-gradient(180deg,var(--sky) 0%,#E7E4D8 38%,var(--glow) 68%,var(--dawn) 100%);
+.hero{background:linear-gradient(180deg,var(--sky) 0%,var(--ochre-soft) 38%,var(--glow) 68%,var(--dawn) 100%);
       padding:clamp(64px,9vw,120px) 0 clamp(56px,8vw,96px)}
 .hero h1{max-width:18ch}
 .hero .lead{margin-top:22px}
@@ -58,7 +59,7 @@ p{margin:0 0 18px;max-width:68ch}
 
 .hero-video{position:relative;overflow:hidden;display:grid;align-items:center;
   min-height:clamp(520px,80vh,780px);
-  background:linear-gradient(180deg,var(--sky) 0%,#E7E4D8 38%,var(--glow) 68%,var(--dawn) 100%)}
+  background:linear-gradient(180deg,var(--accent-soft) 0%,var(--ochre-soft) 38%,var(--glow) 68%,var(--dawn) 100%)}
 
 /* ── «Atravesar la luz»: escenario de capas ────────────────────────────────
    Cada capa son dos contenedores anidados: .capa lleva el desplazamiento por
@@ -67,8 +68,8 @@ p{margin:0 0 18px;max-width:68ch}
 .capa{position:absolute;inset:0;will-change:transform}
 .capa-in{position:absolute;inset:0;will-change:transform}
 .capa .hero-media{transform:scaleX(-1)}
-.hero-glow{position:absolute;left:-12%;bottom:-18%;width:72%;aspect-ratio:1;z-index:0;pointer-events:none;
-  background:radial-gradient(circle at 50% 50%,rgba(217,178,107,.55) 0%,rgba(247,227,196,.42) 34%,
+.hero-glow{position:absolute;right:-16%;bottom:-6%;width:66%;aspect-ratio:1;z-index:0;pointer-events:none;
+  background:radial-gradient(circle at 50% 50%,rgba(217,178,107,.72) 0%,rgba(217,178,107,.40) 34%,
              rgba(247,227,196,.16) 58%,rgba(247,227,196,0) 74%);
   animation:respirar 7.5s ease-in-out infinite;will-change:opacity,transform}
 @keyframes respirar{0%,100%{opacity:.72;transform:scale(1)}50%{opacity:1;transform:scale(1.07)}}
@@ -90,7 +91,7 @@ p{margin:0 0 18px;max-width:68ch}
 /* Velo radial: solo protege la zona del texto, el vídeo se ve entero alrededor. */
 .hero-veil{position:absolute;inset:0;z-index:1;
   background:radial-gradient(135% 105% at 22% 52%,rgba(255,252,246,.94) 0%,rgba(255,252,246,.88) 26%,
-             rgba(255,252,246,.64) 44%,rgba(255,252,246,.20) 62%,rgba(255,252,246,0) 78%)}
+             rgba(255,252,246,.50) 44%,rgba(255,252,246,.08) 62%,rgba(255,252,246,0) 78%)}
 .hero-content{position:relative;z-index:4;padding:clamp(56px,8vw,104px) 0;will-change:opacity,transform}
 /* el pie del hero se funde con la sección blanca siguiente: sin corte duro */
 .hero-video::after{content:"";position:absolute;left:0;right:0;bottom:0;height:280px;z-index:1;
@@ -137,7 +138,7 @@ section{padding:clamp(56px,8vw,110px) 0}
 .legal .todo{background:var(--gold-soft);padding:0 4px;border-radius:4px}
 
 /* cierre + pie (pareja clara aprobada) */
-.close{background:linear-gradient(180deg,var(--sky) 0%,#E7E4D8 38%,var(--glow) 68%,var(--dawn) 100%);
+.close{background:linear-gradient(180deg,var(--sky) 0%,var(--ochre-soft) 38%,var(--glow) 68%,var(--dawn) 100%);
        text-align:center;padding:clamp(56px,8vw,96px) 0}
 .close h2{margin:0 auto 14px;max-width:20ch}
 .close p{margin:0 auto 26px;color:var(--secondary)}
@@ -229,7 +230,7 @@ footer a{color:var(--primary);opacity:.85}
 .gallery li:nth-child(3) img{object-position:7% 50%}
 
 /* el vídeo del hero arranca desenfocado y entra en foco: el gesto que da nombre a la animación */
-@keyframes enfoque{from{filter:blur(20px) saturate(.95)}to{filter:blur(0) saturate(1)}}
+@keyframes enfoque{from{filter:blur(20px) saturate(.95)}to{filter:blur(0) saturate(1.15)}}
 /* el arranque de la página no se come el gesto: un respiro de 120 ms y entra en foco */
 .hero-media{animation:enfoque 1.2s cubic-bezier(.22,.61,.36,1) .12s both}
 
@@ -315,9 +316,9 @@ footer a{color:var(--primary);opacity:.85}
 .bruma-c{right:-14%;top:-12%;width:44%}
 .veil-c-r{right:-12%;top:-30%;width:72%;opacity:1}
 
-/* 04 · experiencias: contenedor que recorta, imagen sobredimensionada que se mueve */
+/* 04 · experiencias: contenedor que recorta; imagen quieta (sin paralaje ni desenfoque, 31-oct) */
 .gallery .marco{position:relative;overflow:hidden;border-radius:18px;aspect-ratio:4/5}
-.gallery .par{position:absolute;left:0;right:0;top:-9%;height:118%}
+.gallery .par{position:absolute;left:0;right:0;top:0;height:100%}
 .gallery .par img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;border-radius:0}
 
 /* 05 · misión: el horizonte */
