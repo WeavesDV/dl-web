@@ -20,7 +20,7 @@
 <header class="hero-video" id="hero">
   <div class="capa" data-k="70" data-dolly="0.09"><div class="capa-in" data-m="24">
     <video class="hero-media" autoplay muted loop playsinline preload="none"
-           poster="/dl-web/assets/hero-poster.jpg" aria-hidden="true" tabindex="-1"></video>
+           aria-hidden="true" tabindex="-1"></video>
   </div></div>
   <div class="capa" data-k="120"><div class="capa-in" data-m="40"><div class="hero-glow" aria-hidden="true"></div></div></div>
   <div class="capa" data-k="320" style="z-index:2"><div class="capa-in" data-m="48">
@@ -57,8 +57,13 @@
           v.pause();
           return;
         }
-        var src = small.matches ? "/dl-web/assets/hero-loop-vertical.mp4" : "/dl-web/assets/hero-loop.mp4";
-        var poster = small.matches ? "/dl-web/assets/hero-poster-vertical.jpg" : "/dl-web/assets/hero-poster.jpg";
+        // móvil: el hero son las ondas; el vídeo está oculto y no se descarga
+        if (small.matches) {
+          v.pause();
+          return;
+        }
+        var src = "/dl-web/assets/hero-loop.mp4";
+        var poster = "/dl-web/assets/hero-poster.jpg";
         if (v.getAttribute("data-src") === src) return;
         v.setAttribute("data-src", src);
         v.setAttribute("poster", poster);

@@ -10,6 +10,8 @@
   --line:#CEC4B7; --ink:#353535;
   --serif:"Fraunces",Georgia,serif; --sans:"DM Sans",-apple-system,Segoe UI,Roboto,sans-serif;
   --wrap:1200px;
+  /* ritmo vertical único: padding superior e inferior de cada sección de la home (31-oct) */
+  --gap-sec:clamp(56px,8vw,110px);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -82,6 +84,11 @@ p{margin:0 0 18px;max-width:68ch}
   0%{transform:translate3d(0,0,0) scale(1);opacity:.82}
   50%{transform:translate3d(1.4%,-1.1%,0) scale(1.02);opacity:.95}
   100%{transform:translate3d(-1.1%,1.2%,0) scale(1.01);opacity:.86}}
+/* misma deriva sin tocar la opacidad: para velos cuya opacidad fija la regla */
+@keyframes deriva{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(1.4%,-1.1%,0) scale(1.02)}
+  100%{transform:translate3d(-1.1%,1.2%,0) scale(1.01)}}
 .hero-front{position:absolute;inset:0;z-index:3;pointer-events:none;
   -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 62%,rgba(0,0,0,0) 100%);
   mask-image:linear-gradient(180deg,#000 0%,#000 62%,rgba(0,0,0,0) 100%)}
@@ -109,7 +116,9 @@ p{margin:0 0 18px;max-width:68ch}
 .btn-ghost{background:transparent;color:var(--primary);border-color:#9A8E7C} /* borde 3.1:1, no 1.68 */
 .btn-ghost:hover{background:var(--s1);text-decoration:none}
 
-section{padding:clamp(56px,8vw,110px) 0}
+section{padding:var(--gap-sec) 0}
+/* el último bloque no suma margen propio: el hueco entre secciones es solo el token */
+section>.wrap>:last-child,.rest-texto>:last-child{margin-bottom:0}
 .s-white{background:var(--s0)}
 .s-cream{background:var(--s1)}
 .s-paper{background:var(--s3)}
@@ -139,7 +148,7 @@ section{padding:clamp(56px,8vw,110px) 0}
 
 /* cierre + pie (pareja clara aprobada) */
 .close{background:linear-gradient(180deg,var(--sky) 0%,var(--ochre-soft) 38%,var(--glow) 68%,var(--dawn) 100%);
-       text-align:center;padding:clamp(56px,8vw,96px) 0}
+       text-align:center;padding:var(--gap-sec) 0}
 .close h2{margin:0 auto 14px;max-width:20ch}
 .close p{margin:0 auto 26px;color:var(--secondary)}
 footer{background:var(--s5);color:var(--primary);border-top:1px solid var(--line)}
@@ -165,7 +174,7 @@ footer a{color:var(--primary);opacity:.85}
 .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
 
 /* bandas con imagen: ritmo de la home */
-.band{padding:clamp(18px,2.6vw,36px) 0 clamp(10px,1.6vw,22px)}
+.band{padding:var(--gap-sec) 0}
 .band-img{position:relative;margin:0 auto;max-width:calc(var(--wrap) + 64px);border-radius:24px;overflow:hidden;
   min-height:clamp(460px,52vw,620px);display:flex;align-items:center;background:var(--sky)}
 .float-card{position:relative;z-index:1;background:var(--s1);border:1px solid var(--line);border-radius:18px;
@@ -173,7 +182,7 @@ footer a{color:var(--primary);opacity:.85}
 .band-img .float-card{margin-left:clamp(20px,5vw,64px);max-width:480px}
 .float-card h2{margin-bottom:14px}
 .float-card p:last-child{margin-bottom:0}
-.rest{padding-top:clamp(12px,1.6vw,24px);scroll-margin-top:96px}
+.rest{scroll-margin-top:96px}
 /* dos columnas: el texto respira a la izquierda y la foto ocupa el aire de la derecha */
 .rest-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.82fr);gap:clamp(32px,5vw,80px);
   align-items:stretch}
@@ -210,8 +219,9 @@ footer a{color:var(--primary);opacity:.85}
 .rv [data-reveal]{opacity:.25;filter:blur(9px);transform:translateY(14px);
   transition:opacity .7s cubic-bezier(.22,.61,.36,1),filter .9s cubic-bezier(.22,.61,.36,1),
              transform .9s cubic-bezier(.22,.61,.36,1);transition-delay:var(--d,0ms)}
-/* la imagen no se esconde: se desenfoca. Así se lee como enfoque, no como carga. */
-.rv [data-reveal="img"]{opacity:1;filter:blur(18px) saturate(.94);transform:scale(1.035)}
+/* 31-oct: las fotos ya no se desenfocan (la clienta lo leía como «fantasma»): solo asientan la escala */
+.rv [data-reveal="img"],.rv [data-reveal="img"].in{opacity:1;filter:saturate(.92) contrast(.98) sepia(.05)}
+.rv [data-reveal="img"]{transform:scale(1.035)}
 .rv [data-reveal].in{opacity:1;filter:blur(0);transform:none}
 @media (prefers-reduced-motion:reduce){
   .rv [data-reveal]{opacity:1;filter:none;transform:none;transition:none}
@@ -261,7 +271,6 @@ footer a{color:var(--primary);opacity:.85}
 .scn::before,.close::before{content:"";position:absolute;left:0;right:0;top:0;height:220px;z-index:1;
   pointer-events:none}
 .scn[data-escena="despertar"]::before{background:linear-gradient(180deg,#FFFFFF 0%,rgba(255,255,255,0) 100%)}
-.scn[data-escena="despertar"]{padding-bottom:clamp(20px,2.6vw,36px)}
 /* Solape de 2 px con el hero: a 125 % de escala del sistema, el navegador redondea el
    borde del degradado a un píxel físico y deja una línea. Con el solape no hay borde. */
 .scn[data-escena="despertar"]{margin-top:-2px;background:#FFFFFF}
@@ -304,17 +313,21 @@ footer a{color:var(--primary);opacity:.85}
   /* El marco tiene que llenar la pantalla mientras está pegado: si es más bajo,
      el recorrido del sticky deja un hueco blanco enorme debajo. */
   .band-stage{padding-bottom:7vh}
+  /* el recorrido del sticky (7vh) ya es hueco: se descuenta del token para que la junta mida lo mismo */
+  .band{padding-bottom:max(0px,calc(var(--gap-sec) - 7vh))}
   /* pegado a 96 px y alto exacto hasta el borde inferior de la ventana: cero hueco blanco */
   .band-stage .band-img{position:sticky;top:96px;height:calc(100vh - 96px);max-height:900px}
 }
 .luz-b{right:-10%;bottom:-38%;width:62%}
-.veil-b-r{right:-14%;top:-18%;width:78%;opacity:.96}
-.veil-b-f{left:-12%;bottom:-34%;width:128%;opacity:1;transform-origin:50% 100%}
+/* 31-oct: sin velos ni viñeta crema sobre la foto: eran las «nubes fantasma» */
+.veil-b-r,.veil-b-f{display:none}
+.band-img::after{content:none}
 
 /* 03 · cómo acompañamos: decoración de fondo con profundidad */
 .luz-c{left:-12%;bottom:-20%;width:44%;opacity:.8}
-.bruma-c{right:-14%;top:-12%;width:44%}
-.veil-c-r{right:-12%;top:-30%;width:72%;opacity:1}
+.bruma-c{right:-14%;top:-12%;width:44%;opacity:.3}
+/* va detrás de la foto del taller: a .3 y con deriva sin opacidad, para que no se lea como nube */
+.veil-c-r{right:-12%;top:-30%;width:72%;opacity:.3;animation-name:deriva}
 
 /* 04 · experiencias: contenedor que recorta; imagen quieta (sin paralaje ni desenfoque, 31-oct) */
 .gallery .marco{position:relative;overflow:hidden;border-radius:18px;aspect-ratio:4/5}
@@ -346,23 +359,28 @@ footer a{color:var(--primary);opacity:.85}
   .scn .veil,.scn .luz,.band-img .veil,.band-img .luz,.hero-scn .veil,.hero-scn .luz,.close .veil,.close .luz{animation:none}
 }
 @media (max-width:900px){
-  .hero-media{transform:none;object-position:50% 65%}
-  /* En móvil el velo cae más rápido: el vídeo respira por debajo del titular. */
-  .hero-veil{background:linear-gradient(180deg,rgba(255,252,246,.94) 0%,rgba(255,252,246,.82) 34%,
-             rgba(255,252,246,.40) 58%,rgba(255,252,246,.02) 100%)}
+  /* 31-oct: en móvil el hero son las ondas (degradado + resplandor + velos), sin vídeo */
+  .hero-media{display:none}
+  /* Sin vídeo detrás, el velo solo suaviza el arranque: las ondas se ven bajo el titular. */
+  .hero-veil{background:linear-gradient(180deg,rgba(255,252,246,.62) 0%,rgba(255,252,246,.36) 30%,
+             rgba(255,252,246,.08) 56%,rgba(255,252,246,0) 100%)}
   .hero-video{min-height:clamp(520px,74vh,660px);align-items:start}
+  /* el fundido al blanco no se come la mitad de las ondas en un hero de 620 px */
+  .hero-video::after{height:160px}
   .hero-content{padding:48px 0 120px}
   .hero-content .lead{font-size:1rem;max-width:38ch}
   .g3,.g2,.contact-grid,footer .wrap,.how{grid-template-columns:1fr}
   .gallery{grid-template-columns:1fr}
   .gallery li:nth-child(2),.gallery li:nth-child(3){margin-top:0}
-  /* móvil: los velos se reducen y bajan de opacidad para que el vídeo respire */
-  .veil-l{width:48%;left:-20%;top:-2%;opacity:.42}
-  .veil-r{width:46%;right:-22%;top:8%;opacity:.34}
+  /* móvil: los velos son las ondas del hero; a tamaño de pantalla, cruzando de lado a lado */
+  .veil-l{width:150%;left:-62%;top:auto;bottom:4%;opacity:.42}
+  .veil-r{width:140%;right:-58%;top:2%;opacity:.34}
   .veil-f{width:134%;left:-17%;bottom:-32%;opacity:.46}
   .hero-glow{left:-30%;bottom:-26%;width:108%;opacity:.7}
   .rest-grid{grid-template-columns:1fr;gap:28px}
-  .rest-foto{position:static;order:2}
+  /* la foto vuelve a su sección: con position:static se iba arriba, encima del hero (31-oct) */
+  .rest-foto{order:2;min-height:0}
+  .rest-foto img{position:static;height:auto;aspect-ratio:4/5}
   /* móvil: menos capas, sin cursor ni sticky */
   .hide-m{display:none}
   .luz-d{left:-30%;top:-22%;width:90%}
