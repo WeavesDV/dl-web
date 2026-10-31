@@ -261,6 +261,9 @@ footer a{color:var(--primary);opacity:.85}
   pointer-events:none}
 .scn[data-escena="despertar"]::before{background:linear-gradient(180deg,#FFFFFF 0%,rgba(255,255,255,0) 100%)}
 .scn[data-escena="despertar"]{padding-bottom:clamp(20px,2.6vw,36px)}
+/* Solape de 2 px con el hero: a 125 % de escala del sistema, el navegador redondea el
+   borde del degradado a un píxel físico y deja una línea. Con el solape no hay borde. */
+.scn[data-escena="despertar"]{margin-top:-2px;background:#FFFFFF}
 .scn[data-escena="acompanamos"]::before{background:linear-gradient(180deg,#FFFFFF 0%,rgba(255,255,255,0) 100%)}
 /* la sección de experiencias no lleva .scn: necesita su propio contexto y su fundido */
 [data-escena="experiencias"]{position:relative;overflow:hidden}
