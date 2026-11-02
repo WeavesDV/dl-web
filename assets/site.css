@@ -198,6 +198,10 @@ footer a{color:var(--primary);opacity:.85}
   border-top:1px solid var(--line);max-width:34ch}
 /* 01 · despertar: el bloque del manifiesto iba como <p> sueltos a 1200 px de ancho — por eso se leía
    plano. Ahora tiene ancho de lectura y jerarquía: entradilla serif, cuerpo mayor y el lema como cita. */
+/* la figura va a la izquierda del texto; la rejilla es la de .rest-grid con las columnas invertidas */
+.despertar-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.05fr);align-items:center}
+.despertar-grid .despertar-foto{min-height:0;align-self:center}
+.despertar-grid .despertar-foto img{position:static;height:auto;aspect-ratio:4/5}
 .despertar-texto{max-width:64ch}
 .despertar-texto p{font-size:1.12em;line-height:1.75;color:var(--primary);margin-bottom:22px}
 .despertar-texto p:first-child{font-family:var(--serif);font-size:clamp(1.55rem,2.2vw,1.85rem);
@@ -393,7 +397,9 @@ footer a{color:var(--primary);opacity:.85}
   .veil-r{width:140%;right:-58%;top:2%;opacity:.34}
   .veil-f{width:134%;left:-17%;bottom:-32%;opacity:.46}
   .hero-glow{left:-30%;bottom:-26%;width:108%;opacity:.7}
-  .rest-grid{grid-template-columns:1fr;gap:28px}
+
+  .despertar-grid{grid-template-columns:1fr}
+  .despertar-grid .despertar-foto{order:-1}
   /* la foto vuelve a su sección: con position:static se iba arriba, encima del hero (31-oct) */
   .rest-foto{order:2;min-height:0}
   .rest-foto img{position:static;height:auto;aspect-ratio:4/5}
