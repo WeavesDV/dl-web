@@ -199,9 +199,9 @@ footer a{color:var(--primary);opacity:.85}
 /* 01 · despertar: el bloque del manifiesto iba como <p> sueltos a 1200 px de ancho — por eso se leía
    plano. Ahora tiene ancho de lectura y jerarquía: entradilla serif, cuerpo mayor y el lema como cita. */
 /* la figura va a la izquierda del texto; la rejilla es la de .rest-grid con las columnas invertidas */
-.despertar-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.05fr);align-items:center}
-.despertar-grid .despertar-foto{min-height:0;align-self:center}
-.despertar-grid .despertar-foto img{position:static;height:auto;aspect-ratio:4/5}
+.despertar-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.05fr);align-items:stretch}
+/* la foto ocupa el alto del texto, como en la sección de introducción: sin aire muerto debajo */
+.despertar-grid .despertar-foto{min-height:420px;align-self:stretch}
 .despertar-texto{max-width:64ch}
 .despertar-texto p{font-size:1.12em;line-height:1.75;color:var(--primary);margin-bottom:22px}
 .despertar-texto p:first-child{font-family:var(--serif);font-size:clamp(1.55rem,2.2vw,1.85rem);
