@@ -100,6 +100,13 @@ p{margin:0 0 18px;max-width:68ch}
 .hero-video .hero-media{opacity:0;transition:opacity 1.4s ease}
 .hero-video.video-listo .hero-media{opacity:1}
 .hero-video.video-listo .hero-seda{display:none}
+/* Con vídeo, las capas que protegían las ondas se pasan de frenada: el clip trae su propia luz.
+   El velo baja de .92 a .80 en el centro y la bruma delantera desaparece; el titular queda por encima. */
+.hero-video.video-listo .hero-veil{background:radial-gradient(66% 96% at 38% 52%,rgba(255,252,246,.74) 0%,
+  rgba(255,252,246,.58) 34%,rgba(255,252,246,.24) 62%,rgba(255,252,246,.05) 86%,rgba(255,252,246,0) 100%)}
+.hero-video.video-listo .onda-frente{display:none}
+.hero-video.video-listo .hero-grano{opacity:.06}
+.hero-video.video-listo::after{height:190px}
 /* ── Hero «ondas»: un único ciclo de respiración de 10 s (prompt «The First Breath»).
    El degradado de «Quiénes somos» queda fijo. Del resplandor dorado, abajo a la izquierda, nacen anillos
    suaves de luz (repeating-radial-gradient) que un filtro ESTÁTICO deforma en ondas orgánicas. El filtro no
