@@ -95,6 +95,11 @@ p{margin:0 0 18px;max-width:68ch}
   mask-image:linear-gradient(180deg,#000 0%,#000 62%,rgba(0,0,0,0) 100%)}
 .hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;
   transform:scaleX(-1)}
+/* El vídeo (Magnific, WAN 720p, retimado a 10 s y corregido a la paleta) se pinta encima de las ondas CSS
+   solo cuando ya puede reproducir: si falla, tarda o el usuario pide movimiento reducido, quedan las ondas. */
+.hero-video .hero-media{opacity:0;transition:opacity 1.4s ease}
+.hero-video.video-listo .hero-media{opacity:1}
+.hero-video.video-listo .hero-seda{display:none}
 /* ── Hero «ondas»: un único ciclo de respiración de 10 s (prompt «The First Breath»).
    El degradado de «Quiénes somos» queda fijo. Del resplandor dorado, abajo a la izquierda, nacen anillos
    suaves de luz (repeating-radial-gradient) que un filtro ESTÁTICO deforma en ondas orgánicas. El filtro no

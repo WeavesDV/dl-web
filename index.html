@@ -35,6 +35,7 @@
       <div class="onda-velo"></div>
       <div class="onda"><div class="onda-anillos"></div></div>
     </div>
+    <video class="hero-media" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
   </div></div>
   <div class="capa" data-k="120"><div class="capa-in" data-m="40"><div class="hero-glow" aria-hidden="true"></div></div></div>
   <div class="hero-veil" aria-hidden="true"></div>
@@ -53,6 +54,37 @@
   <div class="capa hero-front" data-k="620"><div class="capa-in" data-m="80">
     <div class="onda-frente" aria-hidden="true"></div>
   </div></div>
+  <script>
+    // El vídeo del hero se carga por JS: no se descarga en móvil (allí mandan las ondas CSS, más baratas)
+    // ni con prefers-reduced-motion. Cuando puede reproducir, se funde encima y las ondas se apagan.
+    (function () {
+      var hero = document.querySelector('#hero');
+      var v = hero && hero.querySelector('.hero-media');
+      if (!v) return;
+      var escrito = window.matchMedia('(max-width: 900px)');
+      var quieto = window.matchMedia('(prefers-reduced-motion: reduce)');
+      function pick() {
+        if (escrito.matches || quieto.matches) {
+          v.pause(); hero.classList.remove('video-listo'); return;
+        }
+        var src = '/dl-web/assets/hero-loop-720.mp4';
+        if (v.getAttribute('data-src') === src) return;
+        v.setAttribute('data-src', src);
+        v.setAttribute('poster', '/dl-web/assets/hero-poster.jpg');
+        v.setAttribute('autoplay', '');
+        var f = v.querySelector('source');
+        if (!f) { f = document.createElement('source'); f.type = 'video/mp4'; v.appendChild(f); }
+        f.setAttribute('src', src);
+        v.addEventListener('canplay', function () { hero.classList.add('video-listo'); }, { once: true });
+        v.load();
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      }
+      pick();
+      escrito.addEventListener('change', pick);
+      quieto.addEventListener('change', pick);
+    })();
+  </script>
   <script src="/dl-web/assets/vendor/gsap.min.js" defer></script>
   <script src="/dl-web/assets/vendor/ScrollTrigger.min.js" defer></script>
   <script>
