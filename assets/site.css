@@ -61,7 +61,7 @@ p{margin:0 0 18px;max-width:68ch}
 
 .hero-video{position:relative;overflow:hidden;display:grid;align-items:center;
   min-height:clamp(520px,80vh,780px);
-  background:linear-gradient(180deg,var(--accent-soft) 0%,var(--ochre-soft) 38%,var(--glow) 68%,var(--dawn) 100%)}
+  background:linear-gradient(180deg,var(--sky) 0%,var(--ochre-soft) 38%,var(--glow) 68%,var(--dawn) 100%)}
 
 /* ── «Atravesar la luz»: escenario de capas ────────────────────────────────
    Cada capa son dos contenedores anidados: .capa lleva el desplazamiento por
@@ -70,11 +70,12 @@ p{margin:0 0 18px;max-width:68ch}
 .capa{position:absolute;inset:0;will-change:transform}
 .capa-in{position:absolute;inset:0;will-change:transform}
 .capa .hero-media{transform:scaleX(-1)}
-.hero-glow{position:absolute;right:-16%;bottom:-6%;width:66%;aspect-ratio:1;z-index:0;pointer-events:none;
+.hero-glow{position:absolute;left:-14%;bottom:-22%;width:62%;aspect-ratio:1;z-index:0;pointer-events:none;
   background:radial-gradient(circle at 50% 50%,rgba(217,178,107,.72) 0%,rgba(217,178,107,.40) 34%,
              rgba(247,227,196,.16) 58%,rgba(247,227,196,0) 74%);
-  animation:respirar 7.5s ease-in-out infinite;will-change:opacity,transform}
-@keyframes respirar{0%,100%{opacity:.72;transform:scale(1)}50%{opacity:1;transform:scale(1.07)}}
+  animation:respirar 10s ease-in-out infinite;will-change:opacity,transform}
+@keyframes respirar{0%,100%{opacity:.55;transform:translate3d(0,0,0) scale(1)}
+  50%{opacity:1;transform:translate3d(5px,-3px,0) scale(1.07)}}
 .veil{position:absolute;pointer-events:none;user-select:none;height:auto;max-width:none;
   animation:flotar 26s ease-in-out infinite alternate;will-change:transform,opacity}
 .veil-l{left:-20%;top:auto;bottom:-4%;width:82%;opacity:.92;animation-duration:29s}
@@ -94,47 +95,51 @@ p{margin:0 0 18px;max-width:68ch}
   mask-image:linear-gradient(180deg,#000 0%,#000 62%,rgba(0,0,0,0) 100%)}
 .hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;
   transform:scaleX(-1)}
-/* ── Hero «seda»: la luz se hace con degradados deformados por turbulencia SVG.
-   Sustituye al vídeo (847 KB) y a los tres velos WebP (281 KB) por un filtro que ocupa 0 KB:
-   mismo lenguaje visual, nítido a cualquier pantalla. El #seda lo define el <svg> del header. */
+/* ── Hero «ondas»: un único ciclo de respiración de 10 s (prompt «The First Breath»).
+   El degradado de «Quiénes somos» queda fijo. Del resplandor dorado, abajo a la izquierda, nacen anillos
+   suaves de luz (repeating-radial-gradient) que un filtro ESTÁTICO deforma en ondas orgánicas. El filtro no
+   lleva SMIL: lo que respira es el transform/opacity de la capa .onda que lo envuelve, así no se recalcula
+   la turbulencia en cada fotograma. Todo vuelve al estado inicial a los 10 s. 0 KB de imágenes. */
 .hero-filtro{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
-.hero-seda{position:absolute;inset:-14%;filter:url(#seda);will-change:transform}
-.seda-luz{position:absolute;inset:-8%;
+.hero-ondas{position:absolute;inset:-14%}
+/* UNA sola capa filtrada con tres anillos de periodos distintos: una turbulencia, no tres */
+.onda{position:absolute;inset:0;transform-origin:22% 88%;opacity:.6;
+  animation:respiro 10s ease-in-out infinite;will-change:transform,opacity}
+.onda-anillos{position:absolute;inset:0;filter:url(#ondas);--p1:190px;--p2:130px;--p3:300px;
+  -webkit-mask-image:radial-gradient(circle at 22% 88%,#000 0%,#000 40%,rgba(0,0,0,0) 86%);
+  mask-image:radial-gradient(circle at 22% 88%,#000 0%,#000 40%,rgba(0,0,0,0) 86%);
   background:
-    radial-gradient(56% 50% at 30% 46%, #FFFDF8 0%, rgba(255,253,248,0) 64%),
-    radial-gradient(54% 46% at 70% 38%, rgba(207,228,236,.85) 0%, rgba(207,228,236,0) 72%),
-    radial-gradient(66% 54% at 48% 80%, rgba(217,178,107,.55) 0%, rgba(217,178,107,0) 74%),
-    linear-gradient(118deg, rgba(255,255,255,.86), rgba(230,222,213,.55));
-  animation:seda-deriva 44s ease-in-out infinite alternate}
-@keyframes seda-deriva{
-  from{transform:translate3d(-2%,1%,0) scale(1.03)}
-  to{transform:translate3d(2%,-1%,0) scale(1.10)}}
-/* La franja que cruza es lo que delata la seda: un desplazamiento sobre un degradado liso no se ve.
-   Lleva valle de arena a los lados y filo blanco en el centro, así el pliegue tiene borde. */
-.seda-velo{position:absolute;inset:-10%;mix-blend-mode:screen;opacity:.72;
-  background:linear-gradient(96deg,rgba(255,255,255,0) 24%,rgba(208,190,163,.34) 39%,
-             rgba(255,255,255,.97) 50%,rgba(208,190,163,.30) 61%,rgba(255,255,255,0) 76%);
-  animation:seda-cruza 30s linear infinite}
-/* pliegues finos: dan grano de tela para que feDisplacementMap tenga algo que deformar */
-.seda-pliegues{position:absolute;inset:-8%;opacity:.55;mix-blend-mode:multiply;
-  background:repeating-linear-gradient(104deg,rgba(197,178,150,.13) 0 2px,rgba(255,255,255,0) 2px 44px);
-  animation:seda-pliega 52s ease-in-out infinite alternate}
-@keyframes seda-pliega{
-  from{transform:translate3d(-3%,0,0) rotate(-.3deg)}
-  to{transform:translate3d(3%,1%,0) rotate(.3deg)}}
-@keyframes seda-cruza{
-  from{transform:translate3d(-30%,0,0)}
-  to{transform:translate3d(30%,0,0)}}
-/* plano delantero: la franja clara que cruza el titular y da profundidad sin ninguna imagen */
-.seda-frente{position:absolute;inset:-6% -10%;opacity:.9;
-  background:linear-gradient(170deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.16) 42%,
-             rgba(217,178,107,.18) 76%,rgba(255,255,255,0) 100%);
-  filter:blur(2px);animation:seda-cruza 46s linear infinite reverse}
+    repeating-radial-gradient(circle at 22% 88%,rgba(255,255,255,0) 0,rgba(255,255,255,.90) calc(var(--p1)*.5),
+      rgba(255,255,255,0) var(--p1)),
+    repeating-radial-gradient(circle at 22% 88%,rgba(217,178,107,0) 0,rgba(217,178,107,.42) calc(var(--p2)*.5),
+      rgba(217,178,107,0) var(--p2)),
+    repeating-radial-gradient(circle at 22% 88%,rgba(207,228,236,0) 0,rgba(207,228,236,.85) calc(var(--p3)*.5),
+      rgba(207,228,236,0) var(--p3))}
+@keyframes respiro{
+  0%,100%{transform:translate3d(0,0,0) scale(1);opacity:.6}
+  50%{transform:translate3d(6px,-4px,0) scale(1.16);opacity:1}}
+/* el velo de luz que se abre y envuelve el encuadre: sin forma, sin borde */
+.onda-velo{position:absolute;inset:0;mix-blend-mode:screen;transform-origin:22% 88%;opacity:.35;
+  background:radial-gradient(70% 80% at 22% 88%,rgba(255,253,248,.95) 0%,rgba(255,244,222,.55) 38%,
+             rgba(255,244,222,0) 74%);
+  animation:respiro-velo 10s ease-in-out infinite;will-change:transform,opacity}
+@keyframes respiro-velo{
+  0%,100%{transform:scale(.92);opacity:.35}
+  50%{transform:scale(1.32);opacity:.95}}
+/* plano delantero: bruma clara que da profundidad sin ninguna imagen */
+.onda-frente{position:absolute;inset:-6% -10%;
+  background:linear-gradient(170deg,rgba(255,255,255,.40) 0%,rgba(255,255,255,.12) 42%,
+             rgba(217,178,107,.14) 76%,rgba(255,255,255,0) 100%);
+  animation:respiro-frente 10s ease-in-out infinite;will-change:opacity}
+@keyframes respiro-frente{0%,100%{opacity:.35}50%{opacity:.85}}
+/* grano fino: SVG de alta frecuencia en data-URI (<1 KB), estático. Rompe el banding del degradado. */
+.hero-grano{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.10;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .5 0 0 0 0 .42 0 0 0 1.4 -.35'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23g)'/%3E%3C/svg%3E")}
 /* velo de crema: el titular respira sobre 10:1 sin tapar el vídeo */
 /* Velo radial: solo protege la zona del texto, el vídeo se ve entero alrededor. */
 .hero-veil{position:absolute;inset:0;z-index:1;
-  background:radial-gradient(135% 105% at 22% 52%,rgba(255,252,246,.94) 0%,rgba(255,252,246,.88) 26%,
-             rgba(255,252,246,.50) 44%,rgba(255,252,246,.08) 62%,rgba(255,252,246,0) 78%)}
+  background:radial-gradient(62% 92% at 40% 52%,rgba(255,252,246,.92) 0%,rgba(255,252,246,.84) 34%,
+             rgba(255,252,246,.46) 62%,rgba(255,252,246,.08) 84%,rgba(255,252,246,0) 100%)}
 .hero-content{position:relative;z-index:4;padding:clamp(56px,8vw,104px) 0;will-change:opacity,transform}
 /* el pie del hero se funde con la sección blanca siguiente: sin corte duro */
 .hero-video::after{content:"";position:absolute;left:0;right:0;bottom:0;height:280px;z-index:1;
@@ -416,17 +421,15 @@ footer a{color:var(--primary);opacity:.85}
 @media (prefers-reduced-motion:reduce){
   .capa,.capa-in,.luz,.veil{will-change:auto}
   .scn .veil,.scn .luz,.band-img .veil,.band-img .luz,.hero-scn .veil,.hero-scn .luz,.close .veil,.close .luz{animation:none}
-  /* el filtro lleva sus propias animaciones SMIL: sin él las capas quedan quietas */
-  .hero-filtro{display:none}
-  .seda-luz,.seda-velo,.seda-frente{animation:none}
+  /* el filtro de las ondas es estático (sin SMIL): se queda; solo se quita el movimiento */
+  .onda,.onda-velo,.onda-frente,.hero-glow{animation:none;will-change:auto}
 }
 @media (max-width:900px){
   /* 31-oct: en móvil el hero son las ondas (degradado + resplandor + velos), sin vídeo */
   .hero-media{display:none}
-  /* misma seda, filtro más barato: menos octavas y menos desplazamiento */
-  .hero-seda{filter:url(#seda-m)}
-  .seda-velo{opacity:.9;animation-duration:22s}
-  .seda-pliegues{opacity:.7}
+  /* mismas ondas, filtro más barato (1 octava, menos desplazamiento) y anillos más estrechos */
+  .onda-anillos{filter:url(#ondas-m)}
+  .onda-anillos{--p1:120px;--p2:84px;--p3:190px}
   /* Sin vídeo detrás, el velo solo suaviza el arranque: las ondas se ven bajo el titular.
      A 0,62 el filtro queda tapado y el hero se lee plano (2-nov): se baja a 0,34. */
   .hero-veil{background:linear-gradient(180deg,rgba(255,252,246,.34) 0%,rgba(255,252,246,.20) 30%,
