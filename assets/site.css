@@ -202,6 +202,9 @@ footer a{color:var(--primary);opacity:.85}
 .despertar-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.05fr);align-items:stretch}
 /* la foto ocupa el alto del texto, como en la sección de introducción: sin aire muerto debajo */
 .despertar-grid .despertar-foto{min-height:420px;align-self:stretch}
+/* La columna es 1:2 y la foto va en 9:16: se recorta un 11 % del ancho. El encuadre se ancla en el
+   tercio de la cabeza para que ella entre completa, con aire sobre el moño, y no solo el torso. */
+.despertar-grid .despertar-foto img{object-position:50% 34%}
 .despertar-texto{max-width:64ch}
 .despertar-texto p{font-size:1.12em;line-height:1.75;color:var(--primary);margin-bottom:22px}
 .despertar-texto p:first-child{font-family:var(--serif);font-size:clamp(1.55rem,2.2vw,1.85rem);
@@ -403,6 +406,8 @@ footer a{color:var(--primary);opacity:.85}
   /* la foto vuelve a su sección: con position:static se iba arriba, encima del hero (31-oct) */
   .rest-foto{order:2;min-height:0}
   .rest-foto img{position:static;height:auto;aspect-ratio:4/5}
+  /* esta foto es 9:16: en móvil se muestra entera (si no, el cuaderno y la taza quedan fuera) */
+  .despertar-grid .despertar-foto img{aspect-ratio:9/16;object-position:50% 50%}
   /* móvil: menos capas, sin cursor ni sticky */
   .hide-m{display:none}
   .luz-d{left:-30%;top:-22%;width:90%}
