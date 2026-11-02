@@ -18,17 +18,30 @@
 <body>
 <nav class="nav"><div class="wrap"><a class="brand" href="/dl-web/">Divine Light Journey</a><ul><li><a href="/dl-web/" aria-current="page">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul><details class="menu"><summary>Menú</summary><ul><li><a href="/dl-web/">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul></details><span class="lang"><b>ES</b> · EN</span></div></nav>
 <header class="hero-video" id="hero">
+  <svg class="hero-filtro" aria-hidden="true" focusable="false">
+    <filter id="seda" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.012" numOctaves="3" seed="7" result="ruido">
+        <animate attributeName="baseFrequency" dur="34s" values="0.006 0.012;0.010 0.018;0.006 0.012" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="ruido" scale="120" xChannelSelector="R" yChannelSelector="G">
+        <animate attributeName="scale" dur="26s" values="90;150;90" repeatCount="indefinite"/>
+      </feDisplacementMap>
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
+    <filter id="seda-m" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.010 0.018" numOctaves="2" seed="7" result="ruido">
+        <animate attributeName="baseFrequency" dur="30s" values="0.010 0.018;0.014 0.023;0.010 0.018" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="ruido" scale="76" xChannelSelector="R" yChannelSelector="G">
+        <animate attributeName="scale" dur="24s" values="58;98;58" repeatCount="indefinite"/>
+      </feDisplacementMap>
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+  </svg>
   <div class="capa" data-k="70" data-dolly="0.09"><div class="capa-in" data-m="24">
-    <video class="hero-media" autoplay muted loop playsinline preload="none"
-           aria-hidden="true" tabindex="-1"></video>
+    <div class="hero-seda" aria-hidden="true"><div class="seda-luz"></div><div class="seda-pliegues"></div><div class="seda-velo"></div></div>
   </div></div>
   <div class="capa" data-k="120"><div class="capa-in" data-m="40"><div class="hero-glow" aria-hidden="true"></div></div></div>
-  <div class="capa" data-k="320" style="z-index:2"><div class="capa-in" data-m="48">
-    <img class="veil veil-l" src="/dl-web/assets/veil-left.webp" alt="" width="1500" height="1100" decoding="async">
-  </div></div>
-  <div class="capa" data-k="340"><div class="capa-in" data-m="60">
-    <img class="veil veil-r" src="/dl-web/assets/veil-right.webp" alt="" width="1500" height="1100" decoding="async">
-  </div></div>
   <div class="hero-veil" aria-hidden="true"></div>
   <div class="wrap hero-content">
     <div class="eyebrow" data-reveal style="--d:0ms">Divine Light Journey</div>
@@ -42,47 +55,8 @@
     </div>
   </div>
   <div class="capa hero-front" data-k="620"><div class="capa-in" data-m="80">
-    <img class="veil veil-f" src="/dl-web/assets/veil-front.webp" alt="" width="1800" height="700" decoding="async">
+    <div class="seda-frente" aria-hidden="true"></div>
   </div></div>
-  <script>
-    // El vídeo del hero se carga por JS para no descargarlo cuando se pide movimiento reducido.
-    // Va fuera de GSAP a propósito: si la librería no cargara, el vídeo tiene que seguir funcionando.
-    (function () {
-      var v = document.querySelector("#hero .hero-media");
-      if (!v) return;
-      var small = window.matchMedia("(max-width: 900px)");
-      function pick() {
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          v.removeAttribute("autoplay");
-          v.pause();
-          return;
-        }
-        // móvil: el hero son las ondas; el vídeo está oculto y no se descarga
-        if (small.matches) {
-          v.pause();
-          return;
-        }
-        var src = "/dl-web/assets/hero-loop.mp4";
-        var poster = "/dl-web/assets/hero-poster.jpg";
-        if (v.getAttribute("data-src") === src) return;
-        v.setAttribute("data-src", src);
-        v.setAttribute("poster", poster);
-        var fuente = v.querySelector("source");
-        if (!fuente) {
-          fuente = document.createElement("source");
-          fuente.type = "video/mp4";
-          v.appendChild(fuente);
-        }
-        fuente.setAttribute("src", src);
-        v.load();
-        var p = v.play();
-        if (p && p.catch) p.catch(function () {});
-      }
-      pick();
-      small.addEventListener("change", pick);
-      window.matchMedia("(prefers-reduced-motion: reduce)").addEventListener("change", pick);
-    })();
-  </script>
   <script src="/dl-web/assets/vendor/gsap.min.js" defer></script>
   <script src="/dl-web/assets/vendor/ScrollTrigger.min.js" defer></script>
   <script>
