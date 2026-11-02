@@ -8,26 +8,26 @@
   --ochre:#8A6D35; --ochre-soft:#F3E4C9;
   --s0:#FFFFFF; --s1:#FFFCF6; --s2:#F9F4EE; --s3:#F6F1EB; --s4:#F2EDE5; --s5:#E6DED5; --s6:#DED5CA;
   --line:#CEC4B7; --ink:#353535;
-  --serif:"Fraunces",Georgia,serif; --sans:"DM Sans",-apple-system,Segoe UI,Roboto,sans-serif;
+  --serif:"Playfair Display",Georgia,serif; --sans:"Jost",-apple-system,Segoe UI,Roboto,sans-serif;
   --wrap:1200px;
   /* ritmo vertical único: padding superior e inferior de cada sección de la home (31-oct) */
   --gap-sec:clamp(56px,8vw,110px);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--s0);color:var(--primary);font-family:var(--sans);font-size:16px;line-height:1.7;
+body{margin:0;background:var(--s0);color:var(--primary);font-family:var(--sans);font-size:17.5px;font-weight:400;line-height:1.7;
      -webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
 a{color:var(--accent-ink);text-decoration:none}
 a:hover{text-decoration:underline}
-h1,h2,h3,h4{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.015em;line-height:1.1}
-h1{font-size:clamp(2.5rem,6vw,4.6rem);letter-spacing:-.02em;line-height:1.02}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;margin:0;letter-spacing:-.005em;line-height:1.15}
+h1{font-size:clamp(2.5rem,6vw,4.4rem);letter-spacing:-.01em;line-height:1.08}
 h2{font-size:clamp(1.8rem,3.6vw,2.9rem);margin-bottom:18px}
 h3{font-size:clamp(1.15rem,1.8vw,1.5rem);margin-bottom:10px}
 p{margin:0 0 18px;max-width:68ch}
-.lead{font-size:clamp(1.05rem,1.6vw,1.25rem);font-weight:300;color:var(--secondary);max-width:60ch}
-.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink);font-weight:600;
+.lead{font-size:clamp(1.15rem,1.7vw,1.35rem);font-weight:400;color:var(--secondary);max-width:60ch}
+.eyebrow{font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-ink);font-weight:500;
          display:flex;align-items:center;gap:12px;margin-bottom:16px}
 .eyebrow::before{content:"";width:36px;height:1px;background:var(--gold);display:block}
 
@@ -38,7 +38,7 @@ p{margin:0 0 18px;max-width:68ch}
 .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.9rem}
 .nav a{color:var(--s1);opacity:1}
 .nav a:hover,.nav a[aria-current="page"]{opacity:1;text-decoration:none;border-bottom:2px solid var(--s1)}
-.lang{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:1;white-space:nowrap}
+.lang{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--s1);opacity:1;white-space:nowrap}
 .lang b{opacity:1;border-bottom:2px solid var(--s1);padding-bottom:2px}
 .menu{display:none;position:relative}
 .menu summary{list-style:none;cursor:pointer;border:1px solid rgba(255,252,246,.45);border-radius:999px;
@@ -216,7 +216,7 @@ footer a{color:var(--primary);opacity:.85}
 
 /* Revelado: de desenfoque a foco al entrar en pantalla.
    Se activa solo si el JS marcó <html class="rv">: sin JS no se oculta nada. */
-.rv [data-reveal]{opacity:.25;filter:blur(9px);transform:translateY(14px);
+.rv [data-reveal]{opacity:0;
   transition:opacity .7s cubic-bezier(.22,.61,.36,1),filter .9s cubic-bezier(.22,.61,.36,1),
              transform .9s cubic-bezier(.22,.61,.36,1);transition-delay:var(--d,0ms)}
 /* 31-oct: las fotos ya no se desenfocan (la clienta lo leía como «fantasma»): solo asientan la escala */
@@ -245,7 +245,7 @@ footer a{color:var(--primary);opacity:.85}
 .hero-media{animation:enfoque 1.2s cubic-bezier(.22,.61,.36,1) .12s both}
 
 /* el texto del hero está sobre el pliegue: cascada al cargar, no observador */
-@keyframes entrada{from{opacity:.2;filter:blur(9px);transform:translateY(14px)}to{opacity:1;filter:blur(0);transform:none}}
+@keyframes entrada{from{opacity:0}to{opacity:1}}
 .hero-content [data-reveal]{animation:entrada .95s cubic-bezier(.22,.61,.36,1) both;animation-delay:var(--d,0ms)}
 .hero-content h1[data-reveal]{--d:120ms}
 
