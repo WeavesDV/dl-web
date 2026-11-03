@@ -188,6 +188,11 @@ p{margin:0 0 18px;max-width:68ch}
 .hero-texto .cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
 .hero-texto [data-reveal]{animation:entrada .95s cubic-bezier(.22,.61,.36,1) both;animation-delay:var(--d,0ms)}
 .hero-texto h1[data-reveal]{--d:120ms}
+/* En páginas interiores el mismo hero partido, con el campo en crema en vez de cielo. */
+.hero-split-crema{background:var(--s1)}
+.hero-split-crema .hero-texto .eyebrow{color:var(--gold-ink)}
+.hero-split-crema .hero-texto .eyebrow::after{background:var(--gold)}
+.hero-split-crema .hero-texto h1{color:var(--primary)}
 .hero-foto{position:relative;overflow:hidden;min-height:0}
 .hero-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% 50%}
 /* La junta no se pinta encima: la foto se disuelve sobre el campo con una máscara.
