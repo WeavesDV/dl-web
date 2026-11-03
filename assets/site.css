@@ -355,7 +355,7 @@ footer a{color:var(--primary);opacity:.85}
 .qs-banda-texto p{font-family:var(--serif);font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.2;color:var(--primary);
   margin:0;max-width:24ch}
 .qs-banda{margin:0}
-.qs-banda img{width:100%;aspect-ratio:2/1;object-fit:cover;object-position:50% 46%;border-radius:24px;display:block}
+.qs-banda img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 50%;border-radius:24px;display:block}
 .qs-grid .rest-texto>*{max-width:60ch}
 .qs-grid .rest-texto p{margin-bottom:22px}
 .qs-grid .rest-texto p:first-child{font-family:var(--sans);font-size:1.12em;line-height:1.72;margin-bottom:22px}
