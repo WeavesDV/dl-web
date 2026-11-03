@@ -170,6 +170,38 @@ p{margin:0 0 18px;max-width:68ch}
 .hero-content .lead{margin-top:20px;max-width:46ch}
 .hero-content .cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
 
+/* ── Hero de la home (4-nov): dos campos que se encuentran ─────────────────
+   Izquierda, el campo plano #C1D4E2 con el texto en navy (9,28:1); derecha, la fotografía a sangre.
+   #C1D4E2 es el fondo del texto, no un velo sobre la foto. El menú sigue en #82BEE0: los dos cielos se tocan
+   con 1,33:1, así que la barra lleva debajo un filete de 1 px (navy a 0,30 de opacidad, algo más oscuro que ambos). */
+.hero-split{display:grid;grid-template-columns:52fr 48fr;min-height:clamp(520px,78vh,720px);
+  background:#C1D4E2;border-top:1px solid rgba(30,42,74,.30)}
+.hero-texto{align-self:center;
+  padding:clamp(56px,7vw,96px) clamp(32px,4vw,64px) clamp(56px,7vw,96px) max(32px,calc((100vw - var(--wrap))/2 + 32px))}
+.hero-texto .eyebrow{color:var(--cielo-ink)}
+.hero-texto .eyebrow::after{background:var(--cielo-ink)}
+.hero-texto h1{max-width:17ch;color:var(--cielo-ink);text-wrap:balance;
+  /* la columna del hero es la mitad que antes: a 76 px el titular partía en cuatro líneas con «crecer,»
+     huérfano. A 54 px parte en tres y sigue siendo el elemento más grande de la página. */
+  font-size:clamp(2.05rem,3.3vw,3.4rem);line-height:1.08;letter-spacing:-.012em}
+.hero-texto .lead{margin-top:20px;max-width:46ch;color:var(--primary)}
+.hero-texto .cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-texto [data-reveal]{animation:entrada .95s cubic-bezier(.22,.61,.36,1) both;animation-delay:var(--d,0ms)}
+.hero-texto h1[data-reveal]{--d:120ms}
+.hero-foto{position:relative;overflow:hidden;min-height:0}
+.hero-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% 50%}
+/* La foto arranca clara (cielo y contraluz) y el campo es plano: cortada en seco, la junta se lee como una
+   línea dura. Los últimos 72 px del lado de la junta se funden desde #C1D4E2; el resto de la foto va sin tocar. */
+.hero-foto::before{content:"";position:absolute;z-index:1;left:0;top:0;bottom:0;width:clamp(72px,10vw,150px);
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(193,212,226,1) 0%,rgba(193,212,226,.82) 22%,rgba(193,212,226,.52) 46%,
+             rgba(193,212,226,.24) 68%,rgba(193,212,226,.07) 86%,rgba(193,212,226,0) 100%)}
+
+/* Banda de vídeo antes del pie: respiro visual, sin texto encima */
+.banda-video{position:relative;overflow:hidden;height:clamp(320px,38vw,520px);background:var(--sky)}
+.banda-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (prefers-reduced-motion:reduce){.hero-texto [data-reveal]{animation:none}}
+
 /* Botones: tres niveles (lg · base · sm). El problema no era el color sino que la letra del botón
    (15 px) quedaba por debajo del cuerpo (18 px) y el interlineado 1.7 hinchaba la píldora a 58 px.
    Ahora la letra manda y el alto sale del padding, no del interlineado. */
@@ -641,6 +673,14 @@ body.modal-abierto{overflow:hidden}
   .onda,.onda-velo,.onda-frente,.hero-glow{animation:none;will-change:auto}
 }
 @media (max-width:900px){
+  /* hero de la home: texto a todo el ancho sobre #C1D4E2 y la foto a sangre debajo */
+  .hero-split{grid-template-columns:1fr;min-height:0}
+  .hero-texto{align-self:start;padding:48px 20px 44px}
+  .hero-texto .lead{font-size:1rem;max-width:38ch}
+  .hero-foto{aspect-ratio:4/3}
+  .hero-foto::before{right:0;bottom:auto;width:auto;height:44px;
+    background:linear-gradient(180deg,rgba(193,212,226,1) 0%,rgba(193,212,226,.72) 18%,rgba(193,212,226,.42) 40%,
+               rgba(193,212,226,.18) 65%,rgba(193,212,226,.05) 85%,rgba(193,212,226,0) 100%)}
   /* 31-oct: en móvil el hero son las ondas (degradado + resplandor + velos), sin vídeo */
   .hero-media{display:none}
   /* mismas ondas, filtro más barato (1 octava, menos desplazamiento) y anillos más estrechos */

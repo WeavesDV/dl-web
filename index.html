@@ -17,30 +17,8 @@
 </head>
 <body>
 <nav class="nav"><div class="wrap"><a class="brand" href="/dl-web/">Divine Light Journey</a><ul><li><a href="/dl-web/" aria-current="page">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul><details class="menu"><summary>Menú</summary><ul><li><a href="/dl-web/">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul></details><span class="lang"><b>ES</b> · EN</span></div></nav>
-<header class="hero-video" id="hero">
-  <svg class="hero-filtro" aria-hidden="true" focusable="false">
-    <filter id="ondas" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.0045 0.008" numOctaves="2" seed="11" result="ruido"/>
-      <feDisplacementMap in="SourceGraphic" in2="ruido" scale="170" xChannelSelector="R" yChannelSelector="G"/>
-      <feGaussianBlur stdDeviation="2.5"/>
-    </filter>
-    <filter id="ondas-m" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.014" numOctaves="1" seed="11" result="ruido"/>
-      <feDisplacementMap in="SourceGraphic" in2="ruido" scale="90" xChannelSelector="R" yChannelSelector="G"/>
-      <feGaussianBlur stdDeviation="2"/>
-    </filter>
-  </svg>
-  <div class="capa" data-k="70" data-dolly="0.09"><div class="capa-in" data-m="24">
-    <div class="hero-ondas" aria-hidden="true">
-      <div class="onda-velo"></div>
-      <div class="onda"><div class="onda-anillos"></div></div>
-    </div>
-    <video class="hero-media" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
-  </div></div>
-  <div class="capa" data-k="120"><div class="capa-in" data-m="40"><div class="hero-glow" aria-hidden="true"></div></div></div>
-  <div class="hero-veil" aria-hidden="true"></div>
-  <div class="hero-grano" aria-hidden="true"></div>
-  <div class="wrap hero-content">
+<header class="hero-split" id="hero">
+  <div class="hero-texto">
     <div class="eyebrow" data-reveal style="--d:0ms">Divine Light Journey</div>
     <h1 data-reveal style="--d:0ms">Un espacio para crecer, reconectar y transformar</h1>
     <p class="lead" data-reveal style="--d:160ms">Creamos experiencias de crecimiento personal y bienestar emocional que invitan a detenerse,
@@ -50,100 +28,12 @@
       <a class="btn btn-primary btn-lg" href="/dl-web/experiencias/">Ver experiencias</a>
     </div>
   </div>
-  <div class="capa hero-front" data-k="620"><div class="capa-in" data-m="80">
-    <div class="onda-frente" aria-hidden="true"></div>
-  </div></div>
-  <script>
-    // El vídeo del hero se carga por JS: no se descarga en móvil (allí mandan las ondas CSS, más baratas)
-    // ni con prefers-reduced-motion. Cuando puede reproducir, se funde encima y las ondas se apagan.
-    (function () {
-      var hero = document.querySelector('#hero');
-      var v = hero && hero.querySelector('.hero-media');
-      if (!v) return;
-      var escrito = window.matchMedia('(max-width: 900px)');
-      var quieto = window.matchMedia('(prefers-reduced-motion: reduce)');
-      function pick() {
-        if (escrito.matches || quieto.matches) {
-          v.pause(); hero.classList.remove('video-listo'); return;
-        }
-        var src = '/dl-web/assets/hero-loop-720.mp4';
-        if (v.getAttribute('data-src') === src) return;
-        v.setAttribute('data-src', src);
-        v.setAttribute('poster', '/dl-web/assets/hero-poster.jpg');
-        v.setAttribute('autoplay', '');
-        var f = v.querySelector('source');
-        if (!f) { f = document.createElement('source'); f.type = 'video/mp4'; v.appendChild(f); }
-        f.setAttribute('src', src);
-        v.addEventListener('canplay', function () { hero.classList.add('video-listo'); }, { once: true });
-        v.load();
-        var p = v.play();
-        if (p && p.catch) p.catch(function () {});
-      }
-      pick();
-      escrito.addEventListener('change', pick);
-      quieto.addEventListener('change', pick);
-    })();
-  </script>
+  <div class="hero-foto">
+    <img src="/dl-web/assets/img/hero-foto-960.webp" width="920" height="780" fetchpriority="high" decoding="async"
+         alt="Mujer de perfil con el rostro alzado hacia el sol, sosteniendo entre las manos una flor seca a contraluz">
+  </div>
   <script src="/dl-web/assets/vendor/gsap.min.js" defer></script>
   <script src="/dl-web/assets/vendor/ScrollTrigger.min.js" defer></script>
-  <script>
-    // «Atravesar la luz»: GSAP es la única fuente de movimiento del hero.
-    //  - scroll  -> .capa    (ScrollTrigger scrub: data-k px de recorrido)
-    //  - cursor  -> .capa-in (quickTo: data-m px de amplitud)
-    //  - ambiente -> animación CSS del resplandor y de los velos
-    // Los scripts con defer se ejecutan antes de DOMContentLoaded.
-    document.addEventListener("DOMContentLoaded", function () {
-      var hero = document.getElementById("hero");
-      if (!hero || !window.gsap || !window.ScrollTrigger) return;
-      gsap.registerPlugin(ScrollTrigger);
-      var mm = gsap.matchMedia();
-
-      mm.add("(prefers-reduced-motion: no-preference)", function () {
-        // scroll: un tween por capa, ligado al desplazamiento del hero
-        var trig = { trigger: hero, start: "top top", end: "bottom top", scrub: true };
-        hero.querySelectorAll(".capa").forEach(function (capa) {
-          var vars = { y: -(parseFloat(capa.getAttribute("data-k")) || 0), ease: "none", scrollTrigger: trig };
-          var dolly = parseFloat(capa.getAttribute("data-dolly"));
-          if (dolly) vars.scale = 1 + dolly;
-          gsap.to(capa, vars);
-        });
-
-        // el contenido se retira al abandonar el hero: no empieza hasta pasar el 55 %
-        var conte = hero.querySelector(".hero-content");
-        if (conte) {
-          gsap.timeline({ scrollTrigger: trig, defaults: { ease: "none" } })
-            .to(conte, { duration: 0.55 })
-            .to(conte, { duration: 0.4, opacity: 0, y: 26 })
-            .set(conte, { visibility: "hidden" }, 0.985)
-            .to(conte, { duration: 0.05 });
-        }
-
-        // cursor: se persigue, no se copia
-        var cam = [].map.call(hero.querySelectorAll(".capa-in"), function (el) {
-          var m = parseFloat(el.getAttribute("data-m")) || 0;
-          var o = { duration: 0.6, ease: "power3.out" };
-          return { m: m, x: gsap.quickTo(el, "x", o), y: gsap.quickTo(el, "y", o) };
-        });
-        function mover(nx, ny) {
-          cam.forEach(function (c) { c.x(nx * c.m); c.y(ny * c.m * 0.55); });
-        }
-        // por tipo de puntero y no por (hover:hover): hay escritorios que lo reportan false
-        function onMove(e) {
-          if (e.pointerType === "touch") return;
-          var b = hero.getBoundingClientRect();
-          mover(((e.clientX - b.left) / b.width - 0.5) * 2, ((e.clientY - b.top) / b.height - 0.5) * 2);
-        }
-        function onLeave() { mover(0, 0); }
-        hero.addEventListener("pointermove", onMove, { passive: true });
-        hero.addEventListener("pointerleave", onLeave, { passive: true });
-
-        return function () {
-          hero.removeEventListener("pointermove", onMove);
-          hero.removeEventListener("pointerleave", onLeave);
-        };
-      });
-    });
-  </script>
   <script src="/dl-web/assets/escenas.js" defer></script>
 </header>
 
@@ -248,6 +138,39 @@
     <a class="btn btn-primary btn-lg" href="/dl-web/contacto/" data-modal>Escríbenos</a>
     <span class="luz-cta" aria-hidden="true"></span>
   </div>
+</section>
+
+<section class="banda-video" aria-hidden="true">
+  <video muted loop playsinline preload="none" tabindex="-1" poster="/dl-web/assets/hero-poster.jpg"
+         data-src="/dl-web/assets/hero-loop-720.mp4"></video>
+  <script>
+    // El vídeo no se pide hasta que la banda está cerca del viewport, y con prefers-reduced-motion
+    // no se pide nunca: se queda el póster. Fuera de pantalla se pausa.
+    (function () {
+      var v = document.querySelector('.banda-video video');
+      if (!v) return;
+      var quieto = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (quieto.matches || !('IntersectionObserver' in window)) return;
+      var cargado = false;
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (!e.isIntersecting) { v.pause(); return; }
+          if (quieto.matches) return;
+          if (!cargado) {
+            cargado = true;
+            v.setAttribute('preload', 'metadata');
+            v.setAttribute('autoplay', '');
+            var f = document.createElement('source');
+            f.type = 'video/mp4'; f.src = v.getAttribute('data-src');
+            v.appendChild(f);
+            v.load();
+          }
+          var p = v.play();
+          if (p && p.catch) p.catch(function () {});
+        });
+      }, { rootMargin: '200px 0px' }).observe(v);
+    })();
+  </script>
 </section>
 <footer>
   <div class="wrap">
