@@ -53,8 +53,15 @@ p{margin:0 0 18px;max-width:68ch}
 .menu ul a:hover{background:var(--s4);text-decoration:none}
 
 /* hero */
-.hero{background:linear-gradient(180deg,var(--sky) 0%,var(--ochre-soft) 38%,var(--glow) 68%,var(--dawn) 100%);
+.hero{position:relative;overflow:hidden;
+      background:linear-gradient(180deg,var(--sky) 0%,var(--ochre-soft) 38%,var(--glow) 68%,var(--dawn) 100%);
       padding:clamp(64px,9vw,120px) 0 clamp(56px,8vw,96px)}
+/* La junta con la sección siguiente no es una línea: es el degradado cortado en seco contra el blanco.
+   Se funde con un velo del color de la sección (blanco) para que la página se lea continua, como Misión. */
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(120px,15vw,220px);
+      z-index:1;pointer-events:none;
+      background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.55) 55%,#FFFFFF 100%)}
+.hero>.wrap{position:relative;z-index:2}
 .hero h1{max-width:18ch}
 .hero .lead{margin-top:22px}
 .hero .cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
