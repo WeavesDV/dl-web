@@ -190,16 +190,32 @@ p{margin:0 0 18px;max-width:68ch}
 .hero-texto h1[data-reveal]{--d:120ms}
 .hero-foto{position:relative;overflow:hidden;min-height:0}
 .hero-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% 50%}
-/* La foto arranca clara (cielo y contraluz) y el campo es plano: cortada en seco, la junta se lee como una
-   línea dura. Los últimos 72 px del lado de la junta se funden desde #C1D4E2; el resto de la foto va sin tocar. */
-.hero-foto::before{content:"";position:absolute;z-index:1;left:0;top:0;bottom:0;width:clamp(72px,10vw,150px);
+/* La junta no se pinta encima: la foto se disuelve sobre el campo con una máscara.
+   Pintar un degradado de color sobre una foto con el sol al borde no se ve; enmascarar la imagen sí,
+   porque lo que aparece en la zona fundida es el azul del campo, no una capa sucia encima. */
+.hero-foto img{-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.18) 6%,
+                 rgba(0,0,0,.62) 14%,#000 26%,#000 100%);
+               mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.18) 6%,
+                 rgba(0,0,0,.62) 14%,#000 26%,#000 100%)}
+.hero-foto::before{content:"";position:absolute;z-index:1;left:0;top:0;bottom:0;width:clamp(40px,5vw,80px);
   pointer-events:none;
-  background:linear-gradient(90deg,rgba(193,212,226,1) 0%,rgba(193,212,226,.82) 22%,rgba(193,212,226,.52) 46%,
-             rgba(193,212,226,.24) 68%,rgba(193,212,226,.07) 86%,rgba(193,212,226,0) 100%)}
+  background:linear-gradient(90deg,rgba(193,212,226,.55) 0%,rgba(193,212,226,.22) 55%,rgba(193,212,226,0) 100%)}
 
-/* Banda de vídeo antes del pie: respiro visual, sin texto encima */
-.banda-video{position:relative;overflow:hidden;height:clamp(320px,38vw,520px);background:var(--sky)}
-.banda-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* El cierre de la home lleva el vídeo de fondo, fundido por arriba y por abajo: no hay banda ni corte.
+   El velo es radial y de crema — protege el texto en el centro y deja ver el vídeo en los bordes. */
+.close{position:relative;overflow:hidden}
+.close-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0;
+  transition:opacity 1.4s ease;
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 18%,#000 82%,rgba(0,0,0,0) 100%);
+  mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 18%,#000 82%,rgba(0,0,0,0) 100%)}
+.close.video-listo .close-video{opacity:.95}
+.close-velo{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(62% 78% at 50% 52%,rgba(255,252,246,.82) 0%,rgba(255,252,246,.62) 44%,
+             rgba(255,252,246,.34) 72%,rgba(255,252,246,.14) 100%)}
+/* el cierre termina en el color del pie: sin escalón entre la sección y el footer */
+.close::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(90px,12vw,160px);z-index:2;
+  pointer-events:none;background:linear-gradient(180deg,rgba(230,222,213,0) 0%,#E6DED5 100%)}
+.close>.wrap{position:relative;z-index:3}
 @media (prefers-reduced-motion:reduce){.hero-texto [data-reveal]{animation:none}}
 
 /* Botones: tres niveles (lg · base · sm). El problema no era el color sino que la letra del botón
@@ -288,7 +304,7 @@ section>.wrap>:last-child,.rest-texto>:last-child{margin-bottom:0}
        text-align:center;padding:var(--gap-sec) 0}
 .close h2{margin:0 auto 14px;max-width:20ch}
 .close p{margin:0 auto 26px;color:var(--secondary)}
-footer{background:var(--s5);color:var(--primary);border-top:1px solid var(--line)}
+footer{background:var(--s5);color:var(--primary)}  /* sin filete: el cierre se funde en el color del pie */
 footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;padding-top:56px;padding-bottom:40px}
 footer .brand{color:var(--gold-ink)}
 footer p{font-size:.85rem;color:var(--secondary);margin:10px 0 0;max-width:26ch}
