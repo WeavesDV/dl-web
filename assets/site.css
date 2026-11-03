@@ -1,10 +1,12 @@
 
 :root{
   --primary:#36374B; --secondary:#6A5C49;
-  --accent:#70A3B2; --accent-soft:#B9D2D8; --accent-ink:#43616A; --accent-deep:#4E727C;
+  --accent:#82BEE0; --accent-soft:#CFE4EC; --accent-ink:#2F5F85; --accent-deep:#48799C;
   --rose:#DAA79F; --rose-soft:#E6C5C0; --rose-ink:#775B57;
   --gold:#D9B26B; --gold-soft:#EFD9B4; --gold-ink:#7A5C26;
   --sky:#CFE4EC; --glow:#F7E3C4; --dawn:#FBEFDD;
+  --cielo:#82BEE0; --cielo-ink:#1E2A4A; --cielo-100:#EAF4FA;
+  --cielo-300:#CFE4EC; --cielo-600:#4E7FA6;
   --ochre:#8A6D35; --ochre-soft:#F3E4C9;
   --s0:#FFFFFF; --s1:#FFFCF6; --s2:#F9F4EE; --s3:#F6F1EB; --s4:#F2EDE5; --s5:#E6DED5; --s6:#DED5CA;
   --line:#CEC4B7; --ink:#353535;
@@ -30,21 +32,22 @@ p{margin:0 0 18px;max-width:68ch}
 .eyebrow{font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-ink);font-weight:500;
          display:flex;align-items:center;gap:12px;margin-bottom:16px}
 .eyebrow::before{content:"";width:36px;height:1px;background:var(--gold);display:block}
+.eyebrow::after{content:"";width:16px;height:1px;background:var(--cielo);display:block}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:40;background:var(--ochre);color:var(--s1)}
+.nav{position:sticky;top:0;z-index:40;background:var(--cielo);color:var(--cielo-ink)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:64px}
-.brand{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--s1)}
+.brand{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--cielo-ink)}
 .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.9rem}
-.nav a{color:var(--s1);opacity:1}
-.nav a:hover,.nav a[aria-current="page"]{opacity:1;text-decoration:none;border-bottom:2px solid var(--s1)}
-.lang{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--s1);opacity:1;white-space:nowrap}
-.lang b{opacity:1;border-bottom:2px solid var(--s1);padding-bottom:2px}
+.nav a{color:var(--cielo-ink);opacity:1}
+.nav a:hover,.nav a[aria-current="page"]{opacity:1;text-decoration:none;border-bottom:2px solid var(--cielo-ink)}
+.lang{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cielo-ink);opacity:1;white-space:nowrap}
+.lang b{opacity:1;border-bottom:2px solid var(--cielo-ink);padding-bottom:2px}
 .menu{display:none;position:relative}
-.menu summary{list-style:none;cursor:pointer;border:1px solid rgba(255,252,246,.45);border-radius:999px;
-  padding:8px 16px;font-size:.85rem;color:var(--s1)}
+.menu summary{list-style:none;cursor:pointer;border:1px solid rgba(30,42,74,.38);border-radius:999px;
+  padding:8px 16px;font-size:.85rem;color:var(--cielo-ink)}
 .menu summary::-webkit-details-marker{display:none}
-.menu[open] summary{background:rgba(255,252,246,.14)}
+.menu[open] summary{background:rgba(30,42,74,.10)}
 .menu ul{position:absolute;right:0;top:calc(100% + 10px);background:var(--s1);color:var(--primary);
   border:1px solid var(--line);border-radius:14px;padding:10px 0;min-width:220px;
   box-shadow:0 18px 44px rgba(54,55,75,.18);display:block}
@@ -173,7 +176,7 @@ p{margin:0 0 18px;max-width:68ch}
 .btn-primary:hover{background:var(--ink);text-decoration:none}
 .btn-gold{background:var(--gold);color:var(--primary)}
 .btn-gold:hover{background:var(--gold-soft);text-decoration:none}
-.btn-ghost{background:transparent;color:var(--primary);border-color:#9A8E7C} /* borde 3.1:1, no 1.68 */
+.btn-ghost{background:transparent;color:var(--primary);border-color:var(--cielo-600)} /* 4.2:1 sobre crema */
 .btn-ghost:hover{background:var(--s1);text-decoration:none}
 
 section{padding:var(--gap-sec) 0}
@@ -187,7 +190,7 @@ section>.wrap>:last-child,.rest-texto>:last-child{margin-bottom:0}
 .grid{display:grid;gap:22px}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g2{grid-template-columns:repeat(2,1fr)}
-.card{background:var(--s0);border:1px solid var(--line);border-radius:18px;padding:30px}
+.card{background:var(--s0);border:1px solid var(--cielo-300);border-radius:18px;padding:30px}
 .card-sand{background:var(--s4);border-color:#DCD2C6}
 .card h3{color:var(--primary)}
 .card p:last-child{margin-bottom:0}
@@ -203,7 +206,7 @@ section>.wrap>:last-child,.rest-texto>:last-child{margin-bottom:0}
 .exp-card{margin:0;min-width:0}
 .exp-card figure{margin:0 0 20px}
 .exp-card img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 50%;border-radius:18px;display:block;
-  border:1px solid var(--line);background:var(--s4);box-sizing:border-box}
+  border:1px solid var(--cielo-300);background:var(--cielo-100);box-sizing:border-box}
 /* la sala de retiro es 16:9 en una caja vertical: el recorte se centra en la bandeja y los cojines */
 .exp-card img.foto-retiro{object-position:50% 50%}
 .exp-card h3{margin:0 0 10px;font-size:clamp(1.3rem,1.7vw,1.5rem)}
@@ -248,7 +251,7 @@ footer a{color:var(--primary);opacity:.85}
 .field label{font-size:13px;font-weight:500}
 .field input,.field textarea{font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:12px;
      background:var(--s0);color:var(--primary)}
-.field input:focus,.field textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.field input:focus,.field textarea:focus{outline:2px solid var(--accent-ink);outline-offset:1px;border-color:var(--accent-ink)}
 .hint{font-size:12px;color:var(--secondary)}
 .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
 /* Contacto: el formulario es una tarjeta con borde propio (no flota) y la foto de la mesa de escribir
@@ -263,7 +266,7 @@ footer a{color:var(--primary);opacity:.85}
 .ct-grid .hint{font-size:14px;margin:0}
 .ct-lado{display:grid;gap:clamp(24px,3vw,36px)}
 .ct-foto{margin:0}
-.ct-foto img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:46% 62%;border-radius:24px;display:block}
+.ct-foto img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 52%;border-radius:24px;display:block}
 .ct-datos{display:grid;gap:22px}
 .ct-dato{border-top:1px solid var(--line);padding-top:18px}
 .ct-dato h3{margin:0 0 6px;font-size:clamp(1.25rem,1.7vw,1.45rem)}
@@ -280,7 +283,7 @@ footer a{color:var(--primary);opacity:.85}
 .band{padding:var(--gap-sec) 0}
 .band-img{position:relative;margin:0 auto;max-width:calc(var(--wrap) + 64px);border-radius:24px;overflow:hidden;
   min-height:clamp(460px,52vw,620px);display:flex;align-items:center;background:var(--sky)}
-.float-card{position:relative;z-index:1;background:var(--s1);border:1px solid var(--line);border-radius:18px;
+.float-card{position:relative;z-index:1;background:var(--s1);border:1px solid var(--cielo-300);border-radius:18px;
   padding:clamp(24px,3vw,40px);box-shadow:0 18px 44px rgba(54,55,75,.10)}
 .band-img .float-card{margin-left:clamp(20px,5vw,64px);max-width:480px}
 .float-card h2{margin-bottom:14px}
@@ -307,7 +310,7 @@ footer a{color:var(--primary);opacity:.85}
 .despertar-grid .despertar-foto{min-height:420px;align-self:stretch}
 /* La columna es 1:2 y la foto va en 9:16: se recorta un 11 % del ancho. El encuadre se ancla en el
    tercio de la cabeza para que ella entre completa, con aire sobre el moño, y no solo el torso. */
-.despertar-grid .despertar-foto img{object-position:50% 34%}
+.despertar-grid .despertar-foto img{object-position:50% 42%}
 .despertar-texto{max-width:64ch}
 .despertar-texto p{font-size:1.12em;line-height:1.75;color:var(--primary);margin-bottom:22px}
 .despertar-texto p:first-child{font-family:var(--serif);font-size:clamp(1.62rem,2.3vw,1.95rem);
@@ -330,7 +333,7 @@ footer a{color:var(--primary);opacity:.85}
 .qs-banda-texto p{font-family:var(--serif);font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.2;color:var(--primary);
   margin:0;max-width:24ch}
 .qs-banda{margin:0}
-.qs-banda img{width:100%;aspect-ratio:2/1;object-fit:cover;object-position:50% 75%;border-radius:24px;display:block}
+.qs-banda img{width:100%;aspect-ratio:2/1;object-fit:cover;object-position:50% 46%;border-radius:24px;display:block}
 .qs-grid .rest-texto>*{max-width:60ch}
 .qs-grid .rest-texto p{margin-bottom:22px}
 .qs-grid .rest-texto p:first-child{font-family:var(--sans);font-size:1.12em;line-height:1.72;margin-bottom:22px}
@@ -341,7 +344,7 @@ footer a{color:var(--primary);opacity:.85}
 .qs-manera h2{max-width:20ch;margin-bottom:clamp(28px,4vw,48px)}
 .qs-pilares{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3.4vw,48px);margin:0 0 clamp(56px,7vw,96px)}
 .qs-pilar{border-top:1px solid var(--line);padding-top:22px}
-.qs-pilar .n{display:block;font-size:11px;font-weight:500;letter-spacing:.18em;color:var(--secondary);margin-bottom:8px}
+.qs-pilar .n{display:block;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--accent-ink);margin-bottom:8px}
 .qs-pilar h3{margin-bottom:12px}
 .qs-pilar p{margin:0;color:var(--secondary);font-size:1.02rem;line-height:1.7}
 .qs-manera .punch{font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.28;
@@ -375,7 +378,7 @@ footer a{color:var(--primary);opacity:.85}
 .steps{list-style:none;margin:0;padding:0}
 .steps li{border-top:1px solid var(--line);padding:22px 0 24px}
 .steps li:last-child{border-bottom:1px solid var(--line)}
-.steps .n{display:block;font-size:11px;font-weight:500;letter-spacing:.18em;color:var(--secondary);margin-bottom:8px}
+.steps .n{display:block;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--accent-ink);margin-bottom:8px}
 .steps h3{margin-bottom:14px;font-size:clamp(1.4rem,2.35vw,1.95rem)}
 .steps p{margin:0;color:var(--secondary)}
 .how-media{position:relative;display:block;min-height:440px}
@@ -391,7 +394,7 @@ footer a{color:var(--primary);opacity:.85}
   transition:opacity .7s cubic-bezier(.22,.61,.36,1),filter .9s cubic-bezier(.22,.61,.36,1),
              transform .9s cubic-bezier(.22,.61,.36,1);transition-delay:var(--d,0ms)}
 /* 31-oct: las fotos ya no se desenfocan (la clienta lo leía como «fantasma»): solo asientan la escala */
-.rv [data-reveal="img"],.rv [data-reveal="img"].in{opacity:1;filter:saturate(.92) contrast(.98) sepia(.05)}
+.rv [data-reveal="img"],.rv [data-reveal="img"].in{opacity:1;filter:saturate(.97) contrast(1.02)}
 .rv [data-reveal="img"]{transform:scale(1.035)}
 .rv [data-reveal].in{opacity:1;filter:blur(0);transform:none}
 @media (prefers-reduced-motion:reduce){
@@ -407,8 +410,8 @@ footer a{color:var(--primary);opacity:.85}
 .gallery li:nth-child(2){margin-top:32px}
 .gallery li:nth-child(3){margin-top:64px}
 .gallery li:nth-child(1) img{object-position:50% 50%}
-.gallery li:nth-child(2) img{object-position:28% 62%}
-.gallery li:nth-child(3) img{object-position:7% 50%}
+.gallery li:nth-child(2) img{object-position:50% 50%}
+.gallery li:nth-child(3) img{object-position:50% 50%}
 
 /* el vídeo del hero arranca desenfocado y entra en foco: el gesto que da nombre a la animación */
 @keyframes enfoque{from{filter:blur(20px) saturate(.95)}to{filter:blur(0) saturate(1.15)}}
@@ -466,8 +469,17 @@ footer a{color:var(--primary);opacity:.85}
 .bruma{position:absolute;pointer-events:none;aspect-ratio:1;
   background:radial-gradient(closest-side,rgba(207,228,236,.75) 0%,rgba(207,228,236,.4) 50%,rgba(207,228,236,0) 100%)}
 .capa-sky{inset:-16%}
-/* fotografía: tratamiento suave y uniforme para que no desentone con la paleta */
-.foto{filter:saturate(.92) contrast(.98) sepia(.05)}
+/* fotografía: tratamiento suave y uniforme para que no desentone con la paleta.
+   Sin sepia: sobre una foto real se come la luz, que es justo lo que la clienta quiere ver. */
+.foto{filter:saturate(.97) contrast(1.02)}
+/* Frase sobre la foto: franja de cielo con filete dorado. Son sus palabras, no copy nuevo. */
+.foto-frase{margin:0;background:var(--cielo-100);border-top:2px solid var(--gold);
+  padding:clamp(14px,1.6vw,17px) clamp(18px,2.2vw,22px);
+  font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,1.5vw,1.3rem);
+  line-height:1.3;color:var(--primary);border-radius:0 0 20px 20px}
+/* en la columna alta la franja se posa sobre la foto, no la estira */
+.despertar-foto .foto-frase{position:absolute;left:0;right:0;bottom:0;z-index:2;
+  border-radius:0 0 20px 20px;padding:clamp(13px,1.5vw,16px) clamp(16px,2vw,20px)}
 .capa-foto{inset:-2%}
 .foto-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 55%}
 .sky-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
@@ -501,7 +513,8 @@ footer a{color:var(--primary);opacity:.85}
 .veil-c-r{right:-12%;top:-30%;width:72%;opacity:.3;animation-name:deriva}
 
 /* 04 · experiencias: contenedor que recorta; imagen quieta (sin paralaje ni desenfoque, 31-oct) */
-.gallery .marco{position:relative;overflow:hidden;border-radius:18px;aspect-ratio:4/5}
+.gallery .marco{position:relative;overflow:hidden;border-radius:18px;aspect-ratio:4/5;
+  border:1.5px solid var(--cielo)}
 .gallery .par{position:absolute;left:0;right:0;top:0;height:100%}
 .gallery .par img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;border-radius:0}
 
