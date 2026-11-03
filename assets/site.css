@@ -185,11 +185,30 @@ section>.wrap>:last-child,.rest-texto>:last-child{margin-bottom:0}
 .card h3{color:var(--primary)}
 .card p:last-child{margin-bottom:0}
 
-/* experiencias */
-.exp{display:grid;gap:0;border-top:1px solid var(--line)}
-.exp article{padding:26px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:220px 1fr;gap:32px}
-.exp h3{margin:0}
-.exp p{margin:0;color:var(--secondary)}
+/* experiencias: entradilla estrecha, cuatro tarjetas con foto (4 / 2 / 1 columnas) y cierre */
+.exp-intro{padding-bottom:0}
+.exp-entradilla{max-width:62ch}
+.exp-entradilla p{margin:0 0 20px;font-size:1.12em;line-height:1.72;color:var(--primary)}
+.exp-entradilla p:last-child{margin-bottom:0;color:var(--secondary)}
+.exp-cards{padding-top:clamp(40px,5.5vw,72px)}
+.exp-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:clamp(24px,2.6vw,36px) clamp(20px,2.4vw,32px)}
+.exp-card{margin:0;min-width:0}
+.exp-card figure{margin:0 0 20px}
+.exp-card img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 50%;border-radius:18px;display:block;
+  border:1px solid var(--line);background:var(--s4);box-sizing:border-box}
+/* la sala de retiro es 16:9 en una caja vertical: el recorte se centra en la bandeja y los cojines */
+.exp-card img.foto-retiro{object-position:50% 50%}
+.exp-card h3{margin:0 0 10px;font-size:clamp(1.3rem,1.7vw,1.5rem)}
+.exp-card p{margin:0;color:var(--secondary);font-size:1.02rem;line-height:1.7}
+.exp-cierre{padding:clamp(72px,9vw,120px) 0}
+.close.exp-cierre h2{font-size:clamp(2.2rem,4.8vw,3.8rem);max-width:24ch;margin-bottom:clamp(30px,4vw,48px)}
+.exp-cierre .btn{padding:18px 42px;font-size:1.05rem}
+.exp-cierre .exp-mas{margin:26px auto 0}
+.exp-cierre .exp-mas a{color:var(--primary);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.exp-cierre .exp-mas a:hover{text-decoration-thickness:2px}
+@media (max-width:1099px){.exp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.exp-grid{grid-template-columns:1fr}.exp-card img{aspect-ratio:1/1}}
 
 /* legal */
 .legal{max-width:78ch}
@@ -225,6 +244,30 @@ footer a{color:var(--primary);opacity:.85}
 .field input:focus,.field textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
 .hint{font-size:12px;color:var(--secondary)}
 .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+/* Contacto: el formulario es una tarjeta con borde propio (no flota) y la foto de la mesa de escribir
+   acompaña a los datos. Campos con borde ≥3:1 sobre el fondo y labels a 15 px. */
+.ct-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(36px,6vw,88px);align-items:start}
+.ct-grid .form{max-width:none;gap:20px;background:var(--s1);border:1px solid var(--line);border-radius:24px;
+  padding:clamp(24px,3.4vw,44px);box-shadow:0 18px 44px rgba(54,55,75,.07)}
+.ct-grid .field{gap:8px}
+.ct-grid .field label{font-size:15px;font-weight:500;color:var(--primary);letter-spacing:.01em}
+.ct-grid .field input,.ct-grid .field textarea{background:var(--s0);border:1px solid #8F8372;font-size:17px;padding:14px 16px}
+.ct-grid .form .btn{justify-self:start;padding:16px 36px}
+.ct-grid .hint{font-size:14px;margin:0}
+.ct-lado{display:grid;gap:clamp(24px,3vw,36px)}
+.ct-foto{margin:0}
+.ct-foto img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:46% 62%;border-radius:24px;display:block}
+.ct-datos{display:grid;gap:22px}
+.ct-dato{border-top:1px solid var(--line);padding-top:18px}
+.ct-dato h3{margin:0 0 6px;font-size:clamp(1.25rem,1.7vw,1.45rem)}
+.ct-dato p{margin:0;color:var(--secondary);font-size:1.05rem;line-height:1.65}
+.ct-dato a{color:var(--primary);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;
+  overflow-wrap:anywhere}
+.ct-dato a:hover{text-decoration-thickness:2px}
+.ct-cierre{padding:clamp(64px,8vw,110px) 0}
+.ct-cierre h2{font-size:clamp(2rem,4.2vw,3.2rem);max-width:24ch;margin-bottom:14px}
+.ct-cierre p{max-width:44ch}
+.ct-cierre .btn{padding:18px 42px;font-size:1.05rem}
 
 /* bandas con imagen: ritmo de la home */
 .band{padding:var(--gap-sec) 0}
@@ -274,6 +317,51 @@ footer a{color:var(--primary);opacity:.85}
   color:var(--gold-ink);font-weight:600}
 .rest-texto .nota-titulo+p{max-width:54ch;font-size:0.9rem;line-height:1.65;color:var(--secondary);
   padding-left:16px;border-left:2px solid var(--line)}
+
+/* Quiénes somos: cuatro movimientos (banda ancha, foto + texto, manera de acompañar, cierre) */
+.qs-banda-texto{max-width:62ch;margin-bottom:clamp(28px,4vw,48px)}
+.qs-banda-texto p{font-family:var(--serif);font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.2;color:var(--primary);
+  margin:0;max-width:24ch}
+.qs-banda{margin:0}
+.qs-banda img{width:100%;aspect-ratio:2/1;object-fit:cover;object-position:50% 75%;border-radius:24px;display:block}
+.qs-grid .rest-texto>*{max-width:60ch}
+.qs-grid .rest-texto p{margin-bottom:22px}
+.qs-grid .rest-texto p:first-child{font-family:var(--sans);font-size:1.12em;line-height:1.72;margin-bottom:22px}
+.qs-grid .rest-texto p:last-child{margin-bottom:0}
+/* foto y texto empiezan y terminan juntos: se recorta el interlineado sobre la primera y bajo la última línea */
+.qs-grid .rest-texto{text-box:trim-both cap alphabetic}
+.qs-grid .rest-foto img{object-position:50% 38%}
+.qs-manera h2{max-width:20ch;margin-bottom:clamp(28px,4vw,48px)}
+.qs-pilares{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3.4vw,48px);margin:0 0 clamp(56px,7vw,96px)}
+.qs-pilar{border-top:1px solid var(--line);padding-top:22px}
+.qs-pilar .n{display:block;font-size:11px;font-weight:500;letter-spacing:.18em;color:var(--secondary);margin-bottom:8px}
+.qs-pilar h3{margin-bottom:12px}
+.qs-pilar p{margin:0;color:var(--secondary);font-size:1.02rem;line-height:1.7}
+.qs-manera .punch{font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.28;
+  color:var(--primary);margin:0 0 clamp(16px,3vw,40px);padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--line);
+  max-width:34ch}
+/* cierre: el lema a escala de titular y el botón con aire propio */
+/* Misión: horizonte (banda + entradilla), dos columnas (cómo/compromiso | visión/propósito) y cierre */
+.ms-banda{margin:0}
+.ms-banda img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 55%;border-radius:24px;display:block}
+.ms-entradilla{margin:clamp(28px,4vw,48px) 0 0}
+.ms-entradilla p{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.24;color:var(--primary);
+  margin:0;max-width:34ch}
+.ms-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,7vw,112px);align-items:start}
+.ms-cuerpo p{font-size:1.12em;line-height:1.72;color:var(--primary);margin:0 0 22px;max-width:56ch}
+.ms-cuerpo p:last-child{margin-bottom:0}
+.ms-vision{display:grid;gap:clamp(32px,4vw,52px)}
+.ms-bloque{border-top:1px solid var(--line);padding-top:22px}
+.ms-bloque h3{margin:0 0 14px}
+.ms-bloque p{margin:0;color:var(--secondary);font-size:1.05rem;line-height:1.7;max-width:52ch}
+.ms-cierre{padding:clamp(80px,11vw,150px) 0}
+.ms-cierre .lema{font-family:var(--serif);font-style:italic;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1.15;
+  color:var(--primary);max-width:22ch;margin:0 auto clamp(32px,4vw,52px)}
+.ms-cierre .ms-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.ms-cierre .btn{padding:18px 42px;font-size:1.05rem}
+.qs-cierre{padding:clamp(80px,11vw,150px) 0}
+.qs-cierre h2{font-size:clamp(2.5rem,5.6vw,4.4rem);max-width:24ch;margin-bottom:clamp(36px,4.5vw,60px)}
+.qs-cierre .btn{padding:18px 42px;font-size:1.05rem}
 
 /* cómo acompañamos: lista 01-04 + vertical con tarjeta */
 .how{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,72px);align-items:stretch}
@@ -462,6 +550,18 @@ footer a{color:var(--primary);opacity:.85}
 
   .despertar-grid{grid-template-columns:1fr}
   .despertar-grid .despertar-foto{order:-1}
+  .qs-banda img{aspect-ratio:4/3;border-radius:18px}
+  .ms-banda img{aspect-ratio:4/3;border-radius:18px}
+  .ms-grid{grid-template-columns:1fr;gap:40px}
+  .ms-cierre .ms-ctas{flex-direction:column;align-items:center}
+  .ct-grid{grid-template-columns:1fr;gap:40px}
+  .ct-grid .form{border-radius:18px}
+  .ct-grid .form .btn{justify-self:stretch}
+  .ct-foto img{aspect-ratio:1/1;border-radius:18px}
+  .qs-pilares{grid-template-columns:1fr;gap:28px}
+  .qs-grid{grid-template-columns:1fr}
+  .qs-grid .rest-foto{order:-1}
+  .qs-grid .rest-foto img{aspect-ratio:3/4}
   /* la foto vuelve a su sección: con position:static se iba arriba, encima del hero (31-oct) */
   .rest-foto{order:2;min-height:0}
   .rest-foto img{position:static;height:auto;aspect-ratio:4/5}
@@ -476,7 +576,6 @@ footer a{color:var(--primary);opacity:.85}
   .band-img{align-items:flex-end;min-height:520px;border-radius:18px}
   .band-img .float-card{margin:16px}
   .how-media .float-card{left:16px;right:16px;bottom:16px}
-  .exp article{grid-template-columns:1fr;gap:8px}
   .nav ul{display:none}
   .menu{display:block}
   .wrap{padding:0 20px}
