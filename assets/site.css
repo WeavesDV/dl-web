@@ -277,29 +277,67 @@ footer a{color:var(--primary);opacity:.85}
 .field input:focus,.field textarea:focus{outline:2px solid var(--accent-ink);outline-offset:1px;border-color:var(--accent-ink)}
 .hint{font-size:12px;color:var(--secondary)}
 .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
-/* Contacto: el formulario es una tarjeta con borde propio (no flota) y la foto de la mesa de escribir
-   acompaña a los datos. Campos con borde ≥3:1 sobre el fondo y labels a 15 px. */
-.ct-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(36px,6vw,88px);align-items:start}
-.ct-grid .form{max-width:none;gap:20px;background:var(--s1);border:1px solid var(--line);border-radius:24px;
-  padding:clamp(24px,3.4vw,44px);box-shadow:0 18px 44px rgba(54,55,75,.07)}
+/* Contacto: temas (cuatro enlaces que preparan el formulario), formulario abierto sobre crema con los
+   pasos al lado, foto a sangre con una frase suya, preguntas frecuentes y cierre.
+   Bordes de campo en --cielo-600 (≥3:1 sobre crema); sin colores ni degradados nuevos. */
+.ct-temas{padding-top:clamp(8px,2vw,24px)}
+.ct-temas h2,.ct-form-col h2,.ct-lado h2,.ct-faq h2{font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:0}
+.ct-temas-grid{list-style:none;margin:clamp(22px,3vw,36px) 0 0;padding:0;display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,24px)}
+.ct-temas-grid li{margin:0;min-width:0}
+.ct-tema{display:flex;flex-direction:column;height:100%;padding:clamp(22px,2.4vw,30px);background:var(--s1);
+  border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:18px;color:inherit;text-decoration:none;
+  transition:background .2s ease,border-color .2s ease}
+/* tres líneas de reserva: el título más largo («Retiros y experiencias vivenciales») no puede
+   empujar su párrafo por debajo del de las otras tres tarjetas */
+.ct-tema h3{margin:0 0 10px;font-size:clamp(1.25rem,1.6vw,1.45rem);line-height:1.15;min-height:3.5em}
+.ct-tema p{margin:0 0 18px;color:var(--secondary);font-size:1rem;line-height:1.65;flex:1}
+.ct-tema .ct-ir{color:var(--cielo-700);font-size:1.25rem;line-height:1}
+.ct-tema:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px}
+@media (hover:hover){.ct-tema:hover{background:var(--cielo-100);border-color:var(--cielo-600)}}
+.ct-formulario{scroll-margin-top:72px}
+.ct-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(40px,7vw,104px);align-items:start}
+.ct-grid .form{max-width:none;gap:20px;margin-top:clamp(20px,2.6vw,30px)}
 .ct-grid .field{gap:8px}
 .ct-grid .field label{font-size:15px;font-weight:500;color:var(--primary);letter-spacing:.01em}
-.ct-grid .field input,.ct-grid .field textarea{background:var(--s0);border:1px solid #8F8372;font-size:17px;padding:14px 16px}
+.ct-grid .field input,.ct-grid .field textarea,.ct-grid .field select{background:var(--s0);border:1px solid var(--cielo-600);
+  font-size:17px;padding:14px 16px;width:100%}
+.ct-grid .field select{font:inherit;font-size:17px;border-radius:12px;color:var(--primary)}
+.ct-grid .field select:focus{outline:2px solid var(--accent-ink);outline-offset:1px;border-color:var(--accent-ink)}
 .ct-grid .form .btn{justify-self:start;margin-top:.4rem}
-.ct-grid .hint{font-size:14px;margin:0}
-.ct-lado{display:grid;gap:clamp(24px,3vw,36px)}
-.ct-foto{margin:0}
-.ct-foto img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 52%;border-radius:24px;display:block}
-.ct-datos{display:grid;gap:22px}
-.ct-dato{border-top:1px solid var(--line);padding-top:18px}
-.ct-dato h3{margin:0 0 6px;font-size:clamp(1.25rem,1.7vw,1.45rem)}
+.ct-grid .hint{font-size:14px;margin:0;line-height:1.6}
+.ct-grid .hint a{color:var(--primary);text-decoration:underline;text-underline-offset:3px}
+.ct-lado{display:grid;gap:clamp(28px,3.4vw,40px)}
+.ct-pasos{list-style:none;margin:clamp(20px,2.6vw,30px) 0 0;padding:0}
+.ct-paso{display:grid;grid-template-columns:44px minmax(0,1fr);gap:0 14px;border-top:1px solid var(--line);padding:18px 0}
+.ct-paso:last-child{border-bottom:1px solid var(--line)}
+.ct-paso .n{font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--accent-ink);padding-top:.7em}
+.ct-paso h3{margin:0 0 4px;font-size:clamp(1.2rem,1.6vw,1.4rem)}
+.ct-paso p{margin:0;color:var(--secondary);font-size:1.02rem;line-height:1.65}
+.ct-datos{display:grid;gap:18px}
+.ct-dato h3{margin:0 0 4px;font-size:clamp(1.15rem,1.5vw,1.3rem)}
 .ct-dato p{margin:0;color:var(--secondary);font-size:1.05rem;line-height:1.65}
 .ct-dato a{color:var(--primary);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;
   overflow-wrap:anywhere}
 .ct-dato a:hover{text-decoration-thickness:2px}
+.ct-banda{margin:0;position:relative}
+.ct-banda img{width:100%;aspect-ratio:2.3/1;object-fit:cover;object-position:50% 58%;border-radius:24px;display:block}
+.ct-banda .foto-frase{position:absolute;left:0;right:0;bottom:0;z-index:2;border-radius:0 0 24px 24px;
+  padding:clamp(14px,1.8vw,20px) clamp(18px,2.6vw,32px)}
+.ct-faq .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,96px);align-items:start}
+.ct-faq details{border-top:1px solid var(--line)}
+.ct-faq details:last-child{border-bottom:1px solid var(--line)}
+.ct-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+  padding:20px 0;font-family:var(--serif);font-size:clamp(1.15rem,1.6vw,1.35rem);line-height:1.3;color:var(--primary)}
+.ct-faq summary::-webkit-details-marker{display:none}
+.ct-faq summary::after{content:"+";flex:none;color:var(--gold-ink);font-family:var(--sans);font-size:1.6rem;line-height:1}
+.ct-faq details[open] summary::after{content:"\2212"}
+.ct-faq summary:focus-visible{outline:2px solid var(--accent-ink);outline-offset:2px}
+.ct-faq details p{margin:0 0 22px;color:var(--secondary);font-size:1.05rem;line-height:1.7;max-width:60ch}
 .ct-cierre{padding:clamp(64px,8vw,110px) 0}
-.ct-cierre h2{font-size:clamp(2rem,4.2vw,3.2rem);max-width:24ch;margin-bottom:14px}
-.ct-cierre p{max-width:44ch}
+.ct-cierre h2{font-size:clamp(2rem,4.2vw,3.2rem);max-width:24ch;margin-bottom:clamp(24px,3vw,34px)}
+@media (max-width:1099px){.ct-temas-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.ct-temas-grid{grid-template-columns:1fr}}
 
 /* bandas con imagen: ritmo de la home */
 .band{padding:var(--gap-sec) 0}
@@ -632,10 +670,11 @@ body.modal-abierto{overflow:hidden}
   .ms-banda img{aspect-ratio:4/3;border-radius:18px}
   .ms-grid{grid-template-columns:1fr;gap:40px}
   .ms-cierre .ms-ctas{flex-direction:column;align-items:center}
-  .ct-grid{grid-template-columns:1fr;gap:40px}
-  .ct-grid .form{border-radius:18px}
+  .ct-grid{grid-template-columns:1fr;gap:48px}
   .ct-grid .form .btn{justify-self:stretch}
-  .ct-foto img{aspect-ratio:1/1;border-radius:18px}
+  .ct-banda img{aspect-ratio:4/5;border-radius:18px;object-position:40% 50%}
+  .ct-banda .foto-frase{border-radius:0 0 18px 18px}
+  .ct-faq .wrap{grid-template-columns:1fr;gap:24px}
   .qs-pilares{grid-template-columns:1fr;gap:28px}
   .qs-grid{grid-template-columns:1fr}
   .qs-grid .rest-foto{order:-1}
