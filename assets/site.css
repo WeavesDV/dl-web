@@ -44,8 +44,8 @@ p{margin:0 0 18px;max-width:68ch}
 .lang{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cielo-ink);opacity:1;white-space:nowrap}
 .lang b{opacity:1;border-bottom:2px solid var(--cielo-ink);padding-bottom:2px}
 .menu{display:none;position:relative}
-.menu summary{list-style:none;cursor:pointer;border:1px solid rgba(30,42,74,.38);border-radius:999px;
-  padding:8px 16px;font-size:.85rem;color:var(--cielo-ink)}
+.menu summary{list-style:none;cursor:pointer;border:1px solid rgba(30,42,74,.55);border-radius:999px;
+  padding:11px 20px;font-size:.9rem;font-weight:500;line-height:1.2;color:var(--cielo-ink)}
 .menu summary::-webkit-details-marker{display:none}
 .menu[open] summary{background:rgba(30,42,74,.10)}
 .menu ul{position:absolute;right:0;top:calc(100% + 10px);background:var(--s1);color:var(--primary);
@@ -170,14 +170,32 @@ p{margin:0 0 18px;max-width:68ch}
 .hero-content .lead{margin-top:20px;max-width:46ch}
 .hero-content .cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
 
-.btn{display:inline-block;border-radius:999px;padding:15px 32px;font-size:.95rem;border:1px solid transparent;
-     cursor:pointer;font-family:var(--sans)}
-.btn-primary{background:var(--primary);color:var(--s1)}
-.btn-primary:hover{background:var(--ink);text-decoration:none}
-.btn-gold{background:var(--gold);color:var(--primary)}
-.btn-gold:hover{background:var(--gold-soft);text-decoration:none}
-.btn-ghost{background:transparent;color:var(--primary);border-color:var(--cielo-600)} /* 4.2:1 sobre crema */
-.btn-ghost:hover{background:var(--s1);text-decoration:none}
+/* Botones: tres niveles (lg · base · sm). El problema no era el color sino que la letra del botón
+   (15 px) quedaba por debajo del cuerpo (18 px) y el interlineado 1.7 hinchaba la píldora a 58 px.
+   Ahora la letra manda y el alto sale del padding, no del interlineado. */
+.btn{display:inline-block;border-radius:999px;border:1px solid transparent;
+  font-family:var(--sans);font-weight:500;letter-spacing:.01em;line-height:1.2;
+  padding:15px 32px;font-size:1rem;text-align:center;text-decoration:none;cursor:pointer;
+  transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease}
+.btn-lg{padding:18px 40px;font-size:1.0625rem;min-width:13.5rem}
+.btn-sm{padding:12px 24px;font-size:.9375rem}
+.btn:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px}
+.btn:focus:not(:focus-visible){outline:none}
+.btn:active{transform:translateY(0);box-shadow:none;transition-duration:.06s}
+/* El dorado sobre crema da 1,95:1: se ve el texto pero no la forma. El borde oscuro la devuelve. */
+.btn-primary{background:var(--primary);color:var(--s1)}                 /* 11,4:1 */
+.btn-primary:active{background:var(--cielo-ink)}
+.btn-gold{background:var(--gold);color:var(--cielo-ink);border-color:#A97B32}  /* texto 7,1:1 · borde 3,7:1 */
+.btn-gold:active{background:var(--gold-soft);border-color:var(--gold-ink)}
+.btn-ghost{background:transparent;color:var(--cielo-700);border-color:var(--cielo-700)} /* 6,6:1, un solo color */
+.btn-ghost:active{background:var(--cielo-300)}
+@media (hover:hover){
+  .btn:hover{transform:translateY(-1px);text-decoration:none}
+  .btn-primary:hover{background:var(--cielo-ink);box-shadow:0 8px 18px -10px rgba(30,42,74,.45)}
+  .btn-gold:hover{background:var(--gold);border-color:var(--gold-ink);box-shadow:0 8px 18px -10px rgba(122,92,38,.6)}
+  .btn-ghost:hover{background:var(--cielo-100)}
+}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
 
 section{padding:var(--gap-sec) 0}
 /* el último bloque no suma margen propio: el hueco entre secciones es solo el token */
@@ -216,10 +234,9 @@ section>.wrap>:last-child,.rest-texto>:last-child{margin-bottom:0}
 .exp-grid>li{display:flex}
 .exp-card article{display:flex;flex-direction:column;width:100%}
 .exp-card p{flex:1}
-.exp-card .exp-btn{margin-top:20px;padding:12px 26px;font-size:.86rem;align-self:flex-start}
+.exp-card .exp-btn{align-self:flex-start;margin-top:auto}
 .exp-cierre{padding:clamp(72px,9vw,120px) 0}
 .close.exp-cierre h2{font-size:clamp(2.2rem,4.8vw,3.8rem);max-width:24ch;margin-bottom:clamp(30px,4vw,48px)}
-.exp-cierre .btn{padding:18px 42px;font-size:1.05rem}
 .exp-cierre .exp-mas{margin:26px auto 0}
 .exp-cierre .exp-mas a{color:var(--primary);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
 .exp-cierre .exp-mas a:hover{text-decoration-thickness:2px}
@@ -268,7 +285,7 @@ footer a{color:var(--primary);opacity:.85}
 .ct-grid .field{gap:8px}
 .ct-grid .field label{font-size:15px;font-weight:500;color:var(--primary);letter-spacing:.01em}
 .ct-grid .field input,.ct-grid .field textarea{background:var(--s0);border:1px solid #8F8372;font-size:17px;padding:14px 16px}
-.ct-grid .form .btn{justify-self:start;padding:16px 36px}
+.ct-grid .form .btn{justify-self:start;margin-top:.4rem}
 .ct-grid .hint{font-size:14px;margin:0}
 .ct-lado{display:grid;gap:clamp(24px,3vw,36px)}
 .ct-foto{margin:0}
@@ -283,7 +300,6 @@ footer a{color:var(--primary);opacity:.85}
 .ct-cierre{padding:clamp(64px,8vw,110px) 0}
 .ct-cierre h2{font-size:clamp(2rem,4.2vw,3.2rem);max-width:24ch;margin-bottom:14px}
 .ct-cierre p{max-width:44ch}
-.ct-cierre .btn{padding:18px 42px;font-size:1.05rem}
 
 /* bandas con imagen: ritmo de la home */
 .band{padding:var(--gap-sec) 0}
@@ -374,10 +390,8 @@ footer a{color:var(--primary);opacity:.85}
 .ms-cierre .lema{font-family:var(--serif);font-style:italic;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1.15;
   color:var(--primary);max-width:22ch;margin:0 auto clamp(32px,4vw,52px)}
 .ms-cierre .ms-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
-.ms-cierre .btn{padding:18px 42px;font-size:1.05rem}
 .qs-cierre{padding:clamp(80px,11vw,150px) 0}
 .qs-cierre h2{font-size:clamp(2.5rem,5.6vw,4.4rem);max-width:24ch;margin-bottom:clamp(36px,4.5vw,60px)}
-.qs-cierre .btn{padding:18px 42px;font-size:1.05rem}
 
 /* cómo acompañamos: lista 01-04 + vertical con tarjeta */
 .how{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,72px);align-items:stretch}
@@ -425,8 +439,7 @@ footer a{color:var(--primary);opacity:.85}
 .banda-full h2{font-family:var(--serif);color:#FFFCF6;font-size:clamp(1.8rem,4vw,3.2rem);
   line-height:1.15;letter-spacing:-.008em;margin:0 auto 30px;max-width:21ch;text-wrap:balance;
   text-shadow:0 2px 30px rgba(38,23,12,.45)}
-.banda-full .btn-gold{background:#EBCF9F;color:#2B1C10}
-.banda-full .btn-gold:hover{background:#F4E3C6}
+.banda-full .btn:focus-visible{outline-color:#FFFCF6}
 
 /* Modal de contacto: el mismo formulario, sin salir de la página.
    Sin JS el enlace sigue llevando a /contacto/, así que nunca se queda muerto. */
