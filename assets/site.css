@@ -98,6 +98,16 @@ body.con-cristal{padding-top:var(--navh,64px)}
 .hero h1{max-width:18ch}
 .hero .lead{margin-top:22px}
 .hero .cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+/* Las cabeceras interiores pasan por debajo del menú fijo, igual que el retrato de la portada. Sin esto,
+   el hueco que reserva body.con-cristal al menú deja una franja del blanco del body y el cristal se lee
+   sobre blanco en vez de sobre el degradado del hero. El aire de arriba sube el alto del menú para que
+   el titular y la bajada no se muevan de sitio. */
+body.con-cristal>.hero{margin-top:calc(-1 * var(--navh,64px));
+  padding-top:calc(clamp(64px,9vw,120px) + var(--navh,64px))}
+body.con-cristal>.hero-split{margin-top:calc(-1 * var(--navh,64px));
+  /* el alto mínimo también sube: si no, el hero se come el menú por abajo y la franja visible mengua */
+  min-height:calc(clamp(520px,78vh,720px) + var(--navh,64px))}
+body.con-cristal>.hero-split .hero-texto{padding-top:calc(clamp(56px,7vw,96px) + var(--navh,64px))}
 
 .hero-video{position:relative;overflow:hidden;display:grid;align-items:center;
   min-height:clamp(520px,80vh,780px);
@@ -870,7 +880,10 @@ body.modal-abierto{overflow:hidden}
 @media (max-width:900px){
   /* hero de la home: texto a todo el ancho sobre #C1D4E2 y la foto a sangre debajo */
   .hero-split{grid-template-columns:1fr;min-height:0}
-  .hero-texto{align-self:start;padding:48px 20px 44px}
+  body.con-cristal>.hero-split{min-height:0}   /* el alto mínimo de escritorio no puede sobrevivir aquí */
+  .hero-texto{align-self:start;padding:calc(48px + var(--navh,73px)) 20px 44px}
+  /* misma especificidad que la regla de escritorio, si no gana ella y el aire de arriba sale del clamp grande */
+  body.con-cristal>.hero-split .hero-texto{padding-top:calc(48px + var(--navh,73px))}
   .hero-texto .lead{font-size:1rem;max-width:38ch}
   .hero-foto{aspect-ratio:4/3}
   .hero-foto::before{right:0;bottom:auto;width:auto;height:44px;
