@@ -87,6 +87,10 @@ body.con-cristal{padding-top:var(--navh,64px)}
 
 /* hero */
 .hero{position:relative;overflow:hidden;
+      /* La sección va a sangre (el ancho completo del monitor) y el alto mínimo sube para que el degradado
+         corra: con el alto del contenido, el fundido blanco del pie se comía media franja y el paso de
+         cielo a amanecer apenas se veía. */
+      min-height:calc(clamp(560px,74vh,900px) + var(--navh,64px));
       background:linear-gradient(180deg,var(--sky) 0%,var(--ochre-soft) 38%,var(--glow) 68%,var(--dawn) 100%);
       padding:clamp(64px,9vw,120px) 0 clamp(56px,8vw,96px)}
 /* La junta con la sección siguiente no es una línea: es el degradado cortado en seco contra el blanco.
@@ -934,6 +938,8 @@ body.modal-abierto{overflow:hidden}
   .despertar-grid .despertar-foto img{aspect-ratio:9/16;object-position:50% 50%}
   /* móvil: menos capas, sin cursor ni sticky */
   .hide-m{display:none}
+  /* el mismo alto mínimo, en móvil: media pantalla de degradado y el texto arriba */
+  .hero{min-height:calc(clamp(420px,56vh,540px) + var(--navh,73px))}
   .luz-d{left:-30%;top:-22%;width:90%}
   .luz-e{left:-26%;bottom:-30%;width:100%}
   .luz-h{left:-10%;bottom:-40%;width:100%}
