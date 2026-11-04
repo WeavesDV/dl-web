@@ -13,7 +13,12 @@
 <link rel="icon" href="/dl-web/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/dl-web/assets/site.css">
-<script>document.documentElement.classList.add("rv")</script>
+<script>document.documentElement.classList.add("rv");
+  addEventListener("DOMContentLoaded",function(){
+    var n=document.querySelector("nav.nav")||document.querySelector("nav");
+    if(n) document.documentElement.style.setProperty("--navh",Math.round(n.getBoundingClientRect().height)+"px");
+  });
+</script>
 </head>
 <body>
 <nav class="nav"><div class="wrap"><a class="brand" href="/dl-web/">Divine Light Journey</a><ul><li><a href="/dl-web/">Inicio</a></li><li><a href="/dl-web/quienes-somos/" aria-current="page">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul><details class="menu"><summary>Menú</summary><ul><li><a href="/dl-web/">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul></details><span class="lang"><b>ES</b> · EN</span></div></nav>

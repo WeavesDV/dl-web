@@ -35,9 +35,9 @@ p{margin:0 0 18px;max-width:68ch}
 .eyebrow::after{content:"";width:16px;height:1px;background:var(--cielo);display:block}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:40;background:var(--cielo);color:var(--cielo-ink)}
+.nav{position:sticky;top:0;z-index:40;background:var(--cielo);color:var(--primary)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:64px}
-.brand{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--cielo-ink)}
+.brand{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--primary)}
 .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.9rem}
 .nav a{color:var(--cielo-ink);opacity:1}
 .nav a:hover,.nav a[aria-current="page"]{opacity:1;text-decoration:none;border-bottom:2px solid var(--cielo-ink)}
@@ -195,7 +195,7 @@ p{margin:0 0 18px;max-width:68ch}
    campo de color con el texto. Así no hay que ampliarla ni recortarla, y la unión no se ve porque
    el degradado llega al borde de la foto, no al de la pantalla. (Técnica de la referencia de Codex.) */
 .hero-full{position:relative;overflow:hidden;display:grid;align-items:center;
-  min-height:clamp(540px,74vh,760px);
+  min-height:max(620px,calc(100svh - var(--navh,64px)));
   background:linear-gradient(110deg,#EDEFEE 0%,#F3EEE8 26%,#F7F0E7 44%,#EBCFA6 100%)}
 .hero-full>img{position:absolute;top:0;right:0;bottom:0;left:auto;width:44%;height:100%;
   object-fit:cover;object-position:80% 45%;
@@ -208,15 +208,48 @@ p{margin:0 0 18px;max-width:68ch}
   pointer-events:none;background:radial-gradient(circle,rgba(255,226,158,.30) 0%,rgba(255,226,158,0) 68%)}
 .hero-full .wrap{position:relative;z-index:2;width:100%;padding-top:clamp(56px,7vw,96px);padding-bottom:clamp(72px,9vw,120px)}
 .hero-full .eyebrow{color:var(--primary);font-size:.82rem;font-weight:600;margin-bottom:20px}  /* en el hero el rótulo va en tinta: el dorado se perdía sobre la foto */
-.hero-full h1{color:var(--cielo-ink);max-width:640px;font-size:clamp(2.4rem,4.2vw,3.75rem);
+.hero-full h1{color:var(--cielo-ink);max-width:640px;font-size:clamp(2.5rem,4.35vw,3.9rem);
   line-height:1.1;letter-spacing:-.018em;margin-bottom:26px}
 .hero-full h1 em{font-style:italic}
 .hero-full .lead{color:var(--primary);max-width:38ch;font-size:clamp(1.05rem,1.35vw,1.25rem);line-height:1.55}
 .hero-full .cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
 .hero-full .btn .flecha{display:inline-block;margin-left:10px;transition:transform .2s ease}
+.hero-scroll{position:absolute;left:clamp(20px,4vw,48px);
+  bottom:calc(clamp(26px,3.6vw,42px) + env(safe-area-inset-bottom,0px));z-index:3;
+  display:flex;align-items:center;gap:12px;color:var(--primary);opacity:.78;
+  font-size:.7rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase}
+.hero-scroll i{display:block;width:1px;height:44px;background:linear-gradient(180deg,currentColor,transparent);
+  transform-origin:top;animation:latido 2.6s ease-in-out infinite}
+@keyframes latido{0%,100%{transform:scaleY(.45);opacity:.5}50%{transform:scaleY(1);opacity:1}}
+
+/* ── Animaciones ────────────────────────────────────────────────────────────
+   Tres capas, todas suaves y todas apagables: entrada del hero, deriva lenta de
+   las fotos a sangre y realce al pasar el ratón. Nada rebota ni llama la atención;
+   el movimiento aquí significa "esto está vivo", no "mira esto". */
+@keyframes heroFoto{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:scale(1)}}
+.hero-full>img{animation:heroFoto 1.5s cubic-bezier(.22,.61,.36,1) both}
+@keyframes derivaLenta{from{transform:scale(1.02) translateY(0)}to{transform:scale(1.075) translateY(-1.4%)}}
+.banda-full>img{animation:derivaLenta 26s ease-in-out infinite alternate}
+@keyframes subirFrase{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.foto-frase{animation:subirFrase .8s cubic-bezier(.22,.61,.36,1) both}
+@media (hover:hover){
+  .exp-card article{transition:transform .35s cubic-bezier(.22,.61,.36,1)}
+  .exp-card article:hover{transform:translateY(-5px)}
+  .gallery .marco img{transition:transform .7s cubic-bezier(.22,.61,.36,1)}
+  .gallery .marco:hover img{transform:scale(1.05)}
+  .qs-banda:hover .foto,.marco:hover .foto{transform:scale(1.03)}
+  .marco .foto{transition:transform .7s cubic-bezier(.22,.61,.36,1)}
+  nav a{position:relative}
+  nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;
+    transform:scaleX(0);transform-origin:left;transition:transform .28s ease}
+  nav a:hover::after,nav a[aria-current]::after{transform:scaleX(1)}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-full>img,.banda-full>img,.foto-frase{animation:none}
+}
 @media (hover:hover){.hero-full .btn:hover .flecha{transform:translateX(4px)}}
 @media (max-width:900px){
-  .hero-full{min-height:76vh}
+  .hero-full{min-height:max(600px,calc(100svh - var(--navh,73px)))}
   .hero-full::before{background:linear-gradient(180deg,rgba(255,250,242,.93) 0%,rgba(255,250,242,.87) 40%,
     rgba(255,250,242,.60) 64%,rgba(255,250,242,.22) 84%,rgba(255,250,242,.06) 100%)}
   .hero-full>img{left:0;width:100%;object-position:84% 36%}
