@@ -39,6 +39,11 @@ p{margin:0 0 18px;max-width:68ch}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:64px}
 .brand{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--primary)}
 .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.9rem}
+.nav--centrado .wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:16px}
+.nav--centrado .brand{justify-self:start}
+.nav--centrado ul{justify-content:center}
+.nav--centrado .lang{justify-self:end}
+.nav--centrado{box-shadow:0 1px 0 rgba(30,42,74,.12)}
 .nav a{color:var(--cielo-ink);opacity:1}
 .nav a:hover,.nav a[aria-current="page"]{opacity:1;text-decoration:none;border-bottom:2px solid var(--cielo-ink)}
 .lang{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cielo-ink);opacity:1;white-space:nowrap}
@@ -246,6 +251,38 @@ p{margin:0 0 18px;max-width:68ch}
 }
 @media (prefers-reduced-motion:reduce){
   .hero-full>img,.banda-full>img,.foto-frase{animation:none}
+}
+
+/* ── Home versión 2 ─────────────────────────────────────────────────────────
+   El mar ocupa todo el hero y el texto va centrado encima, en la parte de abajo,
+   sobre un velo de crema que sube desde el pie. El sol, el horizonte y las gaviotas
+   quedan arriba sin tocar; el texto cae donde el agua ya es arena. */
+.hero-v2{position:relative;display:grid;align-items:end;justify-items:center;overflow:hidden;
+  min-height:max(620px,calc(100svh - var(--navh,64px)));background:#DCE9F2}
+.hero-v2-foto{position:absolute;inset:0;margin:0}
+.hero-v2-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 44%;display:block;
+  animation:heroFoto 1.8s cubic-bezier(.22,.61,.36,1) both}
+.hero-v2-texto{position:relative;z-index:2;width:100%;text-align:center;
+  padding:clamp(52px,7vw,104px) 20px clamp(38px,4.4vw,58px);
+  /* Tope .93 en vez de crema sólido: el agua y la arena se siguen viendo detrás del
+     texto, así el mar no deja de ser el fondo del hero. */
+  background:linear-gradient(180deg,rgba(255,252,246,0) 0%,rgba(255,252,246,.40) 18%,
+    rgba(255,252,246,.76) 36%,rgba(255,252,246,.89) 56%,rgba(255,252,246,.93) 100%)}
+.hero-v2-texto .eyebrow{justify-content:center;margin-bottom:18px}
+.hero-v2-texto h1{color:var(--primary);max-width:24ch;margin:0 auto 18px;
+  font-size:clamp(2.2rem,3.6vw,3.2rem);line-height:1.1;letter-spacing:-.015em;text-wrap:balance}
+.hero-v2-texto .lead{max-width:60ch;margin:0 auto 26px}
+.hero-v2-texto .cta{display:flex;justify-content:center}
+.hero-v2-texto .cta .btn{min-width:0}
+@media (max-width:900px){
+  .hero-v2{min-height:calc(100svh - var(--navh,73px))}
+  .hero-v2-foto img{object-position:52% 40%}
+  .hero-v2-texto{padding:clamp(150px,42vw,240px) 20px 30px;
+    background:linear-gradient(180deg,rgba(255,252,246,0) 0%,rgba(255,252,246,.34) 24%,
+      rgba(255,252,246,.72) 44%,rgba(255,252,246,.86) 64%,rgba(255,252,246,.91) 100%)}
+  .hero-v2-texto .eyebrow{margin-bottom:12px}
+  .hero-v2-texto h1{max-width:16ch;font-size:clamp(1.95rem,7.4vw,2.4rem);margin-bottom:14px}
+  .hero-v2-texto .lead{font-size:.98rem;margin-bottom:20px}
 }
 @media (hover:hover){.hero-full .btn:hover .flecha{transform:translateX(4px)}}
 @media (max-width:900px){
