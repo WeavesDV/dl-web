@@ -288,6 +288,16 @@ body.con-cristal>.hero-split .hero-texto{padding-top:calc(clamp(56px,7vw,96px) +
 .hero-retrato .lead{color:var(--cielo-ink);max-width:38ch;font-size:clamp(1.05rem,1.35vw,1.25rem);line-height:1.55}
 .hero-retrato .cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
 .hero-retrato .btn .flecha{display:inline-block;margin-left:10px;transition:transform .2s ease}
+/* Variante espejo del retrato: la foto se ancla a la izquierda (el sujeto queda en ese lado) y el texto
+   pasa a la derecha, sobre el espacio limpio de la imagen. Es la misma pieza con el velo y el encuadre
+   cambiados de lado, no un hero nuevo. El velo va en el crema del amanecer (no en el blanco de la home):
+   sobre una foto dorada, un velo blanco al 90 % se lee como una mancha lechosa; el cálido se lee como luz. */
+.hero-retrato--der .hero-retrato-foto img{object-position:0% 50%}
+.hero-retrato--der::before{background:linear-gradient(270deg,rgba(251,239,221,.92) 0%,rgba(251,239,221,.86) 30%,
+  rgba(251,239,221,.62) 44%,rgba(251,239,221,.22) 54%,rgba(251,239,221,.04) 62%,rgba(251,239,221,0) 70%)}
+.hero-retrato--der .hero-col{margin-left:auto;max-width:min(560px,max(31vw,320px))}
+/* el bloque sube: la franja inferior derecha de la foto la cruza la cinta dorada y el texto se lee mejor arriba */
+.hero-retrato--der .wrap{padding-bottom:calc(clamp(72px,9vw,120px) + 110px)}
 
 /* ── Animaciones ────────────────────────────────────────────────────────────
    Tres capas, todas suaves y todas apagables: entrada del hero, deriva lenta de
@@ -374,6 +384,10 @@ body.con-cristal>.hero-split .hero-texto{padding-top:calc(clamp(56px,7vw,96px) +
   .hero-retrato h1{font-size:clamp(2rem,8.4vw,2.7rem);margin-bottom:18px}
   .hero-retrato .lead{max-width:none}
   .hero-retrato .hero-scroll{display:none}
+  /* espejo: en móvil el encuadre se va al sujeto (está a la izquierda de la foto) y el velo vuelve a ser vertical */
+  .hero-retrato--der .hero-retrato-foto img{object-position:10% 45%}
+  .hero-retrato--der::before{background:linear-gradient(0deg,rgba(251,239,221,.93) 0%,rgba(251,239,221,.88) 40%,
+    rgba(251,239,221,.62) 58%,rgba(251,239,221,.20) 74%,rgba(251,239,221,0) 88%)}
 }
 
 /* En páginas interiores el mismo hero partido, con el campo en crema en vez de cielo. */
