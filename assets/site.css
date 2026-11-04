@@ -45,7 +45,13 @@ p{margin:0 0 18px;max-width:68ch}
 .nav--centrado .lang{justify-self:end}
 .nav--centrado{box-shadow:0 1px 0 rgba(30,42,74,.12)}
 .nav a{color:var(--cielo-ink);opacity:1}
-.nav a:hover,.nav a[aria-current="page"]{opacity:1;text-decoration:none;border-bottom:2px solid var(--cielo-ink)}
+.nav a:hover,.nav a[aria-current="page"]{opacity:1;text-decoration:none}
+/* Una sola línea para la página activa (antes se sumaba al border-bottom y salían dos).
+   Va SÓLO en los enlaces de la barra: la marca y el desplegable móvil no la llevan. */
+.nav .wrap>ul>li>a{position:relative;display:inline-block;padding-bottom:3px}
+.nav .wrap>ul>li>a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:currentColor;
+  transform:scaleX(0);transform-origin:left;transition:transform .28s ease}
+.nav .wrap>ul>li>a[aria-current="page"]::after{transform:scaleX(1)}
 /* Menú de cristal (4-nov): cristal al principio, cielo translúcido al bajar. Sólo el menú normal;
    .nav--centrado (/v2/) conserva su barra sticky en cielo. El hueco que deja el menú fijo lo devuelve
    body.con-cristal; el hero de la portada lo anula con margen negativo. */
@@ -287,10 +293,7 @@ body.con-cristal{padding-top:var(--navh,64px)}
   .gallery .marco:hover img{transform:scale(1.05)}
   .qs-banda:hover .foto,.marco:hover .foto{transform:scale(1.03)}
   .marco .foto{transition:transform .7s cubic-bezier(.22,.61,.36,1)}
-  nav a{position:relative}
-  nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;
-    transform:scaleX(0);transform-origin:left;transition:transform .28s ease}
-  nav a:hover::after,nav a[aria-current]::after{transform:scaleX(1)}
+  .nav .wrap>ul>li>a:hover::after{transform:scaleX(1)}
 }
 @media (prefers-reduced-motion:reduce){
   .hero-full>img,.hero-retrato-foto,.banda-full>img,.foto-frase{animation:none}
