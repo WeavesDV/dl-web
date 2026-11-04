@@ -26,14 +26,28 @@
   medir();
   addEventListener("resize", medir);
   addEventListener("DOMContentLoaded", medir);
-  // Cristal arriba, cielo al bajar. El menú centrado de /v2/ no cambia.
-  if (nav.classList.contains("nav--centrado")) return;
-  var pegado = false;
+  // Cristal mientras se ve la cabecera de la página; cielo cuando ha salido por arriba; cristal otra vez al
+  // asomar el pie. Vale para todas las páginas: cada una empieza por <body><nav><script><header>. El menú
+  // centrado de /v2/ no cambia (sale antes).
+  var pegado = false, pendiente = false;
   function conmutar() {
-    var y = window.scrollY || 0;
-    if ((y > 24) !== pegado) { pegado = y > 24; nav.classList.toggle("nav--pegado", pegado); }
+    pendiente = false;
+    var hero = document.querySelector("body > header") || document.querySelector(".hero-retrato"),
+        pie = document.querySelector("footer");
+    var quiere;
+    if (hero && pie) {
+      var fuera = hero.getBoundingClientRect().bottom <= nav.getBoundingClientRect().height + 1;
+      var alFinal = pie.getBoundingClientRect().top <= window.innerHeight - 80;
+      quiere = fuera && !alFinal;
+    } else {
+      quiere = (window.scrollY || 0) > 24;
+    }
+    if (quiere !== pegado) { pegado = quiere; nav.classList.toggle("nav--pegado", pegado); }
   }
-  addEventListener("scroll", conmutar, { passive: true });
+  function pedir() { if (!pendiente) { pendiente = true; requestAnimationFrame(conmutar); } }
+  addEventListener("scroll", pedir, { passive: true });
+  addEventListener("resize", pedir);
+  addEventListener("DOMContentLoaded", pedir);   // el script va antes del hero y del pie: aún no existen
   conmutar();
 })();
 </script>
