@@ -46,6 +46,25 @@ p{margin:0 0 18px;max-width:68ch}
 .nav--centrado{box-shadow:0 1px 0 rgba(30,42,74,.12)}
 .nav a{color:var(--cielo-ink);opacity:1}
 .nav a:hover,.nav a[aria-current="page"]{opacity:1;text-decoration:none;border-bottom:2px solid var(--cielo-ink)}
+/* Menú de cristal (4-nov): cristal al principio, cielo translúcido al bajar. Sólo el menú normal;
+   .nav--centrado (/v2/) conserva su barra sticky en cielo. El hueco que deja el menú fijo lo devuelve
+   body.con-cristal; el hero de la portada lo anula con margen negativo. */
+body.con-cristal{padding-top:var(--navh,64px)}
+.nav:not(.nav--centrado){position:fixed;top:0;left:0;right:0;z-index:60;
+  background:rgba(255,252,246,.55);
+  -webkit-backdrop-filter:blur(20px) saturate(1.8);backdrop-filter:blur(20px) saturate(1.8);
+  border-bottom:1px solid rgba(30,42,74,.08);
+  transition:background .35s ease,border-color .35s ease,box-shadow .35s ease}
+.nav:not(.nav--centrado).nav--pegado{background:rgba(130,190,224,.80);   /* el cielo, translúcido */
+  border-bottom-color:rgba(30,42,74,.14);box-shadow:0 6px 22px rgba(30,42,74,.10)}
+@supports not ((backdrop-filter:blur(2px)) or (-webkit-backdrop-filter:blur(2px))){
+  .nav:not(.nav--centrado){background:rgba(255,252,246,.97)}
+  .nav:not(.nav--centrado).nav--pegado{background:#82BEE0}
+}
+/* texto y marca en navy (#1E2A4A, que en este código es --cielo-ink; --primary es #36374B): sobre el cristal
+   claro y sobre el cielo translúcido tiene que leerse. Los enlaces ya iban en esa tinta; la marca se une. */
+.nav:not(.nav--centrado) .brand,.nav:not(.nav--centrado) .menu ul a{color:var(--cielo-ink)}
+
 .lang{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cielo-ink);opacity:1;white-space:nowrap}
 .lang b{opacity:1;border-bottom:2px solid var(--cielo-ink);padding-bottom:2px}
 .menu{display:none;position:relative}
@@ -227,12 +246,36 @@ p{margin:0 0 18px;max-width:68ch}
   transform-origin:top;animation:latido 2.6s ease-in-out infinite}
 @keyframes latido{0%,100%{transform:scaleY(.45);opacity:.5}50%{transform:scaleY(1);opacity:1}}
 
+/* Hero de la portada (4-nov, cuarta iteración): retrato a sangre, texto a la izquierda sobre la bruma dorada,
+   sin caja ni panel. La mujer y la espiga quedan en el tercio derecho (object-position 66 %); el velo es
+   un degradado horizontal de crema que aclara, no oscurece. Pasa por detrás del menú de cristal. */
+.hero-retrato{position:relative;overflow:hidden;display:grid;align-items:center;
+  min-height:100svh;padding-top:var(--navh,64px);margin-top:calc(-1 * var(--navh,64px));background:#F7F0E7}
+.hero-retrato-foto{position:absolute;inset:0;margin:0}
+.hero-retrato-foto img{position:absolute;inset:0;width:100%;height:100%;display:block;
+  object-fit:cover;object-position:66% 50%}
+.hero-retrato::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(255,250,242,.90) 0%,rgba(255,250,242,.80) 32%,rgba(255,250,242,.55) 44%,
+    rgba(255,250,242,.18) 53%,rgba(255,250,242,0) 63%)}
+.hero-retrato .wrap{position:relative;z-index:2;width:100%;padding-top:clamp(40px,5vw,72px);padding-bottom:clamp(72px,9vw,120px)}
+/* columna: 600 px como tope, pero a 1440 mide 475: «crecer, reconectar» cabe y el texto se queda lejos
+   de la espiga y del rostro (que empieza hacia el 55 % del ancho) */
+.hero-retrato .hero-col{max-width:min(600px,max(33vw,340px))}
+.hero-retrato .eyebrow{color:var(--cielo-ink);font-size:.82rem;font-weight:600;margin-bottom:20px}
+.hero-retrato h1{color:var(--cielo-ink);font-size:clamp(2.3rem,4.1vw,3.8rem);
+  line-height:1.1;letter-spacing:-.018em;margin-bottom:26px}
+.hero-retrato h1 em{font-style:italic}
+.hero-retrato .lead{color:var(--cielo-ink);max-width:38ch;font-size:clamp(1.05rem,1.35vw,1.25rem);line-height:1.55}
+.hero-retrato .cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-retrato .btn .flecha{display:inline-block;margin-left:10px;transition:transform .2s ease}
+
 /* ── Animaciones ────────────────────────────────────────────────────────────
    Tres capas, todas suaves y todas apagables: entrada del hero, deriva lenta de
    las fotos a sangre y realce al pasar el ratón. Nada rebota ni llama la atención;
    el movimiento aquí significa "esto está vivo", no "mira esto". */
 @keyframes heroFoto{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:scale(1)}}
 .hero-full>img{animation:heroFoto 1.5s cubic-bezier(.22,.61,.36,1) both}
+.hero-retrato-foto{animation:heroFoto 1.5s cubic-bezier(.22,.61,.36,1) both}
 @keyframes derivaLenta{from{transform:scale(1.02) translateY(0)}to{transform:scale(1.075) translateY(-1.4%)}}
 .banda-full>img{animation:derivaLenta 26s ease-in-out infinite alternate}
 @keyframes subirFrase{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
@@ -250,7 +293,7 @@ p{margin:0 0 18px;max-width:68ch}
   nav a:hover::after,nav a[aria-current]::after{transform:scaleX(1)}
 }
 @media (prefers-reduced-motion:reduce){
-  .hero-full>img,.banda-full>img,.foto-frase{animation:none}
+  .hero-full>img,.hero-retrato-foto,.banda-full>img,.foto-frase{animation:none}
 }
 
 /* ── Home versión 2 ─────────────────────────────────────────────────────────
@@ -295,7 +338,7 @@ p{margin:0 0 18px;max-width:68ch}
   .hero-v2-texto h1{max-width:16ch;font-size:clamp(1.95rem,7.4vw,2.4rem);margin-bottom:14px}
   .hero-v2-texto .lead{font-size:.98rem;margin-bottom:20px}
 }
-@media (hover:hover){.hero-full .btn:hover .flecha{transform:translateX(4px)}}
+@media (hover:hover){.hero-full .btn:hover .flecha,.hero-retrato .btn:hover .flecha{transform:translateX(4px)}}
 @media (max-width:900px){
   .hero-full{min-height:max(600px,calc(100svh - var(--navh,73px)))}
   .hero-full::before{background:linear-gradient(180deg,rgba(255,250,242,.93) 0%,rgba(255,250,242,.87) 40%,
@@ -303,6 +346,17 @@ p{margin:0 0 18px;max-width:68ch}
   .hero-full>img{left:0;width:100%;object-position:84% 36%}
   .hero-full .wrap{padding-bottom:clamp(96px,16vw,150px)}
   .hero-full .lead{max-width:none}
+}
+@media (max-width:900px){
+  .hero-retrato{align-items:end;min-height:max(600px,100svh)}
+  .hero-retrato-foto img{object-position:68% 50%}
+  .hero-retrato::before{background:linear-gradient(0deg,rgba(255,250,242,.93) 0%,rgba(255,250,242,.88) 40%,
+    rgba(255,250,242,.62) 58%,rgba(255,250,242,.20) 74%,rgba(255,250,242,0) 88%)}
+  .hero-retrato .wrap{padding-top:0;padding-bottom:clamp(40px,10vw,72px)}
+  .hero-retrato .hero-col{max-width:none}
+  .hero-retrato h1{font-size:clamp(2rem,8.4vw,2.7rem);margin-bottom:18px}
+  .hero-retrato .lead{max-width:none}
+  .hero-retrato .hero-scroll{display:none}
 }
 
 /* En páginas interiores el mismo hero partido, con el campo en crema en vez de cielo. */
@@ -872,6 +926,7 @@ body.modal-abierto{overflow:hidden}
   .band-img .float-card{margin:16px}
   .how-media .float-card{left:16px;right:16px;bottom:16px}
   .nav ul{display:none}
+  .nav:not(.nav--centrado) .menu ul{display:block}   /* `.nav ul` ocultaba también la lista del desplegable: el menú móvil abría vacío */
   .menu{display:block}
   .wrap{padding:0 20px}
 }

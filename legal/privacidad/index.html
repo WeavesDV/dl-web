@@ -13,15 +13,30 @@
 <link rel="icon" href="/dl-web/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/dl-web/assets/site.css">
-<script>document.documentElement.classList.add("rv");
-  addEventListener("DOMContentLoaded",function(){
-    var n=document.querySelector("nav.nav")||document.querySelector("nav");
-    if(n) document.documentElement.style.setProperty("--navh",Math.round(n.getBoundingClientRect().height)+"px");
-  });
-</script>
+<script>document.documentElement.classList.add("rv");</script>
 </head>
-<body>
+<body class="con-cristal">
 <nav class="nav"><div class="wrap"><a class="brand" href="/dl-web/">Divine Light Journey</a><ul><li><a href="/dl-web/">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul><details class="menu"><summary>Menú</summary><ul><li><a href="/dl-web/">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul></details><span class="lang"><b>ES</b> · EN</span></div></nav>
+<script>
+(function () {
+  var nav = document.querySelector("nav.nav");
+  if (!nav) return;
+  // --navh síncrono (justo tras la barra) para que el hueco del menú fijo no dé un salto al cargar.
+  function medir() { document.documentElement.style.setProperty("--navh", Math.round(nav.getBoundingClientRect().height) + "px"); }
+  medir();
+  addEventListener("resize", medir);
+  addEventListener("DOMContentLoaded", medir);
+  // Cristal arriba, cielo al bajar. El menú centrado de /v2/ no cambia.
+  if (nav.classList.contains("nav--centrado")) return;
+  var pegado = false;
+  function conmutar() {
+    var y = window.scrollY || 0;
+    if ((y > 24) !== pegado) { pegado = y > 24; nav.classList.toggle("nav--pegado", pegado); }
+  }
+  addEventListener("scroll", conmutar, { passive: true });
+  conmutar();
+})();
+</script>
 <section class="s-white"><div class="wrap legal">
   <div class="eyebrow" data-reveal style="--d:0ms">Legal</div>
   <h1 style="font-size:clamp(2rem,4vw,3rem)">Política de privacidad</h1>
