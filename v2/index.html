@@ -24,11 +24,24 @@
 <nav class="nav nav--centrado"><div class="wrap"><a class="brand" href="/dl-web/">Divine Light Journey</a><ul><li><a href="/dl-web/">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul><details class="menu"><summary>Menú</summary><ul><li><a href="/dl-web/">Inicio</a></li><li><a href="/dl-web/quienes-somos/">Quiénes somos</a></li><li><a href="/dl-web/experiencias/">Experiencias</a></li><li><a href="/dl-web/mision/">Misión</a></li><li><a href="/dl-web/contacto/">Contacto</a></li></ul></details><span class="lang"><b>ES</b> · EN</span></div></nav>
 <header class="hero-v2" id="hero">
   <figure class="hero-v2-foto">
-    <img src="/dl-web/assets/img/hero-playa-960.webp"
+    <img class="slide es-activa" src="/dl-web/assets/img/hero-playa-960.webp"
          srcset="/dl-web/assets/img/hero-playa-960.webp 960w, /dl-web/assets/img/hero-playa-1600.webp 1472w"
          sizes="100vw" width="1472" height="980" fetchpriority="high" decoding="async"
          alt="Mar en calma al amanecer, el sol saliendo sobre el horizonte y una bandada de gaviotas">
+    <img class="slide" src="/dl-web/assets/img/hero-mar-naranja-960.webp"
+         srcset="/dl-web/assets/img/hero-mar-naranja-960.webp 960w, /dl-web/assets/img/hero-mar-naranja-1600.webp 1470w"
+         sizes="100vw" width="1470" height="980" loading="lazy" decoding="async"
+         alt="El sol sobre el mar, con el cielo encendido en naranjas y rosas y un sendero de luz sobre el agua">
+    <img class="slide" src="/dl-web/assets/img/hero-sierra-960.webp"
+         srcset="/dl-web/assets/img/hero-sierra-960.webp 960w, /dl-web/assets/img/hero-sierra-1600.webp 1469w"
+         sizes="100vw" width="1469" height="981" loading="lazy" decoding="async"
+         alt="Amanecer sobre una sierra, con el valle cubierto de niebla y los prados dorados en primer plano">
   </figure>
+  <div class="hero-v2-pager" role="group" aria-label="Elegir la foto de portada">
+    <button type="button" class="punto" data-i="0" aria-current="true" aria-label="Foto 1: amanecer en la playa">1</button>
+    <button type="button" class="punto" data-i="1" aria-label="Foto 2: el sol sobre el mar">2</button>
+    <button type="button" class="punto" data-i="2" aria-label="Foto 3: la sierra sobre las nubes">3</button>
+  </div>
   <div class="hero-v2-texto">
     <div class="eyebrow" data-reveal style="--d:0ms">Un viaje hacia tu esencia</div>
     <h1 data-reveal style="--d:120ms">Un espacio para crecer, reconectar y transformar</h1>
@@ -38,6 +51,35 @@
       <a class="btn btn-primary btn-lg" href="/dl-web/experiencias/">Explorar experiencias<span class="flecha" aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
+<script>
+    // Tres fotos para que la clienta elija. Fundido cruzado suave, se para al pasar el
+    // ratón o al ocultar la pestaña, y no arranca si el sistema pide movimiento reducido.
+    (function () {
+      var raiz = document.querySelector('.hero-v2-foto');
+      var puntos = [].slice.call(document.querySelectorAll('.hero-v2-pager .punto'));
+      if (!raiz || puntos.length < 2) return;
+      var fotos = [].slice.call(raiz.querySelectorAll('img.slide'));
+      var i = 0, t = null;
+      var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function ir(n) {
+        i = (n + fotos.length) % fotos.length;
+        fotos.forEach(function (f, k) { f.classList.toggle('es-activa', k === i); });
+        puntos.forEach(function (p, k) {
+          if (k === i) { p.setAttribute('aria-current', 'true'); }
+          else { p.removeAttribute('aria-current'); }
+        });
+      }
+      function arrancar() { if (quieto || t) return; t = setInterval(function () { ir(i + 1); }, 7000); }
+      function parar() { if (t) { clearInterval(t); t = null; } }
+      puntos.forEach(function (p) {
+        p.addEventListener('click', function () { parar(); ir(+p.dataset.i); arrancar(); });
+      });
+      raiz.addEventListener('mouseenter', parar);
+      raiz.addEventListener('mouseleave', arrancar);
+      document.addEventListener('visibilitychange', function () { if (document.hidden) { parar(); } else { arrancar(); } });
+      ir(0); arrancar();
+    })();
+  </script>
 </header>
 
 <section class="s-white scn" data-escena="despertar">
