@@ -296,6 +296,11 @@ body.con-cristal>.hero-split .hero-texto{padding-top:calc(clamp(56px,7vw,96px) +
 .hero-retrato--der::before{background:linear-gradient(270deg,rgba(251,239,221,.92) 0%,rgba(251,239,221,.86) 30%,
   rgba(251,239,221,.62) 44%,rgba(251,239,221,.22) 54%,rgba(251,239,221,.04) 62%,rgba(251,239,221,0) 70%)}
 .hero-retrato--der .hero-col{margin-left:auto;max-width:min(560px,max(31vw,320px))}
+/* A 1080p el contenedor de 1200 px dejaba 390 px muertos a la derecha del texto y sólo 145 px entre la
+   figura y el bloque: el texto se pega al borde de la ventana, la figura se queda en su sitio y aparece
+   el aire entre las dos. En pantallas anchas el hero no cabe dentro de la caja de 1200. */
+body.con-cristal>.hero-retrato--der .wrap{max-width:none;
+  padding-left:clamp(20px,4vw,64px);padding-right:clamp(20px,4vw,72px)}
 /* el bloque sube: la franja inferior derecha de la foto la cruza la cinta dorada y el texto se lee mejor arriba */
 .hero-retrato--der .wrap{padding-bottom:calc(clamp(72px,9vw,120px) + 110px)}
 
