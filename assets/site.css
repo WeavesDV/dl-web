@@ -292,7 +292,7 @@ body.con-cristal>.hero-split .hero-texto{padding-top:calc(clamp(56px,7vw,96px) +
    pasa a la derecha, sobre el espacio limpio de la imagen. Es la misma pieza con el velo y el encuadre
    cambiados de lado, no un hero nuevo. El velo va en el crema del amanecer (no en el blanco de la home):
    sobre una foto dorada, un velo blanco al 90 % se lee como una mancha lechosa; el cálido se lee como luz. */
-.hero-retrato--der .hero-retrato-foto img{object-position:0% 50%}
+.hero-retrato--der .hero-retrato-foto img{object-position:0% 0%}
 .hero-retrato--der::before{background:linear-gradient(270deg,rgba(251,239,221,.92) 0%,rgba(251,239,221,.86) 30%,
   rgba(251,239,221,.62) 44%,rgba(251,239,221,.22) 54%,rgba(251,239,221,.04) 62%,rgba(251,239,221,0) 70%)}
 .hero-retrato--der .hero-col{margin-left:auto;max-width:min(560px,max(31vw,320px))}
@@ -303,15 +303,9 @@ body.con-cristal>.hero-retrato--der .wrap{max-width:none;
   padding-left:clamp(20px,4vw,64px);padding-right:clamp(20px,4vw,72px)}
 /* el bloque sube: la franja inferior derecha de la foto la cruza la cinta dorada y el texto se lee mejor arriba */
 .hero-retrato--der .wrap{padding-bottom:calc(clamp(72px,9vw,120px) + 110px)}
-/* Ajuste fino del encuadre (probado en el inspector a 1080p): la figura se estira a la izquierda —el zoom es
-   proporcional (14vw), no los 267 px fijos, que sólo cuadran a 1920— y el encuadre se ancla arriba.
-   `top:142px` sobre la figura NO da aire: la recorta justo en el pelo (medido: la cabeza empieza en y=142,
-   pegada al borde) y deja una banda de crema con corte recto. Anclando el object-position arriba la cabeza
-   queda a 102 px del borde, con aire, y la foto sigue tapando el menú. Sólo escritorio. */
-@media (min-width:901px){
-  .hero-retrato--der .hero-retrato-foto{left:-14vw}
-  .hero-retrato--der .hero-retrato-foto img{object-position:0% 0%}
-}
+/* El encuadre se ancla arriba: da aire sobre la cabeza y, cuando la ventana es más alta que la foto, asoma
+   el cielo en vez de cortar la frente. El zoom sobre la figura se probó y se descartó. */
+.hero-retrato--der .hero-retrato-foto img{object-position:0% 0%}
 
 /* ── Animaciones ────────────────────────────────────────────────────────────
    Tres capas, todas suaves y todas apagables: entrada del hero, deriva lenta de
