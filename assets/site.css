@@ -288,14 +288,12 @@ body.con-cristal>.hero-split .hero-texto{padding-top:calc(clamp(56px,7vw,96px) +
 .hero-retrato .lead{color:var(--cielo-ink);max-width:38ch;font-size:clamp(1.05rem,1.35vw,1.25rem);line-height:1.55}
 .hero-retrato .cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
 .hero-retrato .btn .flecha{display:inline-block;margin-left:10px;transition:transform .2s ease}
-/* La foto del campo es más oscura por la izquierda que la de la home: con el velo base el titular se queda
-   en 5,9:1. Este sube a .93 y aguanta hasta la mitad del ancho, que es donde empieza la silueta de la mujer.
-   La columna se acota a 560 px por lo mismo y el titular a 48: la frase tiene 36 caracteres y así parte en
-   las dos líneas del mockup («Acompañamos procesos,» / «no damos recetas») sin dejar «procesos,» huérfano. */
+/* En Misión (la foto del campo, mujer de espaldas) el velo base no llega: la izquierda de esta foto es mucho más
+   oscura que la de la home y `.90 → 0 al 63 %` dejaba el titular en 5,9:1. Este sube a .93 y aguanta hasta la
+   mitad del ancho, que es donde empieza la silueta. La columna se acota a 560 px por lo mismo. */
 .hero-retrato--campo::before{background:linear-gradient(90deg,rgba(255,250,242,.93) 0%,rgba(255,250,242,.90) 30%,
   rgba(255,250,242,.84) 42%,rgba(255,250,242,.72) 50%,rgba(255,250,242,.38) 58%,rgba(255,250,242,0) 66%)}
 .hero-retrato--campo .hero-col{max-width:min(560px,calc(100vw - 40px))}
-.hero-retrato--campo h1{font-size:clamp(2rem,3.4vw,3rem)}
 /* Variante espejo del retrato: la foto se ancla a la izquierda (el sujeto queda en ese lado) y el texto
    pasa a la derecha, sobre el espacio limpio de la imagen. Es la misma pieza con el velo y el encuadre
    cambiados de lado, no un hero nuevo. El velo va en el crema del amanecer (no en el blanco de la home):
