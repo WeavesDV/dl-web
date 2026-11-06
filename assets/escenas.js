@@ -60,9 +60,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // 01 · despertar: el texto entra párrafo a párrafo (los titulares ya los revela [data-reveal])
-    all("[data-escena='despertar'] .wrap > p").forEach(function (p, i) {
+    all("[data-escena='despertar'] .despertar-texto > p").forEach(function (p, i) {
       gsap.from(p, { opacity: 0, y: 22 * k + 6, duration: 1, ease: "power2.out", delay: (i % 3) * 0.06,
         scrollTrigger: { trigger: p, start: "top 90%", once: true } });
+    });
+
+    // 02 · intro: el bloque largo entra párrafo a párrafo, mismo ritmo que el anterior
+    all("[data-escena='intro-texto'] .rest-texto > p").forEach(function (p, i) {
+      gsap.from(p, { opacity: 0, y: 22 * k + 6, duration: 1, ease: "power2.out", delay: (i % 3) * 0.06,
+        scrollTrigger: { trigger: p, start: "top 90%", once: true } });
+    });
+
+    // 05 · galería de experiencias: las fotos entran escalonadas
+    all("[data-escena='experiencias'] .gallery li").forEach(function (li, i) {
+      gsap.from(li, { opacity: 0, y: 26 * k + 8, duration: 1, ease: "power2.out", delay: i * 0.08,
+        scrollTrigger: { trigger: li, start: "top 92%", once: true } });
     });
 
     // 03 · cómo acompañamos: cada bloque entra con un gesto distinto (solo desplazamiento: el fundido ya lo da [data-reveal])
