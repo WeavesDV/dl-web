@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Divine Light Journey · Personal growth and well-being</title>
+<meta name="description" content="A space to grow, reconnect and transform.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="Divine Light Journey · Personal growth and well-being">
+<meta property="og:description" content="A space to grow, reconnect and transform.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US"><link rel="alternate" hreflang="es" href="https://divinelightjourney.com/"><link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/"><link rel="alternate" hreflang="x-default" href="https://divinelightjourney.com/"><link rel="canonical" href="https://divinelightjourney.com/en/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script>document.documentElement.classList.add("rv");</script>
+</head>
+<body class="con-cristal">
+<nav class="nav"><div class="wrap"><a class="brand" href="./">Divine Light Journey</a><ul><li><a href="./" aria-current="page">Home</a></li><li><a href="about-us/">About us</a></li><li><a href="experiences/">Experiences</a></li><li><a href="mission/">Mission</a></li><li><a href="contact/">Contact</a></li></ul><details class="menu"><summary>Menu</summary><ul><li><a href="./">Home</a></li><li><a href="about-us/">About us</a></li><li><a href="experiences/">Experiences</a></li><li><a href="mission/">Mission</a></li><li><a href="contact/">Contact</a></li></ul></details><span class="lang"><a href="../">ES</a> · <b>EN</b></span></div></nav>
+<script>
+(function () {
+  var nav = document.querySelector("nav.nav");
+  if (!nav) return;
+  // --navh síncrono (justo tras la barra) para que el hueco del menú fijo no dé un salto al cargar.
+  function medir() { document.documentElement.style.setProperty("--navh", Math.round(nav.getBoundingClientRect().height) + "px"); }
+  medir();
+  addEventListener("resize", medir);
+  addEventListener("DOMContentLoaded", medir);
+  // Cristal mientras se ve la cabecera de la página; cielo cuando ha salido por arriba; cristal otra vez al
+  // asomar el pie. Vale para todas las páginas: cada una empieza por <body><nav><script><header>. El menú
+  // centrado de /v2/ no cambia (sale antes).
+  var pegado = false, pendiente = false;
+  function conmutar() {
+    pendiente = false;
+    var hero = document.querySelector("body > header") || document.querySelector(".hero-retrato"),
+        pie = document.querySelector("footer");
+    var quiere;
+    if (hero && pie) {
+      var fuera = hero.getBoundingClientRect().bottom <= nav.getBoundingClientRect().height + 1;
+      var alFinal = pie.getBoundingClientRect().top <= window.innerHeight - 80;
+      quiere = fuera && !alFinal;
+    } else {
+      quiere = (window.scrollY || 0) > 24;
+    }
+    if (quiere !== pegado) { pegado = quiere; nav.classList.toggle("nav--pegado", pegado); }
+  }
+  function pedir() { if (!pendiente) { pendiente = true; requestAnimationFrame(conmutar); } }
+  addEventListener("scroll", pedir, { passive: true });
+  addEventListener("resize", pedir);
+  addEventListener("DOMContentLoaded", pedir);   // el script va antes del hero y del pie: aún no existen
+  conmutar();
+})();
+</script>
+<header class="hero-retrato" id="hero">
+  <figure class="hero-retrato-foto">
+    <img src="../assets/img/hero-retrato-960.webp"
+         srcset="./assets/img/hero-retrato-960.webp 960w, ./assets/img/hero-retrato-1600.webp 1600w"
+         sizes="100vw" width="1600" height="899" fetchpriority="high" decoding="async"
+         alt="Woman in profile with her eyes closed, holding a wheat ear against the backlight at sunset">
+  </figure>
+  <div class="hero-scroll" aria-hidden="true"><i></i>Discover</div>
+  <div class="wrap">
+    <div class="hero-col">
+      <div class="eyebrow" data-reveal style="--d:0ms">A journey towards your essence</div>
+      <h1 data-reveal style="--d:120ms">A space to<br><em>grow, reconnect</em><br><em>and transform</em></h1>
+      <p class="lead" data-reveal style="--d:200ms">Personal growth and emotional well-being experiences to help you pause, listen to yourself and move towards a more conscious life.</p>
+      <div class="cta" data-reveal style="--d:280ms">
+        <a class="btn btn-primary btn-lg" href="experiences/">Explore experiences<span class="flecha" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Parallax del hero: se mueve el encuadre de la foto, no la foto. Así no hay huecos
+    // ni choque con la animación de entrada, que sí usa transform.
+    (function () {
+      var img = document.querySelector('.hero-retrato-foto img');
+      if (!img) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (window.innerWidth < 901) return;
+      var pendiente = false, base = 50;
+      window.addEventListener('scroll', function () {
+        if (pendiente) return;
+        pendiente = true;
+        requestAnimationFrame(function () {
+          pendiente = false;
+          var y = Math.min(window.scrollY || 0, 700);
+          img.style.objectPosition = '66% ' + (base - y * 0.022).toFixed(2) + '%';
+        });
+      }, { passive: true });
+    })();
+  </script>
+  <script src="../assets/vendor/gsap.min.js" defer></script>
+  <script src="../assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="../assets/escenas.js" defer></script>
+</header>
+
+<section class="s-white scn" data-escena="despertar">
+  <div class="capa " data-d="-50" data-x="-130" aria-hidden="true"><div class="capa-in" data-m="14"><div class="luz luz-d"></div></div></div>
+  <div class="wrap rest-grid despertar-grid">
+    <figure class="rest-foto despertar-foto">
+      <img class="foto" data-reveal="img" style="--d:0ms" src="../assets/img/foto-proceso-alto-b-960.webp" srcset="./assets/img/foto-proceso-alto-b-960.webp 960w, ./assets/img/foto-proceso-alto-b-1600.webp 1080w" sizes="(min-width:901px) 520px, calc(100vw - 40px)" width="1080" height="1920" alt="A woman's hand holding a red rose by the stem, in warm morning light with a blurred background" loading="lazy" decoding="async">
+      <figcaption class="foto-frase">Every person has their own story, their own moment and their own path.</figcaption>
+    </figure>
+    <div class="despertar-texto"><p>We believe that every person carries within themselves potential, gifts and possibilities that can unfold when they find the right space, tools and support.</p>
+      <p>We create personal growth and emotional well-being experiences that invite you to pause, listen to yourself, understand yourself and move towards a more conscious, fulfilling life aligned with what truly matters.</p>
+      <p>Through programs, mentoring, workshops, gatherings, events and retreats —in person and online— we support processes of self-knowledge, transformation and the development of human potential.</p>
+      <p class="punch">Know yourself. Connect with yourself. Develop your potential.</p>
+      <p>Our experiences combine learning, reflection, practice and support to help you understand your inner world, strengthen your personal resources and develop new ways of relating to yourself, to others and to life.</p>
+      <p>Each offering is an opportunity to explore who you are today, recognize what you need and connect with the possibilities that want to open up on your path.</p>
+      </div>
+  </div>
+</section>
+
+<section class="band s-white">
+  <div class="band-stage" data-escena="crecimiento">
+  <div class="band-img">
+    <div class="capa capa-foto" data-d="34" data-s="1.1"><div class="capa-in" data-m="10"><img class="foto foto-bg" data-reveal="img" style="--d:0ms" src="../assets/img/foto-retiro-960.webp" srcset="./assets/img/foto-retiro-960.webp 960w, ./assets/img/foto-retiro-1600.webp 1600w" sizes="(min-width:1264px) 1200px, calc(100vw - 40px)" width="1920" height="1080" alt="Circle of women dressed in white embracing at a retreat, with golden ribbons in their hair" loading="lazy" decoding="async"></div></div>
+    <div class="capa " data-d="-70" data-x="120" aria-hidden="true"><div class="capa-in" data-m="16"><div class="luz luz-b"></div></div></div>
+    <div class="float-card" data-reveal style="--d:220ms">
+      <h2 data-reveal style="--d:80ms">Growth begins from within</h2>
+      
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="s-white rest" data-escena="intro-texto">
+  <div class="wrap rest-grid">
+    <div class="rest-texto">
+      <p>We understand personal growth as an integral process.</p>
+      <p>Thoughts, emotions, body, relationships, values, experiences and purpose are all part of the same reality: the way we live and relate to ourselves and to the world.</p>
+      <p>Rather than offering closed answers, we seek to create spaces that help each person ask new questions, broaden their perspective, recognize their own resources and make decisions that are more conscious and consistent with the life they want to build.</p>
+      <p class="nota-titulo">Our scope</p>
+      <p>Our programs, workshops, mentoring, retreats and experiences are educational and oriented towards personal growth. They do not constitute psychotherapy, diagnosis, medical treatment or mental health care, and they do not replace the assistance of qualified health or mental health professionals when it is needed.</p>
+    </div>
+    <figure class="rest-foto">
+      <img class="foto" data-reveal="img" style="--d:0ms" src="../assets/img/foto-personas-960.webp" srcset="./assets/img/foto-personas-960.webp 960w, ./assets/img/foto-personas-1600.webp 1200w" sizes="(min-width:901px) 520px, calc(100vw - 40px)" width="1200" height="1500" alt="A young hand holds an older person's hand during a gathering, close up" loading="lazy" decoding="async">
+    </figure>
+  </div>
+</section>
+
+<section class="s-cream scn" data-escena="acompanamos">
+  <div class="capa " data-d="-90" data-x="90" aria-hidden="true"><div class="capa-in" data-m="12"><div class="luz luz-c"></div></div></div>
+  <div class="wrap how">
+    <div>
+      <div class="eyebrow" data-reveal style="--d:0ms">How we support you</div>
+      <ol class="steps">
+        <li data-reveal style="--d:0ms"><span class="n">01</span><h3>Programs and trainings</h3><p>Structured processes to deepen self-knowledge, emotional intelligence, well-being and personal growth.</p></li>
+        <li data-reveal style="--d:70ms"><span class="n">02</span><h3>Mentoring and guidance</h3><p>Individual or group spaces designed to bring clarity, perspective and tools to move forward in personal and professional processes.</p></li>
+        <li data-reveal style="--d:140ms"><span class="n">03</span><h3>Workshops and gatherings</h3><p>Dynamic, participatory experiences to explore specific themes related to emotions, relationships, purpose, values and human growth.</p></li>
+        <li data-reveal style="--d:210ms"><span class="n">04</span><h3>Retreats and immersive experiences</h3><p>Immersive spaces that let you step out of the daily rhythm, connect deeply with yourself and go through processes of reflection, learning and transformation.</p></li>
+      </ol>
+    </div>
+    <div class="how-media">
+      <img class="foto" data-reveal="img" style="--d:0ms" src="../assets/img/foto-taller-960.webp" srcset="./assets/img/foto-taller-960.webp 960w, ./assets/img/foto-taller-1600.webp 900w" sizes="(min-width:901px) 520px, calc(100vw - 40px)" width="900" height="1200" alt="Two hands holding each other tenderly during a gathering, close up" loading="lazy" decoding="async">
+      <div class="float-card" data-reveal style="--d:240ms"><p>Programs, mentoring, workshops and retreats, in person and online.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="banda-full">
+  <img src="../assets/img/foto-banda-full-960.webp" srcset="./assets/img/foto-banda-full-960.webp 960w, ./assets/img/foto-banda-full-1600.webp 1600w" sizes="100vw" width="2000" height="857" alt="Hands of several people stacked one over another in a group gesture" loading="lazy" decoding="async">
+  <div class="centro">
+    <div class="eyebrow" data-reveal style="--d:0ms">Experiences</div>
+    <h2 data-reveal style="--d:80ms">Each offering is an opportunity to explore who you are today</h2>
+    <a class="btn btn-gold btn-lg" href="contact/" data-modal>Let's talk</a>
+  </div>
+</section>
+
+<section class="s-white" data-escena="experiencias">
+  <div class="wrap">
+    <div class="eyebrow" data-reveal style="--d:0ms">Experiences</div>
+    <ul class="gallery">
+      <li><div class="marco"><div class="par"><img class="foto" src="../assets/img/foto-circulo-960.webp" srcset="./assets/img/foto-circulo-960.webp 960w, ./assets/img/foto-circulo-1600.webp 1200w" sizes="(min-width:1264px) 368px, (min-width:901px) 30vw, calc(100vw - 40px)" width="1200" height="1500" alt="Five people dressed in white sitting in a circle around candles, lanterns and bowls, seen from above" loading="lazy" decoding="async"></div></div></li>
+      <li><div class="marco"><div class="par"><img class="foto" src="../assets/img/foto-detalle-960.webp" srcset="./assets/img/foto-detalle-960.webp 960w, ./assets/img/foto-detalle-1600.webp 1200w" sizes="(min-width:1264px) 368px, (min-width:901px) 30vw, calc(100vw - 40px)" width="1200" height="1500" alt="Group embrace at a gathering, with several hands around one person's back" loading="lazy" decoding="async"></div></div></li>
+      <li><div class="marco"><div class="par"><img class="foto" src="../assets/img/foto-conferencia-960.webp" srcset="./assets/img/foto-conferencia-960.webp 960w, ./assets/img/foto-conferencia-1600.webp 1200w" sizes="(min-width:1264px) 368px, (min-width:901px) 30vw, calc(100vw - 40px)" width="1200" height="675" alt="Empty meditation room with a vaulted brick ceiling, a circular drawing on the wall and cushions on the floor" loading="lazy" decoding="async"></div></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="close" data-escena="reencuentro">
+  <video class="close-video" muted loop playsinline preload="none" tabindex="-1" aria-hidden="true"
+         poster="../assets/hero-poster.jpg" data-src="../assets/hero-loop-720.mp4"></video>
+  <div class="close-velo" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2 data-reveal style="--d:80ms">Know yourself. Connect with yourself. Develop your potential.</h2>
+    <p>Programs, workshops, mentoring, retreats and personal growth experiences.</p>
+    <a class="btn btn-primary btn-lg" href="contact/" data-modal>Get in touch</a>
+    <span class="luz-cta" aria-hidden="true"></span>
+  </div>
+  <script>
+    // El vídeo del cierre se pide solo cuando la sección entra en pantalla y con movimiento permitido;
+    // si el sistema pide movimiento reducido no se descarga y queda el póster. Fuera de pantalla se pausa.
+    (function () {
+      var sec = document.querySelector('.close');
+      var v = sec && sec.querySelector('.close-video');
+      if (!v) return;
+      var quieto = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (quieto.matches || !('IntersectionObserver' in window)) return;
+      var cargado = false;
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (!e.isIntersecting) { v.pause(); return; }
+          if (quieto.matches) return;
+          if (!cargado) {
+            cargado = true;
+            v.setAttribute('preload', 'metadata');
+            v.setAttribute('autoplay', '');
+            var f = document.createElement('source');
+            f.type = 'video/mp4'; f.src = v.getAttribute('data-src');
+            v.appendChild(f);
+            v.load();
+            v.addEventListener('canplay', function () { sec.classList.add('video-listo'); }, { once: true });
+          }
+          var p = v.play();
+          if (p && p.catch) p.catch(function () {});
+        });
+      }, { rootMargin: '300px 0px' }).observe(sec);
+    })();
+  </script>
+</section>
+
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand">Divine Light Journey</div>
+      <p>Personal growth, well-being and human development.</p>
+    </div>
+    <div><h4>Information</h4><ul>
+      <li><a href="about-us/">About us</a></li>
+      <li><a href="mission/">Mission</a></li>
+      <li><a href="contact/">Contact</a></li></ul></div>
+    <div><h4>Experiences</h4><ul>
+      <li><a href="experiences/">Programs and trainings</a></li>
+      <li><a href="experiences/">Mentoring</a></li>
+      <li><a href="experiences/">Retreats</a></li></ul></div>
+    <div><h4>Legal</h4><ul>
+      <li><a href="legal/privacy/">Privacy</a></li>
+      <li><a href="legal/terms/">Terms and conditions</a></li>
+      <li><a href="legal/cookies/">Cookies</a></li></ul></div>
+  </div>
+  <div class="legalbar">© 2026 Divine Light Journey · All rights reserved</div>
+</footer>
+<script>
+(function () {
+  var els = [].slice.call(document.querySelectorAll("[data-reveal]"));
+  if (!els.length) return;
+  if (!("IntersectionObserver" in window)) {
+    els.forEach(function (e) { e.classList.add("in"); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add("in");
+      io.unobserve(en.target);
+    });
+  }, { rootMargin: "0px 0px -6% 0px", threshold: 0.12 });
+  els.forEach(function (e) { io.observe(e); });
+})();
+</script>
+<div class="modal" id="dialogo-contacto" hidden>
+  <div class="modal-fondo" data-cerrar-modal></div>
+  <div class="modal-caja" role="dialog" aria-modal="true" aria-labelledby="dlg-titulo">
+    <button class="modal-cerrar" type="button" aria-label="Close" data-cerrar-modal>&times;</button>
+    <h2 id="dlg-titulo">Let's talk</h2>
+    <p class="modal-intro">Tell us what you need and we will get back to you as soon as possible.</p>
+    <form class="form" action="mailto:info@divinelightjourney.com" method="post" enctype="text/plain">
+      <div class="field"><label for="dlg-n">Name</label><input id="dlg-n" name="nombre" required autocomplete="name"></div>
+      <div class="field"><label for="dlg-e">Email</label><input id="dlg-e" name="email" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="dlg-m">Message</label><textarea id="dlg-m" name="mensaje" rows="4" required></textarea></div>
+      <button class="btn btn-primary" type="submit">Send message</button>
+      <p class="hint">When you send it, your email app will open with the message ready to go.</p>
+    </form>
+  </div>
+</div>
+<script>
+(function () {
+  var dlg = document.getElementById("dialogo-contacto");
+  if (!dlg) return;
+  var ultimoFoco = null;
+
+  function abrir(ev) {
+    if (ev) ev.preventDefault();
+    ultimoFoco = document.activeElement;
+    dlg.hidden = false;
+    document.body.classList.add("modal-abierto");
+    var primero = dlg.querySelector("input, textarea") || dlg.querySelector("button");
+    if (primero) primero.focus();
+  }
+  function cerrar() {
+    dlg.hidden = true;
+    document.body.classList.remove("modal-abierto");
+    if (ultimoFoco) ultimoFoco.focus();
+  }
+
+  document.addEventListener("click", function (ev) {
+    if (ev.target.closest("[data-modal]")) { abrir(ev); return; }
+    if (ev.target.closest("[data-cerrar-modal]")) cerrar();
+  });
+  document.addEventListener("keydown", function (ev) {
+    if (dlg.hidden) return;
+    if (ev.key === "Escape") { cerrar(); return; }
+    if (ev.key !== "Tab") return;
+    // el foco no se escapa del diálogo mientras está abierto
+    var foco = [].slice.call(dlg.querySelectorAll("button, input, textarea, a[href]")).filter(function (e) {
+      return !e.disabled && e.offsetParent !== null;
+    });
+    if (!foco.length) return;
+    var primero = foco[0], ultimo = foco[foco.length - 1];
+    if (ev.shiftKey && document.activeElement === primero) { ev.preventDefault(); ultimo.focus(); }
+    else if (!ev.shiftKey && document.activeElement === ultimo) { ev.preventDefault(); primero.focus(); }
+  });
+})();
+</script>
+</body>
+</html>

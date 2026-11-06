@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission · Divine Light Journey</title>
+<meta name="description" content="To create learning, self-knowledge and transformation experiences that help people understand themselves better, strengthen their inner resources and develop their potential.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="Mission · Divine Light Journey">
+<meta property="og:description" content="To create learning, self-knowledge and transformation experiences that help people understand themselves better, strengthen their inner resources and develop their potential.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US"><link rel="alternate" hreflang="es" href="https://divinelightjourney.com/mision/"><link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/mission/"><link rel="alternate" hreflang="x-default" href="https://divinelightjourney.com/mision/"><link rel="canonical" href="https://divinelightjourney.com/en/mission/">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>document.documentElement.classList.add("rv");</script>
+</head>
+<body class="con-cristal">
+<nav class="nav"><div class="wrap"><a class="brand" href="../">Divine Light Journey</a><ul><li><a href="../">Home</a></li><li><a href="../about-us/">About us</a></li><li><a href="../experiences/">Experiences</a></li><li><a href="./" aria-current="page">Mission</a></li><li><a href="../contact/">Contact</a></li></ul><details class="menu"><summary>Menu</summary><ul><li><a href="../">Home</a></li><li><a href="../about-us/">About us</a></li><li><a href="../experiences/">Experiences</a></li><li><a href="./">Mission</a></li><li><a href="../contact/">Contact</a></li></ul></details><span class="lang"><a href="../../mision/">ES</a> · <b>EN</b></span></div></nav>
+<script>
+(function () {
+  var nav = document.querySelector("nav.nav");
+  if (!nav) return;
+  // --navh síncrono (justo tras la barra) para que el hueco del menú fijo no dé un salto al cargar.
+  function medir() { document.documentElement.style.setProperty("--navh", Math.round(nav.getBoundingClientRect().height) + "px"); }
+  medir();
+  addEventListener("resize", medir);
+  addEventListener("DOMContentLoaded", medir);
+  // Cristal mientras se ve la cabecera de la página; cielo cuando ha salido por arriba; cristal otra vez al
+  // asomar el pie. Vale para todas las páginas: cada una empieza por <body><nav><script><header>. El menú
+  // centrado de /v2/ no cambia (sale antes).
+  var pegado = false, pendiente = false;
+  function conmutar() {
+    pendiente = false;
+    var hero = document.querySelector("body > header") || document.querySelector(".hero-retrato"),
+        pie = document.querySelector("footer");
+    var quiere;
+    if (hero && pie) {
+      var fuera = hero.getBoundingClientRect().bottom <= nav.getBoundingClientRect().height + 1;
+      var alFinal = pie.getBoundingClientRect().top <= window.innerHeight - 80;
+      quiere = fuera && !alFinal;
+    } else {
+      quiere = (window.scrollY || 0) > 24;
+    }
+    if (quiere !== pegado) { pegado = quiere; nav.classList.toggle("nav--pegado", pegado); }
+  }
+  function pedir() { if (!pendiente) { pendiente = true; requestAnimationFrame(conmutar); } }
+  addEventListener("scroll", pedir, { passive: true });
+  addEventListener("resize", pedir);
+  addEventListener("DOMContentLoaded", pedir);   // el script va antes del hero y del pie: aún no existen
+  conmutar();
+})();
+</script>
+<header class="hero-retrato hero-retrato--campo" id="hero">
+  <figure class="hero-retrato-foto">
+    <img src="../../assets/img/hero-mision-960.webp"
+         srcset="../assets/img/hero-mision-960.webp 960w, ../assets/img/hero-mision-1600.webp 1600w"
+         sizes="100vw" width="1600" height="900" fetchpriority="high" decoding="async"
+         alt="Woman seen from behind with her arms open in a golden field, her hair lit by the low sun">
+  </figure>
+  <div class="wrap"><div class="hero-col">
+    <div class="eyebrow" data-reveal style="--d:0ms">Mission</div>
+    <h1 data-reveal style="--d:120ms">Our mission</h1>
+    <p class="lead" data-reveal style="--d:200ms">Through training, guidance and immersive experiences, we seek to facilitate processes that foster emotional well-being, personal awareness and the ability to make decisions aligned with one's own values, needs and purpose.</p>
+  </div></div>
+</header>
+<section class="s-white"><div class="wrap">
+  <figure class="ms-banda">
+    <img class="foto" data-reveal="img" style="--d:0ms" src="../../assets/img/foto-mision-960.webp" srcset="../assets/img/foto-mision-960.webp 960w, ../assets/img/foto-mision-1600.webp 1470w" sizes="(min-width:901px) 1100px, calc(100vw - 40px)" width="1470" height="980" alt="Field of white wildflowers backlit, with the low sun blurred behind" loading="lazy" decoding="async">
+    <figcaption class="foto-frase">Growth begins from within</figcaption>
+  </figure>
+  <div class="ms-entradilla"><p>To create learning, self-knowledge and transformation experiences that help people understand themselves better, strengthen their inner resources and develop their potential.</p></div>
+</div></section>
+<section class="s-white ms-seccion"><div class="wrap ms-grid">
+  <div class="ms-cuerpo">
+      <div class="ms-bloque" data-reveal style="--d:0ms"><h3>Our commitment</h3><p>Our commitment is to help every person build a more conscious relationship with themselves and live with greater clarity, balance, authenticity and meaning.</p></div>
+  </div>
+  <div class="ms-vision"><div class="ms-bloque" data-reveal style="--d:0ms"><h3>A more conscious society</h3><p>To contribute to a society made up of people who are more aware of themselves, connected with their values and able to relate to themselves, to others and to life with greater understanding, responsibility and well-being.</p></div><div class="ms-bloque" data-reveal style="--d:100ms"><h3>Personal growth within everyone's reach</h3><p>To bring personal and emotional growth closer to more people through accessible, deep and human experiences, creating spaces where learning can become transformation and transformation can carry over into everyday life.</p></div></div>
+</div></section>
+<section class="close ms-cierre">
+  <div class="wrap">
+    <p class="lema">Know yourself. Connect with yourself. Develop your potential.</p>
+    <div class="ms-ctas">
+      <a class="btn btn-primary btn-lg" href="../experiences/">See experiences</a>
+    </div>
+  </div>
+</section>
+<script src="../../assets/vendor/gsap.min.js" defer></script>
+<script src="../../assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="../../assets/escenas.js" defer></script>
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand">Divine Light Journey</div>
+      <p>Personal growth, well-being and human development.</p>
+    </div>
+    <div><h4>Information</h4><ul>
+      <li><a href="../about-us/">About us</a></li>
+      <li><a href="./">Mission</a></li>
+      <li><a href="../contact/">Contact</a></li></ul></div>
+    <div><h4>Experiences</h4><ul>
+      <li><a href="../experiences/">Programs and trainings</a></li>
+      <li><a href="../experiences/">Mentoring</a></li>
+      <li><a href="../experiences/">Retreats</a></li></ul></div>
+    <div><h4>Legal</h4><ul>
+      <li><a href="../legal/privacy/">Privacy</a></li>
+      <li><a href="../legal/terms/">Terms and conditions</a></li>
+      <li><a href="../legal/cookies/">Cookies</a></li></ul></div>
+  </div>
+  <div class="legalbar">© 2026 Divine Light Journey · All rights reserved</div>
+</footer>
+<script>
+(function () {
+  var els = [].slice.call(document.querySelectorAll("[data-reveal]"));
+  if (!els.length) return;
+  if (!("IntersectionObserver" in window)) {
+    els.forEach(function (e) { e.classList.add("in"); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add("in");
+      io.unobserve(en.target);
+    });
+  }, { rootMargin: "0px 0px -6% 0px", threshold: 0.12 });
+  els.forEach(function (e) { io.observe(e); });
+})();
+</script>
+<div class="modal" id="dialogo-contacto" hidden>
+  <div class="modal-fondo" data-cerrar-modal></div>
+  <div class="modal-caja" role="dialog" aria-modal="true" aria-labelledby="dlg-titulo">
+    <button class="modal-cerrar" type="button" aria-label="Close" data-cerrar-modal>&times;</button>
+    <h2 id="dlg-titulo">Let's talk</h2>
+    <p class="modal-intro">Tell us what you need and we will get back to you as soon as possible.</p>
+    <form class="form" action="mailto:info@divinelightjourney.com" method="post" enctype="text/plain">
+      <div class="field"><label for="dlg-n">Name</label><input id="dlg-n" name="nombre" required autocomplete="name"></div>
+      <div class="field"><label for="dlg-e">Email</label><input id="dlg-e" name="email" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="dlg-m">Message</label><textarea id="dlg-m" name="mensaje" rows="4" required></textarea></div>
+      <button class="btn btn-primary" type="submit">Send message</button>
+      <p class="hint">When you send it, your email app will open with the message ready to go.</p>
+    </form>
+  </div>
+</div>
+<script>
+(function () {
+  var dlg = document.getElementById("dialogo-contacto");
+  if (!dlg) return;
+  var ultimoFoco = null;
+
+  function abrir(ev) {
+    if (ev) ev.preventDefault();
+    ultimoFoco = document.activeElement;
+    dlg.hidden = false;
+    document.body.classList.add("modal-abierto");
+    var primero = dlg.querySelector("input, textarea") || dlg.querySelector("button");
+    if (primero) primero.focus();
+  }
+  function cerrar() {
+    dlg.hidden = true;
+    document.body.classList.remove("modal-abierto");
+    if (ultimoFoco) ultimoFoco.focus();
+  }
+
+  document.addEventListener("click", function (ev) {
+    if (ev.target.closest("[data-modal]")) { abrir(ev); return; }
+    if (ev.target.closest("[data-cerrar-modal]")) cerrar();
+  });
+  document.addEventListener("keydown", function (ev) {
+    if (dlg.hidden) return;
+    if (ev.key === "Escape") { cerrar(); return; }
+    if (ev.key !== "Tab") return;
+    // el foco no se escapa del diálogo mientras está abierto
+    var foco = [].slice.call(dlg.querySelectorAll("button, input, textarea, a[href]")).filter(function (e) {
+      return !e.disabled && e.offsetParent !== null;
+    });
+    if (!foco.length) return;
+    var primero = foco[0], ultimo = foco[foco.length - 1];
+    if (ev.shiftKey && document.activeElement === primero) { ev.preventDefault(); ultimo.focus(); }
+    else if (!ev.shiftKey && document.activeElement === ultimo) { ev.preventDefault(); primero.focus(); }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy · Divine Light Journey</title>
+<meta name="description" content="Privacy Policy of Divine Light Journey.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="Privacy Policy · Divine Light Journey">
+<meta property="og:description" content="Privacy Policy of Divine Light Journey.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US"><link rel="alternate" hreflang="es" href="https://divinelightjourney.com/legal/privacidad/"><link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/legal/privacy/"><link rel="alternate" hreflang="x-default" href="https://divinelightjourney.com/legal/privacidad/"><link rel="canonical" href="https://divinelightjourney.com/en/legal/privacy/">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>document.documentElement.classList.add("rv");</script>
+</head>
+<body class="con-cristal">
+<nav class="nav"><div class="wrap"><a class="brand" href="../../">Divine Light Journey</a><ul><li><a href="../../">Home</a></li><li><a href="../../about-us/">About us</a></li><li><a href="../../experiences/">Experiences</a></li><li><a href="../../mission/">Mission</a></li><li><a href="../../contact/">Contact</a></li></ul><details class="menu"><summary>Menu</summary><ul><li><a href="../../">Home</a></li><li><a href="../../about-us/">About us</a></li><li><a href="../../experiences/">Experiences</a></li><li><a href="../../mission/">Mission</a></li><li><a href="../../contact/">Contact</a></li></ul></details><span class="lang"><a href="../../../legal/privacidad/">ES</a> · <b>EN</b></span></div></nav>
+<script>
+(function () {
+  var nav = document.querySelector("nav.nav");
+  if (!nav) return;
+  // --navh síncrono (justo tras la barra) para que el hueco del menú fijo no dé un salto al cargar.
+  function medir() { document.documentElement.style.setProperty("--navh", Math.round(nav.getBoundingClientRect().height) + "px"); }
+  medir();
+  addEventListener("resize", medir);
+  addEventListener("DOMContentLoaded", medir);
+  // Cristal mientras se ve la cabecera de la página; cielo cuando ha salido por arriba; cristal otra vez al
+  // asomar el pie. Vale para todas las páginas: cada una empieza por <body><nav><script><header>. El menú
+  // centrado de /v2/ no cambia (sale antes).
+  var pegado = false, pendiente = false;
+  function conmutar() {
+    pendiente = false;
+    var hero = document.querySelector("body > header") || document.querySelector(".hero-retrato"),
+        pie = document.querySelector("footer");
+    var quiere;
+    if (hero && pie) {
+      var fuera = hero.getBoundingClientRect().bottom <= nav.getBoundingClientRect().height + 1;
+      var alFinal = pie.getBoundingClientRect().top <= window.innerHeight - 80;
+      quiere = fuera && !alFinal;
+    } else {
+      quiere = (window.scrollY || 0) > 24;
+    }
+    if (quiere !== pegado) { pegado = quiere; nav.classList.toggle("nav--pegado", pegado); }
+  }
+  function pedir() { if (!pendiente) { pendiente = true; requestAnimationFrame(conmutar); } }
+  addEventListener("scroll", pedir, { passive: true });
+  addEventListener("resize", pedir);
+  addEventListener("DOMContentLoaded", pedir);   // el script va antes del hero y del pie: aún no existen
+  conmutar();
+})();
+</script>
+<section class="s-white"><div class="wrap legal">
+  <div class="eyebrow" data-reveal style="--d:0ms">Legal</div>
+  <h1 style="font-size:clamp(2rem,4vw,3rem)">Privacy Policy</h1>
+  <p>Last updated: <mark class="todo">[DATE]</mark></p>
+      <p>At <mark class="todo">[LEGAL NAME OF THE LLC]</mark>, with its registered office in Albuquerque, New Mexico, United States (hereinafter, “the Company”, “we” or “us”), we respect the privacy of the people who visit our website divinelightjourney.com, contact us or engage our services.</p>
+      <p>This Privacy Policy explains what personal information we may collect, how we use it, with whom we may share it, how long we may keep it and what rights users may have depending on where they live.</p>
+      <p>Our services are intended exclusively for people over 18 years of age.</p>
+      <h2 data-reveal style="--d:80ms">1. DATA CONTROLLER</h2>
+      <p>Company: <mark class="todo">[LEGAL NAME OF THE LLC]</mark> Entity type: Limited Liability Company (LLC) Location: Albuquerque, New Mexico, United States Address: <mark class="todo">[BUSINESS ADDRESS]</mark> Website: divinelightjourney.com Contact email: info@divinelightjourney.com</p>
+      <p>For any question related to this Privacy Policy or to the processing of personal information, you can contact us at the email address indicated above.</p>
+      <h2 data-reveal style="--d:80ms">2. PERSONAL INFORMATION WE MAY COLLECT</h2>
+      <p>Depending on how the user interacts with our website and our services, we may collect different categories of information.</p>
+      <h3>Information provided directly by the user</h3>
+      <p>We may collect information when a person:</p>
+      <ul><li>completes a contact form;</li><li>requests information about our programs or services;</li><li>registers for a program, workshop, event, retreat or experience;</li><li>engages any of our services;</li><li>subscribes to our communications;</li><li>contacts us by email or other available channels;</li><li>takes part in activities, programs or experiences organized by the Company.</li></ul>
+      <p>Depending on the case, this information may include:</p>
+      <ul><li>first and last name;</li><li>email address;</li><li>phone number;</li><li>country or place of residence;</li><li>information related to the service requested or engaged;</li><li>information needed to manage registrations, bookings or payments;</li><li>any other information the user chooses to provide us voluntarily.</li></ul>
+      <p>Through the site's general forms we do not request sensitive health information, medical diagnoses or other special categories of personal data.</p>
+      <h3>Information collected automatically</h3>
+      <p>When a person uses our website, certain technologies may automatically collect technical and browsing information, such as:</p>
+      <ul><li>IP address;</li><li>device type;</li><li>browser used;</li><li>operating system;</li><li>pages visited;</li><li>date and time of access;</li><li>approximate browsing time;</li><li>source from which the website was accessed;</li><li>interactions with certain pages or content;</li><li>identifiers associated with cookies or other similar technologies.</li></ul>
+      <p>The information actually collected will depend on the technologies and tools installed on the website.</p>
+      <h2 data-reveal style="--d:80ms">3. WHAT WE USE THE INFORMATION FOR</h2>
+      <p>We may use the personal information collected to:</p>
+      <ul><li>respond to inquiries and requests for information;</li><li>manage our relationship with clients and users;</li><li>process registrations, bookings or engagements;</li><li>provide our services;</li><li>organize programs, mentoring, workshops, gatherings, events, retreats and other experiences;</li><li>manage payments and invoicing;</li><li>send communications related to services engaged;</li><li>send marketing communications where consent or another applicable legal basis exists;</li><li>manage and improve our website;</li><li>analyze how the site works and is used;</li><li>keep the website secure and prevent fraudulent or improper use;</li><li>comply with our legal, tax, accounting and administrative obligations;</li><li>establish, exercise or defend legal claims.</li></ul>
+      <p>We will not use personal information for purposes incompatible with those for which it was collected, unless there is a legal basis that allows it.</p>
+      <h2 data-reveal style="--d:80ms">4. LEGAL BASES FOR PROCESSING INFORMATION</h2>
+      <p>Where applicable law requires a legal basis for processing personal information, we may rely, depending on the circumstances, on:</p>
+      <p>Consent: where the user has expressly authorized a specific processing operation.</p>
+      <p>Performance of a contract or pre-contractual steps: where processing is necessary to manage a request, registration, booking, purchase or provision of services.</p>
+      <p>Compliance with legal obligations: where we need to keep or process certain information to comply with legal, tax, accounting or regulatory obligations.</p>
+      <p>Legitimate interests: where necessary to operate, protect and improve our business and our services, provided those interests do not override the rights and freedoms of the person concerned.</p>
+      <p>Where processing is based on consent, the user may withdraw it at any time, without affecting the lawfulness of the processing carried out before that withdrawal.</p>
+      <h2 data-reveal style="--d:80ms">5. MARKETING COMMUNICATIONS</h2>
+      <p>We may send information about programs, activities, events, workshops, retreats, content or services where the user has given consent or where another legal basis allows it.</p>
+      <p>The user may stop receiving marketing communications at any time through the unsubscribe link included in emails or by writing to us at [EMAIL].</p>
+      <p>Unsubscribing from marketing communications will not prevent us from sending necessary messages related to a service engaged, a transaction or an existing relationship with the user.</p>
+      <h2 data-reveal style="--d:80ms">6. PAYMENTS</h2>
+      <p>Where our services can be engaged or paid for online, payments may be processed by specialized third-party providers.</p>
+      <p>[LIST PROVIDERS USED: STRIPE, PAYPAL, ETC.]</p>
+      <p>The Company does not necessarily store all the financial or card details used during a transaction. Those details may be collected and processed directly by the relevant payment provider in accordance with its own privacy policies and terms.</p>
+      <h2 data-reveal style="--d:80ms">7. SERVICE PROVIDERS</h2>
+      <p>We may use third-party providers to help us operate our business and provide our services, for example for:</p>
+      <ul><li>web hosting;</li><li>email;</li><li>form management;</li><li>learning platforms;</li><li>video conferencing;</li><li>payment processing;</li><li>client management;</li><li>email marketing;</li><li>web analytics;</li><li>advertising;</li><li>cloud storage;</li><li>technical support.</li></ul>
+      <p>These providers may access personal information only to the extent necessary to provide their services and in accordance with the relevant contractual and legal obligations.</p>
+      <p>[LIST THE MAIN PROVIDERS USED HERE, IF DESIRED.]</p>
+      <h2 data-reveal style="--d:80ms">8. COOKIES AND SIMILAR TECHNOLOGIES</h2>
+      <p>Our website may use cookies, pixels, tags and similar technologies to ensure it works, remember certain preferences, obtain statistical information or, where appropriate, carry out marketing and advertising activities.</p>
+      <p>Where applicable law requires it, we will ask for the user's consent before using cookies or technologies that are not strictly necessary.</p>
+      <p>The user can find more information and manage their preferences by consulting our Cookie Policy and, where available, by using the website's cookie settings panel.</p>
+      <h2 data-reveal style="--d:80ms">9. INTERNATIONAL TRANSFERS</h2>
+      <p>The Company is established in the United States and provides services to people in different countries.</p>
+      <p>As a result, personal information may be processed or stored in the United States or in countries other than the user's country of residence.</p>
+      <p>Where applicable law requires it, we will take the necessary steps to provide an adequate level of protection for personal information and will use the legal mechanisms available for international data transfers.</p>
+      <p>Where the European Union General Data Protection Regulation (“GDPR”) applies, the safeguards required by that regulation will be adopted for international transfers of personal data.</p>
+      <h2 data-reveal style="--d:80ms">10. RETENTION OF INFORMATION</h2>
+      <p>We will keep personal information only for as long as reasonably necessary to fulfil the purposes for which it was collected and to meet our legal, contractual, tax, accounting or administrative obligations.</p>
+      <p>The retention period may vary depending on the type of information, the relationship maintained with the user and the applicable legal obligations.</p>
+      <p>Once the information is no longer necessary, it may be deleted, anonymized or kept only where there is an obligation or legal basis to do so.</p>
+      <h2 data-reveal style="--d:80ms">11. SECURITY</h2>
+      <p>We adopt reasonable administrative, organizational and technical measures designed to protect personal information against loss, misuse, unauthorized access, disclosure, alteration or destruction.</p>
+      <p>However, no electronic transmission or storage system can guarantee absolute security.</p>
+      <h2 data-reveal style="--d:80ms">12. PRIVACY RIGHTS</h2>
+      <p>Depending on the user's place of residence and applicable law, the user may have certain rights in relation to their personal information.</p>
+      <p>These rights may include:</p>
+      <ul><li>requesting access to their personal information;</li><li>requesting correction of inaccurate information;</li><li>requesting deletion of certain information;</li><li>requesting restriction of certain processing operations;</li><li>objecting to certain processing operations;</li><li>requesting portability of their data where applicable;</li><li>withdrawing consent previously given;</li><li>lodging a complaint with a competent data protection authority.</li></ul>
+      <p>The specific exercise of these rights will depend on applicable law and may be subject to certain legal exceptions.</p>
+      <p>To make a privacy-related request, you can write to:</p>
+      <p>[PRIVACY EMAIL]</p>
+      <p>We may request the information reasonably necessary to verify the identity of the person making the request before responding.</p>
+      <h2 data-reveal style="--d:80ms">13. INFORMATION FOR USERS IN THE EUROPEAN ECONOMIC AREA</h2>
+      <p>Where the General Data Protection Regulation (GDPR) applies to the processing of personal information, the persons concerned may exercise, where applicable, the rights recognized by that regulation, including the rights of access, rectification, erasure, restriction, objection and portability.</p>
+      <p>They may also withdraw their consent where processing is based on it and lodge a complaint with the competent data protection authority in their country.</p>
+      <p>Withdrawing consent will not affect the lawfulness of processing carried out before that withdrawal.</p>
+      <h2 data-reveal style="--d:80ms">14. INFORMATION FOR RESIDENTS OF THE UNITED STATES</h2>
+      <p>Certain US state privacy laws may grant specific rights to their residents.</p>
+      <p>Depending on the jurisdiction and on whether those laws apply to our Company, these rights may include requesting information about the personal data collected, accessing it, correcting it, requesting its deletion or objecting to certain uses or disclosures.</p>
+      <p>Where a state privacy law applies to our Company and to the user, we will handle requests in accordance with the requirements, procedures, deadlines and exceptions established by that law.</p>
+      <p>The Company will not discriminate against any person for validly exercising the privacy rights granted to them by applicable law.</p>
+      <h2 data-reveal style="--d:80ms">15. SALE OR SHARING OF PERSONAL INFORMATION</h2>
+      <p>[THIS SECTION MUST BE ADAPTED TO THE COMPANY'S ACTUAL ACTIVITY.]</p>
+      <p>We do not sell personal information to third parties in exchange for money.</p>
+      <p>Certain advertising, analytics or social media tools may involve the transmission of identifiers or other information to third parties. Depending on applicable law, some of these activities may be considered a “sale”, “sharing”, targeted advertising or another similar legal category.</p>
+      <p>Where necessary, we will provide the information, consent or opt-out mechanisms required by applicable law.</p>
+      <h2 data-reveal style="--d:80ms">16. CHILDREN'S PRIVACY</h2>
+      <p>Our services are intended exclusively for people aged 18 or over.</p>
+      <p>We do not intentionally offer our services to anyone under 18, nor do we knowingly seek to collect personal information from minors through our services.</p>
+      <p>If we become aware that we have received personal information from a minor in breach of this policy or applicable law, we may take the reasonable steps necessary to delete it.</p>
+      <h2 data-reveal style="--d:80ms">17. THIRD-PARTY LINKS AND SERVICES</h2>
+      <p>Our website may contain links, videos, embedded content or services provided by third parties.</p>
+      <p>Use of those sites or services is subject to their own privacy policies and terms.</p>
+      <p>We are not responsible for the privacy practices of external websites or services that we do not control.</p>
+      <h2 data-reveal style="--d:80ms">18. CHANGES TO THIS POLICY</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices, services, technologies or legal requirements.</p>
+      <p>The updated version will be published on this page with the date of the last update.</p>
+      <p>Where changes are substantial and applicable law requires it, we may provide additional notice.</p>
+      <h2 data-reveal style="--d:80ms">19. CONTACT</h2>
+      <p>For any question related to this Privacy Policy or to the processing of personal information, you can contact:</p>
+      <p><mark class="todo">[LEGAL NAME OF THE LLC]</mark> Albuquerque, New Mexico, United States Email: [EMAIL] Website: divinelightjourney.com</p>
+      </div></section>
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand">Divine Light Journey</div>
+      <p>Personal growth, well-being and human development.</p>
+    </div>
+    <div><h4>Information</h4><ul>
+      <li><a href="../../about-us/">About us</a></li>
+      <li><a href="../../mission/">Mission</a></li>
+      <li><a href="../../contact/">Contact</a></li></ul></div>
+    <div><h4>Experiences</h4><ul>
+      <li><a href="../../experiences/">Programs and trainings</a></li>
+      <li><a href="../../experiences/">Mentoring</a></li>
+      <li><a href="../../experiences/">Retreats</a></li></ul></div>
+    <div><h4>Legal</h4><ul>
+      <li><a href="./">Privacy</a></li>
+      <li><a href="../terms/">Terms and conditions</a></li>
+      <li><a href="../cookies/">Cookies</a></li></ul></div>
+  </div>
+  <div class="legalbar">© 2026 Divine Light Journey · All rights reserved</div>
+</footer>
+<script>
+(function () {
+  var els = [].slice.call(document.querySelectorAll("[data-reveal]"));
+  if (!els.length) return;
+  if (!("IntersectionObserver" in window)) {
+    els.forEach(function (e) { e.classList.add("in"); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add("in");
+      io.unobserve(en.target);
+    });
+  }, { rootMargin: "0px 0px -6% 0px", threshold: 0.12 });
+  els.forEach(function (e) { io.observe(e); });
+})();
+</script>
+<div class="modal" id="dialogo-contacto" hidden>
+  <div class="modal-fondo" data-cerrar-modal></div>
+  <div class="modal-caja" role="dialog" aria-modal="true" aria-labelledby="dlg-titulo">
+    <button class="modal-cerrar" type="button" aria-label="Close" data-cerrar-modal>&times;</button>
+    <h2 id="dlg-titulo">Let's talk</h2>
+    <p class="modal-intro">Tell us what you need and we will get back to you as soon as possible.</p>
+    <form class="form" action="mailto:info@divinelightjourney.com" method="post" enctype="text/plain">
+      <div class="field"><label for="dlg-n">Name</label><input id="dlg-n" name="nombre" required autocomplete="name"></div>
+      <div class="field"><label for="dlg-e">Email</label><input id="dlg-e" name="email" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="dlg-m">Message</label><textarea id="dlg-m" name="mensaje" rows="4" required></textarea></div>
+      <button class="btn btn-primary" type="submit">Send message</button>
+      <p class="hint">When you send it, your email app will open with the message ready to go.</p>
+    </form>
+  </div>
+</div>
+<script>
+(function () {
+  var dlg = document.getElementById("dialogo-contacto");
+  if (!dlg) return;
+  var ultimoFoco = null;
+
+  function abrir(ev) {
+    if (ev) ev.preventDefault();
+    ultimoFoco = document.activeElement;
+    dlg.hidden = false;
+    document.body.classList.add("modal-abierto");
+    var primero = dlg.querySelector("input, textarea") || dlg.querySelector("button");
+    if (primero) primero.focus();
+  }
+  function cerrar() {
+    dlg.hidden = true;
+    document.body.classList.remove("modal-abierto");
+    if (ultimoFoco) ultimoFoco.focus();
+  }
+
+  document.addEventListener("click", function (ev) {
+    if (ev.target.closest("[data-modal]")) { abrir(ev); return; }
+    if (ev.target.closest("[data-cerrar-modal]")) cerrar();
+  });
+  document.addEventListener("keydown", function (ev) {
+    if (dlg.hidden) return;
+    if (ev.key === "Escape") { cerrar(); return; }
+    if (ev.key !== "Tab") return;
+    // el foco no se escapa del diálogo mientras está abierto
+    var foco = [].slice.call(dlg.querySelectorAll("button, input, textarea, a[href]")).filter(function (e) {
+      return !e.disabled && e.offsetParent !== null;
+    });
+    if (!foco.length) return;
+    var primero = foco[0], ultimo = foco[foco.length - 1];
+    if (ev.shiftKey && document.activeElement === primero) { ev.preventDefault(); ultimo.focus(); }
+    else if (!ev.shiftKey && document.activeElement === ultimo) { ev.preventDefault(); primero.focus(); }
+  });
+})();
+</script>
+</body>
+</html>

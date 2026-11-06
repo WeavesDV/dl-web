@@ -1,11 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://divinelightjourney.com/</loc></url>
-<url><loc>https://divinelightjourney.com/quienes-somos/</loc></url>
-<url><loc>https://divinelightjourney.com/experiencias/</loc></url>
-<url><loc>https://divinelightjourney.com/mision/</loc></url>
-<url><loc>https://divinelightjourney.com/contacto/</loc></url>
-<url><loc>https://divinelightjourney.com/legal/privacidad/</loc></url>
-<url><loc>https://divinelightjourney.com/legal/terminos/</loc></url>
-<url><loc>https://divinelightjourney.com/legal/cookies/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url><loc>https://divinelightjourney.com/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://divinelightjourney.com/"/></url>
+<url><loc>https://divinelightjourney.com/en/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/"/>
+<xhtml:link rel="alternate" hreflang="x-default" href="https://divinelightjourney.com/"/></url>
+<url><loc>https://divinelightjourney.com/quienes-somos/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/quienes-somos/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/about-us/"/></url>
+<url><loc>https://divinelightjourney.com/en/about-us/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/quienes-somos/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/about-us/"/></url>
+<url><loc>https://divinelightjourney.com/experiencias/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/experiencias/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/experiences/"/></url>
+<url><loc>https://divinelightjourney.com/en/experiences/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/experiencias/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/experiences/"/></url>
+<url><loc>https://divinelightjourney.com/mision/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/mision/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/mission/"/></url>
+<url><loc>https://divinelightjourney.com/en/mission/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/mision/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/mission/"/></url>
+<url><loc>https://divinelightjourney.com/contacto/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/contacto/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/contact/"/></url>
+<url><loc>https://divinelightjourney.com/en/contact/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/contacto/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/contact/"/></url>
+<url><loc>https://divinelightjourney.com/legal/privacidad/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/legal/privacidad/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/legal/privacy/"/></url>
+<url><loc>https://divinelightjourney.com/en/legal/privacy/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/legal/privacidad/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/legal/privacy/"/></url>
+<url><loc>https://divinelightjourney.com/legal/terminos/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/legal/terminos/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/legal/terms/"/></url>
+<url><loc>https://divinelightjourney.com/en/legal/terms/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/legal/terminos/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/legal/terms/"/></url>
+<url><loc>https://divinelightjourney.com/legal/cookies/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/legal/cookies/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/legal/cookies/"/></url>
+<url><loc>https://divinelightjourney.com/en/legal/cookies/</loc>
+<xhtml:link rel="alternate" hreflang="es" href="https://divinelightjourney.com/legal/cookies/"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/legal/cookies/"/></url>
 </urlset>

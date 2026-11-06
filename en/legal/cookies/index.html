@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cookie Policy · Divine Light Journey</title>
+<meta name="description" content="Cookie Policy of Divine Light Journey.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="Cookie Policy · Divine Light Journey">
+<meta property="og:description" content="Cookie Policy of Divine Light Journey.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US"><link rel="alternate" hreflang="es" href="https://divinelightjourney.com/legal/cookies/"><link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/legal/cookies/"><link rel="alternate" hreflang="x-default" href="https://divinelightjourney.com/legal/cookies/"><link rel="canonical" href="https://divinelightjourney.com/en/legal/cookies/">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>document.documentElement.classList.add("rv");</script>
+</head>
+<body class="con-cristal">
+<nav class="nav"><div class="wrap"><a class="brand" href="../../">Divine Light Journey</a><ul><li><a href="../../">Home</a></li><li><a href="../../about-us/">About us</a></li><li><a href="../../experiences/">Experiences</a></li><li><a href="../../mission/">Mission</a></li><li><a href="../../contact/">Contact</a></li></ul><details class="menu"><summary>Menu</summary><ul><li><a href="../../">Home</a></li><li><a href="../../about-us/">About us</a></li><li><a href="../../experiences/">Experiences</a></li><li><a href="../../mission/">Mission</a></li><li><a href="../../contact/">Contact</a></li></ul></details><span class="lang"><a href="../../../legal/cookies/">ES</a> · <b>EN</b></span></div></nav>
+<script>
+(function () {
+  var nav = document.querySelector("nav.nav");
+  if (!nav) return;
+  // --navh síncrono (justo tras la barra) para que el hueco del menú fijo no dé un salto al cargar.
+  function medir() { document.documentElement.style.setProperty("--navh", Math.round(nav.getBoundingClientRect().height) + "px"); }
+  medir();
+  addEventListener("resize", medir);
+  addEventListener("DOMContentLoaded", medir);
+  // Cristal mientras se ve la cabecera de la página; cielo cuando ha salido por arriba; cristal otra vez al
+  // asomar el pie. Vale para todas las páginas: cada una empieza por <body><nav><script><header>. El menú
+  // centrado de /v2/ no cambia (sale antes).
+  var pegado = false, pendiente = false;
+  function conmutar() {
+    pendiente = false;
+    var hero = document.querySelector("body > header") || document.querySelector(".hero-retrato"),
+        pie = document.querySelector("footer");
+    var quiere;
+    if (hero && pie) {
+      var fuera = hero.getBoundingClientRect().bottom <= nav.getBoundingClientRect().height + 1;
+      var alFinal = pie.getBoundingClientRect().top <= window.innerHeight - 80;
+      quiere = fuera && !alFinal;
+    } else {
+      quiere = (window.scrollY || 0) > 24;
+    }
+    if (quiere !== pegado) { pegado = quiere; nav.classList.toggle("nav--pegado", pegado); }
+  }
+  function pedir() { if (!pendiente) { pendiente = true; requestAnimationFrame(conmutar); } }
+  addEventListener("scroll", pedir, { passive: true });
+  addEventListener("resize", pedir);
+  addEventListener("DOMContentLoaded", pedir);   // el script va antes del hero y del pie: aún no existen
+  conmutar();
+})();
+</script>
+<section class="s-white"><div class="wrap legal">
+  <div class="eyebrow" data-reveal style="--d:0ms">Legal</div>
+  <h1 style="font-size:clamp(2rem,4vw,3rem)">Cookie Policy</h1>
+  <p>Last updated: <mark class="todo">[DATE]</mark></p>
+      <p>This Cookie Policy explains how <mark class="todo">[LEGAL NAME OF THE LLC]</mark> (hereinafter, “the Company”, “we” or “us”) uses cookies and similar technologies on the website divinelightjourney.com.</p>
+      <p>This Policy should be read together with our Privacy Policy, which provides additional information on how we collect, use and protect personal information.</p>
+      <h2 data-reveal style="--d:80ms">1. WHAT ARE COOKIES?</h2>
+      <p>Cookies are small files or pieces of information that may be stored on the user's device when they visit a website.</p>
+      <p>Among other functions, cookies make a website work, remember certain preferences, provide information about how the site is used and, where appropriate, deliver content or advertising tailored to particular interests.</p>
+      <p>In addition to cookies, our website may use similar technologies such as pixels, tags, identifiers, local storage or other tools that make it possible to recognize a device or collect certain information about interaction with the site.</p>
+      <p>For the purposes of this Policy, we use the term “cookies” to refer collectively to these technologies where appropriate.</p>
+      <h2 data-reveal style="--d:80ms">2. WHAT TYPES OF COOKIES MAY WE USE?</h2>
+      <p>Depending on the tools installed on our website, we may use the following categories of cookies:</p>
+      <h3>Strictly necessary cookies</h3>
+      <p>These are required for the basic, secure operation of the website.</p>
+      <p>They may be used, for example, to:</p>
+      <ul><li>enable browsing;</li><li>maintain certain technical features;</li><li>manage sessions;</li><li>keep the site secure;</li><li>remember the user's privacy or consent preferences;</li><li>enable certain functions required to provide a service requested by the user.</li></ul>
+      <p>These cookies generally do not require consent where they are strictly necessary to provide the service requested by the user, subject to applicable law.</p>
+      <h3>Preference or functionality cookies</h3>
+      <p>They make it possible to remember certain choices made by the user in order to offer a more personalized experience.</p>
+      <p>For example, they may remember:</p>
+      <ul><li>selected language;</li><li>region;</li><li>certain display preferences;</li><li>previously selected settings.</li></ul>
+      <p>Where applicable law requires it, these cookies will be used only after the relevant consent has been obtained.</p>
+      <h3>Analytics or measurement cookies</h3>
+      <p>They allow us to understand how visitors use our website.</p>
+      <p>They may collect information on aspects such as:</p>
+      <ul><li>pages visited;</li><li>approximate length of visits;</li><li>navigation within the site;</li><li>source of visits;</li><li>devices and browsers used;</li><li>interaction with certain content.</li></ul>
+      <p>This information can help us understand how the site works and improve our content and services.</p>
+      <p>Where applicable law requires it, these cookies will be activated only after the user's consent has been obtained.</p>
+      <h3>Advertising and marketing cookies</h3>
+      <p>These cookies may be used to measure advertising campaigns, understand interaction with our ads or show advertising that is more relevant to certain users.</p>
+      <p>They may also allow certain third-party providers to recognize a browser or device across different sites or services.</p>
+      <p>Where applicable law requires it, these cookies and technologies will be used only after the user has given consent.</p>
+      <h2 data-reveal style="--d:80ms">3. FIRST-PARTY AND THIRD-PARTY COOKIES</h2>
+      <p>The cookies used on our site may be:</p>
+      <p>First-party cookies: managed directly by our website or by services used under our control.</p>
+      <p>Third-party cookies: set or managed by external providers whose services are integrated into our website.</p>
+      <p>These third parties may include, depending on the tools used by the Company:</p>
+      <ul><li>web analytics providers;</li><li>advertising platforms;</li><li>social media;</li><li>video platforms;</li><li>booking systems;</li><li>payment providers;</li><li>email marketing tools;</li><li>customer service services;</li><li>technology platforms used to provide our services.</li></ul>
+      <p>Each external provider may process information in accordance with its own privacy and cookie policies.</p>
+      <h2 data-reveal style="--d:80ms">4. TOOLS AND COOKIES USED</h2>
+      <p>The Company must keep the information about the cookies and technologies actually used by the website up to date.</p>
+      <p>[COMPLETE ACCORDING TO THE TOOLS INSTALLED ON THE WEBSITE.]</p>
+      <p>The following structure may be used to report on them:</p>
+      <p>Provider: [NAME] Cookie/technology: [COOKIE NAME] Purpose: [PURPOSE] Category: [NECESSARY / PREFERENCES / ANALYTICS / MARKETING] Duration: [SESSION / DAYS / MONTHS / ETC.] Provider or domain: divinelightjourney.com</p>
+      <p>The tools that might need to be included in this section, if they are actually used, include:</p>
+      <ul><li>Google Analytics;</li><li>Google Ads;</li><li>Meta Pixel;</li><li>YouTube;</li><li>Vimeo;</li><li>email marketing platforms;</li><li>booking or calendar tools;</li><li>payment platforms;</li><li>chat tools;</li><li>other tracking or measurement technologies.</li></ul>
+      <p>Only tools that are actually installed or used on the website should be included.</p>
+      <h2 data-reveal style="--d:80ms">5. CONSENT AND COOKIE MANAGEMENT</h2>
+      <p>Where applicable law requires consent to use certain cookies or similar technologies, they will not be activated until the user has made the relevant choice.</p>
+      <p>On first visiting the website, the user may find a cookie banner or management tool that allows them, as applicable, to:</p>
+      <ul><li>accept all cookies;</li><li>reject non-essential cookies;</li><li>set their preferences by category.</li></ul>
+      <p>Strictly necessary cookies may remain active where they are indispensable for the operation of the website or to provide a service expressly requested by the user.</p>
+      <p>The user may later change or withdraw their consent using the [“COOKIE SETTINGS” LINK/BUTTON] available on the website.</p>
+      <p>Withdrawing consent will not affect the lawfulness of processing carried out before that withdrawal.</p>
+      <h2 data-reveal style="--d:80ms">6. USERS IN THE EUROPEAN ECONOMIC AREA AND OTHER JURISDICTIONS</h2>
+      <p>For users located in the European Economic Area or other jurisdictions that require prior consent, the Company will request that consent before storing or accessing information through non-essential cookies where applicable law so requires.</p>
+      <p>The user must be able to reject non-essential cookies and manage their preferences through the tools provided on the website.</p>
+      <p>The availability and operation of certain technologies may vary depending on the user's location and the applicable legal requirements.</p>
+      <h2 data-reveal style="--d:80ms">7. BROWSER SETTINGS</h2>
+      <p>In addition to using our cookie settings tool, users can configure their browsers to block, limit or delete cookies.</p>
+      <p>How to do this will depend on the browser and device used.</p>
+      <p>Blocking certain cookies, especially necessary or functional ones, may affect the operation of some parts of the website.</p>
+      <p>Settings made directly in the browser are independent of the preferences that can be managed through our site's cookie panel.</p>
+      <h2 data-reveal style="--d:80ms">8. THIRD-PARTY TECHNOLOGIES</h2>
+      <p>Some pages may include content or features provided by third parties, such as videos, maps, social media buttons, forms, calendars, booking tools or other embedded content.</p>
+      <p>These providers may use cookies or other technologies when the user interacts with their services.</p>
+      <p>Where applicable law requires it, we will endeavor to ensure that non-essential technologies that may be installed through third-party content are subject to the relevant consent options.</p>
+      <p>Users can consult the privacy and cookie policies of each external provider for additional information about their practices.</p>
+      <h2 data-reveal style="--d:80ms">9. ADVERTISING AND TRACKING TECHNOLOGIES</h2>
+      <p>If we use digital advertising tools, certain technologies may help us measure the performance of our campaigns, learn whether a person has taken certain actions after interacting with an ad, or show advertising based on particular interests.</p>
+      <p>[KEEP THIS SECTION IF META PIXEL, GOOGLE ADS OR OTHER ADVERTISING TECHNOLOGIES ARE USED.]</p>
+      <p>Depending on applicable law, some digital advertising activities or transmissions of identifiers to third parties may be subject to additional consent, information or opt-out requirements.</p>
+      <p>Where applicable, we will provide the mechanisms necessary for the user to exercise their privacy choices.</p>
+      <h2 data-reveal style="--d:80ms">10. GLOBAL PRIVACY CONTROL AND OTHER PREFERENCE SIGNALS</h2>
+      <p>Where applicable law requires recognition of certain privacy preference signals sent by the user's browser or device, the Company will take the steps reasonably necessary to honor those signals in accordance with the applicable legal requirements.</p>
+      <p>The availability and effects of these signals may depend on the user's jurisdiction and the technologies used on the website.</p>
+      <h2 data-reveal style="--d:80ms">11. RETENTION</h2>
+      <p>Cookies may have different durations.</p>
+      <p>Session cookies are normally deleted when the user closes the browser.</p>
+      <p>Persistent cookies remain for a set period or until the user deletes them.</p>
+      <p>Specific retention periods will depend on each cookie and provider and should be reflected, where applicable, in the information provided by the cookie management tool or in the cookie table in this Policy.</p>
+      <h2 data-reveal style="--d:80ms">12. UPDATES TO THIS POLICY</h2>
+      <p>We may update this Cookie Policy when the technologies used on our website, our providers or the applicable legal requirements change.</p>
+      <p>The current version will be available on this page and will state the date of its last update.</p>
+      <p>We recommend reviewing this Policy periodically to keep informed of any relevant changes.</p>
+      <h2 data-reveal style="--d:80ms">13. MORE INFORMATION ABOUT PRIVACY</h2>
+      <p>For additional information on how we collect, use, retain and protect personal information, and on the rights users may have, you can consult our Privacy Policy.</p>
+      <h2 data-reveal style="--d:80ms">14. CONTACT</h2>
+      <p>For any question related to this Cookie Policy or to our privacy practices, you can contact:</p>
+      <p><mark class="todo">[LEGAL NAME OF THE LLC]</mark> Albuquerque, New Mexico, United States Email: [EMAIL] Website: divinelightjourney.com</p>
+      </div></section>
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand">Divine Light Journey</div>
+      <p>Personal growth, well-being and human development.</p>
+    </div>
+    <div><h4>Information</h4><ul>
+      <li><a href="../../about-us/">About us</a></li>
+      <li><a href="../../mission/">Mission</a></li>
+      <li><a href="../../contact/">Contact</a></li></ul></div>
+    <div><h4>Experiences</h4><ul>
+      <li><a href="../../experiences/">Programs and trainings</a></li>
+      <li><a href="../../experiences/">Mentoring</a></li>
+      <li><a href="../../experiences/">Retreats</a></li></ul></div>
+    <div><h4>Legal</h4><ul>
+      <li><a href="../privacy/">Privacy</a></li>
+      <li><a href="../terms/">Terms and conditions</a></li>
+      <li><a href="./">Cookies</a></li></ul></div>
+  </div>
+  <div class="legalbar">© 2026 Divine Light Journey · All rights reserved</div>
+</footer>
+<script>
+(function () {
+  var els = [].slice.call(document.querySelectorAll("[data-reveal]"));
+  if (!els.length) return;
+  if (!("IntersectionObserver" in window)) {
+    els.forEach(function (e) { e.classList.add("in"); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add("in");
+      io.unobserve(en.target);
+    });
+  }, { rootMargin: "0px 0px -6% 0px", threshold: 0.12 });
+  els.forEach(function (e) { io.observe(e); });
+})();
+</script>
+<div class="modal" id="dialogo-contacto" hidden>
+  <div class="modal-fondo" data-cerrar-modal></div>
+  <div class="modal-caja" role="dialog" aria-modal="true" aria-labelledby="dlg-titulo">
+    <button class="modal-cerrar" type="button" aria-label="Close" data-cerrar-modal>&times;</button>
+    <h2 id="dlg-titulo">Let's talk</h2>
+    <p class="modal-intro">Tell us what you need and we will get back to you as soon as possible.</p>
+    <form class="form" action="mailto:info@divinelightjourney.com" method="post" enctype="text/plain">
+      <div class="field"><label for="dlg-n">Name</label><input id="dlg-n" name="nombre" required autocomplete="name"></div>
+      <div class="field"><label for="dlg-e">Email</label><input id="dlg-e" name="email" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="dlg-m">Message</label><textarea id="dlg-m" name="mensaje" rows="4" required></textarea></div>
+      <button class="btn btn-primary" type="submit">Send message</button>
+      <p class="hint">When you send it, your email app will open with the message ready to go.</p>
+    </form>
+  </div>
+</div>
+<script>
+(function () {
+  var dlg = document.getElementById("dialogo-contacto");
+  if (!dlg) return;
+  var ultimoFoco = null;
+
+  function abrir(ev) {
+    if (ev) ev.preventDefault();
+    ultimoFoco = document.activeElement;
+    dlg.hidden = false;
+    document.body.classList.add("modal-abierto");
+    var primero = dlg.querySelector("input, textarea") || dlg.querySelector("button");
+    if (primero) primero.focus();
+  }
+  function cerrar() {
+    dlg.hidden = true;
+    document.body.classList.remove("modal-abierto");
+    if (ultimoFoco) ultimoFoco.focus();
+  }
+
+  document.addEventListener("click", function (ev) {
+    if (ev.target.closest("[data-modal]")) { abrir(ev); return; }
+    if (ev.target.closest("[data-cerrar-modal]")) cerrar();
+  });
+  document.addEventListener("keydown", function (ev) {
+    if (dlg.hidden) return;
+    if (ev.key === "Escape") { cerrar(); return; }
+    if (ev.key !== "Tab") return;
+    // el foco no se escapa del diálogo mientras está abierto
+    var foco = [].slice.call(dlg.querySelectorAll("button, input, textarea, a[href]")).filter(function (e) {
+      return !e.disabled && e.offsetParent !== null;
+    });
+    if (!foco.length) return;
+    var primero = foco[0], ultimo = foco[foco.length - 1];
+    if (ev.shiftKey && document.activeElement === primero) { ev.preventDefault(); ultimo.focus(); }
+    else if (!ev.shiftKey && document.activeElement === ultimo) { ev.preventDefault(); primero.focus(); }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms and conditions · Divine Light Journey</title>
+<meta name="description" content="Terms and conditions of Divine Light Journey.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="Terms and conditions · Divine Light Journey">
+<meta property="og:description" content="Terms and conditions of Divine Light Journey.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US"><link rel="alternate" hreflang="es" href="https://divinelightjourney.com/legal/terminos/"><link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/legal/terms/"><link rel="alternate" hreflang="x-default" href="https://divinelightjourney.com/legal/terminos/"><link rel="canonical" href="https://divinelightjourney.com/en/legal/terms/">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>document.documentElement.classList.add("rv");</script>
+</head>
+<body class="con-cristal">
+<nav class="nav"><div class="wrap"><a class="brand" href="../../">Divine Light Journey</a><ul><li><a href="../../">Home</a></li><li><a href="../../about-us/">About us</a></li><li><a href="../../experiences/">Experiences</a></li><li><a href="../../mission/">Mission</a></li><li><a href="../../contact/">Contact</a></li></ul><details class="menu"><summary>Menu</summary><ul><li><a href="../../">Home</a></li><li><a href="../../about-us/">About us</a></li><li><a href="../../experiences/">Experiences</a></li><li><a href="../../mission/">Mission</a></li><li><a href="../../contact/">Contact</a></li></ul></details><span class="lang"><a href="../../../legal/terminos/">ES</a> · <b>EN</b></span></div></nav>
+<script>
+(function () {
+  var nav = document.querySelector("nav.nav");
+  if (!nav) return;
+  // --navh síncrono (justo tras la barra) para que el hueco del menú fijo no dé un salto al cargar.
+  function medir() { document.documentElement.style.setProperty("--navh", Math.round(nav.getBoundingClientRect().height) + "px"); }
+  medir();
+  addEventListener("resize", medir);
+  addEventListener("DOMContentLoaded", medir);
+  // Cristal mientras se ve la cabecera de la página; cielo cuando ha salido por arriba; cristal otra vez al
+  // asomar el pie. Vale para todas las páginas: cada una empieza por <body><nav><script><header>. El menú
+  // centrado de /v2/ no cambia (sale antes).
+  var pegado = false, pendiente = false;
+  function conmutar() {
+    pendiente = false;
+    var hero = document.querySelector("body > header") || document.querySelector(".hero-retrato"),
+        pie = document.querySelector("footer");
+    var quiere;
+    if (hero && pie) {
+      var fuera = hero.getBoundingClientRect().bottom <= nav.getBoundingClientRect().height + 1;
+      var alFinal = pie.getBoundingClientRect().top <= window.innerHeight - 80;
+      quiere = fuera && !alFinal;
+    } else {
+      quiere = (window.scrollY || 0) > 24;
+    }
+    if (quiere !== pegado) { pegado = quiere; nav.classList.toggle("nav--pegado", pegado); }
+  }
+  function pedir() { if (!pendiente) { pendiente = true; requestAnimationFrame(conmutar); } }
+  addEventListener("scroll", pedir, { passive: true });
+  addEventListener("resize", pedir);
+  addEventListener("DOMContentLoaded", pedir);   // el script va antes del hero y del pie: aún no existen
+  conmutar();
+})();
+</script>
+<section class="s-white"><div class="wrap legal">
+  <div class="eyebrow" data-reveal style="--d:0ms">Legal</div>
+  <h1 style="font-size:clamp(2rem,4vw,3rem)">Terms and conditions</h1>
+  <p>Last updated: <mark class="todo">[DATE]</mark></p>
+      <p>Welcome to [TRADE NAME].</p>
+      <p>These Terms and Conditions govern access to and use of the website divinelightjourney.com and, where applicable, the engagement of programs, trainings, mentoring, workshops, gatherings, events, retreats and other experiences offered by <mark class="todo">[LEGAL NAME OF THE LLC]</mark>, a Limited Liability Company (LLC) established in Albuquerque, New Mexico, United States (hereinafter, “the Company”, “we” or “us”).</p>
+      <p>By accessing the website, using its content or engaging our services, the user acknowledges having read and understood these Terms and Conditions and agrees to be bound by them, to the extent permitted by applicable law.</p>
+      <p>If you do not agree with these terms, you must refrain from using any services for which acceptance is required.</p>
+      <h2 data-reveal style="--d:80ms">1. COMPANY IDENTIFICATION</h2>
+      <p>Legal name: <mark class="todo">[LEGAL NAME OF THE LLC]</mark> Trade name: [TRADE NAME, IF DIFFERENT] Entity type: Limited Liability Company (LLC) Location: Albuquerque, New Mexico, United States Address: <mark class="todo">[BUSINESS ADDRESS]</mark> Website: divinelightjourney.com Email: [EMAIL]</p>
+      <h2 data-reveal style="--d:80ms">2. PURPOSE</h2>
+      <p>The Company carries out activities related to personal growth, emotional well-being and human development.</p>
+      <p>Our services may include:</p>
+      <ul><li>training programs;</li><li>mentoring and guided processes;</li><li>workshops;</li><li>gatherings and events;</li><li>retreats;</li><li>immersive experiences;</li><li>educational activities;</li><li>digital content and resources;</li><li>in-person and online activities.</li></ul>
+      <p>The features, duration, format, price and specific conditions of each service will be set out on the engagement page, proposal, registration form, commercial communication or the relevant document.</p>
+      <p>Where particular conditions exist for a given program, event, retreat or service, those conditions will supplement these Terms and Conditions.</p>
+      <h2 data-reveal style="--d:80ms">3. AGE REQUIREMENT</h2>
+      <p>Our services are intended exclusively for people over 18 years of age.</p>
+      <p>By engaging a service or taking part in a Company activity, the user declares that they are at least 18 years old and have sufficient legal capacity to enter into contracts under the law applicable to them.</p>
+      <h2 data-reveal style="--d:80ms">4. NATURE OF OUR SERVICES</h2>
+      <p>Our programs, mentoring, workshops, retreats, gatherings, content and experiences are primarily educational, formative and oriented towards personal growth.</p>
+      <p>Their purpose is to provide spaces, experiences, knowledge and tools that can contribute to self-knowledge, emotional well-being, the development of personal resources and human growth.</p>
+      <p>Unless expressly stated otherwise and unless the service is provided by a duly qualified and authorized professional, our services:</p>
+      <ul><li>do not constitute psychotherapy;</li><li>do not constitute psychological, psychiatric or medical care;</li><li>do not provide medical or mental health diagnoses;</li><li>do not prescribe treatments;</li><li>do not replace the care of qualified health or mental health professionals.</li></ul>
+      <p>If a person considers that they need medical, psychological, psychiatric or any other professional healthcare, they should consult a duly qualified professional.</p>
+      <p>In the event of a medical or mental health emergency, they should immediately contact the emergency or assistance services corresponding to their location.</p>
+      <h2 data-reveal style="--d:80ms">5. PERSONAL RESULTS</h2>
+      <p>Personal growth is an individual process and results can vary significantly from one person to another.</p>
+      <p>The Company does not guarantee personal, emotional, professional, financial, relational or any other kind of results arising from participation in its programs, workshops, mentoring, retreats, events or experiences.</p>
+      <p>Testimonials, experiences or results of other people that may appear on the website or in our materials represent individual experiences and are not a guarantee that others will achieve the same or similar results.</p>
+      <p>Each participant is responsible for their own decisions, actions and personal process.</p>
+      <h2 data-reveal style="--d:80ms">6. WEBSITE INFORMATION</h2>
+      <p>We aim to keep the information published on our website clear, useful and up to date.</p>
+      <p>However, the site's content is general and educational and should not be interpreted as medical, psychological, legal, financial or other individualized professional advice.</p>
+      <p>The Company may modify, update or remove website content where necessary.</p>
+      <h2 data-reveal style="--d:80ms">7. ENGAGING SERVICES</h2>
+      <p>Services may be engaged through the website or through other procedures expressly enabled by the Company.</p>
+      <p>Before completing an engagement, the user must review the essential features of the service, its price and the specific conditions that apply.</p>
+      <p>The engagement will be considered complete once the requirements established for the relevant service have been met and, where applicable, payment has been received or confirmed.</p>
+      <p>The Company may send a confirmation of purchase, booking or registration by electronic means.</p>
+      <h2 data-reveal style="--d:80ms">8. PRICES AND PAYMENTS</h2>
+      <p>The applicable prices will be those shown or communicated to the user at the time of engagement.</p>
+      <p>Where applicable, it will be stated whether taxes are included or must be added to the price.</p>
+      <p>Payments may be processed through specialized third-party platforms.</p>
+      <p>[LIST PAYMENT PROVIDERS HERE, IF DESIRED: STRIPE, PAYPAL, ETC.]</p>
+      <p>Where a payment plan or installment option is offered, the user undertakes to make all the corresponding payments in accordance with the conditions accepted at the time of engagement.</p>
+      <p>Use of a payment plan does not necessarily mean that the service can be cancelled simply by stopping payment of the outstanding installments. The specific cancellation and refund conditions for the service engaged will be those communicated before the engagement and those permitted by applicable law.</p>
+      <h2 data-reveal style="--d:80ms">9. CANCELLATIONS AND REFUNDS</h2>
+      <p>Cancellation, modification and refund conditions may vary depending on the type of service engaged.</p>
+      <p>Each program, retreat, event, mentoring, training or experience may have its own specific cancellation and refund policy, which will be communicated to the user before the engagement is completed.</p>
+      <p>Where a specific policy exists for a given service, that policy will prevail over the general provisions of this section in relation to that service.</p>
+      <p>Certain payments or deposits intended to reserve places, accommodation, venues, suppliers or other resources may be set as non-refundable where this is expressly communicated before the engagement and where such a condition is permitted by applicable law.</p>
+      <p>Nothing in these Terms is intended to limit any cancellation, withdrawal or refund rights that are mandatory under the consumer law applicable to the user.</p>
+      <h2 data-reveal style="--d:80ms">10. RETREATS, EVENTS AND IN-PERSON ACTIVITIES</h2>
+      <p>Certain services may include retreats, gatherings, workshops or in-person activities.</p>
+      <p>Each participant is responsible for reasonably assessing whether they are in suitable condition to take part in the proposed activities and for communicating, where necessary and through the established channels, any circumstance relevant to their safety or participation.</p>
+      <p>The Company may establish specific participation, conduct and safety rules for certain events.</p>
+      <p>Transport, travel, accommodation, insurance, travel documentation and other personal expenses are the participant's responsibility unless it is expressly stated that they are included in the service engaged.</p>
+      <h2 data-reveal style="--d:80ms">11. CHANGES TO PROGRAMS, EVENTS OR RETREATS</h2>
+      <p>In certain circumstances it may be necessary to change reasonable aspects of a program, workshop, retreat or event, including schedules, facilitators, content, location or the format in which it is delivered.</p>
+      <p>Where substantial changes occur, the Company will endeavor to inform the people affected within a reasonable period in advance.</p>
+      <p>If the Company cancels an activity, participants will be informed of the available alternatives, which may include rescheduling, credit for another activity or a refund, depending on the circumstances, the specific conditions of the service and applicable law.</p>
+      <h2 data-reveal style="--d:80ms">12. FORCE MAJEURE</h2>
+      <p>To the extent permitted by applicable law, the Company will not be liable for delays, changes or the impossibility of providing certain services due to events reasonably beyond its control.</p>
+      <p>These events may include, among others, natural disasters, extreme weather conditions, fires, epidemics, pandemics, conflicts, government restrictions, major interruptions of essential services, serious transport problems or other extraordinary circumstances.</p>
+      <p>Where such a situation arises, the Company will endeavor to take reasonable steps to minimize its impact and offer the solutions that correspond according to the circumstances and applicable law.</p>
+      <h2 data-reveal style="--d:80ms">13. PARTICIPANT CONDUCT</h2>
+      <p>We seek to create safe, respectful spaces suited to learning and personal growth.</p>
+      <p>Participants must behave respectfully towards other participants, facilitators, collaborators, suppliers and team members.</p>
+      <p>The Company may take reasonable steps where a person displays violent, threatening, harassing, discriminatory or seriously disruptive behavior, or behavior that may put the safety or well-being of others at risk.</p>
+      <p>In serious situations, the Company may exclude a person from an activity, subject to the particular conditions of the service and applicable law.</p>
+      <h2 data-reveal style="--d:80ms">14. CONFIDENTIALITY IN GROUP ACTIVITIES</h2>
+      <p>Some experiences may include group conversations or dynamics in which other people share personal experiences.</p>
+      <p>We ask all participants to respect the privacy of others and not to disclose outside the group any personal information shared by other participants.</p>
+      <p>However, the Company cannot fully guarantee the actions of third-party participants and therefore recommends using judgment and caution regarding the personal information each person chooses to share in group settings.</p>
+      <h2 data-reveal style="--d:80ms">15. RECORDINGS, PHOTOGRAPHS AND TESTIMONIALS</h2>
+      <p>Taking part in a program, workshop, event or retreat does not automatically authorize the public use of a person's image, voice or testimonial for promotional purposes.</p>
+      <p>Where the Company wishes to use identifiable photographs, videos, recordings or testimonials for commercial or promotional purposes, it will request the relevant authorizations where required under applicable law.</p>
+      <p>Certain online activities may be recorded for training purposes or to make content available to participants afterwards. Where applicable, participants will be informed of the recording in advance.</p>
+      <h2 data-reveal style="--d:80ms">16. INTELLECTUAL PROPERTY</h2>
+      <p>Unless stated otherwise, the original content provided by the Company —including texts, videos, audio, training materials, exercises, proprietary methodologies, documents, designs and other resources— is protected by the applicable intellectual property rights.</p>
+      <p>Engaging a program or service grants the user a personal, limited right to access and use the materials for the intended purposes.</p>
+      <p>Unless expressly authorized or permitted by law, the user may not:</p>
+      <ul><li>reproduce or distribute the materials substantially;</li><li>sell or sublicense them;</li><li>share personal access with third parties;</li><li>publish private program materials;</li><li>use them to create or market products substantially derived from the Company's protected materials.</li></ul>
+      <h2 data-reveal style="--d:80ms">17. ACCOUNTS AND ACCESS</h2>
+      <p>Where a service requires creating an account or providing access credentials, the user is responsible for keeping those credentials confidential.</p>
+      <p>Personal access to programs, platforms or content must not be shared with third parties unless expressly authorized.</p>
+      <h2 data-reveal style="--d:80ms">18. THIRD-PARTY SERVICES AND LINKS</h2>
+      <p>Our website and our programs may use or link to services provided by third parties, such as video conferencing platforms, content hosting, payment systems, booking tools or social media.</p>
+      <p>Use of these services may be subject to the terms and policies of the relevant provider.</p>
+      <p>The Company does not control and is not responsible for the independent practices of third parties outside its control.</p>
+      <h2 data-reveal style="--d:80ms">19. LIMITATION OF LIABILITY</h2>
+      <p>To the maximum extent permitted by applicable law, the Company will not be liable for indirect, incidental, special or consequential losses or damages arising from use of the website or the services where such liability may legally be excluded or limited.</p>
+      <p>Nothing in these Terms is intended to exclude or limit any liability that cannot legally be excluded or limited.</p>
+      <p>Likewise, nothing in these Terms is intended to remove or restrict any non-waivable rights that consumers have under applicable law.</p>
+      <h2 data-reveal style="--d:80ms">20. PRIVACY</h2>
+      <p>The processing of personal information is governed by our Privacy Policy, which forms part of the conditions applicable to use of our services.</p>
+      <p>Where we use cookies and similar technologies, our Cookie Policy may also apply.</p>
+      <h2 data-reveal style="--d:80ms">21. INTERNATIONAL USERS</h2>
+      <p>The Company is established in Albuquerque, New Mexico, United States, and our services may be engaged by people residing in other countries.</p>
+      <p>International users are responsible for checking any local requirements that may apply to them when engaging or taking part in certain services.</p>
+      <p>Where consumer protection law applicable to the user grants rights that cannot legally be excluded by contract, these Terms are not intended to limit those rights.</p>
+      <h2 data-reveal style="--d:80ms">22. GOVERNING LAW AND DISPUTE RESOLUTION</h2>
+      <p>To the extent permitted by applicable law, these Terms and Conditions will be governed by and interpreted in accordance with the laws of the State of New Mexico, United States, without prejudice to any mandatory rights that may apply to consumers residing in other jurisdictions.</p>
+      <p>Before starting formal proceedings, the parties may attempt to resolve any dispute in good faith through direct communication.</p>
+      <p>Where legally permitted, disputes will be subject to the jurisdiction of the competent courts of New Mexico, United States.</p>
+      <p>This provision is not intended to deprive consumers of any rights or protection mechanisms that are mandatory under the law of their place of residence.</p>
+      <h2 data-reveal style="--d:80ms">23. CHANGES TO THESE TERMS</h2>
+      <p>The Company may update these Terms and Conditions to reflect changes in its services, operations or legal requirements.</p>
+      <p>The current version will be available on the website and will state the date of its last update.</p>
+      <p>Where a change substantially affects a service already engaged, the conditions and requirements established by the relevant law will apply.</p>
+      <h2 data-reveal style="--d:80ms">24. SEVERABILITY</h2>
+      <p>If any provision of these Terms is held to be invalid, illegal or unenforceable, that will not affect the validity of the remaining provisions, to the extent permitted by applicable law.</p>
+      <h2 data-reveal style="--d:80ms">25. ENTIRE AGREEMENT</h2>
+      <p>These Terms and Conditions, together with the Privacy Policy, the Cookie Policy and the specific conditions communicated for each service, constitute the general framework applicable to the relationship between the user and the Company in relation to the website and the services engaged.</p>
+      <h2 data-reveal style="--d:80ms">26. CONTACT</h2>
+      <p>For any question related to these Terms and Conditions:</p>
+      <p><mark class="todo">[LEGAL NAME OF THE LLC]</mark> Albuquerque, New Mexico, United States Email: [EMAIL] Website: divinelightjourney.com</p>
+      </div></section>
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand">Divine Light Journey</div>
+      <p>Personal growth, well-being and human development.</p>
+    </div>
+    <div><h4>Information</h4><ul>
+      <li><a href="../../about-us/">About us</a></li>
+      <li><a href="../../mission/">Mission</a></li>
+      <li><a href="../../contact/">Contact</a></li></ul></div>
+    <div><h4>Experiences</h4><ul>
+      <li><a href="../../experiences/">Programs and trainings</a></li>
+      <li><a href="../../experiences/">Mentoring</a></li>
+      <li><a href="../../experiences/">Retreats</a></li></ul></div>
+    <div><h4>Legal</h4><ul>
+      <li><a href="../privacy/">Privacy</a></li>
+      <li><a href="./">Terms and conditions</a></li>
+      <li><a href="../cookies/">Cookies</a></li></ul></div>
+  </div>
+  <div class="legalbar">© 2026 Divine Light Journey · All rights reserved</div>
+</footer>
+<script>
+(function () {
+  var els = [].slice.call(document.querySelectorAll("[data-reveal]"));
+  if (!els.length) return;
+  if (!("IntersectionObserver" in window)) {
+    els.forEach(function (e) { e.classList.add("in"); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add("in");
+      io.unobserve(en.target);
+    });
+  }, { rootMargin: "0px 0px -6% 0px", threshold: 0.12 });
+  els.forEach(function (e) { io.observe(e); });
+})();
+</script>
+<div class="modal" id="dialogo-contacto" hidden>
+  <div class="modal-fondo" data-cerrar-modal></div>
+  <div class="modal-caja" role="dialog" aria-modal="true" aria-labelledby="dlg-titulo">
+    <button class="modal-cerrar" type="button" aria-label="Close" data-cerrar-modal>&times;</button>
+    <h2 id="dlg-titulo">Let's talk</h2>
+    <p class="modal-intro">Tell us what you need and we will get back to you as soon as possible.</p>
+    <form class="form" action="mailto:info@divinelightjourney.com" method="post" enctype="text/plain">
+      <div class="field"><label for="dlg-n">Name</label><input id="dlg-n" name="nombre" required autocomplete="name"></div>
+      <div class="field"><label for="dlg-e">Email</label><input id="dlg-e" name="email" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="dlg-m">Message</label><textarea id="dlg-m" name="mensaje" rows="4" required></textarea></div>
+      <button class="btn btn-primary" type="submit">Send message</button>
+      <p class="hint">When you send it, your email app will open with the message ready to go.</p>
+    </form>
+  </div>
+</div>
+<script>
+(function () {
+  var dlg = document.getElementById("dialogo-contacto");
+  if (!dlg) return;
+  var ultimoFoco = null;
+
+  function abrir(ev) {
+    if (ev) ev.preventDefault();
+    ultimoFoco = document.activeElement;
+    dlg.hidden = false;
+    document.body.classList.add("modal-abierto");
+    var primero = dlg.querySelector("input, textarea") || dlg.querySelector("button");
+    if (primero) primero.focus();
+  }
+  function cerrar() {
+    dlg.hidden = true;
+    document.body.classList.remove("modal-abierto");
+    if (ultimoFoco) ultimoFoco.focus();
+  }
+
+  document.addEventListener("click", function (ev) {
+    if (ev.target.closest("[data-modal]")) { abrir(ev); return; }
+    if (ev.target.closest("[data-cerrar-modal]")) cerrar();
+  });
+  document.addEventListener("keydown", function (ev) {
+    if (dlg.hidden) return;
+    if (ev.key === "Escape") { cerrar(); return; }
+    if (ev.key !== "Tab") return;
+    // el foco no se escapa del diálogo mientras está abierto
+    var foco = [].slice.call(dlg.querySelectorAll("button, input, textarea, a[href]")).filter(function (e) {
+      return !e.disabled && e.offsetParent !== null;
+    });
+    if (!foco.length) return;
+    var primero = foco[0], ultimo = foco[foco.length - 1];
+    if (ev.shiftKey && document.activeElement === primero) { ev.preventDefault(); ultimo.focus(); }
+    else if (!ev.shiftKey && document.activeElement === ultimo) { ev.preventDefault(); primero.focus(); }
+  });
+})();
+</script>
+</body>
+</html>
