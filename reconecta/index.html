@@ -464,7 +464,7 @@
   // Único sitio donde se cambia el enlace de pago (Stripe, MLAB-341). Mientras esté
   // vacío, los botones llevan al bloque de inscripción y el de la tarjeta abre el
   // formulario: ningún CTA queda muerto. Con la URL puesta, todos van al checkout.
-  var CHECKOUT = "";
+  var CHECKOUT = "https://buy.stripe.com/test_dRm8wP9pIaFyfjOaI00VO01";
   [].slice.call(document.querySelectorAll("[data-checkout]")).forEach(function (a) {
     if (!CHECKOUT) return;
     a.href = CHECKOUT;
