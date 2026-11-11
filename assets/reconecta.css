@@ -1,0 +1,343 @@
+/* Base tipográfica: el cuerpo de la página sube a 20 px y todo lo que hereda
+   (párrafos sin regla propia, listas de texto) se uniforma con él. */
+.rc-page{
+  /* Una sola escala para toda la página: cuerpo 21, listas 20, apoyo 19, micro 14. */
+  --rc-fs:1.3125rem;        /* 21 px — cuerpo */
+  --rc-fs-denso:1.25rem;    /* 20 px — listas largas */
+  --rc-fs-apoyo:1.1875rem;  /* 19 px — pies, lemas y datos */
+  --rc-fs-micro:.875rem;    /* 14 px — rótulos con tracking */
+  font-size:var(--rc-fs);line-height:1.7}
+/* Consistencia: las entradillas de site.css (1.12em) y los .lead del hero se
+   alinean con la escala en vez de crecer o quedarse cortos al heredar. */
+.rc-page .rest-texto p,.rc-page .despertar-texto p{font-size:var(--rc-fs)}
+.rc-page .lead{font-size:clamp(1.3125rem,1.55vw,1.4rem)}
+
+/* ── REConecta ───────────────────────────────────────────────────────────────
+   Landing de la formación online de Zuzel dentro de la web de Divine Light.
+   Solo usa tokens y piezas de site.css; los nombres van con prefijo .rc- para no
+   tocar ninguna otra página. Paleta v2.4: tinta, calipso, rosa y dorado. */
+
+/* ── Botones de compra (hero, programa, tarjeta de precio, cierre) ───────────
+   Bloque de color, no píldora: 64 px de alto, 18 px / 600, mayúsculas con tracking,
+   radio 10 px y mínimo 280 px. En móvil, ancho completo. Solo los CTA de compra
+   ([data-checkout]); los enlaces de texto y el botón del formulario no cambian. */
+.rc-page a.btn[data-checkout]{display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  min-width:280px;min-height:64px;padding:20px 44px;border-radius:10px;
+  font-size:18px;font-weight:600;line-height:1.2;letter-spacing:1.8px;text-transform:uppercase;
+  box-shadow:0 12px 26px -14px rgba(30,42,74,.55)}
+.rc-page a.btn[data-checkout] .flecha{margin-left:0}
+.rc-hero a.btn[data-checkout]{white-space:nowrap;padding-left:36px;padding-right:36px}
+.rc-page a.btn[data-checkout]:focus-visible{outline:3px solid var(--accent-ink);outline-offset:4px}
+
+/* Foco visible en el resto de enlaces y controles de la página */
+.rc-page a:focus-visible,.rc-page summary:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:4px}
+.rc-ink a:focus-visible,.rc-ink .rc-video:focus-visible{outline-color:var(--gold)}
+.rc-video:focus-visible{outline:3px solid var(--accent-ink);outline-offset:4px}
+
+/* Ritmo vertical: la sección central es más compacta que el token de la home */
+.rc-sec{padding:clamp(44px,5.4vw,76px) 0}
+.rc-sec h2{font-size:clamp(2.2rem,4.6vw,3.6rem)}
+
+/* Hero: misma pieza que la portada (retrato a sangre, texto a la izquierda) con
+   la columna algo más ancha y el titular más contenido: el de REConecta es una
+   frase larga y a 17ch partía en cinco líneas. */
+.rc-hero .hero-col{max-width:min(600px,max(38vw,410px))}
+.rc-hero h1{font-size:clamp(2rem,3.4vw,3.15rem)}
+.rc-hero .lead{max-width:40ch}
+
+/* Datos: fecha y precio como cifras grandes, lo demás como segunda línea */
+.rc-datos{align-items:end;list-style:none;margin:26px 0 0;padding:18px 0 0;
+  border-top:1px solid rgba(30,42,74,.18);
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 30px;
+  font-size:var(--rc-fs-apoyo);line-height:1.45;color:var(--cielo-ink)}
+.rc-datos li{display:block}
+.rc-datos li:nth-child(1){order:1}
+.rc-datos li:nth-child(4){order:2}
+.rc-datos li:nth-child(2){order:3}
+.rc-datos li:nth-child(3){order:4}
+.rc-datos li:nth-child(1),.rc-datos li:nth-child(4){font-size:var(--rc-fs-apoyo)}
+.rc-datos li:nth-child(1) strong,.rc-datos li:nth-child(4) strong{display:block;margin-bottom:4px;
+  font-family:var(--serif);font-weight:500;font-size:clamp(1.75rem,2.5vw,2.25rem);line-height:1;letter-spacing:-.01em}
+.rc-datos li:nth-child(4) strong{color:var(--gold-ink)}
+.rc-datos .rc-sep{display:none}
+.rc-datos li:nth-child(2),.rc-datos li:nth-child(3){font-size:var(--rc-fs-apoyo);padding-top:14px;border-top:1px solid rgba(30,42,74,.14)}
+.rc-datos li:nth-child(2) strong{font-family:var(--serif);font-weight:500;font-size:1.25rem;line-height:1}
+.rc-hero .cta{margin-top:28px}
+
+/* La carta de la llamada es larga: el retrato la acompaña pegado (sticky) en una
+   proporción 4:5. Estirado a la altura del texto, un 3:2 se recortaba al 30 %. */
+.rc-foto-sticky{position:sticky;top:calc(var(--navh,64px) + 24px);align-self:start;
+  min-height:0;height:auto;aspect-ratio:4/5}
+.rc-foto-sticky img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:66% 42%}
+.rc-llamada .rest-texto p:first-child{text-wrap:balance}
+/* El retrato de «Sobre mí» es casi cuadrado: en móvil no se fuerza 9:16 (cortaba pelo y manos). */
+.despertar-grid .rc-retrato img{aspect-ratio:4/5;object-position:50% 32%}
+
+/* Secciones de tinta: contrapunto oscuro al tramo claro (qué es · testimonios) */
+.rc-ink{background:
+    radial-gradient(62% 72% at 50% 0%,rgba(217,178,107,.20) 0%,rgba(217,178,107,0) 62%),
+    linear-gradient(165deg,#3B3C52 0%,#232B47 100%);
+  color:var(--s1);box-shadow:inset 0 1px 0 rgba(217,178,107,.42);
+  padding:clamp(60px,7.4vw,100px) 0}
+.rc-ink h2,.rc-ink h3{color:var(--s1)}
+.rc-ink .eyebrow{color:var(--gold)}
+.rc-ink .eyebrow::after{background:var(--gold);opacity:.55}
+.rc-ink p{color:var(--s4)}
+
+/* Bloque centrado (qué es REConecta) */
+.rc-centro{max-width:880px;text-align:center}
+.rc-centro .eyebrow{justify-content:center}
+.rc-centro h2{font-size:clamp(2.1rem,4.6vw,3.55rem);max-width:21ch;margin-left:auto;margin-right:auto;
+  margin-bottom:22px;text-wrap:balance}
+.rc-centro p{margin-left:auto;margin-right:auto;font-size:var(--rc-fs);max-width:60ch}
+.rc-centro .lead{max-width:58ch;font-size:clamp(1.3125rem,1.75vw,1.5rem);line-height:1.6;color:var(--s1)}
+.rc-res{list-style:none;padding:28px 0;margin:30px 0;
+  border-top:1px solid rgba(217,178,107,.45);border-bottom:1px solid rgba(217,178,107,.45);
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 12px;
+  font-family:var(--serif);font-size:clamp(1.3125rem,2.3vw,1.85rem);line-height:1.2;
+  color:var(--s1)}
+.rc-res b{font-weight:500;font-style:italic;color:var(--gold)}
+
+/* El viaje: cuatro días */
+.rc-programa .wrap>p{margin-bottom:14px}
+.rc-dias{list-style:none;padding:0;margin:clamp(30px,3.8vw,48px) 0 0;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.rc-dias>li{display:flex}
+.rc-dia{display:flex;flex-direction:column;width:100%;
+  background:var(--s0);border:1px solid var(--cielo-300);border-top:3px solid var(--gold);
+  border-radius:18px;padding:clamp(24px,2.8vw,34px);box-shadow:0 14px 34px -24px rgba(54,55,75,.35)}
+.rc-dia .n{display:block;font-family:var(--serif);font-size:clamp(2.2rem,3.4vw,3rem);font-weight:400;
+  line-height:1;letter-spacing:0;color:var(--gold-ink)}
+.rc-fecha{margin:12px 0 0;font-size:var(--rc-fs-micro);font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--secondary)}
+.rc-dia h3{margin:10px 0 2px;font-size:clamp(1.6rem,2.6vw,2.15rem)}
+.rc-sub{margin:0 0 14px;font-family:var(--serif);font-style:italic;
+  font-size:var(--rc-fs-apoyo);color:var(--gold-ink)}
+.rc-dia p{color:var(--secondary);margin-bottom:0}
+.rc-lema{margin:auto 0 0;padding-top:14px;border-top:1px solid var(--line);
+  font-family:var(--serif);font-style:italic;color:var(--secondary);font-size:var(--rc-fs-apoyo)}
+.rc-dia .rc-sub+p{margin-bottom:20px}
+
+/* CTA tras el programa */
+.rc-programa-cierre{text-align:center;margin-top:clamp(30px,3.6vw,44px)}
+.rc-programa-cierre p{max-width:none;margin-left:auto;margin-right:auto}
+.rc-programa-cierre .rc-si-cierre{margin-top:0}
+.rc-cta-medio{margin:22px 0 0}
+
+/* Qué puede cambiar: tres tarjetas con listas */
+.rc-cambios-sec{background:var(--cielo-100)}
+.rc-cambios-sec .wrap>p{margin-bottom:14px}
+.rc-cambios{list-style:none;padding:0;margin:clamp(30px,3.8vw,48px) 0 0;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,30px)}
+.rc-cambio{background:var(--s0);border:1px solid var(--cielo-300);border-top:3px solid var(--accent-ink);
+  border-radius:18px;padding:clamp(24px,2.6vw,34px);box-shadow:0 14px 34px -26px rgba(30,42,74,.4)}
+.rc-cambio .n{display:block;font-size:var(--rc-fs-micro);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);text-wrap:balance}
+.rc-cambio h3{margin:10px 0 16px;font-size:clamp(1.35rem,1.9vw,1.6rem)}
+@media (min-width:1100px){.rc-cambio h3{min-height:2.3em}}
+.rc-cambio ul{list-style:none;padding:0;margin:0}
+.rc-cambio li{position:relative;padding-left:20px;margin-bottom:11px;
+  color:var(--secondary);font-size:var(--rc-fs-denso);line-height:1.6}
+.rc-cambio li:last-child{margin-bottom:0}
+.rc-cambio li::before{content:"";position:absolute;left:0;top:.72em;width:9px;height:1px;background:var(--gold-ink)}
+
+/* Para ti si… */
+.rc-si{list-style:none;padding:0;margin:clamp(26px,3.2vw,40px) 0 0;
+  column-count:2;column-gap:clamp(32px,5vw,64px)}
+.rc-si li{position:relative;break-inside:avoid;padding:14px 0 14px 34px;border-bottom:1px solid var(--line);
+  font-size:var(--rc-fs-denso);line-height:1.6;color:var(--primary)}
+.rc-si li::before{content:"\2661";position:absolute;left:0;top:10px;
+  color:var(--gold-ink);font-size:1.2rem;line-height:1.4}
+.rc-si .rc-si-ultimo{column-span:all;border-bottom:0;padding:22px 0 0;
+  font-family:var(--serif);font-style:italic;font-size:clamp(1.3125rem,1.9vw,1.5rem);color:var(--secondary)}
+.rc-si .rc-si-ultimo::before{display:none}
+.rc-si-cierre{margin:26px 0 0;font-family:var(--serif);font-style:italic;
+  font-size:clamp(1.3125rem,1.8vw,1.4rem);color:var(--secondary);text-wrap:balance}
+.rc-parati .rc-si-cierre{margin-top:18px;color:var(--primary)}
+
+/* Inscripción */
+.rc-insc{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+  gap:clamp(36px,6vw,84px);align-items:center}
+.rc-incluye{list-style:none;padding:0;margin:26px 0 0}
+.rc-incluye li{border-top:1px solid var(--line);padding:20px 0}
+.rc-incluye li:last-child{border-bottom:1px solid var(--line)}
+.rc-incluye h3{margin:0 0 4px;font-size:clamp(1.22rem,1.8vw,1.42rem)}
+.rc-incluye p{margin:0;color:var(--secondary);font-size:var(--rc-fs);line-height:1.65}
+.rc-precio{background:var(--s1);border:1px solid var(--line);border-top:3px solid var(--gold);
+  border-radius:20px;padding:clamp(28px,3.2vw,40px);text-align:center;
+  box-shadow:0 18px 44px rgba(54,55,75,.08)}
+.rc-precio-label{margin:0 auto;font-size:var(--rc-fs-micro);font-weight:600;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--gold-ink)}
+.rc-precio-cifra{margin:10px auto 2px;font-family:var(--serif);font-weight:500;
+  font-size:clamp(3.6rem,6.6vw,5.2rem);line-height:1;color:var(--primary)}
+.rc-precio-nota{margin:0 auto 24px;color:var(--secondary);font-size:var(--rc-fs-apoyo)}
+.rc-precio .btn{width:100%}
+.rc-precio-pie{text-wrap:balance;margin:18px auto 0;font-size:var(--rc-fs-micro);line-height:1.6;color:var(--secondary)}
+.rc-precio-pie a{color:var(--primary);text-decoration:underline;text-underline-offset:3px}
+
+/* Sobre mí + origen: una sola pieza crema, sin hueco doble entre ambas */
+.rc-sobre{padding-bottom:clamp(36px,4.4vw,60px)}
+.rc-band{background:var(--s1);padding-top:0}
+
+/* El origen: banda con foto y tarjeta */
+.rc-origen{position:relative;overflow:hidden;border-radius:24px;
+  min-height:clamp(420px,48vw,580px);display:flex;align-items:center}
+.rc-origen>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 44%}
+/* Escritorio: el encuadre se abre desde la izquierda para que la tarjeta no toque a la mujer */
+@media (min-width:901px){
+  .rc-origen>img{transform:scale(1.075);transform-origin:0% 50%}
+}
+.rc-origen::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(38,23,12,.52) 0%,rgba(38,23,12,.24) 58%,rgba(38,23,12,.04) 100%)}
+.rc-origen .float-card{position:relative;z-index:2;margin-left:clamp(20px,4vw,56px);
+  max-width:430px;padding:clamp(24px,3vw,36px)}
+.rc-cita{margin:0 0 14px;font-family:var(--serif);font-style:italic;text-wrap:balance;
+  font-size:clamp(1.5rem,2.6vw,2.05rem);line-height:1.26;color:var(--primary)}
+.rc-origen .float-card p:last-child{margin-bottom:0;color:var(--secondary);font-size:var(--rc-fs)}
+
+/* Galería: mosaico de ritmo irregular (grandes, medianas y una fila de cuatro) */
+.rc-galeria{list-style:none;padding:0;margin:clamp(24px,3vw,38px) 0 0;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(130px,34vw,200px);
+  gap:10px;grid-auto-flow:dense}
+.rc-galeria li{min-height:0}
+.rc-galeria li:nth-child(1),.rc-galeria li:nth-child(8){grid-column:1/-1}
+.rc-galeria img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;
+  border-radius:12px;border:1px solid var(--cielo-300);display:block}
+@media (min-width:901px){
+  .rc-galeria{grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:clamp(110px,11.8vw,172px);gap:12px}
+  .rc-galeria li{grid-column:span 4}
+  .rc-galeria li:nth-child(1),.rc-galeria li:nth-child(3),
+  .rc-galeria li:nth-child(6),.rc-galeria li:nth-child(7){grid-row:span 2}
+  .rc-galeria li:nth-child(1),.rc-galeria li:nth-child(8){grid-column:span 4}
+  .rc-galeria li:nth-child(n+9){grid-column:span 3}
+}
+
+/* Testimonios: fachada de YouTube (sin cookies hasta que se pulsa).
+   Dos grandes arriba y tres debajo. */
+.rc-testi h2{max-width:30ch;text-wrap:balance}
+.rc-videos{--rc-gap:clamp(14px,1.8vw,22px);display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:var(--rc-gap);margin:clamp(26px,3.4vw,40px) 0 0}
+.rc-video{position:relative;display:block;grid-column:span 2;
+  min-width:0;aspect-ratio:16/9;padding:0;
+  border:1px solid var(--cielo-300);border-radius:16px;overflow:hidden;background:#1E1A16;cursor:pointer;
+  box-shadow:0 18px 36px -26px rgba(54,55,75,.42)}
+.rc-video:nth-child(-n+2){grid-column:span 3}
+.rc-video img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92}
+.rc-play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.rc-play::before{content:"";width:56px;height:56px;border-radius:50%;
+  background:rgba(255,252,246,.94);box-shadow:0 10px 26px rgba(20,12,6,.35);
+  transition:transform .2s ease}
+.rc-play::after{content:"";position:absolute;margin-left:4px;
+  border-left:14px solid var(--primary);border-top:9px solid transparent;border-bottom:9px solid transparent}
+.rc-video:nth-child(-n+2) .rc-play::before{width:68px;height:68px}
+.rc-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+@media (hover:hover){.rc-video:hover .rc-play::before{transform:scale(1.08)}}
+@media (prefers-reduced-motion:reduce){.rc-play::before{transition:none}.rc-video:hover .rc-play::before{transform:none}}
+
+/* FAQ: mismas piezas que Contacto */
+.rc-faq .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+  gap:clamp(32px,6vw,96px);align-items:start}
+.rc-faq h2{font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:14px}
+.rc-faq .rc-duda{color:var(--secondary);font-size:var(--rc-fs);line-height:1.65;max-width:34ch}
+.rc-faq .rc-duda a{color:var(--primary);text-decoration:underline;text-underline-offset:4px}
+.rc-faq details{border-top:1px solid var(--line)}
+.rc-faq details:last-of-type{border-bottom:1px solid var(--line)}
+.rc-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;
+  align-items:baseline;gap:20px;padding:20px 0;font-family:var(--serif);
+  font-size:clamp(1.3125rem,1.6vw,1.4rem);line-height:1.3;color:var(--primary)}
+.rc-faq summary::-webkit-details-marker{display:none}
+.rc-faq summary:focus-visible{outline:2px solid var(--accent-ink);outline-offset:2px}
+.rc-faq summary::after{content:"+";flex:none;color:var(--gold-ink);font-family:var(--sans);
+  font-size:1.6rem;line-height:1}
+.rc-faq details[open] summary::after{content:"\2212"}
+.rc-faq details p{margin:0 0 22px;color:var(--secondary);font-size:var(--rc-fs);line-height:1.7;max-width:60ch}
+
+/* Cierre */
+.rc-close{padding:clamp(64px,8vw,112px) 0}
+.rc-close .eyebrow{justify-content:center}
+.rc-close h2{font-size:clamp(2.2rem,4.8vw,3.7rem);text-wrap:balance;max-width:20ch}
+.rc-close p{max-width:46ch;text-wrap:balance}
+.rc-close .rc-lema-cierre{font-family:var(--serif);font-style:italic;
+  font-size:clamp(1.3125rem,1.9vw,1.5rem);color:var(--secondary);margin:0 auto 38px;max-width:38ch}
+/* el degradado al pie (::after, z 2) no debe velar el botón */
+.rc-close>.wrap{z-index:3}
+.rc-close a.btn{position:relative}
+
+/* Promo en la home */
+.rc-promo{border-top:1px solid var(--line)}
+.rc-promo .wrap{display:flex;align-items:center;justify-content:space-between;
+  gap:28px 40px;flex-wrap:wrap}
+.rc-promo .wrap>div{flex:1 1 520px}
+.rc-promo h2{margin:0 0 4px;font-size:clamp(1.55rem,2.5vw,2.15rem)}
+.rc-promo p{margin:0;color:var(--secondary);font-size:var(--rc-fs-apoyo)}
+.rc-promo .btn{flex:none}
+
+@media (max-width:1099px){
+  .rc-cambios{grid-template-columns:1fr;gap:18px}
+  .rc-videos{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rc-video,.rc-video:nth-child(-n+2){grid-column:span 1}
+  .rc-video:last-child{grid-column:1/-1}
+}
+@media (max-width:900px){
+  .rc-llamada .rest-grid{grid-template-columns:1fr;gap:32px}
+  .rc-hero .hero-col{max-width:none}
+  .rc-hero .eyebrow{font-size:11px;letter-spacing:.18em;white-space:nowrap}
+  .rc-hero .hero-retrato-foto img{object-position:68% 26%}
+  .rc-foto-sticky{position:static;aspect-ratio:1/1;min-height:0;order:-1}
+  .rc-foto-sticky img{object-position:66% 38%}
+  .rc-dias{grid-template-columns:1fr}
+  .rc-insc{grid-template-columns:1fr;gap:40px}
+  .rc-si{column-count:1}
+  .rc-origen{min-height:520px;align-items:flex-end}
+  .rc-origen::after{background:linear-gradient(0deg,rgba(38,23,12,.62) 0%,rgba(38,23,12,.18) 62%,rgba(38,23,12,.02) 100%)}
+  .rc-origen .float-card{margin:16px;max-width:none}
+  .rc-faq .wrap{grid-template-columns:1fr;gap:24px}
+  .rc-res{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rc-promo .wrap{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:640px){
+  /* CTA a ancho completo; el texto baja a 16 px para no partir «QUIERO VIVIR RECONECTA →» */
+  .rc-page a.btn[data-checkout]{display:flex;width:100%;min-width:0;min-height:62px;
+    padding:18px 16px;font-size:16px;letter-spacing:1.4px}
+  .rc-datos{padding:16px 0 0;gap:12px 16px}
+  .rc-hero a.btn[data-checkout]{padding-left:14px;padding-right:14px}
+  .rc-datos li:nth-child(2),.rc-datos li:nth-child(3){grid-column:1/-1;padding-top:12px}
+  .rc-datos li:nth-child(3){padding-top:0;border-top:0;margin-top:-4px}
+  .rc-datos li:nth-child(1) strong,.rc-datos li:nth-child(4) strong{font-size:2rem}
+  .rc-videos{grid-template-columns:1fr}
+  .rc-video:last-child{grid-column:auto}
+  .rc-galeria{gap:8px}
+}
+
+@media (max-width:360px){
+  .rc-hero .eyebrow{white-space:normal;letter-spacing:.12em}
+  .rc-page a.btn[data-checkout]{font-size:14px;letter-spacing:.6px}
+  .rc-hero a.btn[data-checkout]{padding-left:8px;padding-right:8px}
+  .rc-hero a.btn[data-checkout] .flecha{display:none}
+}
+
+/* Pausas editoriales: una foto y una frase de la clienta (texto HTML, nunca en imagen).
+   Las fotos se muestran por debajo de su tamaño natural (819 y 739 px). */
+.rc-pausa-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(32px,6vw,88px);align-items:center}
+.rc-pausa-foto{margin:0;justify-self:center;width:100%}
+.rc-pausa-foto--ancha{max-width:560px}
+.rc-pausa-foto--cuadrada{max-width:480px}
+.rc-pausa-foto img{width:100%;height:auto;display:block;border-radius:20px;
+  border:1px solid var(--cielo-300);box-shadow:0 22px 48px -28px rgba(54,55,75,.5)}
+.rc-pausa-foto--ancha img{aspect-ratio:5/4;object-fit:cover;object-position:50% 30%}
+.rc-pausa-foto--cuadrada img{aspect-ratio:1/1;object-fit:cover;object-position:50% 40%}
+.rc-pausa-cita{margin:0;max-width:30ch}
+.rc-pausa-cita::before{content:"";display:block;width:44px;height:2px;background:var(--gold);margin-bottom:22px}
+.rc-pausa-cita p{margin:0;max-width:none;font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(1.5rem,2.7vw,2.3rem);line-height:1.34;color:var(--primary);text-wrap:balance}
+.rc-pausa--inversa .rc-pausa-foto{order:2}
+@media (max-width:900px){
+  .rc-pausa-grid{grid-template-columns:1fr;gap:28px}
+  .rc-pausa--inversa .rc-pausa-foto{order:0}
+  .rc-pausa-foto--ancha,.rc-pausa-foto--cuadrada{max-width:none}
+  .rc-pausa-cita{max-width:none}
+}
+
+/* El menú fijo no tapa el inicio del bloque al saltar por ancla */
+#programa,#inscripcion{scroll-margin-top:calc(var(--navh,64px) + 18px)}

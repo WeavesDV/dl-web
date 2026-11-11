@@ -959,6 +959,8 @@ body.modal-abierto{overflow:hidden}
   .hero-glow{left:-30%;bottom:-26%;width:108%;opacity:.7}
 
   .despertar-grid{grid-template-columns:1fr}
+  /* el bloque de introducción de la home seguía en dos columnas en móvil (texto de 139 px) */
+  .rest-grid{grid-template-columns:1fr}
   .despertar-grid .despertar-foto{order:-1}
   .qs-banda img{aspect-ratio:4/3;border-radius:18px}
   .ms-banda img{aspect-ratio:4/3;border-radius:18px}
