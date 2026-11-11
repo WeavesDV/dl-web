@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REConecta · 4-day online experience · Divine Light Journey</title>
+<meta name="description" content="Four days to listen to yourself, to feel, and to reconnect with yourself and with Life. Four live encounters on Zoom, 26–29 November 2026. €99, recordings included.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="REConecta · 4-day online experience">
+<meta property="og:description" content="Four days to listen to yourself, to feel, and to reconnect with yourself and with Life. 26–29 November, live on Zoom.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://divinelightjourney.com/assets/img/hero-reconecta-1600.webp">
+<link rel="alternate" hreflang="es" href="https://divinelightjourney.com/reconecta/"><link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/reconecta/"><link rel="alternate" hreflang="x-default" href="https://divinelightjourney.com/reconecta/"><link rel="canonical" href="https://divinelightjourney.com/en/reconecta/">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/reconecta.css">
+<script>document.documentElement.classList.add("rv");</script>
+</head>
+<body class="con-cristal rc-page">
+<nav class="nav"><div class="wrap"><a class="brand" href="../" aria-label="Divine Light Journey"><img src="../../assets/img/logo-dl-3x.png" srcset="../../assets/img/logo-dl-2x.png 2x, ../../assets/img/logo-dl-3x.png 3x" alt="Divine Light Journey" width="279" height="88" decoding="async"></a><ul><li><a href="../">Home</a></li><li><a href="../about-us/">About us</a></li><li><a href="../experiences/">Experiences</a></li><li><a href="../mission/">Mission</a></li><li><a href="../contact/">Contact</a></li><li><a href="./" aria-current="page">REConecta</a></li></ul><details class="menu"><summary>Menu</summary><ul><li><a href="../">Home</a></li><li><a href="../about-us/">About us</a></li><li><a href="../experiences/">Experiences</a></li><li><a href="../mission/">Mission</a></li><li><a href="../contact/">Contact</a></li><li><a href="./">REConecta</a></li></ul></details><span class="lang"><a href="../../reconecta/">ES</a> · <b>EN</b></span></div></nav>
+<script>
+(function () {
+  var nav = document.querySelector("nav.nav");
+  if (!nav) return;
+  // --navh síncrono (justo tras la barra) para que el hueco del menú fijo no dé un salto al cargar.
+  function medir() { document.documentElement.style.setProperty("--navh", Math.round(nav.getBoundingClientRect().height) + "px"); }
+  medir();
+  addEventListener("resize", medir);
+  addEventListener("DOMContentLoaded", medir);
+  // Cristal mientras se ve la cabecera de la página; cielo cuando ha salido por arriba; cristal otra vez al
+  // asomar el pie. Vale para todas las páginas: cada una empieza por <body><nav><script><header>.
+  var pegado = false, pendiente = false;
+  function conmutar() {
+    pendiente = false;
+    var hero = document.querySelector("body > header") || document.querySelector(".hero-retrato"),
+        pie = document.querySelector("footer");
+    var quiere;
+    if (hero && pie) {
+      var fuera = hero.getBoundingClientRect().bottom <= nav.getBoundingClientRect().height + 1;
+      var alFinal = pie.getBoundingClientRect().top <= window.innerHeight - 80;
+      quiere = fuera && !alFinal;
+    } else {
+      quiere = (window.scrollY || 0) > 24;
+    }
+    if (quiere !== pegado) { pegado = quiere; nav.classList.toggle("nav--pegado", pegado); }
+  }
+  function pedir() { if (!pendiente) { pendiente = true; requestAnimationFrame(conmutar); } }
+  addEventListener("scroll", pedir, { passive: true });
+  addEventListener("resize", pedir);
+  addEventListener("DOMContentLoaded", pedir);   // el script va antes del hero y del pie: aún no existen
+  conmutar();
+})();
+</script>
+
+<header class="hero-retrato rc-hero" id="hero">
+  <figure class="hero-retrato-foto">
+    <img src="../../assets/img/hero-reconecta-960.webp"
+         srcset="../../assets/img/hero-reconecta-960.webp 960w, ../../assets/img/hero-reconecta-1600.webp 1600w"
+         sizes="100vw" width="1600" height="1067" fetchpriority="high" decoding="async"
+         alt="Zuzel Amelia in a field of tall grass at sunset, holding a sprig of wheat, in golden backlight">
+  </figure>
+  <div class="wrap"><div class="hero-col">
+    <div class="eyebrow" data-reveal style="--d:0ms">Online experience · 4 days</div>
+    <h1 data-reveal style="--d:120ms">Four days to<br><em>listen to yourself, to feel</em><br>and to reconnect</h1>
+    <p class="lead" data-reveal style="--d:200ms">With you and with Life. There is something essential in you<br>that you do not need to find, only remember.</p>
+    <ul class="rc-datos" data-reveal style="--d:280ms">
+      <li><strong>26–29</strong> November 2026</li>
+      <li><strong>4</strong> live encounters on Zoom</li>
+      <li>8 hours · recordings included</li>
+      <li><strong>€99</strong><span class="rc-sep" aria-hidden="true"> · </span>one single payment</li>
+    </ul>
+    <div class="cta" data-reveal style="--d:340ms">
+      <a class="btn btn-primary btn-lg" href="#inscripcion" data-checkout>I want to live REConecta</a>
+    </div>
+  </div></div>
+</header>
+
+<section class="s-white rc-llamada rc-sec">
+  <div class="wrap rest-grid">
+    <div class="rest-texto rc-prosa" data-reveal style="--d:0ms">
+      <p>Perhaps you, too, are feeling this inner call.</p>
+      <p>We are living in intense times, times of great change for humanity. Times to awaken and renew the way we
+        see. Times to release what we have never truly been, and to come closer to the <em>divine essence</em> of
+        who we are.</p>
+      <p>Many of us women are beginning to feel a call to awaken the sacred feminine, to listen to ourselves and to
+        feel ourselves amid so much mental noise and so much information that confuses us.</p>
+      <p>At some point along the way, we realise we have been disconnecting from ourselves and from the very Source of
+        Life. We may then begin to feel a deeper need to be alone, to let a part of us die so that something new can
+        come to life.</p>
+      <p>An inner need to care for ourselves with more love, and to live with more presence and connection to our
+        true self.</p>
+      <p>A whisper reaches the heart, inviting us to listen to the voice of our soul, to release emotions and
+        thoughts that consume us, to feel every fibre of our skin with tenderness, and to come into contact with a
+        deeper dimension that is part of <em>our Origin</em>.</p>
+      <p>If you are feeling this inner call, you are most welcome to join us and <em>REconnect</em>. Four days to
+        begin aligning your heart, your mind and your body with your soul and the Divine Presence.</p>
+      <p class="punch">Through this experience your mind begins to settle, your heart begins to open, and your whole
+        being becomes more available to intuition, to trust and to Love.</p>
+    </div>
+    <figure class="rest-foto rc-foto-sticky" data-reveal="img" style="--d:120ms">
+      <img class="foto" src="../../assets/img/foto-reconecta-llamada-960.webp"
+           srcset="../../assets/img/foto-reconecta-llamada-960.webp 960w, ../../assets/img/foto-reconecta-llamada-1600.webp 1600w"
+           sizes="(min-width:901px) 520px, calc(100vw - 40px)" width="1600" height="1067" loading="lazy" decoding="async"
+           alt="Zuzel Amelia smiling with her hands open in welcome, in warm field light">
+    </figure>
+  </div>
+</section>
+
+<section class="rc-ink rc-centro-sec">
+  <div class="wrap rc-centro">
+    <div class="eyebrow" data-reveal style="--d:0ms">REConecta</div>
+    <h2 data-reveal style="--d:80ms">A journey of conscious reconnection with every dimension of our Being</h2>
+    <p class="lead" data-reveal style="--d:140ms">An inspiring space, full of love, to feel your body with
+      softness, to open the listening of the heart, and to bring clarity to your mind in the face of the
+      thoughts that confuse us and disconnect us.</p>
+    <p data-reveal style="--d:180ms">A space to listen to what is born from your soul and to deepen your bond with
+      your essence and with Life.</p>
+    <ul class="rc-res" data-reveal style="--d:240ms">
+      <li><b>RE</b>connect</li>
+      <li><b>RE</b>concile</li>
+      <li><b>RE</b>cognize</li>
+      <li><b>RE</b>member</li>
+    </ul>
+    <p data-reveal style="--d:300ms"><em>REC</em> is the movement of returning to your natural essence. A path to
+      bring back to the heart and to awareness all that is part of who you are.</p>
+    <p data-reveal style="--d:340ms">There are things that need to be recognised, felt and brought back into
+      awareness.</p>
+  </div>
+</section>
+
+<section class="s-cream rc-sec rc-programa" id="programa">
+  <div class="wrap">
+    <div class="eyebrow" data-reveal style="--d:0ms">A four-day journey</div>
+    <h2 data-reveal style="--d:80ms">Four encounters. One journey.</h2>
+    <p data-reveal style="--d:140ms;max-width:68ch">We will meet for four consecutive days, live on Zoom,
+      from 26 to 29 November 2026. Each encounter lasts about two hours and combines teachings, reflection,
+      inner-connection practices, meditation and integration.</p>
+    <p data-reveal style="--d:180ms;max-width:68ch">All four sessions will be recorded so that you can
+      watch them later if you cannot join us live. Times are for mainland Spain (CET).</p>
+    <ol class="rc-dias">
+      <li data-reveal style="--d:0ms"><article class="rc-dia">
+        <span class="n">01</span>
+        <p class="rc-fecha">Thursday 26 November · 19:00–21:00 CET</p>
+        <h3>REconnect</h3>
+        <p class="rc-sub">To feel again</p>
+        <p>Step out of autopilot to recover presence and listening. Reconnect with your body, your emotions,
+          your sensitivity and what you need.</p>
+        <p class="rc-lema">REconnect to feel again.</p>
+      </article></li>
+      <li data-reveal style="--d:80ms"><article class="rc-dia">
+        <span class="n">02</span>
+        <p class="rc-fecha">Friday 27 November · 19:00–21:00 CET</p>
+        <h3>REconcile</h3>
+        <p class="rc-sub">To accept with love what you have lived</p>
+        <p>Create a space of acceptance and love to embrace what you feel and what you have lived. Reconcile
+          with yourself, with your story and with life.</p>
+        <p class="rc-lema">REconcile to open the heart.</p>
+      </article></li>
+      <li data-reveal style="--d:160ms"><article class="rc-dia">
+        <span class="n">03</span>
+        <p class="rc-fecha">Saturday 28 November · 18:00–20:00 CET</p>
+        <h3>REcognize</h3>
+        <p class="rc-sub">To free the mind from what you are not</p>
+        <p>Observe your thoughts, beliefs and conditionings to recognise what truly belongs to you and what
+          you have learned, assumed or believed to be true.</p>
+        <p class="rc-lema">REcognize so you can release.</p>
+      </article></li>
+      <li data-reveal style="--d:240ms"><article class="rc-dia">
+        <span class="n">04</span>
+        <p class="rc-fecha">Sunday 29 November · 18:00–20:00 CET</p>
+        <h3>REmember</h3>
+        <p class="rc-sub">To reconnect with the soul and with God</p>
+        <p>Go beyond thoughts, roles and personal history to listen to what is born from your soul and your
+          bond with God.</p>
+        <p class="rc-lema">REmember who you are to live from Love.</p>
+      </article></li>
+    </ol>
+    <div class="rc-programa-cierre" data-reveal style="--d:0ms">
+      <p class="rc-si-cierre">An experience of reconnection with yourself and with life.</p>
+      <p class="rc-cta-medio"><a class="btn btn-primary" href="#inscripcion" data-checkout>Reserve my place</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="s-cream rc-testi">
+  <div class="wrap">
+    <div class="eyebrow" data-reveal style="--d:0ms">Testimonials</div>
+    <h2 data-reveal style="--d:80ms">What people who have experienced my sessions say</h2>
+    <div class="rc-videos">
+      <button class="rc-video" type="button" data-video="hL2IB9_bWFg" data-titulo="Testimonial from Chusa" aria-label="Watch Chusa's testimonial">
+        <img src="https://i.ytimg.com/vi/hL2IB9_bWFg/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
+        <span class="rc-play" aria-hidden="true"></span>
+      </button>
+      <button class="rc-video" type="button" data-video="qdOxCpT5AZ0" data-titulo="Testimonial from Raquel" aria-label="Watch Raquel's testimonial">
+        <img src="https://i.ytimg.com/vi/qdOxCpT5AZ0/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
+        <span class="rc-play" aria-hidden="true"></span>
+      </button>
+      <button class="rc-video" type="button" data-video="yMGsL57r3co" data-titulo="Testimonial from Carolina" aria-label="Watch Carolina's testimonial">
+        <img src="https://i.ytimg.com/vi/yMGsL57r3co/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
+        <span class="rc-play" aria-hidden="true"></span>
+      </button>
+      <button class="rc-video" type="button" data-video="9w57zUW5E7M" data-titulo="Testimonial from Johanna" aria-label="Watch Johanna's testimonial">
+        <img src="https://i.ytimg.com/vi/9w57zUW5E7M/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
+        <span class="rc-play" aria-hidden="true"></span>
+      </button>
+      <button class="rc-video" type="button" data-video="cIQBBmL74xU" data-titulo="Testimonial from Sofía" aria-label="Watch Sofía's testimonial">
+        <img src="https://i.ytimg.com/vi/cIQBBmL74xU/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
+        <span class="rc-play" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="rc-cambios-sec rc-sec">
+  <div class="wrap">
+    <div class="eyebrow" data-reveal style="--d:0ms">Essential reconnection</div>
+    <h2 data-reveal style="--d:80ms">What can begin to change when you reconnect?</h2>
+    <p data-reveal style="--d:140ms;max-width:68ch">REConecta is an invitation to create the conditions to
+      listen to yourself more deeply.</p>
+    <p data-reveal style="--d:180ms;max-width:68ch">REConecta does not pretend that in four days your life
+      will be solved. Nor do I want to promise that every circumstance that worries you today will disappear.</p>
+    <p data-reveal style="--d:220ms;max-width:68ch">I want to propose something different: to create, for four
+      days, a sacred space in which you can return to yourself.</p>
+    <ol class="rc-cambios">
+      <li class="rc-cambio" data-reveal style="--d:0ms">
+        <span class="n">01 · Meeting yourself again</span>
+        <h3>Your body, your emotions and your energy</h3>
+        <ul>
+          <li>To recover a more harmonious, fluid relationship between your body, your mind and your emotions.</li>
+          <li>To listen to your body and begin to relate to it with more love.</li>
+          <li>To awaken and inhabit your feminine energy, to remember the beauty of being a woman.</li>
+          <li>To allow yourself to feel your emotions without judging yourself for them.</li>
+          <li>To understand that feeling vulnerable is part of our human experience.</li>
+        </ul>
+      </li>
+      <li class="rc-cambio" data-reveal style="--d:80ms">
+        <span class="n">02 · Looking at yourself with love</span>
+        <h3>More clarity, less mental noise</h3>
+        <ul>
+          <li>To observe your thoughts without automatically identifying with everything your mind tells you.</li>
+          <li>To recognise distorted thoughts, beliefs and conditionings that may be taking you away from
+            peace.</li>
+          <li>To cultivate a more loving gaze towards yourself.</li>
+          <li>To recover spaces of presence, listening and inner clarity.</li>
+        </ul>
+      </li>
+      <li class="rc-cambio" data-reveal style="--d:160ms">
+        <span class="n">03 · Remembering who you are</span>
+        <h3>Your soul, God and Life</h3>
+        <ul>
+          <li>To listen to what is born from your soul.</li>
+          <li>To remember that you are much more than your roles, your thoughts and your story.</li>
+          <li>To open yourself to a deeper relationship with God and with Life.</li>
+          <li>To deepen your bond with God from a free, intimate and loving spirituality.</li>
+          <li>To open yourself to walking through life with greater faith and trust.</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="s-paper rc-sec rc-pausa">
+  <div class="wrap rc-pausa-grid">
+    <figure class="rc-pausa-foto rc-pausa-foto--ancha" data-reveal="img" style="--d:0ms">
+      <img src="../../assets/img/rc-original-02.webp" width="819" height="640" loading="lazy" decoding="async"
+           alt="Zuzel Amelia with her eyes closed and a serene smile, holding dried flowers, in a field with soft sunset light">
+    </figure>
+    <blockquote class="rc-pausa-cita" data-reveal style="--d:120ms">
+      <p>From mental noise to presence, from demand to love, from disconnection to listening…</p>
+    </blockquote>
+  </div>
+</section>
+
+<section class="s-white rc-sec rc-parati">
+  <div class="wrap">
+    <div class="eyebrow" data-reveal style="--d:0ms">A space to return to yourself</div>
+    <h2 data-reveal style="--d:80ms">REConecta may be for you if…</h2>
+    <p data-reveal style="--d:140ms;max-width:62ch">Perhaps you are not looking for immediate answers. Perhaps you
+      need a cared-for place to listen to yourself, to feel, and to remember what is essential in you.</p>
+    <ul class="rc-si">
+      <li data-reveal style="--d:0ms">You feel that lately you are living too much in your head.</li>
+      <li data-reveal style="--d:40ms">It is hard for you to stop and listen to what you need.</li>
+      <li data-reveal style="--d:80ms">You feel lost or disconnected from yourself.</li>
+      <li data-reveal style="--d:120ms">You are tired of living from demand, perfectionism or constant
+        doing.</li>
+      <li data-reveal style="--d:160ms">You want to relate to your body and your emotions in a more loving
+        way.</li>
+      <li data-reveal style="--d:200ms">There are thoughts and beliefs that repeat, that weigh on you, and you would
+        like to release them.</li>
+      <li data-reveal style="--d:240ms">You would like to reconcile with your feminine energy and let it blossom in you.</li>
+      <li data-reveal style="--d:280ms">You wish to recover a deeper inner peace.</li>
+      <li data-reveal style="--d:320ms">You would like to deepen your spiritual dimension and your relationship with
+        God from a place free of impositions and dogmas.</li>
+      <li data-reveal style="--d:360ms">You feel you are going through a moment of change, search or
+        transformation.</li>
+      <li data-reveal style="--d:400ms">There is a part of you that longs to understand itself more deeply.</li>
+      <li data-reveal style="--d:440ms">You feel a call towards a life more connected to your essence and your
+        intuition.</li>
+      <li class="rc-si-ultimo" data-reveal style="--d:480ms">Or simply something inside you feels that this is the moment to REconnect.</li>
+    </ul>
+    <p class="rc-si-cierre" data-reveal style="--d:0ms">If any of these words resonate in you, this space may
+      be for you.</p>
+  </div>
+</section>
+
+<section class="s-dawn" id="inscripcion">
+  <div class="wrap rc-insc">
+    <div data-reveal style="--d:0ms">
+      <div class="eyebrow">Essential reconnection</div>
+      <h2>Your registration includes</h2>
+      <ul class="rc-incluye">
+        <li><h3>4 online encounters</h3><p>Live on Zoom.</p></li>
+        <li><h3>8 hours of experience</h3><p>A space for accompaniment, reflection and integration.</p></li>
+        <li><h3>Access to the recordings</h3><p>To return to the four sessions whenever you need them.</p></li>
+      </ul>
+    </div>
+    <aside class="rc-precio" data-reveal style="--d:100ms">
+      <p class="rc-precio-label">Investment</p>
+      <p class="rc-precio-cifra">€99</p>
+      <p class="rc-precio-nota">One single payment</p>
+      <a class="btn btn-primary btn-lg" href="#inscripcion" data-checkout data-modal>Get my place</a>
+      <p class="rc-precio-pie">Includes the four live encounters and access to the recordings.<br>
+        By registering you accept the <a href="../legal/terms/">terms of purchase</a>.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="s-cream rc-sobre">
+  <div class="wrap rest-grid despertar-grid">
+    <figure class="rest-foto despertar-foto rc-retrato" data-reveal="img" style="--d:0ms">
+      <img class="foto" src="../../assets/img/foto-reconecta-retrato-960.webp"
+           srcset="../../assets/img/foto-reconecta-retrato-960.webp 960w, ../../assets/img/foto-reconecta-retrato-1200.webp 1200w"
+           sizes="(min-width:901px) 460px, calc(100vw - 40px)" width="1200" height="1069" loading="lazy" decoding="async"
+           alt="Portrait of Zuzel Amelia smiling on the beach, holding a rose, with the sea blurred behind her">
+      <figcaption class="foto-frase">A space to return to yourself.</figcaption>
+    </figure>
+    <div class="despertar-texto" data-reveal style="--d:100ms">
+      <div class="eyebrow">About me</div>
+      <h2>Zuzel Amelia</h2>
+      <p>I am Zuzel Amelia and for years I have accompanied people through processes of transformation and inner
+        reconnection.</p>
+      <p>The way I understand transformation integrates body, emotions, mind, soul and our connection with the
+        Origin: with God.</p>
+      <p>My mission is to guide you, inspire you and accompany you, so that you return to the path of your soul, to
+        the divine essence of who you are, and remember the purpose of love for which you are here.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band rc-band">
+  <div class="wrap">
+    <div class="rc-origen">
+      <img src="../../assets/img/foto-reconecta-origen-960.webp"
+           srcset="../../assets/img/foto-reconecta-origen-960.webp 960w, ../../assets/img/foto-reconecta-origen-1600.webp 1600w"
+           sizes="(min-width:1264px) 1200px, calc(100vw - 40px)" width="1600" height="1067" loading="lazy" decoding="async"
+           alt="Zuzel Amelia walking through tall grass at sunset, holding a sprig of wheat, the field in backlight">
+      <div class="float-card" data-reveal style="--d:0ms">
+        <div class="eyebrow">The origin of REConecta</div>
+        <p class="rc-cita">To remember the truth of who we are, so we can live from love.</p>
+        <p>REConecta is also born from my own path and from a certainty that gives meaning to my life and to my work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s-white rc-sec rc-momentos">
+  <div class="wrap">
+    <div class="eyebrow" data-reveal style="--d:0ms">Moments</div>
+    <h2 data-reveal style="--d:80ms">Special moments from these years creating spaces for transformation</h2>
+    <ul class="rc-galeria">
+      <li data-reveal="img" style="--d:0ms"><img src="../../assets/img/foto-reconecta-galeria-01.webp" width="720" height="826" loading="lazy" decoding="async" alt="Group of women dressed in white in a wooden hall during the retreat Your Inner Call"></li>
+      <li data-reveal="img" style="--d:40ms"><img src="../../assets/img/foto-reconecta-galeria-02.webp" width="720" height="480" loading="lazy" decoding="async" alt="Participants of the retreat Travel to Your Origin, April 2025, posing together"></li>
+      <li data-reveal="img" style="--d:80ms"><img src="../../assets/img/foto-reconecta-galeria-03.webp" width="720" height="960" loading="lazy" decoding="async" alt="Circle of women from 2023 sitting on the floor, looking at the camera"></li>
+      <li data-reveal="img" style="--d:120ms"><img src="../../assets/img/foto-reconecta-galeria-04.webp" width="720" height="479" loading="lazy" decoding="async" alt="Hands intertwined in a circle during a group accompaniment"></li>
+      <li data-reveal="img" style="--d:160ms"><img src="../../assets/img/foto-reconecta-galeria-05.webp" width="720" height="480" loading="lazy" decoding="async" alt="A couple holding hands on the beach, looking at each other in profile"></li>
+      <li data-reveal="img" style="--d:200ms"><img src="../../assets/img/foto-reconecta-galeria-06.webp" width="720" height="1081" loading="lazy" decoding="async" alt="Women in red dresses sitting on some steps during Creators of the New World"></li>
+      <li data-reveal="img" style="--d:240ms"><img src="../../assets/img/foto-reconecta-galeria-07.webp" width="720" height="959" loading="lazy" decoding="async" alt="Group of women in red dresses in a corridor during the Alchemy of the Heart workshop"></li>
+      <li data-reveal="img" style="--d:280ms"><img src="../../assets/img/foto-reconecta-galeria-08.webp" width="720" height="1082" loading="lazy" decoding="async" alt="Group embrace in the circle Open Yourself to the Love Within You"></li>
+      <li data-reveal="img" style="--d:320ms"><img src="../../assets/img/foto-reconecta-galeria-09.webp" width="720" height="480" loading="lazy" decoding="async" alt="Women in white smiling together at a Creators of the New World gathering"></li>
+      <li data-reveal="img" style="--d:360ms"><img src="../../assets/img/foto-reconecta-galeria-10.webp" width="720" height="515" loading="lazy" decoding="async" alt="Circle of people embracing on the floor during the retreat Travel to Your Origin"></li>
+      <li data-reveal="img" style="--d:400ms"><img src="../../assets/img/foto-reconecta-galeria-11.webp" width="720" height="492" loading="lazy" decoding="async" alt="Guardians of the Origin circle, with participants embracing on the floor"></li>
+      <li data-reveal="img" style="--d:440ms"><img src="../../assets/img/foto-reconecta-galeria-12.webp" width="687" height="463" loading="lazy" decoding="async" alt="Guardians of the Inner Fire embracing in a circle during the retreat"></li>
+    </ul>
+  </div>
+</section>
+
+<section class="s-paper rc-faq rc-sec">
+  <div class="wrap">
+    <div>
+      <h2>Answers to your questions</h2>
+      <p class="rc-duda">If you have questions about REConecta, you can <a href="../contact/" data-modal>write to me</a> and I will
+        answer you with all my love.</p>
+    </div>
+    <div>
+      <details><summary>Do I need previous experience?</summary>
+        <p>No. You can take part whether you have been walking a path of inner growth for years or are just
+          beginning.</p></details>
+      <details><summary>What happens if I cannot attend live?</summary>
+        <p>All four sessions will be recorded and you will have access to them afterwards.</p></details>
+      <details><summary>Do I have to speak or share in front of the group?</summary>
+        <p>No. You can live the experience from your own intimacy and take part only as far as you feel comfortable.</p></details>
+      <details><summary>Is REConecta linked to any religion?</summary>
+        <p>No. We will speak of God and of our spiritual dimension from an open, loving gaze, free of dogma. You do
+          not need to belong to any religion or share a particular doctrine.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="s-cream rc-sec rc-pausa rc-pausa--inversa">
+  <div class="wrap rc-pausa-grid">
+    <figure class="rc-pausa-foto rc-pausa-foto--cuadrada" data-reveal="img" style="--d:0ms">
+      <img src="../../assets/img/rc-original-03.webp" width="739" height="734" loading="lazy" decoding="async"
+           alt="Zuzel Amelia on the beach in a red dress, smiling with her eyes closed as she smells a rose">
+    </figure>
+    <blockquote class="rc-pausa-cita" data-reveal style="--d:120ms">
+      <p>To remember is to bring back to the heart what we are. When you remember who you are, the way you live changes.</p>
+    </blockquote>
+  </div>
+</section>
+
+<section class="close rc-close">
+  <div class="wrap">
+    <div class="eyebrow" data-reveal style="--d:0ms">An invitation</div>
+    <h2 data-reveal style="--d:80ms">Perhaps it is time to listen to yourself</h2>
+    <p data-reveal style="--d:140ms">I do not want to convince you that you need REConecta. I want to invite you to
+      feel whether this experience makes sense for you.</p>
+    <p data-reveal style="--d:180ms">If something inside you is asking to listen, to feel and to remember, for four
+      days we will open that space together.</p>
+    <p class="rc-lema-cierre" data-reveal style="--d:220ms">A journey from the Body to the Heart, from the Heart to
+      the Soul, and from the Soul to the Origin.</p>
+    <a class="btn btn-primary btn-lg" href="#inscripcion" data-checkout data-reveal style="--d:280ms">I want to live REConecta</a>
+    <span class="luz-cta" aria-hidden="true"></span>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand">Divine Light Journey</div>
+      <p>Personal growth, well-being and human development.</p>
+    </div>
+    <div><h4>Information</h4><ul>
+      <li><a href="../about-us/">About us</a></li>
+      <li><a href="../mission/">Mission</a></li>
+      <li><a href="../contact/">Contact</a></li></ul></div>
+    <div><h4>Experiencias</h4><ul>
+      <li><a href="./">REConecta</a></li>
+      
+      <li><a href="../experiences/">Programs and trainings</a></li>
+      <li><a href="../experiences/">Mentoring</a></li>
+      <li><a href="../experiences/">Retreats</a></li></ul></div>
+    <div><h4>Legal</h4><ul>
+      <li><a href="../legal/privacy/">Privacy</a></li>
+      <li><a href="../legal/terms/">Terms and conditions</a></li>
+      <li><a href="../legal/cookies/">Cookies</a></li></ul></div>
+  </div>
+  <div class="legalbar">© 2026 Divine Light Journey · All rights reserved</div>
+</footer>
+
+<script>
+(function () {
+  // ── Cobro ──────────────────────────────────────────────────────────────────
+  // Único sitio donde se cambia el enlace de pago (Stripe, MLAB-341). Mientras esté
+  // vacío, los botones llevan al bloque de inscripción y el de la tarjeta abre el
+  // formulario: ningún CTA queda muerto. Con la URL puesta, todos van al checkout.
+  var CHECKOUT = "";
+  [].slice.call(document.querySelectorAll("[data-checkout]")).forEach(function (a) {
+    if (!CHECKOUT) return;
+    a.href = CHECKOUT;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.removeAttribute("data-modal");   // el modal deja de interceptar el clic
+  });
+
+  // ── Testimonios: el iframe se crea al pulsar (sin cookies de YouTube antes) ──
+  [].slice.call(document.querySelectorAll(".rc-video")).forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var id = btn.getAttribute("data-video");
+      if (!id) return;
+      var f = document.createElement("iframe");
+      f.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+      f.title = btn.getAttribute("data-titulo") || "Testimonio";
+      f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      f.allowFullscreen = true;
+      btn.textContent = "";
+      btn.appendChild(f);
+    });
+  });
+
+  // ── Revelado al entrar en pantalla ──────────────────────────────────────────
+  var els = [].slice.call(document.querySelectorAll("[data-reveal]"));
+  if (!els.length) return;
+  if (!("IntersectionObserver" in window)) {
+    els.forEach(function (e) { e.classList.add("in"); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add("in");
+      io.unobserve(en.target);
+    });
+  }, { rootMargin: "0px 0px -6% 0px", threshold: 0.12 });
+  els.forEach(function (e) { io.observe(e); });
+})();
+</script>
+
+<div class="modal" id="dialogo-contacto" hidden>
+  <div class="modal-fondo" data-cerrar-modal></div>
+  <div class="modal-caja" role="dialog" aria-modal="true" aria-labelledby="dlg-titulo">
+    <button class="modal-cerrar" type="button" aria-label="Close" data-cerrar-modal>&times;</button>
+    <h2 id="dlg-titulo">Do you have questions?</h2>
+    <p class="modal-intro">Tell me what you need and I will reply as soon as I can.</p>
+    <form class="form" action="mailto:info@divinelightjourney.com" method="post" enctype="text/plain">
+      <div class="field"><label for="dlg-n">Name</label><input id="dlg-n" name="nombre" required autocomplete="name"></div>
+      <div class="field"><label for="dlg-e">Email</label><input id="dlg-e" name="email" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="dlg-m">Message</label><textarea id="dlg-m" name="mensaje" rows="4" required></textarea></div>
+      <button class="btn btn-primary" type="submit">Send message</button>
+      <p class="hint">Sending will open your email app with the message ready.</p>
+    </form>
+  </div>
+</div>
+<script>
+(function () {
+  var dlg = document.getElementById("dialogo-contacto");
+  if (!dlg) return;
+  var ultimoFoco = null;
+
+  function abrir(ev) {
+    if (ev) ev.preventDefault();
+    ultimoFoco = document.activeElement;
+    dlg.hidden = false;
+    document.body.classList.add("modal-abierto");
+    var primero = dlg.querySelector("input, textarea") || dlg.querySelector("button");
+    if (primero) primero.focus();
+  }
+  function cerrar() {
+    dlg.hidden = true;
+    document.body.classList.remove("modal-abierto");
+    if (ultimoFoco) ultimoFoco.focus();
+  }
+
+  document.addEventListener("click", function (ev) {
+    if (ev.target.closest("[data-modal]")) { abrir(ev); return; }
+    if (ev.target.closest("[data-cerrar-modal]")) cerrar();
+  });
+  document.addEventListener("keydown", function (ev) {
+    if (dlg.hidden) return;
+    if (ev.key === "Escape") { cerrar(); return; }
+    if (ev.key !== "Tab") return;
+    var foco = [].slice.call(dlg.querySelectorAll("button, input, textarea, a[href]")).filter(function (e) {
+      return !e.disabled && e.offsetParent !== null;
+    });
+    if (!foco.length) return;
+    var primero = foco[0], ultimo = foco[foco.length - 1];
+    if (ev.shiftKey && document.activeElement === primero) { ev.preventDefault(); ultimo.focus(); }
+    else if (!ev.shiftKey && document.activeElement === ultimo) { ev.preventDefault(); primero.focus(); }
+  });
+})();
+</script>
+</body>
+</html>
