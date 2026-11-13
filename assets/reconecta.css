@@ -21,13 +21,16 @@
    Bloque de color, no píldora: 64 px de alto, 18 px / 600, mayúsculas con tracking,
    radio 10 px y mínimo 280 px. En móvil, ancho completo. Solo los CTA de compra
    ([data-checkout]); los enlaces de texto y el botón del formulario no cambian. */
-.rc-page a.btn[data-checkout]{display:inline-flex;align-items:center;justify-content:center;gap:12px;
+.rc-page a.btn[data-checkout],.rc-page .rc-hero a.btn,.rc-page .rc-cta-medio a.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;
   min-width:280px;min-height:64px;padding:20px 44px;border-radius:10px;
   font-size:18px;font-weight:600;line-height:1.2;letter-spacing:1.8px;text-transform:uppercase;
   box-shadow:0 12px 26px -14px rgba(30,42,74,.55)}
-.rc-page a.btn[data-checkout] .flecha{margin-left:0}
-.rc-hero a.btn[data-checkout]{white-space:nowrap;padding-left:36px;padding-right:36px}
-.rc-page a.btn[data-checkout]:focus-visible{outline:3px solid var(--accent-ink);outline-offset:4px}
+.rc-page a.btn[data-checkout] .flecha,.rc-page .rc-hero a.btn .flecha,.rc-page .rc-cta-medio a.btn .flecha{margin-left:0}
+.rc-hero a.btn[data-checkout],.rc-page .rc-hero a.btn{white-space:nowrap;padding-left:36px;padding-right:36px}
+.rc-page a.btn[data-checkout]:focus-visible,.rc-page .rc-hero a.btn:focus-visible,.rc-page .rc-cta-medio a.btn:focus-visible{outline:3px solid var(--accent-ink);outline-offset:4px}
+/* Los CTA intermedios (hero, programa, tras la llamada y tras «Momentos») son anclas a #inscripcion:
+   llevan el mismo bloque de color que los de compra, sin data-checkout. Los dos nuevos van centrados. */
+.rc-llamada>.wrap>.rc-cta-medio,.rc-momentos .rc-cta-medio{text-align:center;margin-top:clamp(30px,3.6vw,44px)}
 
 /* Foco visible en el resto de enlaces y controles de la página */
 .rc-page a:focus-visible,.rc-page summary:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:4px}
@@ -42,7 +45,10 @@
    la columna algo más ancha y el titular más contenido: el de REConecta es una
    frase larga y a 17ch partía en cinco líneas. */
 .rc-hero .hero-col{max-width:min(600px,max(38vw,410px))}
-.rc-hero h1{font-size:clamp(2rem,3.4vw,3.15rem)}
+.rc-hero h1{font-size:clamp(1.7rem,2.6vw,2.5rem)}
+/* El titular es una sola oración en una sola tipografía; solo «REC» cambia de color (marca). */
+.rc-hero h1 .rc-marca{color:var(--primary)}
+.rc-hero h1 .rc-rec{color:var(--gold-ink)}
 .rc-hero .lead{max-width:40ch}
 
 /* Datos: fecha y precio como cifras grandes, lo demás como segunda línea */
@@ -136,10 +142,10 @@
 .rc-cambio h3{margin:10px 0 16px;font-size:clamp(1.35rem,1.9vw,1.6rem)}
 @media (min-width:1100px){.rc-cambio h3{min-height:2.3em}}
 .rc-cambio ul{list-style:none;padding:0;margin:0}
-.rc-cambio li{position:relative;padding-left:20px;margin-bottom:11px;
+.rc-cambio li{position:relative;padding-left:22px;margin-bottom:11px;
   color:var(--secondary);font-size:var(--rc-fs-denso);line-height:1.6}
 .rc-cambio li:last-child{margin-bottom:0}
-.rc-cambio li::before{content:"";position:absolute;left:0;top:.72em;width:9px;height:1px;background:var(--gold-ink)}
+.rc-cambio li::before{content:"";position:absolute;left:0;top:.42em;width:11px;height:11px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23D9B26B' d='M6 0l1.3 4.7L12 6 7.3 7.3 6 12 4.7 7.3 0 6l4.7-1.3z'/%3E%3C/svg%3E") center/contain no-repeat}
 
 /* Para ti si… */
 .rc-si{list-style:none;padding:0;margin:clamp(26px,3.2vw,40px) 0 0;
@@ -193,7 +199,10 @@
   max-width:430px;padding:clamp(24px,3vw,36px)}
 .rc-cita{margin:0 0 14px;font-family:var(--serif);font-style:italic;text-wrap:balance;
   font-size:clamp(1.5rem,2.6vw,2.05rem);line-height:1.26;color:var(--primary)}
-.rc-origen .float-card p:last-child{margin-bottom:0;color:var(--secondary);font-size:var(--rc-fs)}
+/* Orden: eyebrow → párrafo → cita. La cita pasa a ser el último hijo: el párrafo conserva el estilo de cuerpo
+   y la cita el de cita, con aire arriba en lugar de abajo. */
+.rc-origen .float-card p:not(.rc-cita){margin-bottom:0;color:var(--secondary);font-size:var(--rc-fs)}
+.rc-origen .float-card .rc-cita{margin:18px 0 0;color:var(--primary);font-size:clamp(1.5rem,2.6vw,2.05rem)}
 
 /* Galería: mosaico de ritmo irregular (grandes, medianas y una fila de cuatro) */
 .rc-galeria{list-style:none;padding:0;margin:clamp(24px,3vw,38px) 0 0;
@@ -282,7 +291,14 @@
   .rc-llamada .rest-grid{grid-template-columns:1fr;gap:32px}
   .rc-hero .hero-col{max-width:none}
   .rc-hero .eyebrow{font-size:11px;letter-spacing:.18em;white-space:nowrap}
-  .rc-hero .hero-retrato-foto img{object-position:68% 26%}
+  /* Hero apilado: la foto es un bloque (no un fondo) y el texto va debajo, sobre el mismo fondo.
+     Su cara cae hacia el 68 % / 25 % del encuadre original. */
+  .rc-hero{display:block;min-height:0}
+  .rc-hero::before{display:none}
+  .rc-hero .hero-retrato-foto{position:relative;inset:auto;width:100%;aspect-ratio:4/5}
+  .rc-hero .hero-retrato-foto img{object-position:68% 25%}
+  .rc-hero .wrap{padding-top:28px}
+  .rc-hero h1{font-size:clamp(1.75rem,7vw,2.3rem)}
   .rc-foto-sticky{position:static;aspect-ratio:1/1;min-height:0;order:-1}
   .rc-foto-sticky img{object-position:66% 38%}
   .rc-dias{grid-template-columns:1fr}
@@ -297,10 +313,10 @@
 }
 @media (max-width:640px){
   /* CTA a ancho completo; el texto baja a 16 px para no partir «QUIERO VIVIR RECONECTA →» */
-  .rc-page a.btn[data-checkout]{display:flex;width:100%;min-width:0;min-height:62px;
+  .rc-page a.btn[data-checkout],.rc-page .rc-hero a.btn,.rc-page .rc-cta-medio a.btn{display:flex;width:100%;min-width:0;min-height:62px;
     padding:18px 16px;font-size:16px;letter-spacing:1.4px}
   .rc-datos{padding:16px 0 0;gap:12px 16px}
-  .rc-hero a.btn[data-checkout]{padding-left:14px;padding-right:14px}
+  .rc-page .rc-hero a.btn{padding-left:14px;padding-right:14px}
   .rc-datos li:nth-child(2),.rc-datos li:nth-child(3){grid-column:1/-1;padding-top:12px}
   .rc-datos li:nth-child(3){padding-top:0;border-top:0;margin-top:-4px}
   .rc-datos li:nth-child(1) strong,.rc-datos li:nth-child(4) strong{font-size:2rem}
@@ -311,9 +327,9 @@
 
 @media (max-width:360px){
   .rc-hero .eyebrow{white-space:normal;letter-spacing:.12em}
-  .rc-page a.btn[data-checkout]{font-size:14px;letter-spacing:.6px}
-  .rc-hero a.btn[data-checkout]{padding-left:8px;padding-right:8px}
-  .rc-hero a.btn[data-checkout] .flecha{display:none}
+  .rc-page a.btn[data-checkout],.rc-page .rc-hero a.btn,.rc-page .rc-cta-medio a.btn{font-size:14px;letter-spacing:.6px}
+  .rc-page .rc-hero a.btn{padding-left:8px;padding-right:8px}
+  .rc-page .rc-hero a.btn .flecha{display:none}
 }
 
 /* Pausas editoriales: una foto y una frase de la clienta (texto HTML, nunca en imagen).
@@ -338,6 +354,19 @@
   .rc-pausa-foto--ancha,.rc-pausa-foto--cuadrada{max-width:none}
   .rc-pausa-cita{max-width:none}
 }
+
+/* Introducción (.rc-llamada): tres alturas — cita destacada, énfasis en el texto y cierre dorado */
+.rc-page .rc-llamada .rc-cita-intro{
+  margin:34px 0; max-width:30ch;
+  font-family:var(--serif); font-style:italic; font-weight:400;
+  font-size:clamp(1.45rem,2.2vw,1.9rem); line-height:1.34; color:var(--primary);
+  text-wrap:balance;
+}
+.rc-page .rc-llamada .rc-cita-intro::before{
+  content:""; display:block; width:44px; height:2px; background:var(--gold); margin-bottom:22px;
+}
+.rc-prosa .rc-enf{font-weight:500; color:var(--primary)}
+.rc-page .rest-texto .punch{border-top:1px solid var(--gold); font-size:clamp(1.55rem,2.4vw,2.05rem)}
 
 /* El menú fijo no tapa el inicio del bloque al saltar por ancla */
 #programa,#inscripcion{scroll-margin-top:calc(var(--navh,64px) + 18px)}
