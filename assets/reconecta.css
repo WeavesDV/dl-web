@@ -292,11 +292,11 @@
   .rc-llamada .rest-grid{grid-template-columns:1fr;gap:32px}
   .rc-hero .hero-col{max-width:none}
   .rc-hero .eyebrow{font-size:11px;letter-spacing:.18em;white-space:nowrap}
-  /* Hero apilado: la foto es un bloque (no un fondo) y el texto va debajo, sobre el mismo fondo.
+  /* Hero apilado: la foto es un bloque (no un fondo) y el texto va arriba (column-reverse) y la foto debajo, sobre el mismo fondo.
      Su cara cae hacia el 68 % / 25 % del encuadre original. */
-  .rc-hero{display:block;min-height:0}
+  .rc-hero{display:flex;flex-direction:column-reverse;min-height:0}
   .rc-hero::before{display:none}
-  .rc-hero .hero-retrato-foto{position:relative;inset:auto;width:100%;aspect-ratio:5/6}
+  .rc-hero .hero-retrato-foto{position:relative;inset:auto;width:100%;aspect-ratio:5/6;margin-top:clamp(18px,6vw,28px)}
   .rc-hero .hero-retrato-foto img{object-position:68% 20%}
   .rc-hero .wrap{padding-top:28px}
   .rc-hero h1{font-size:clamp(2.6rem,13vw,3.6rem)}
