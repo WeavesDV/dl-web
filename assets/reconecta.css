@@ -31,6 +31,8 @@
 /* Los CTA intermedios (hero, programa, tras la llamada y tras «Momentos») son anclas a #inscripcion:
    llevan el mismo bloque de color que los de compra, sin data-checkout. Los dos nuevos van centrados. */
 .rc-llamada>.wrap>.rc-cta-medio,.rc-momentos .rc-cta-medio{text-align:center;margin-top:clamp(30px,3.6vw,44px)}
+/* El párrafo hereda el ancho de medida del texto (68ch) y deja el botón a la izquierda: aquí ocupa todo el ancho. */
+.rc-momentos .rc-cta-medio{max-width:none}
 
 /* Foco visible en el resto de enlaces y controles de la página */
 .rc-page a:focus-visible,.rc-page summary:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:4px}
