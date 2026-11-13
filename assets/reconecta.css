@@ -36,9 +36,9 @@
 
 /* Foco visible en el resto de enlaces y controles de la página */
 .rc-page a:focus-visible,.rc-page summary:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:4px}
-/* Barra reducida: solo logo y selector de idioma (tráfico de publicidad). */
-.rc-page .nav .wrap>ul,
-.rc-page .nav details.menu{display:none}
+/* Barra fuera del todo en esta landing: es tráfico de publicidad y cada enlace es una salida. */
+.rc-page .nav{display:none}
+body.rc-page{padding-top:0}
 .rc-ink a:focus-visible,.rc-ink .rc-video:focus-visible{outline-color:var(--gold)}
 .rc-video:focus-visible{outline:3px solid var(--accent-ink);outline-offset:4px}
 
@@ -303,7 +303,7 @@
   .rc-hero .hero-retrato-foto{position:relative;inset:auto;width:100%;aspect-ratio:4/5;margin-top:0}
   .rc-hero .hero-retrato-foto{border-radius:0;-webkit-mask-image:linear-gradient(180deg,#000 calc(100% - 110px),rgba(0,0,0,0) 100%);mask-image:linear-gradient(180deg,#000 calc(100% - 110px),rgba(0,0,0,0) 100%)}
   .rc-hero .hero-retrato-foto img{border-radius:0}
-  .rc-hero .hero-retrato-foto img{object-position:68% 40%}
+  .rc-hero .hero-retrato-foto img{object-position:68% 30%}
   .rc-hero .wrap{padding-top:30px}
   .rc-hero h1{font-size:clamp(2.6rem,13vw,3.6rem)}
   .rc-foto-sticky{position:static;aspect-ratio:1/1;min-height:0;order:-1}
