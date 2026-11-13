@@ -142,10 +142,10 @@
 .rc-cambio h3{margin:10px 0 16px;font-size:clamp(1.35rem,1.9vw,1.6rem)}
 @media (min-width:1100px){.rc-cambio h3{min-height:2.3em}}
 .rc-cambio ul{list-style:none;padding:0;margin:0}
-.rc-cambio li{position:relative;padding-left:20px;margin-bottom:11px;
+.rc-cambio li{position:relative;padding-left:22px;margin-bottom:11px;
   color:var(--secondary);font-size:var(--rc-fs-denso);line-height:1.6}
 .rc-cambio li:last-child{margin-bottom:0}
-.rc-cambio li::before{content:"";position:absolute;left:0;top:.72em;width:9px;height:1px;background:var(--gold-ink)}
+.rc-cambio li::before{content:"";position:absolute;left:0;top:.42em;width:11px;height:11px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23D9B26B' d='M6 0l1.3 4.7L12 6 7.3 7.3 6 12 4.7 7.3 0 6l4.7-1.3z'/%3E%3C/svg%3E") center/contain no-repeat}
 
 /* Para ti si… */
 .rc-si{list-style:none;padding:0;margin:clamp(26px,3.2vw,40px) 0 0;
