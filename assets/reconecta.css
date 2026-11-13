@@ -297,7 +297,8 @@
   .rc-hero{display:flex;flex-direction:column-reverse;min-height:0}
   .rc-hero::before{display:none}
   .rc-hero .hero-retrato-foto{position:relative;inset:auto;width:100%;aspect-ratio:5/6;margin-top:clamp(18px,6vw,28px)}
-  .rc-hero .hero-retrato-foto{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 clamp(55px,15vw,95px));mask-image:linear-gradient(180deg,transparent 0,#000 clamp(55px,15vw,95px))}
+  .rc-hero .hero-retrato-foto{--rc-f:clamp(120px,34vw,190px);border-radius:0;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,rgba(0,0,0,.15) calc(var(--rc-f)*.22),rgba(0,0,0,.45) calc(var(--rc-f)*.45),rgba(0,0,0,.78) calc(var(--rc-f)*.7),#000 var(--rc-f));mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,rgba(0,0,0,.15) calc(var(--rc-f)*.22),rgba(0,0,0,.45) calc(var(--rc-f)*.45),rgba(0,0,0,.78) calc(var(--rc-f)*.7),#000 var(--rc-f))}
+  .rc-hero .hero-retrato-foto img{border-radius:0}
   .rc-hero .hero-retrato-foto img{object-position:68% 15%}
   .rc-hero .wrap{padding-top:28px}
   .rc-hero h1{font-size:clamp(2.6rem,13vw,3.6rem)}
