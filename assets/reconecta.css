@@ -380,4 +380,4 @@ body.rc-page{padding-top:0}
 
 /* Punto final del titular del hero: dorado de marca y pegado a «vida» para que no caiga solo en otra línea */
 .rc-fin{white-space:nowrap}
-.rc-punto{color:var(--gold)}
+.rc-punto{color:var(--gold);font-size:1.45em;line-height:0}
