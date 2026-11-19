@@ -9,14 +9,15 @@
 <meta property="og:title" content="Contacto · Divine Light Journey">
 <meta property="og:description" content="Cada propuesta es una oportunidad para explorar quién eres hoy, reconocer lo que necesitas y conectar con las posibilidades que desean abrirse en tu camino.">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="es_ES"><link rel="alternate" hreflang="es" href="https://divinelightjourney.com/contacto/"><link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/contact/"><link rel="alternate" hreflang="x-default" href="https://divinelightjourney.com/contacto/"><link rel="canonical" href="https://divinelightjourney.com/contacto/">
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/site.css">
+<meta property="og:locale" content="es_ES">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/reconecta.css">
 <script>document.documentElement.classList.add("rv");</script>
 </head>
 <body class="con-cristal">
-<nav class="nav"><div class="wrap"><a class="brand" href="../" aria-label="Divine Light Journey"><img src="../assets/img/logo-dl-3x.png" srcset="../assets/img/logo-dl-2x.png 2x, ../assets/img/logo-dl-3x.png 3x" alt="Divine Light Journey" width="279" height="88" decoding="async"></a><ul><li><a href="../">Inicio</a></li><li><a href="../quienes-somos/">Quiénes somos</a></li><li><a href="../experiencias/">Experiencias</a></li><li><a href="../mision/">Misión</a></li><li><a href="../contacto/" aria-current="page">Contacto</a></li></ul><details class="menu"><summary>Menú</summary><ul><li><a href="../">Inicio</a></li><li><a href="../quienes-somos/">Quiénes somos</a></li><li><a href="../experiencias/">Experiencias</a></li><li><a href="../mision/">Misión</a></li><li><a href="../contacto/">Contacto</a></li></ul></details><span class="lang"><b>ES</b> · <a href="../en/contact/">EN</a></span></div></nav>
+<nav class="nav"><div class="wrap"><a class="brand" href="/">Divine Light Journey</a><ul><li><a href="/">Inicio</a></li><li><a href="/quienes-somos/">Quiénes somos</a></li><li><a href="/experiencias/">Experiencias</a></li><li><a href="/mision/">Misión</a></li><li><a href="/contacto/" aria-current="page">Contacto</a></li></ul><details class="menu"><summary>Menú</summary><ul><li><a href="/">Inicio</a></li><li><a href="/quienes-somos/">Quiénes somos</a></li><li><a href="/experiencias/">Experiencias</a></li><li><a href="/mision/">Misión</a></li><li><a href="/contacto/">Contacto</a></li></ul></details><span class="lang"><b>ES</b> · EN</span></div></nav>
 <script>
 (function () {
   var nav = document.querySelector("nav.nav");
@@ -56,20 +57,23 @@
   <h1 data-reveal style="--d:0ms">Hablemos</h1>
   <p class="lead">Cada propuesta es una oportunidad para explorar quién eres hoy, reconocer lo que necesitas y conectar con las posibilidades que desean abrirse en tu camino.</p></div>
 </header>
-<section class="s-white ct-temas"><div class="wrap">
-  <h2 data-reveal style="--d:80ms">Elige un tema</h2>
-  <ul class="ct-temas-grid"><li><a class="ct-tema" href="#formulario" data-tema="Programas y formaciones"><h3>Programas y formaciones</h3><p>Procesos estructurados para profundizar en el autoconocimiento, la inteligencia emocional, el bienestar y el desarrollo personal.</p><span class="ct-ir" aria-hidden="true">&rarr;</span></a></li><li><a class="ct-tema" href="#formulario" data-tema="Mentorías y acompañamiento"><h3>Mentorías y acompañamiento</h3><p>Espacios individuales o grupales orientados a aportar claridad, perspectiva y herramientas para avanzar en procesos personales y profesionales.</p><span class="ct-ir" aria-hidden="true">&rarr;</span></a></li><li><a class="ct-tema" href="#formulario" data-tema="Talleres y encuentros"><h3>Talleres y encuentros</h3><p>Experiencias dinámicas y participativas para explorar temas específicos relacionados con las emociones, las relaciones, el propósito, los valores y el crecimiento humano.</p><span class="ct-ir" aria-hidden="true">&rarr;</span></a></li><li><a class="ct-tema" href="#formulario" data-tema="Retiros y experiencias vivenciales"><h3>Retiros y experiencias vivenciales</h3><p>Espacios inmersivos que permiten salir del ritmo cotidiano, conectar profundamente con uno mismo y vivir procesos de reflexión, aprendizaje y transformación.</p><span class="ct-ir" aria-hidden="true">&rarr;</span></a></li></ul>
-</div></section>
 <section class="s-cream ct-formulario" id="formulario"><div class="wrap ct-grid">
   <div class="ct-form-col">
     <h2 data-reveal style="--d:80ms">Escríbenos</h2>
-    <form class="form" action="mailto:info@divinelightjourney.com" method="post" enctype="text/plain">
+    <form class="form js-contacto" id="form-contacto" method="post" novalidate>
       <div class="field"><label for="t">Tema</label><select id="t" name="tema"><option value="">Sin tema concreto</option><option value="Programas y formaciones">Programas y formaciones</option><option value="Mentorías y acompañamiento">Mentorías y acompañamiento</option><option value="Talleres y encuentros">Talleres y encuentros</option><option value="Retiros y experiencias vivenciales">Retiros y experiencias vivenciales</option></select></div>
       <div class="field"><label for="n">Nombre</label><input id="n" name="nombre" required autocomplete="name"></div>
       <div class="field"><label for="e">Email</label><input id="e" name="email" type="email" required autocomplete="email"></div>
       <div class="field"><label for="m">Mensaje</label><textarea id="m" name="mensaje" rows="5" required></textarea></div>
+      <div class="field field-check">
+        <label for="consent"><input id="consent" name="consentimiento" type="checkbox" required>
+        He leído y acepto la <a href="/legal/privacidad/" target="_blank" rel="noopener">política de privacidad</a>.</label>
+      </div>
+      <div class="hp" aria-hidden="true"><label for="empresa">No rellenar este campo</label><input id="empresa" name="empresa" tabindex="-1" autocomplete="off"></div>
       <button class="btn btn-primary" type="submit">Enviar mensaje</button>
-      <p class="hint">Al enviar se abrirá tu programa de correo con el mensaje preparado. Consulta cómo tratamos tu información en la <a href="../legal/privacidad/">Política de privacidad</a>.</p>
+      <p class="form-estado" id="form-estado" role="status" aria-live="polite" hidden></p>
+      <p class="hint">Tu mensaje se envía directamente a nuestro correo; no se abre ningún programa de correo.
+      Tratamos tus datos solo para responderte, según la <a href="/legal/privacidad/" target="_blank" rel="noopener">política de privacidad</a>.</p>
     </form>
   </div>
   <div class="ct-lado">
@@ -77,9 +81,9 @@
       <h2 data-reveal style="--d:80ms">Cómo funciona</h2>
       <ol class="ct-pasos">
         <li class="ct-paso"><span class="n">01</span><div><h3>Escribe tu mensaje</h3>
-          <p>Elige un tema si quieres y cuéntanos qué necesitas.</p></div></li>
+          <p>Cuéntanos qué necesitas; si lo tienes claro, elige también el tema.</p></div></li>
         <li class="ct-paso"><span class="n">02</span><div><h3>Revisa y envía</h3>
-          <p>Se abrirá tu programa de correo con el mensaje preparado; envíalo desde allí.</p></div></li>
+          <p>Pulsa «Enviar mensaje» y nos llega directamente, sin abrir tu programa de correo.</p></div></li>
         <li class="ct-paso"><span class="n">03</span><div><h3>Respondemos tu consulta</h3>
           <p>Te contestamos al email que nos hayas indicado.</p></div></li>
       </ol>
@@ -90,16 +94,12 @@
         <h3>Email</h3>
         <p><a href="mailto:info@divinelightjourney.com">info@divinelightjourney.com</a></p>
       </div>
-      <div class="ct-dato">
-        <h3>Dónde estamos</h3>
-        <p>Divine Light Journey · Albuquerque, New Mexico, United States.</p>
-      </div>
     </div>
   </div>
 </div></section>
 <section class="s-white"><div class="wrap">
   <figure class="ct-banda">
-    <img class="foto" data-reveal="img" style="--d:0ms" src="../assets/img/foto-escribir-960.webp" srcset="../assets/img/foto-escribir-960.webp 960w, ../assets/img/foto-escribir-1600.webp 1600w" sizes="(min-width:901px) 1100px, calc(100vw - 40px)" width="1800" height="1200" alt="Mujer de espaldas con un brazo en alto frente al mar, con la luz del sol sobre las olas" loading="lazy" decoding="async">
+    <img class="foto" data-reveal="img" style="--d:0ms" src="/assets/img/foto-escribir-960.webp" srcset="/assets/img/foto-escribir-960.webp 960w, /assets/img/foto-escribir-1600.webp 1600w" sizes="(min-width:901px) 1100px, calc(100vw - 40px)" width="1800" height="1200" alt="Mujer de espaldas con un brazo en alto frente al mar, con la luz del sol sobre las olas" loading="lazy" decoding="async">
     <figcaption class="foto-frase">Creamos entornos donde las personas puedan sentirse invitadas a explorar, descubrir, cuestionar, integrar y avanzar a su propio ritmo.</figcaption>
   </figure>
 </div></section>
@@ -110,7 +110,7 @@
 <section class="close ct-cierre">
   <div class="wrap">
     <h2 data-reveal style="--d:80ms">Conócete. Conecta contigo. Desarrolla tu potencial.</h2>
-    <a class="btn btn-primary btn-lg" href="../experiencias/">Ver experiencias</a>
+    <a class="btn btn-primary btn-lg" href="/experiencias/">Ver experiencias</a>
   </div>
 </section>
 <script>
@@ -129,6 +129,61 @@
   });
 })();
 </script>
+<script>
+/* Formulario de contacto: POST al webhook de n8n -> correo. Sin mailto, sin abrir programas de correo. */
+(function () {
+  var ENDPOINT = "https://n8n.weavewp.com/webhook/dl-contacto-web";
+
+  function aviso(form, msg, ok) {
+    var est = form.querySelector(".form-estado");
+    if (!est) return;
+    est.innerHTML = msg;
+    est.hidden = false;
+    est.className = "form-estado " + (ok ? "ok" : "err");
+    est.setAttribute("role", ok ? "status" : "alert");
+  }
+
+  function enviar(form) {
+    var d = new FormData(form);
+    var nombre = String(d.get("nombre") || "").trim();
+    var email = String(d.get("email") || "").trim();
+    var mensaje = String(d.get("mensaje") || "").trim();
+    if (nombre.length < 2) { aviso(form, "Escribe tu nombre.", false); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { aviso(form, "Revisa el email: no parece válido.", false); return; }
+    if (mensaje.length < 10) { aviso(form, "Cuéntanos un poco más (al menos 10 caracteres).", false); return; }
+    if (!d.get("consentimiento")) { aviso(form, "Marca la casilla de privacidad para que podamos responderte.", false); return; }
+
+    var btn = form.querySelector('button[type="submit"]');
+    var texto = btn ? btn.textContent : "";
+    if (btn) { btn.disabled = true; btn.textContent = "Enviando…"; }
+
+    fetch(ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        nombre: nombre, email: email, tema: String(d.get("tema") || ""),
+        mensaje: mensaje, consentimiento: true,
+        empresa: String(d.get("empresa") || ""), origen: location.href
+      })
+    }).then(function (r) {
+      return r.json().catch(function () { return { ok: r.ok }; });
+    }).then(function (j) {
+      if (j && j.ok === false) throw new Error("rechazado");
+      form.reset();
+      aviso(form, "Gracias, " + nombre.split(" ")[0] + ". Hemos recibido tu mensaje y te responderemos a " + email + ".", true);
+    }).catch(function () {
+      aviso(form, 'No se pudo enviar. Inténtalo de nuevo o escríbenos a <a href="mailto:info@divinelightjourney.com">info@divinelightjourney.com</a>.', false);
+    }).then(function () {
+      if (btn) { btn.disabled = false; btn.textContent = texto; }
+    });
+  }
+
+  var forms = document.querySelectorAll("form.js-contacto");
+  for (var i = 0; i < forms.length; i++) {
+    forms[i].addEventListener("submit", function (ev) { ev.preventDefault(); enviar(this); });
+  }
+})();
+</script>
 <footer>
   <div class="wrap">
     <div>
@@ -136,18 +191,19 @@
       <p>Desarrollo personal, bienestar y crecimiento humano.</p>
     </div>
     <div><h4>Información</h4><ul>
-      <li><a href="../quienes-somos/">Quiénes somos</a></li>
-      <li><a href="../mision/">Misión</a></li>
-      <li><a href="../contacto/">Contacto</a></li></ul></div>
+      <li><a href="/quienes-somos/">Quiénes somos</a></li>
+      <li><a href="/mision/">Misión</a></li>
+      <li><a href="/contacto/">Contacto</a></li></ul></div>
     <div><h4>Experiencias</h4><ul>
-      <li><a href="../reconecta/">REConecta</a></li>
-      <li><a href="../experiencias/">Programas y formaciones</a></li>
-      <li><a href="../experiencias/">Mentorías</a></li>
-      <li><a href="../experiencias/">Retiros</a></li></ul></div>
+      <li><a href="/reconecta/">REConecta</a></li>
+      <li><a href="/experiencias/">Programas y formaciones</a></li>
+      <li><a href="/experiencias/">Mentorías</a></li>
+      <li><a href="/experiencias/">Retiros</a></li></ul></div>
     <div><h4>Legal</h4><ul>
-      <li><a href="../legal/privacidad/">Privacidad</a></li>
-      <li><a href="../legal/terminos/">Términos y condiciones</a></li>
-      <li><a href="../legal/cookies/">Cookies</a></li></ul></div>
+      <li><a href="/legal/privacidad/">Privacidad</a></li>
+      <li><a href="/legal/terminos/">Términos y condiciones</a></li>
+      <li><a href="/legal/cookies/">Cookies</a></li>
+      <li><a href="#" data-ck-open>Configurar cookies</a></li></ul></div>
   </div>
   <div class="legalbar">© 2026 Divine Light Journey · Todos los derechos reservados</div>
 </footer>
@@ -175,12 +231,18 @@
     <button class="modal-cerrar" type="button" aria-label="Cerrar" data-cerrar-modal>&times;</button>
     <h2 id="dlg-titulo">Hablemos</h2>
     <p class="modal-intro">Cuéntanos qué necesitas y te respondemos lo antes posible.</p>
-    <form class="form" action="mailto:info@divinelightjourney.com" method="post" enctype="text/plain">
+    <form class="form js-contacto" id="form-contacto-dlg" method="post" novalidate>
       <div class="field"><label for="dlg-n">Nombre</label><input id="dlg-n" name="nombre" required autocomplete="name"></div>
       <div class="field"><label for="dlg-e">Email</label><input id="dlg-e" name="email" type="email" required autocomplete="email"></div>
       <div class="field"><label for="dlg-m">Mensaje</label><textarea id="dlg-m" name="mensaje" rows="4" required></textarea></div>
+      <div class="field field-check">
+        <label for="dlg-consent"><input id="dlg-consent" name="consentimiento" type="checkbox" required>
+        He leído y acepto la <a href="/legal/privacidad/" target="_blank" rel="noopener">política de privacidad</a>.</label>
+      </div>
+      <div class="hp" aria-hidden="true"><label for="dlg-empresa">No rellenar</label><input id="dlg-empresa" name="empresa" tabindex="-1" autocomplete="off"></div>
       <button class="btn btn-primary" type="submit">Enviar mensaje</button>
-      <p class="hint">Al enviar se abrirá tu programa de correo con el mensaje preparado.</p>
+      <p class="form-estado" role="status" aria-live="polite" hidden></p>
+      <p class="hint">Tu mensaje se envía directamente a nuestro correo, sin abrir tu programa de correo.</p>
     </form>
   </div>
 </div>
@@ -223,5 +285,124 @@
   });
 })();
 </script>
+
+<div class="ck" id="ck" role="region" aria-label="Aviso de cookies" hidden>
+  <div class="ck-in">
+    <div class="ck-txt">
+      <h2>Cookies y privacidad</h2>
+      <p>Este sitio no instala cookies de terceros ni de seguimiento. Solo guardamos tu elección en este
+      dispositivo. Puedes aceptar, rechazar o configurar las categorías opcionales; todas están desactivadas
+      salvo que las actives. Más información en la <a href="/legal/cookies/">política de cookies</a>.</p>
+    </div>
+    <div class="ck-btns">
+      <button class="ck-btn no" type="button" data-ck-reject>Rechazar</button>
+      <button class="ck-btn cfg" type="button" data-ck-config>Configurar</button>
+      <button class="ck-btn si" type="button" data-ck-accept>Aceptar todo</button>
+    </div>
+  </div>
+</div>
+<div class="ckp" id="ckp" role="dialog" aria-modal="true" aria-labelledby="ckp-t" hidden>
+  <div class="ckp-box">
+    <h2 id="ckp-t">Configuración de cookies</h2>
+    <p>Elige qué categorías permites. Las estrictamente necesarias no se pueden desactivar porque hacen
+    funcionar el sitio (por ejemplo, recordar esta misma elección).</p>
+    <div class="ckp-cat"><div><h3>Estrictamente necesarias</h3>
+      <p>Imprescindibles para el funcionamiento y la seguridad del sitio. Guardan tu elección de cookies en este
+      dispositivo.</p></div>
+      <label class="ckp-sw"><input type="checkbox" checked disabled aria-label="Necesarias, siempre activas"><span></span></label></div>
+    <div class="ckp-cat"><div><h3>Preferencias</h3>
+      <p>Recuerdan ajustes como el idioma o la última sección visitada. Hoy no se usa ninguna.</p></div>
+      <label class="ckp-sw"><input type="checkbox" data-ck-cat="preferences"><span></span></label></div>
+    <div class="ckp-cat"><div><h3>Analítica</h3>
+      <p>Nos permitirían medir visitas y páginas más leídas de forma agregada. Hoy no hay ninguna herramienta
+      de analítica instalada.</p></div>
+      <label class="ckp-sw"><input type="checkbox" data-ck-cat="analytics"><span></span></label></div>
+    <div class="ckp-cat"><div><h3>Marketing</h3>
+      <p>Servirían para medir campañas o mostrar publicidad relevante. Hoy no se usa ninguna.</p></div>
+      <label class="ckp-sw"><input type="checkbox" data-ck-cat="marketing"><span></span></label></div>
+    <div class="ckp-acc">
+      <button class="ck-btn no" type="button" data-ck-reject>Cerrar</button>
+      <button class="ck-btn si" type="button" data-ck-save>Guardar preferencias</button>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var KEY = "dl-consent-v1";
+  var banner = document.getElementById("ck");
+  var panel = document.getElementById("ckp");
+  var lastFocus = null;
+
+  function leer() {
+    try { return JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) { return null; }
+  }
+  function guardar(state) {
+    state.necessary = true;
+    state.v = 1;
+    state.ts = new Date().toISOString();
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+    aplicar(state);
+    banner.hidden = true;
+    panel.hidden = true;
+    document.documentElement.setAttribute("data-consent", JSON.stringify(state));
+    document.dispatchEvent(new CustomEvent("dl:consent", { detail: state }));
+  }
+  function aplicar(state) {
+    // Etiquetas bloqueadas: <script type="text/plain" data-consent="analytics" data-src="...">
+    var nodos = document.querySelectorAll('script[type="text/plain"][data-consent]');
+    for (var i = 0; i < nodos.length; i++) {
+      var n = nodos[i], cat = n.getAttribute("data-consent");
+      if (!state[cat] || n.getAttribute("data-loaded")) continue;
+      var s = document.createElement("script");
+      for (var j = 0; j < n.attributes.length; j++) {
+        var a = n.attributes[j];
+        if (["type", "data-src", "data-consent", "data-loaded"].indexOf(a.name) === -1) s.setAttribute(a.name, a.value);
+      }
+      if (n.getAttribute("data-src")) s.src = n.getAttribute("data-src"); else s.text = n.textContent;
+      n.setAttribute("data-loaded", "1");
+      n.parentNode.appendChild(s);
+    }
+    // iframes diferidos (mapas, vídeos): data-consent en el propio iframe con data-src
+    var frames = document.querySelectorAll('iframe[data-consent][data-src]');
+    for (var k = 0; k < frames.length; k++) {
+      var f = frames[k];
+      if (state[f.getAttribute("data-consent")] && !f.getAttribute("src")) f.setAttribute("src", f.getAttribute("data-src"));
+    }
+  }
+  function abrir() {
+    lastFocus = document.activeElement;
+    var st = leer() || { preferences: false, analytics: false, marketing: false };
+    var casos = panel.querySelectorAll("[data-ck-cat]");
+    for (var i = 0; i < casos.length; i++) casos[i].checked = !!st[casos[i].getAttribute("data-ck-cat")];
+    panel.hidden = false;
+    var foco = panel.querySelector("input:not([disabled])") || panel.querySelector("button");
+    if (foco) foco.focus();
+  }
+  function cerrar() {
+    panel.hidden = true;
+    if (lastFocus) lastFocus.focus();
+  }
+  document.addEventListener("click", function (ev) {
+    if (ev.target.closest("[data-ck-config]") || ev.target.closest("[data-ck-open]")) { ev.preventDefault(); abrir(); return; }
+    if (ev.target.closest("[data-ck-accept]")) { guardar({ preferences: true, analytics: true, marketing: true }); return; }
+    if (ev.target.closest("[data-ck-reject]")) { guardar({ preferences: false, analytics: false, marketing: false }); return; }
+    if (ev.target.closest("[data-ck-save]")) {
+      var st = { preferences: false, analytics: false, marketing: false };
+      var cs = panel.querySelectorAll("[data-ck-cat]");
+      for (var i = 0; i < cs.length; i++) st[cs[i].getAttribute("data-ck-cat")] = !!cs[i].checked;
+      guardar(st);
+      return;
+    }
+    if (ev.target === panel) cerrar();
+  });
+  document.addEventListener("keydown", function (ev) {
+    if (ev.key === "Escape" && !panel.hidden) cerrar();
+  });
+  var st = leer();
+  if (st) { aplicar(st); } else { banner.hidden = false; }
+  window.dlConsent = { open: abrir, state: leer };
+})();
+</script>
+
 </body>
 </html>
