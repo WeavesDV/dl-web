@@ -13,8 +13,8 @@
 <meta property="og:image" content="https://divinelightjourney.com/assets/img/hero-reconecta-1600.webp">
 <link rel="alternate" hreflang="es" href="https://divinelightjourney.com/reconecta/"><link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/reconecta/"><link rel="alternate" hreflang="x-default" href="https://divinelightjourney.com/reconecta/"><link rel="canonical" href="https://divinelightjourney.com/en/reconecta/">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../../assets/site.css?v=20261124">
 <link rel="stylesheet" href="../../assets/reconecta.css?v=20261116d">
 <script>document.documentElement.classList.add("rv");</script>
 </head>
@@ -81,6 +81,7 @@
 <section class="s-white rc-llamada rc-sec">
   <div class="wrap rest-grid">
     <div class="rest-texto rc-prosa" data-reveal style="--d:0ms">
+      <div class="eyebrow">A few words from Zuzel Amelia</div>
       <p>Perhaps you, too, are feeling this inner call.</p>
       <p>We are living in intense times, times of great change for humanity. Times to awaken and renew the way we
         see. Times to release what we have never truly been, and to come closer to the <em>divine essence</em> of
@@ -386,7 +387,8 @@
       <p class="rc-precio-nota">One-time payment</p>
       <a class="btn btn-primary btn-lg" href="#inscripcion" data-checkout data-modal>Get my place</a>
       <p class="rc-precio-pie">Includes the four live encounters and access to the recordings.<br>
-        By registering you accept the <a href="../legal/terms/">terms of purchase</a>.</p>
+        Payment is made securely on Stripe's page.<br>
+        By registering you accept the <a href="../legal/terms/" target="_blank" rel="noopener">terms of purchase</a>.</p>
     </aside>
   </div>
 </section>
@@ -459,7 +461,8 @@
     <div><h4>Legal</h4><ul>
       <li><a href="../legal/privacy/">Privacy</a></li>
       <li><a href="../legal/terms/">Terms and conditions</a></li>
-      <li><a href="../legal/cookies/">Cookies</a></li></ul></div>
+      <li><a href="../legal/cookies/">Cookies</a></li>
+      <li><a href="#" data-ck-open>Cookie settings</a></li></ul></div>
   </div>
   <div class="legalbar">© 2026 Divine Light Journey · All rights reserved</div>
 </footer>
@@ -565,5 +568,7 @@
   });
 })();
 </script>
+<script src="../../assets/vendor/js.cookie.min.js" defer></script>
+<script src="../../assets/consent.js" defer></script>
 </body>
 </html>

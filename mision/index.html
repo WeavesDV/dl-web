@@ -12,7 +12,7 @@
 <meta property="og:locale" content="es_ES">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v=20261124">
 <link rel="stylesheet" href="/assets/reconecta.css">
 <script>document.documentElement.classList.add("rv");</script>
 </head>
@@ -191,123 +191,8 @@
 })();
 </script>
 
-<div class="ck" id="ck" role="region" aria-label="Aviso de cookies" hidden>
-  <div class="ck-in">
-    <div class="ck-txt">
-      <h2>Cookies y privacidad</h2>
-      <p>Este sitio no instala cookies de terceros ni de seguimiento. Solo guardamos tu elección en este
-      dispositivo. Puedes aceptar, rechazar o configurar las categorías opcionales; todas están desactivadas
-      salvo que las actives. Más información en la <a href="/legal/cookies/">política de cookies</a>.</p>
-    </div>
-    <div class="ck-btns">
-      <button class="ck-btn no" type="button" data-ck-reject>Rechazar</button>
-      <button class="ck-btn cfg" type="button" data-ck-config>Configurar</button>
-      <button class="ck-btn si" type="button" data-ck-accept>Aceptar todo</button>
-    </div>
-  </div>
-</div>
-<div class="ckp" id="ckp" role="dialog" aria-modal="true" aria-labelledby="ckp-t" hidden>
-  <div class="ckp-box">
-    <h2 id="ckp-t">Configuración de cookies</h2>
-    <p>Elige qué categorías permites. Las estrictamente necesarias no se pueden desactivar porque hacen
-    funcionar el sitio (por ejemplo, recordar esta misma elección).</p>
-    <div class="ckp-cat"><div><h3>Estrictamente necesarias</h3>
-      <p>Imprescindibles para el funcionamiento y la seguridad del sitio. Guardan tu elección de cookies en este
-      dispositivo.</p></div>
-      <label class="ckp-sw"><input type="checkbox" checked disabled aria-label="Necesarias, siempre activas"><span></span></label></div>
-    <div class="ckp-cat"><div><h3>Preferencias</h3>
-      <p>Recuerdan ajustes como el idioma o la última sección visitada. Hoy no se usa ninguna.</p></div>
-      <label class="ckp-sw"><input type="checkbox" data-ck-cat="preferences"><span></span></label></div>
-    <div class="ckp-cat"><div><h3>Analítica</h3>
-      <p>Nos permitirían medir visitas y páginas más leídas de forma agregada. Hoy no hay ninguna herramienta
-      de analítica instalada.</p></div>
-      <label class="ckp-sw"><input type="checkbox" data-ck-cat="analytics"><span></span></label></div>
-    <div class="ckp-cat"><div><h3>Marketing</h3>
-      <p>Servirían para medir campañas o mostrar publicidad relevante. Hoy no se usa ninguna.</p></div>
-      <label class="ckp-sw"><input type="checkbox" data-ck-cat="marketing"><span></span></label></div>
-    <div class="ckp-acc">
-      <button class="ck-btn no" type="button" data-ck-reject>Cerrar</button>
-      <button class="ck-btn si" type="button" data-ck-save>Guardar preferencias</button>
-    </div>
-  </div>
-</div>
-<script>
-(function () {
-  var KEY = "dl-consent-v1";
-  var banner = document.getElementById("ck");
-  var panel = document.getElementById("ckp");
-  var lastFocus = null;
-
-  function leer() {
-    try { return JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) { return null; }
-  }
-  function guardar(state) {
-    state.necessary = true;
-    state.v = 1;
-    state.ts = new Date().toISOString();
-    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
-    aplicar(state);
-    banner.hidden = true;
-    panel.hidden = true;
-    document.documentElement.setAttribute("data-consent", JSON.stringify(state));
-    document.dispatchEvent(new CustomEvent("dl:consent", { detail: state }));
-  }
-  function aplicar(state) {
-    // Etiquetas bloqueadas: <script type="text/plain" data-consent="analytics" data-src="...">
-    var nodos = document.querySelectorAll('script[type="text/plain"][data-consent]');
-    for (var i = 0; i < nodos.length; i++) {
-      var n = nodos[i], cat = n.getAttribute("data-consent");
-      if (!state[cat] || n.getAttribute("data-loaded")) continue;
-      var s = document.createElement("script");
-      for (var j = 0; j < n.attributes.length; j++) {
-        var a = n.attributes[j];
-        if (["type", "data-src", "data-consent", "data-loaded"].indexOf(a.name) === -1) s.setAttribute(a.name, a.value);
-      }
-      if (n.getAttribute("data-src")) s.src = n.getAttribute("data-src"); else s.text = n.textContent;
-      n.setAttribute("data-loaded", "1");
-      n.parentNode.appendChild(s);
-    }
-    // iframes diferidos (mapas, vídeos): data-consent en el propio iframe con data-src
-    var frames = document.querySelectorAll('iframe[data-consent][data-src]');
-    for (var k = 0; k < frames.length; k++) {
-      var f = frames[k];
-      if (state[f.getAttribute("data-consent")] && !f.getAttribute("src")) f.setAttribute("src", f.getAttribute("data-src"));
-    }
-  }
-  function abrir() {
-    lastFocus = document.activeElement;
-    var st = leer() || { preferences: false, analytics: false, marketing: false };
-    var casos = panel.querySelectorAll("[data-ck-cat]");
-    for (var i = 0; i < casos.length; i++) casos[i].checked = !!st[casos[i].getAttribute("data-ck-cat")];
-    panel.hidden = false;
-    var foco = panel.querySelector("input:not([disabled])") || panel.querySelector("button");
-    if (foco) foco.focus();
-  }
-  function cerrar() {
-    panel.hidden = true;
-    if (lastFocus) lastFocus.focus();
-  }
-  document.addEventListener("click", function (ev) {
-    if (ev.target.closest("[data-ck-config]") || ev.target.closest("[data-ck-open]")) { ev.preventDefault(); abrir(); return; }
-    if (ev.target.closest("[data-ck-accept]")) { guardar({ preferences: true, analytics: true, marketing: true }); return; }
-    if (ev.target.closest("[data-ck-reject]")) { guardar({ preferences: false, analytics: false, marketing: false }); return; }
-    if (ev.target.closest("[data-ck-save]")) {
-      var st = { preferences: false, analytics: false, marketing: false };
-      var cs = panel.querySelectorAll("[data-ck-cat]");
-      for (var i = 0; i < cs.length; i++) st[cs[i].getAttribute("data-ck-cat")] = !!cs[i].checked;
-      guardar(st);
-      return;
-    }
-    if (ev.target === panel) cerrar();
-  });
-  document.addEventListener("keydown", function (ev) {
-    if (ev.key === "Escape" && !panel.hidden) cerrar();
-  });
-  var st = leer();
-  if (st) { aplicar(st); } else { banner.hidden = false; }
-  window.dlConsent = { open: abrir, state: leer };
-})();
-</script>
+<script src="/assets/vendor/js.cookie.min.js" defer></script>
+<script src="/assets/consent.js" defer></script>
 
 </body>
 </html>

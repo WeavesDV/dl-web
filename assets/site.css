@@ -576,6 +576,16 @@ footer a{color:var(--primary);opacity:.85}
 .ct-tema:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px}
 @media (hover:hover){.ct-tema:hover{background:var(--cielo-100);border-color:var(--cielo-600)}}
 .ct-formulario{scroll-margin-top:72px}
+
+/* /contacto/ no trae foto ni cifras: con el alto de portada, tres líneas dejaban media pantalla
+   de degradado vacío y el formulario caía fuera del primer vistazo. */
+.hero.ct-hero{min-height:calc(clamp(300px,34vh,400px) + var(--navh,64px));
+  padding:clamp(52px,6vw,84px) 0 clamp(28px,3.4vw,44px)}
+.hero.ct-hero::after{height:clamp(60px,7vw,110px)}
+@media (max-width:900px){
+  .hero.ct-hero{min-height:calc(clamp(240px,30vh,320px) + var(--navh,73px));
+    padding-bottom:clamp(20px,3vw,30px)}
+}
 .ct-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(40px,7vw,104px);align-items:start}
 .ct-grid .form{max-width:none;gap:20px;margin-top:clamp(20px,2.6vw,30px)}
 .ct-grid .field{gap:8px}

@@ -13,8 +13,8 @@
 <meta property="og:image" content="https://divinelightjourney.com/assets/img/hero-reconecta-1600.webp">
 <link rel="alternate" hreflang="es" href="https://divinelightjourney.com/reconecta/"><link rel="alternate" hreflang="en" href="https://divinelightjourney.com/en/reconecta/"><link rel="alternate" hreflang="x-default" href="https://divinelightjourney.com/reconecta/"><link rel="canonical" href="https://divinelightjourney.com/reconecta/">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/site.css?v=20261124">
 <link rel="stylesheet" href="../assets/reconecta.css?v=20261116d">
 <script>document.documentElement.classList.add("rv");</script>
 </head>
@@ -81,6 +81,7 @@
 <section class="s-white rc-llamada rc-sec">
   <div class="wrap rest-grid">
     <div class="rest-texto rc-prosa" data-reveal style="--d:0ms">
+      <div class="eyebrow">Unas palabras de Zuzel Amelia</div>
       <p>Quizás tú también estás sintiendo esta llamada interior.</p>
       <p>Vivimos en tiempos intensos, de grandes cambios para la humanidad. Tiempos para despertar y renovar nuestra
         mirada. Tiempos para liberar lo que nunca hemos sido y acercarnos más a la <em>divina esencia</em> de
@@ -122,10 +123,10 @@
     <p data-reveal style="--d:180ms">Un espacio para escuchar aquello que nace de tu alma y profundizar en tu vínculo
       con tu esencia y con la Vida.</p>
     <ul class="rc-res" data-reveal style="--d:240ms">
-      <li><b>RE</b>Conectar</li>
-      <li><b>RE</b>Conciliar</li>
-      <li><b>RE</b>Conocer</li>
-      <li><b>RE</b>cordar</li>
+      <li><b>REC</b>onectar</li>
+      <li><b>REC</b>onciliar</li>
+      <li><b>REC</b>onocer</li>
+      <li><b>REC</b>ordar</li>
     </ul>
     <p data-reveal style="--d:300ms"><em>REC</em> es el movimiento de regresar a tu esencia natural. Un camino para
       traer de nuevo al corazón y a la consciencia aquello que forma parte de quien eres.</p>
@@ -386,7 +387,8 @@
       <p class="rc-precio-nota">Un único pago</p>
       <a class="btn btn-primary btn-lg" href="#inscripcion" data-checkout data-modal>Quiero mi plaza</a>
       <p class="rc-precio-pie">Incluye los cuatro encuentros en directo y el acceso a las grabaciones.<br>
-        Al inscribirte aceptas las <a href="../legal/terminos/">condiciones de compra</a>.</p>
+        El pago se realiza de forma segura en la página de Stripe.<br>
+        Al inscribirte aceptas las <a href="../legal/terminos/" target="_blank" rel="noopener">condiciones de compra</a>.</p>
     </aside>
   </div>
 </section>
@@ -458,7 +460,8 @@
     <div><h4>Legal</h4><ul>
       <li><a href="../legal/privacidad/">Privacidad</a></li>
       <li><a href="../legal/terminos/">Términos y condiciones</a></li>
-      <li><a href="../legal/cookies/">Cookies</a></li></ul></div>
+      <li><a href="../legal/cookies/">Cookies</a></li>
+      <li><a href="#" data-ck-open>Configurar cookies</a></li></ul></div>
   </div>
   <div class="legalbar">© 2026 Divine Light Journey · Todos los derechos reservados</div>
 </footer>
@@ -564,5 +567,7 @@
   });
 })();
 </script>
+<script src="../assets/vendor/js.cookie.min.js" defer></script>
+<script src="../assets/consent.js" defer></script>
 </body>
 </html>
