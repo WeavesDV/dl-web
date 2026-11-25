@@ -380,3 +380,35 @@ body.rc-page{padding-top:0}
 
 /* Punto final del titular del hero: pegado a «vida» para que no caiga solo en otra línea */
 .rc-fin{white-space:nowrap}
+
+/* ── Portada como tarjeta con el retrato detrás (solo móvil) ──────────────────
+   En móvil la foto deja de ser un bloque arriba y pasa a ser el fondo del propio
+   hero, muy lavada con un velo cálido: se intuye el retrato detrás del titular y
+   del botón, como textura. La tarjeta va sin sangre (aire crema alrededor) y el
+   orden texto/foto, la tipografía y los botones no cambian. Escritorio intacto. */
+@media (max-width:900px){
+  .rc-hero{
+    margin:22px 16px 0;padding-top:0;margin-top:22px;
+    border-radius:24px;overflow:hidden;background:var(--s1);
+    box-shadow:0 22px 48px -30px rgba(30,42,74,.45)
+  }
+  .rc-hero .hero-retrato-foto{
+    position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;margin:0;
+    border-radius:0;-webkit-mask-image:none;mask-image:none
+  }
+  .rc-hero .hero-retrato-foto img{
+    width:100%;height:100%;object-fit:cover;object-position:76% 24%;border-radius:0
+  }
+  /* Velo: deja ver el retrato arriba y limpia el pie, donde van los datos y el botón. */
+  .rc-hero::before{
+    display:block;z-index:1;
+    background:linear-gradient(180deg,
+      rgba(255,250,242,.42) 0%,
+      rgba(255,250,242,.62) 24%,
+      rgba(255,250,242,.80) 48%,
+      rgba(255,250,242,.92) 70%,
+      rgba(255,250,242,.97) 100%)
+  }
+  .rc-hero .wrap{padding:32px 22px 34px;margin:0;width:100%}
+  .rc-hero .wrap>.hero-col{position:relative;z-index:2}
+}
